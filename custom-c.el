@@ -17,6 +17,9 @@
 (require 'semantic-ia)
 (semantic-add-system-include "/usr/local/include")
 (semantic-add-system-include "/usr/include")
+;;; make 'q' close the window in symref results:
+(add-hook 'semantic-symref-results-mode-hook
+		  '(lambda () (local-set-key "q" 'delete-window)))
 ;; Need a better way of doing this, but it'll work for now:
 (ede-cpp-root-project "Atlantis"
                       :name "Atlantis"
