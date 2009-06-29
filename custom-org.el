@@ -10,6 +10,12 @@
   '(progn
      (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
      (setq org-log-done t)
+
+	 ;; Some great tips from http://orgmode.org/worg/org-customization-guide.php
+	 (setq org-special-ctrl-a/e t)
+	 (setq org-special-ctrl-k t)		; behaviour of this is a bit subtle
+	 (setq org-completion-use-ido t)
+
      (add-to-list 'org-agenda-files (expand-file-name "~/todo-apa.org"))
      (define-key org-mode-map  "\C-ca" 'org-agenda)
      ;; from http://orgmode.org/worg/org-hacks.php (Bernt Hansen, with my
