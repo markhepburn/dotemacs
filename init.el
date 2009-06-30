@@ -88,7 +88,7 @@
 ;;; must be performed at the end of initialisation though (add a
 ;;; safety-clause in case I tweak anything and forget to update it
 ;;; here though):
-(if (fboundp 'smex-initialize) (smex-initialize))
+(if (featurep 'smex) (smex-initialize))
 
 (server-start)
 
