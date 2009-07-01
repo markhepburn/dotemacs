@@ -12,7 +12,7 @@
 (global-set-key (kbd "A-`") 'other-frame)
 
 ;;; ability to maximize emacs, even on OSX:
-(add-to-list 'load-path (concat *mh/code-dir* "maxframe"))
+(add-to-list 'load-path (concat *mh/lisp-base* "maxframe"))
 (autoload 'maximize-frame "maxframe" "Maximize current window" t)
 (defun mh/toggle-fullscreen ()
   (interactive)
@@ -34,3 +34,13 @@
     (process-send-string process msg)
     (process-send-string process "\n")
     (process-send-eof process)))
+
+
+;; Set info path correctly:
+(setq Info-directory-list
+      `("/Applications/Emacs.app/Contents/Resources/info"
+        ,(concat *mh/lisp-base* "info")
+        "/sw/share/info" "/usr/share/info" "/usr/local/info"))
+
+;; for elscreen:
+(add-to-list 'load-path (concat *mh/lisp-base* "apel-10.7"))

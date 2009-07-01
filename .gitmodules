@@ -37,3 +37,6 @@
 [submodule "haskell-mode"]
 	path = haskell-mode
 	url = git://github.com/jwiegley/haskell-mode.git
+[submodule "maxframe"]
+	path = maxframe
+	url = git://github.com/rmm5t/maxframe-el.git
