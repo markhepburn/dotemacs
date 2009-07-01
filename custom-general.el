@@ -153,8 +153,19 @@
 ;; save a few key strokes from typing 'yes':
 (fset 'yes-or-no-p 'y-or-n-p)
 ;; M-y to browse kill-ring:
-(browse-kill-ring-default-keybindings)
-(setq browse-kill-ring-no-duplicates t) ;...and don't clog it up with duplicates
+
+;; kill-ring selection:
+(when (require 'browse-kill-ring nil t)
+  (browse-kill-ring-default-keybindings)
+  (setq browse-kill-ring-no-duplicates t) ;...and don't clog it up with duplicates
+  (defadvice browse-kill-ring-do-insert (after indent-region activate)
+    (if (member major-mode '(emacs-lisp-mode
+                             lisp-mode
+                             erlang-mode
+                             python-mode
+                             c-mode c++-mode objc-mode
+                             latex-mode plain-tex-mode))
+        (indent-region (region-beginning) (region-end) nil))))
 
 ;; use shift-arrow to move between windows:
 (windmove-default-keybindings)

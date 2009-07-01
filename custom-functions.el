@@ -1,4 +1,22 @@
 
+;;; From http://www.emacswiki.org/emacs/SlickCopy
+;;; When kill/copy region commands are used with no region selected,
+;;; operate on line instead:
+(defadvice kill-ring-save (before slick-copy activate compile)
+  "When called interactively with no active region, copy a single line instead."
+  (interactive
+   (if mark-active (list (region-beginning) (region-end))
+     (message "Copied line")
+     (list (line-beginning-position)
+           (line-beginning-position 2)))))
+(defadvice kill-region (before slick-cut activate compile)
+  "When called interactively with no active region, kill a single line instead."
+  (interactive
+   (if mark-active (list (region-beginning) (region-end))
+     (list (line-beginning-position)
+           (line-beginning-position 2)))))
+
+
 ;;; utility to add hooks to enable the given minor mode for all
 ;;; specified major modes:
 (defmacro enable-minor-mode-for (minor-mode major-mode-list)
