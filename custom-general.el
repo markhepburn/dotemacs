@@ -297,6 +297,9 @@
 (eval-after-load "sql"
   '(load-library "sql-indent"))
 
+;;; elscreen provides enough "frame" management for me:
+(setq woman-use-own-frame nil)
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; flymake stuff:
