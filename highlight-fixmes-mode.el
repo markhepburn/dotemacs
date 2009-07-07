@@ -53,6 +53,21 @@ Each hook is run with the FIXME's overlay as its argument.")
               (delete-overlay o)))
         (overlays-in beg end)))
 
+(defun highlight-fixmes-next-fixme ()
+  "Move point to the next highlighted word (as specified in
+`fixme-words') following the current position of point."
+  (interactive)
+  (push-mark)
+  ;; First skip over the current FIXME, if we're on one:
+  (loop for ol in (overlays-at (point))
+		if (eq 'fixme (overlay-get ol 'type))
+		do (goto-char (overlay-end ol)) and return nil)
+  ;; Now find the next one, and jump to it.
+  (loop for ol in (overlays-in (point) (point-max))
+		if (eq 'fixme (overlay-get ol 'type))
+		do (goto-char (overlay-start ol)) and return (point)
+		finally do (message "No more FIXMEs found.")))
+
 (define-minor-mode highlight-fixmes-mode
   "Highlight words like FIXME, TODO, etc."
   nil " fixme" nil
