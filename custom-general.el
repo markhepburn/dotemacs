@@ -300,6 +300,11 @@
 ;;; elscreen provides enough "frame" management for me:
 (setq woman-use-own-frame nil)
 
+;;; Programming modes: enable "FIXME/TODO/etc" highlighting:
+(autoload 'highlight-fixmes-mode "highlight-fixmes-mode"
+  "Highlighting of FIXMEs, TODOs, etc" t)
+(enable-minor-mode-for
+ highlight-fixmes-mode '(c python lisp LaTeX js2 haskell))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; flymake stuff:
