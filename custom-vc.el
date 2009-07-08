@@ -7,8 +7,14 @@
 ;; extra-keybindings if the buffer is read-only, using the shared-map
 ;; -- which then over-writes the values set in this hook):
 (setq diff-default-read-only t)
-(add-hook 'diff-mode-hook (lambda ()
-                            (define-key diff-mode-shared-map "q" 'delete-window)))
+(define-key)
+(add-hook 'diff-mode-hook
+		  (lambda ()
+			(define-key diff-mode-shared-map "q" 'delete-window)))
+;;; same for svn-diff-mode:
+(add-hook 'svn-status-diff-mode-hook
+		  (lambda ()
+			(define-key svn-status-diff-mode-map "q" 'delete-window)))
 ;; Same for log-view:
 (add-hook 'log-view-mode-hook
           (lambda () (define-key log-view-mode-map "q" 'delete-window)))
