@@ -22,7 +22,7 @@
 (transient-mark-mode 1)
 ;;; 4-space tabs, and spaces-not-tabs:
 (setq default-tab-width 4)
-(setq indent-tabs-mode nil)
+(setq-default indent-tabs-mode nil)
 ;; Cool-looking completion package:
 (icomplete-mode t)
 ;; use ido-mode for a while (see how it gels with firefox3 location
