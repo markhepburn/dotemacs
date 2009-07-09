@@ -238,18 +238,49 @@
 
 ;; Use that textmate-emulation hack to insert balancing
 ;; quotes/brackets/tags:
-(require 'wrap-region)
+;(require 'wrap-region)
 ;; Update -- already included in emacs!
-;; (setq skeleton-pair t)
-;; (global-set-key [?'] #'skeleton-pair-insert-maybe)
-;; (global-set-key [?\"] #'skeleton-pair-insert-maybe)
-;; (global-set-key [?\(] #'skeleton-pair-insert-maybe)
-;; (global-set-key [?\[] #'skeleton-pair-insert-maybe)
-;; (global-set-key [?{] #'skeleton-pair-insert-maybe)
-;; ;; Don't double-up after a word either (eg, the apostrophe in "I'm"):
-;; (setq skeleton-pair-filter-function
-;;       (lambda () (eq (char-syntax (preceding-char)) ?w)))
+(setq skeleton-pair t)
+(when skeleton-pair
+  (setq skeleton-autowrap t)
+  ;; taken from http://cmarcelo.wordpress.com/2008/04/26/a-little-emacs-experiment/
+  (defvar mh/skeleton-pair-alist
+	'((?\) . ?\()
+	  (?\] . ?\[)
+	  (?} . ?{)
+	  (?" . ?")))
 
+  (defun mh/skeleton-pair-end (arg)
+	"Skip the char if it is an ending, otherwise insert it."
+	(interactive "*p")
+	(let ((char last-command-char))
+	  (if (and (assq char mh/skeleton-pair-alist)
+			   (eq char (following-char)))
+		  (forward-char)
+		(self-insert-command (prefix-numeric-value arg)))))
+
+  (dolist (pair mh/skeleton-pair-alist)
+	(global-set-key (char-to-string (first pair)) 'mh/skeleton-pair-end)
+	;; If the char for begin and end is the same, use the original skeleton:
+	(global-set-key (char-to-string (rest pair)) 'skeleton-pair-insert-maybe))
+
+  (defadvice backward-delete-char-untabify (before mh/skeleton-backspace activate)
+	"When deleting the beginning of a pair, and the ending is next char, delete it too."
+	(let ((pair (assq (following-char) mh/skeleton-pair-alist)))
+	  (and pair
+		   (eq (preceding-char) (rest pair))
+		   (delete-char 1))))
+
+  ;; Don't double-up after a word either (eg, the apostrophe in "I'm"):
+  ;; (actually, ignore that for now -- just won't bind apostrophe to skeleton-mode)
+  ;; (setq skeleton-pair-filter-function
+  ;; 		(lambda () (eq (char-syntax (preceding-char)) ?w)))
+  ;; (global-set-key [?'] #'skeleton-pair-insert-maybe)
+  ;; (global-set-key [?\"] #'skeleton-pair-insert-maybe)
+  ;; (global-set-key [?\(] #'skeleton-pair-insert-maybe)
+  ;; (global-set-key [?\[] #'skeleton-pair-insert-maybe)
+  ;; (global-set-key [?{] #'skeleton-pair-insert-maybe)
+  )
 ;; parse keychain-generated environment variables and set them, if
 ;; they exist:
 ;; (require 'cl)                           ; elisp has no flet by default
