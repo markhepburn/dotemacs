@@ -21,6 +21,10 @@
 ;; use unified diffs by default in diff-mode:
 (setq diff-switches "-u")
 (setq vc-svn-diff-switches '("--diff-cmd" "diff" "-x" "-u"))
+(defadvice svn-status-show-svn-diff (after mh/jump-to-diff-window activate)
+  "Jump to the diff window, so it can be easily navigated then closed."
+  (let ((diff-window (get-buffer-window "*svn-diff*" nil)))
+	(if diff-window (select-window diff-window))))
 
 ;; Git integration:
 ;; (add-to-list 'load-path (expand-file-name "~/src/elisp/git-emacs"))
