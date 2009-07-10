@@ -16,6 +16,9 @@
 	 (setq org-special-ctrl-k t)		; behaviour of this is a bit subtle
 	 (setq org-completion-use-ido t)
 
+     ;; restore default value of the tags alignment column:
+     (setq org-tags-column -80)
+
      (add-to-list 'org-agenda-files (expand-file-name "~/todo-apa.org"))
      (define-key org-mode-map  "\C-ca" 'org-agenda)
      ;; from http://orgmode.org/worg/org-hacks.php (Bernt Hansen, with my
