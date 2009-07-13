@@ -7,7 +7,6 @@
 ;; extra-keybindings if the buffer is read-only, using the shared-map
 ;; -- which then over-writes the values set in this hook):
 (setq diff-default-read-only t)
-(define-key)
 (add-hook 'diff-mode-hook
 		  (lambda ()
 			(define-key diff-mode-shared-map "q" 'delete-window)))
