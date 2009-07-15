@@ -211,8 +211,16 @@
 ;; in emacs by default)
 (global-set-key [(C ?h) ?a] #'apropos)
 
-;; Use bs-show instead of list-buffers:
+;; Use bs-show instead of the default list-buffers:
 (global-set-key [(C ?x) (C ?b)] #'bs-show)
+(defadvice bs-show (around bs-show-maybe-ibuffer (arg) activate)
+  "If invoked with two C-u prefixes, ie C-u C-u C-x C-b in my
+  setup, invoke ibuffer instead."
+  (interactive "P")
+  (if (and arg
+           (eq (car arg) 16))
+      (ibuffer)
+    ad-do-it))
 
 ;; let's play with using C-w to delete words backwards:
 (global-set-key "\C-w" 'backward-kill-word)
