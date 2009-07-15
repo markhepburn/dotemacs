@@ -7,6 +7,19 @@
             (c-set-style "k&r")
             (setq c-basic-offset tab-width)))
 
+;;; support for skeleton-pair like functionality (note that keys need
+;;; to be bound especially, because c-mode and friends bind ?\( etc to
+;;; electric-...)  autopair-* are defined in custom-general.el
+(when (and (fboundp 'autopair-insert)
+           (fboundp 'autopair-open-block)
+           (fboundp 'autopair-close-block))
+  (add-hook 'c-mode-common-hook
+            '(lambda ()
+               (local-set-key "(" 'autopair-insert)
+               (local-set-key ")" 'autopair-insert)
+               (local-set-key "{" 'autopair-open-block)
+               (local-set-key "}" 'autopair-close-block))))
+
 ;;; let's experiment with cedet:
 ;;; http://xtalk.msk.su/~ott/en/writings/emacs-devenv/EmacsCedet.html
 ;;; (url seems to be about a much newer version than included with ubuntu atm, so using CVS)

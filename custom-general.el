@@ -243,44 +243,95 @@
 (setq skeleton-pair t)
 (when skeleton-pair
   (setq skeleton-autowrap t)
-  ;; taken from http://cmarcelo.wordpress.com/2008/04/26/a-little-emacs-experiment/
-  (defvar mh/skeleton-pair-alist
-	'((?\) . ?\()
-	  (?\] . ?\[)
-	  (?} . ?{)
-	  (?" . ?")))
-
-  (defun mh/skeleton-pair-end (arg)
-	"Skip the char if it is an ending, otherwise insert it."
-	(interactive "*p")
-	(let ((char last-command-char))
-	  (if (and (assq char mh/skeleton-pair-alist)
-			   (eq char (following-char)))
-		  (forward-char)
-		(self-insert-command (prefix-numeric-value arg)))))
-
-  (dolist (pair mh/skeleton-pair-alist)
-	(global-set-key (char-to-string (first pair)) 'mh/skeleton-pair-end)
-	;; If the char for begin and end is the same, use the original skeleton:
-	(global-set-key (char-to-string (rest pair)) 'skeleton-pair-insert-maybe))
-
-  (defadvice backward-delete-char-untabify (before mh/skeleton-backspace activate)
-	"When deleting the beginning of a pair, and the ending is next char, delete it too."
-	(let ((pair (assq (following-char) mh/skeleton-pair-alist)))
-	  (and pair
-		   (eq (preceding-char) (rest pair))
-		   (delete-char 1))))
-
-  ;; Don't double-up after a word either (eg, the apostrophe in "I'm"):
+  ;; Don't double-up after a word (eg, the apostrophe in "I'm"):
   ;; (actually, ignore that for now -- just won't bind apostrophe to skeleton-mode)
   ;; (setq skeleton-pair-filter-function
   ;; 		(lambda () (eq (char-syntax (preceding-char)) ?w)))
-  ;; (global-set-key [?'] #'skeleton-pair-insert-maybe)
-  ;; (global-set-key [?\"] #'skeleton-pair-insert-maybe)
-  ;; (global-set-key [?\(] #'skeleton-pair-insert-maybe)
-  ;; (global-set-key [?\[] #'skeleton-pair-insert-maybe)
-  ;; (global-set-key [?{] #'skeleton-pair-insert-maybe)
-  )
+
+  ;; http://www.emacswiki.org/emacs/AutoPairs
+  ;; see also http://cmarcelo.wordpress.com/2008/04/26/a-little-emacs-experiment/
+  (setq skeleton-pair-alist
+        '((?\( _ ?\))
+          (?[  _ ?])
+          (?{  _ ?})
+          (?\" _ ?\")))
+
+  (defun autopair-insert (arg)
+    (interactive "P")
+    (let (pair)
+      (cond
+       ((assq last-command-char skeleton-pair-alist)
+        (autopair-open arg))
+       (t
+        (autopair-close arg)))))
+
+  (defun autopair-open (arg)
+    (interactive "P")
+    (let ((pair (assq last-command-char
+                      skeleton-pair-alist)))
+      (cond
+       ((and (not mark-active)
+             (eq (car pair) (car (last pair)))
+             (eq (car pair) (char-after)))
+        (autopair-close arg))
+       (t
+        (skeleton-pair-insert-maybe arg)))))
+
+  (defun autopair-close (arg)
+    (interactive "P")
+    (cond
+     (mark-active
+      (let (pair open)
+        (dolist (pair skeleton-pair-alist)
+          (when (eq last-command-char (car (last pair)))
+            (setq open (car pair))))
+        (setq last-command-char open)
+        (skeleton-pair-insert-maybe arg)))
+     ((looking-at
+       (concat "[ \t\n]*"
+               (regexp-quote (string last-command-char))))
+      (replace-match (string last-command-char))
+      (indent-according-to-mode))
+     (t
+      (self-insert-command (prefix-numeric-value arg))
+      (indent-according-to-mode))))
+
+  (defun autopair-backspace (arg)
+    (interactive "p")
+    (if (eq (char-after)
+            (car (last (assq (char-before) skeleton-pair-alist))))
+        (and (char-after) (delete-char 1)))
+    (delete-backward-char arg))
+
+  (global-set-key [backspace] 'autopair-backspace)
+
+  (global-set-key "("  'autopair-insert)
+  (global-set-key ")"  'autopair-insert)
+  (global-set-key "["  'autopair-insert)
+  (global-set-key "]"  'autopair-insert)
+  (global-set-key "{"  'autopair-insert)
+  (global-set-key "}"  'autopair-insert)
+  (global-set-key "\"" 'autopair-insert)
+
+  (defun autopair-open-block (arg)
+    (interactive "P")
+    (autopair-open arg)
+    (newline)
+    (newline-and-indent)
+    (previous-line)
+    (indent-according-to-mode))
+
+  (defun autopair-close-block (arg)
+    (interactive "P")
+    (cond
+     (mark-active
+      (autopair-close arg))
+     ((not (looking-back "^[[:space:]]*"))
+      (newline-and-indent)
+      (autopair-close arg))
+     (t
+      (autopair-close arg)))))
+
 ;; parse keychain-generated environment variables and set them, if
 ;; they exist:
 ;; (require 'cl)                           ; elisp has no flet by default
