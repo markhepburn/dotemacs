@@ -323,6 +323,7 @@
 
   (defun autopair-open-block (arg)
     (interactive "P")
+    (if (looking-at "[[:space:]]*$") (just-one-space))
     (autopair-open arg)
     (newline)
     (newline-and-indent)
