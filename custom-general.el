@@ -221,6 +221,7 @@
            (eq (car arg) 16))
       (ibuffer)
     ad-do-it))
+(setq-default ibuffer-default-sorting-mode 'major-mode)
 
 ;; let's play with using C-w to delete words backwards:
 (global-set-key "\C-w" 'backward-kill-word)
@@ -388,7 +389,7 @@
 (add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))
 
 ;;; markdown mode:
-(autoload 'markdown-mode "markdown"
+(autoload 'markdown-mode "markdown-mode"
   "Major mode for editing markdown-formatted documents" t)
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
