@@ -16,6 +16,22 @@
      (list (line-beginning-position)
            (line-beginning-position 2)))))
 
+(defadvice rgrep (around rgrep-rename-previous-buffer activate compile)
+  "If a previous *grep* buffer exists, offer to rename it before
+running the new process."
+  (interactive
+   (let ((old-grep-buf (get-buffer "*grep*")))
+     (if (and old-grep-buf
+              (y-or-n-p "Grep results buffer already exists; rename it first? "))
+         (let ((new-buf-name (read-string "New name: ")))
+           (with-current-buffer old-grep-buf
+             (rename-buffer new-buf-name))))
+     ;; Sneaky: we need to match the interactive spec for the original
+     ;; rgrep, but we also just want to use the original
+     ;; interactivity.  Hence, this dummy list followed by
+     ;; 'call-interactively (and no reference to ad-do-it)
+     (list 'ignored-re 'ignored-files 'ignored-dirs)))
+  (call-interactively 'ad-Orig-rgrep))
 
 ;;; utility to add hooks to enable the given minor mode for all
 ;;; specified major modes:
