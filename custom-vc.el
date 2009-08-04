@@ -17,6 +17,8 @@
 ;; Same for log-view:
 (add-hook 'log-view-mode-hook
           (lambda () (define-key log-view-mode-map "q" 'delete-window)))
+(add-hook 'svn-log-view-mode-hook
+          (lambda () (define-key svn-log-view-mode-map "q" 'delete-window)))
 ;; use unified diffs by default in diff-mode:
 (setq diff-switches "-u")
 (setq vc-svn-diff-switches '("--diff-cmd" "diff" "-x" "-u"))
