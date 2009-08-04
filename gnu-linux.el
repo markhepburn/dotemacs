@@ -6,6 +6,10 @@
 ;(set-default-font "Bitstream Vera Sans Mono-10")
 ;(set-default-font "Monospace-10")
 
+;;; only use org-agenda mode in Linux:
+(add-to-list 'org-agenda-files (expand-file-name "~/todo-apa.org"))
+(define-key org-mode-map  "\C-ca" 'org-agenda)
+
 
 ;; In X-windows, play nicely with the clipboard:
 (setq x-select-enable-clipboard t)

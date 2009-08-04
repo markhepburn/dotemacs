@@ -3,7 +3,6 @@
 ;; org-mode stuff:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq mh/org-mode-lisp-directory (concat *mh/lisp-base* "org-mode/lisp"))
-(setq org-agenda-files (quote ("~/todo-apa.org")))
 (add-to-list 'load-path mh/org-mode-lisp-directory)
 (autoload 'org-mode "org" "Org-mode; outline on steroids" t)
 (eval-after-load "org"
@@ -19,8 +18,6 @@
      ;; restore default value of the tags alignment column:
      (setq org-tags-column -80)
 
-     (add-to-list 'org-agenda-files (expand-file-name "~/todo-apa.org"))
-     (define-key org-mode-map  "\C-ca" 'org-agenda)
      ;; from http://orgmode.org/worg/org-hacks.php (Bernt Hansen, with my
      ;; tidy-ups)
      (defun org-reload-org (&optional source)
