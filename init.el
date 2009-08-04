@@ -90,7 +90,8 @@
 ;;; here though):
 (if (featurep 'smex) (smex-initialize))
 
-(server-start)
+;;; Don't think this is needed, with the --daemon mode kicking in:
+;(server-start)
 
 (message ".emacs loaded in %ds"
          (destructuring-bind (hi lo ms) (current-time)
