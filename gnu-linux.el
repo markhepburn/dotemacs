@@ -1,6 +1,11 @@
 
 ;;; See: https://bugs.launchpad.net/ubuntu/+source/emacs-snapshot/+bug/291399 for the need for this:
 (set-frame-parameter nil 'font-backend '(xft x))
+;;; this is now actually set in ~/.Xresources (otherwise, it doesn't
+;;; seem to get set correctly when the daemon starts up); relevant
+;;; line:
+;;; emacs.font:-microsoft-Consolas-normal-normal-normal-*-18-*-*-*-m-0-iso10646-1
+;;; May not need this now.
 (set-default-font "Consolas-11")
 ;(set-default-font "Inconsolata-11")
 ;(set-default-font "Bitstream Vera Sans Mono-10")
