@@ -174,6 +174,17 @@
                              latex-mode plain-tex-mode))
         (indent-region (region-beginning) (region-end) nil))))
 
+;;; similar advice for 'yank:
+(defadvice yank (after indent-region-for-yank activate)
+  "If in a programming mode, reindent the region after yanking."
+  (if (member major-mode '(emacs-lisp-mode
+                           lisp-mode
+                           erlang-mode
+                           python-mode
+                           c-mode c++-mode objc-mode
+                           latex-mode plain-tex-mode))
+      (indent-region (mark t) (point))))
+
 ;; use shift-arrow to move between windows:
 (windmove-default-keybindings)
 ;; vi-like case toggle:
