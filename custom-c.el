@@ -20,6 +20,17 @@
                (local-set-key "{" 'autopair-open-block)
                (local-set-key "}" 'autopair-close-block))))
 
+;;; advise c-beginning-of-defun so it sets mark before jumping (why
+;;; doesn't it already do this??)
+(defadvice c-beginning-of-defun (before c-push-mark-before-bod activate)
+  "Save point before jumping to the beginning of the defun, so
+  you can easily jump back."
+  (push-mark))
+(defadvice c-end-of-defun (before c-push-mark-before-eod activate)
+  "Save point before jumping to the end of the defun, so you can
+  easily jump back."
+  (push-mark))
+
 ;;; let's experiment with cedet:
 ;;; http://xtalk.msk.su/~ott/en/writings/emacs-devenv/EmacsCedet.html
 ;;; (url seems to be about a much newer version than included with ubuntu atm, so using CVS)
