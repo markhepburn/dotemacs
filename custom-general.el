@@ -177,9 +177,10 @@
                              python-mode
                              c-mode c++-mode objc-mode
                              latex-mode plain-tex-mode))
-        (indent-region (region-beginning) (region-end) nil))))
+        (let ((mark-even-if-inactive t))
+          (indent-region (region-beginning) (region-end) nil)))))
 
-;;; similar advice for 'yank:
+;;; similar advice for 'yank and 'yank-pop:
 (defadvice yank (after indent-region-for-yank activate)
   "If in a programming mode, reindent the region after yanking."
   (if (member major-mode '(emacs-lisp-mode
@@ -188,7 +189,18 @@
                            python-mode
                            c-mode c++-mode objc-mode
                            latex-mode plain-tex-mode))
-      (indent-region (mark t) (point))))
+      (let ((mark-even-if-inactive t))
+        (indent-region (region-beginning) (region-end) nil))))
+(defadvice yank-pop (after indent-region-for-yank-pop activate)
+  "If in a programming mode, reindent the region after yanking."
+  (if (member major-mode '(emacs-lisp-mode
+                           lisp-mode
+                           erlang-mode
+                           python-mode
+                           c-mode c++-mode objc-mode
+                           latex-mode plain-tex-mode))
+      (let ((mark-even-if-inactive t))
+        (indent-region (region-beginning) (region-end) nil))))
 
 ;; use shift-arrow to move between windows:
 (windmove-default-keybindings)
