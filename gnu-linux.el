@@ -53,7 +53,6 @@
 					   "/atlantismain"
 					   "/atlantismain/include"
 					   "/atlantisUtil/include"
-					   "/atlink"
 					   "/atlink/include"
 					   "/atmanage/include"
 					   "/atphysics/include"
@@ -73,16 +72,4 @@
             (local-set-key "." 'semantic-complete-self-insert)
             (local-set-key ">" 'semantic-complete-self-insert)
 
-            (ede-minor-mode 1)
-
-;;;             (local-set-key "\C-c,n" 'senator-next-tag)
-;;;             (local-set-key "\C-c,p" 'senator-previous-tag)
-            
-;;;             (local-set-key "\C-c,u" 'senator-go-to-up-reference)
-;;;             (local-set-key "\C-c,-" 'senator-fold-tag)
-;;;             (local-set-key "\C-c,+" 'senator-unfold-tag)
-
-;;;             (local-set-key "\C-c,\C-w" 'senator-kill-tag)
-;;;             (local-set-key "\C-c,\C-y" 'senator-yank-tag)
-;;;             (local-set-key "\C-c,\M-w" 'senator-copy-tag)
-            ))
+            (ede-minor-mode 1)))
