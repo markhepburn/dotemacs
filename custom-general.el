@@ -161,6 +161,11 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 ;; M-y to browse kill-ring:
 
+;;; I don't know why this seemed to suddenly change; make backspace
+;;; work again in isearch-mode anyway (see also C-M-w which does the
+;;; same thing, and C-M-y and C-y as well):
+(define-key isearch-mode-map (kbd "<backspace>") 'isearch-del-char)
+
 ;; kill-ring selection:
 (when (require 'browse-kill-ring nil t)
   (browse-kill-ring-default-keybindings)
