@@ -15,9 +15,10 @@
 ;; line and column-number modes:
 (line-number-mode 1)
 (column-number-mode 1)
-;;; next-line should go next text line (old default), not visual line:
-;;; (from http://bryan-murdock.blogspot.com/2009/03/emacs-next-line-changed-behavior.html)
-(visual-line-mode nil)
+;;; next-line should go next text line (old default), not visual line (from
+;;; http://bryan-murdock.blogspot.com/2009/03/emacs-next-line-changed-behavior.html
+;;; originally, but things seem to have changed slightly since then):
+(setq line-move-visual nil)
 ;;; high-light selections:
 (transient-mark-mode 1)
 ;;; 4-space tabs, and spaces-not-tabs:
