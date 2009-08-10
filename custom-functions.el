@@ -21,11 +21,15 @@
 running the new process."
   (interactive
    (let ((old-grep-buf (get-buffer "*grep*")))
-     (if (and old-grep-buf
-              (y-or-n-p "Grep results buffer already exists; rename it first? "))
-         (let ((new-buf-name (read-string "New name: ")))
-           (with-current-buffer old-grep-buf
-             (rename-buffer new-buf-name))))
+     (if old-grep-buf
+         (progn
+           ;; display the old one for easier renaming!
+           (if (not (get-buffer-window old-grep-buf))
+               (display-buffer old-grep-buf))
+           (if (y-or-n-p "Grep results buffer already exists; rename it first? ")
+               (let ((new-buf-name (read-string "New name: ")))
+                 (with-current-buffer old-grep-buf
+                   (rename-buffer new-buf-name))))))
      ;; Sneaky: we need to match the interactive spec for the original
      ;; rgrep, but we also just want to use the original
      ;; interactivity.  Hence, this dummy list followed by
