@@ -15,6 +15,20 @@
 (add-to-list 'org-agenda-files (expand-file-name "~/todo-apa.org"))
 (define-key org-mode-map  "\C-ca" 'org-agenda)
 
+;;; twit.el: use a bit more in Linux (have tweetie on the mac), so
+;;; include a few linux-specific customisations:
+(setq twit-user-image-dir (expand-file-name "~/.twit.el/icons"))
+(setq twit-show-user-images t)
+(add-hook 'twit-new-tweet-hook
+          (lambda ()
+            (if twit-show-user-images
+                (let* ((user  (cadr twit-last-tweet))
+                       (tweet (caddr twit-last-tweet))
+                       (img
+                        (or (car-safe (directory-files twit-user-image-dir t (concat "^" user "-")))
+                            (concat twit-user-image-dir "/twitter.png"))))
+                  (shell-command (concat "notify-send -i " img
+                                         " \"" user "\" \"" tweet "\""))))))
 
 ;; In X-windows, play nicely with the clipboard:
 (setq x-select-enable-clipboard t)
