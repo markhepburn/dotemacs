@@ -24,8 +24,16 @@
             (if twit-show-user-images
                 (let* ((user  (cadr twit-last-tweet))
                        (tweet (caddr twit-last-tweet))
+                       (img-re (concat
+                                "^["
+                                ;; manually construct case-insensitive RE:
+                                (mapconcat (lambda (c)
+                                             (list (downcase c) (upcase c)))
+                                           (string-to-list user)
+                                           "][")
+                                "]-"))
                        (img
-                        (or (car-safe (directory-files twit-user-image-dir t (concat "^" user "-")))
+                        (or (car-safe (directory-files twit-user-image-dir t img-re))
                             (concat twit-user-image-dir "/twitter.png"))))
                   (shell-command (concat "notify-send -i " img
                                          " \"" user "\" \"" tweet "\""))))))
