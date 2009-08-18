@@ -19,25 +19,25 @@
 ;;; include a few linux-specific customisations:
 (setq twit-user-image-dir (expand-file-name "~/.twit.el/icons"))
 (setq twit-show-user-images t)
-(add-hook 'twit-new-tweet-hook
-          (lambda ()
-            (if twit-show-user-images
-                (let* ((user  (cadr twit-last-tweet))
-                       (tweet (caddr twit-last-tweet))
-                       (img-re (concat
-                                "^["
-                                ;; manually construct case-insensitive RE:
-                                (mapconcat (lambda (c)
-                                             (list (downcase c) (upcase c)))
-                                           (string-to-list user)
-                                           "][")
-                                "]-"))
-                       (img
-                        (or (car-safe (directory-files twit-user-image-dir t img-re))
-                            (concat twit-user-image-dir "/twitter.png"))))
-                  (shell-command (concat "notify-send -i " img
-                                         " \"" user "\" \""
-                                         (replace-regexp-in-string "\"" "\\\\\"" tweet) "\""))))))
+(defun mh/twit-notify-tweet ()
+  (if twit-show-user-images
+      (let* ((user  (cadr twit-last-tweet))
+             (tweet (caddr twit-last-tweet))
+             (img-re (concat
+                      "^["
+                      ;; manually construct case-insensitive RE:
+                      (mapconcat (lambda (c)
+                                   (list (downcase c) (upcase c)))
+                                 (string-to-list user)
+                                 "][")
+                      "]-"))
+             (img
+              (or (car-safe (directory-files twit-user-image-dir t img-re))
+                  (concat twit-user-image-dir "/twitter.png"))))
+        (shell-command (concat "notify-send -i " img
+                               " \"" user "\" \""
+                               (replace-regexp-in-string "\"" "\\\\\"" tweet) "\"")))))
+(add-hook 'twit-new-tweet-hook 'mh/twit-notify-tweet)
 
 ;; In X-windows, play nicely with the clipboard:
 (setq x-select-enable-clipboard t)
