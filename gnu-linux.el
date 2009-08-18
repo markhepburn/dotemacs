@@ -36,7 +36,8 @@
                         (or (car-safe (directory-files twit-user-image-dir t img-re))
                             (concat twit-user-image-dir "/twitter.png"))))
                   (shell-command (concat "notify-send -i " img
-                                         " \"" user "\" \"" tweet "\""))))))
+                                         " \"" user "\" \""
+                                         (replace-regexp-in-string "\"" "\\\\\"" tweet) "\""))))))
 
 ;; In X-windows, play nicely with the clipboard:
 (setq x-select-enable-clipboard t)
