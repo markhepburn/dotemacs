@@ -1,3 +1,19 @@
+;;; mark the line at point (main use-case is probably to mark then
+;;; comment out, since killing, copying etc are already handled -- see
+;;; below).  Bound to C-M-; to resemble M-; for this reason.
+(defun mh/mark-line (&optional arg)
+  "Mark the line under point.  Optional prefix arg marks arg
+  following lines including the current line, or arg preceding
+  lines including the current line if negative."
+  (interactive "p")
+  (if (< arg 0)
+      (progn
+        (setq arg (- arg))
+        (previous-line (- arg 1))))
+  (beginning-of-line)
+  (set-mark-command nil)
+  (move-end-of-line arg))
+(global-set-key (kbd "C-M-;") 'mh/mark-line)
 
 ;;; From http://www.emacswiki.org/emacs/SlickCopy
 ;;; When kill/copy region commands are used with no region selected,
