@@ -276,7 +276,23 @@
 (global-set-key (kbd "C-x m m") 'bm-toggle)
 (global-set-key (kbd "C-x m n") 'bm-next)
 (global-set-key (kbd "C-x m p") 'bm-previous)
-(global-set-key (kbd "C-x m l") 'bm-list)
+(global-set-key (kbd "C-x m l") 'bm-show) ; l for list
+(global-set-key (kbd "C-x m a") 'bm-bookmark-annotate) ; don't autload this; needs an existing bookmark to work.
+(defadvice bm-toggle (around bm-toggle-create-annotation (arg) activate)
+  "If given a prefix arg when creating, ask for an annotation as
+  well."
+  (interactive "P")
+  (if arg
+      (let ((bm-annotate-on-create t))
+        ad-do-it)
+    ad-do-it))
+(defadvice bm-show (around bm-show-optionally-show-all (arg) activate)
+  "With a prefix arg, show all (global) bookmarks, otherwise just
+  the current buffer as normal."
+  (interactive "P")
+  (if arg
+      (bm-show-all)
+    ad-do-it))
 
 ;; gnu screen for emacs (multiple window configurations):
 ;(setq elscreen-display-tab nil)         ;don't display tabs by default
