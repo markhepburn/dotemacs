@@ -7,6 +7,9 @@
             (c-set-style "k&r")
             (setq c-basic-offset tab-width)))
 
+;;; use the new IDE-like gdb multi-window interface:
+(setq gdb-many-windows t)
+
 ;;; support for skeleton-pair like functionality (note that keys need
 ;;; to be bound especially, because c-mode and friends bind ?\( etc to
 ;;; electric-...)  autopair-* are defined in custom-general.el
