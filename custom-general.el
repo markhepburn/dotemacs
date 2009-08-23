@@ -264,6 +264,20 @@
 (global-set-key (kbd "C-x t n") 'hll-next-highlight)
 (global-set-key (kbd "C-x t u") 'hll-unhighlight-buffer)
 
+;;; related to that, bookmarks look very useful (like tags for source
+;;; navigation, only you don't have to pop them, for eg).  I'm using
+;;; C-xm as my prefix map, which defaults to send-mail which I never
+;;; use.
+(autoload 'bm-toggle   "bm" "Toggle bookmark in current buffer." t)
+(autoload 'bm-next     "bm" "Goto next bookmark."                t)
+(autoload 'bm-previous "bm" "Goto previous bookmark."            t)
+(autoload 'bm-previous "bm" "List all bookmarks."                t)
+(global-set-key (kbd "C-x m") (make-sparse-keymap))
+(global-set-key (kbd "C-x m m") 'bm-toggle)
+(global-set-key (kbd "C-x m n") 'bm-next)
+(global-set-key (kbd "C-x m p") 'bm-previous)
+(global-set-key (kbd "C-x m l") 'bm-list)
+
 ;; gnu screen for emacs (multiple window configurations):
 ;(setq elscreen-display-tab nil)         ;don't display tabs by default
 (when (require 'elscreen nil t)
