@@ -171,7 +171,7 @@
 (when (require 'browse-kill-ring nil t)
   (browse-kill-ring-default-keybindings)
   (setq browse-kill-ring-no-duplicates t) ;...and don't clog it up with duplicates
-  (defadvice browse-kill-ring-do-insert (after indent-region activate)
+  (defadvice browse-kill-ring-insert-and-quit (after indent-region activate)
     (if (member major-mode '(emacs-lisp-mode
                              lisp-mode
                              erlang-mode
