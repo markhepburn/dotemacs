@@ -22,6 +22,9 @@
 ;; use unified diffs by default in diff-mode:
 (setq diff-switches "-u")
 (setq vc-svn-diff-switches '("--diff-cmd" "diff" "-x" "-u"))
+;;; default to unknown and unmodified files not displayed:
+(setq svn-status-hide-unknown    t
+      svn-status-hide-unmodified t)
 (defadvice svn-status-show-svn-diff (after mh/jump-to-diff-window activate)
   "Jump to the diff window, so it can be easily navigated then closed."
   (let ((diff-window (get-buffer-window "*svn-diff*" nil)))
