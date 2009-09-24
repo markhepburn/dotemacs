@@ -48,5 +48,6 @@
 (add-hook 'semantic-symref-results-mode-hook
 		  '(lambda () (local-set-key "q" 'delete-window)))
 (autoload 'gtags-mode "gtags" "GNU Global source navigation" t)
+(define-key senator-prefix-map "v" 'semantic-decoration-include-visit)
 (add-hook 'c-mode-common-hook (lambda () (gtags-mode 1)))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
