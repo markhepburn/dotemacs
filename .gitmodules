@@ -42,4 +42,4 @@
 	url = git://github.com/rmm5t/maxframe-el.git
 [submodule "http-twiddle"]
 	path = http-twiddle
-	url = git://github.com/markhepburn/http-twiddle.git
+	url = git://github.com/hassy/http-twiddle.git
