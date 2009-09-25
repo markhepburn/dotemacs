@@ -43,3 +43,6 @@
 [submodule "http-twiddle"]
 	path = http-twiddle
 	url = git://github.com/hassy/http-twiddle.git
+[submodule "tags-view"]
+	path = tags-view
+	url = git@github.com:markhepburn/tags-view.git
