@@ -50,4 +50,7 @@
 (autoload 'gtags-mode "gtags" "GNU Global source navigation" t)
 (define-key senator-prefix-map "v" 'semantic-decoration-include-visit)
 (add-hook 'c-mode-common-hook (lambda () (gtags-mode 1)))
+;;; tags-view:
+(add-to-list 'load-path (concat *mh/lisp-base* "tags-view"))
+(autoload 'tv-view-history "tags-view" "Navigate and manipulate TAGS stack" t)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
