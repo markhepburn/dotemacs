@@ -1,0 +1,7 @@
+
+* Install eproject, and make it set up the cedet project definition by sourcing a file at the project root
+** http://wiki.github.com/jrockway/eproject/installingeproject
+** http://nflath.com/2009/07/eproject/
+* set up todochiku
+* Maybe check out predictive mode for text-based modes
+** http://www.emacswiki.org/emacs/PredictiveMode
