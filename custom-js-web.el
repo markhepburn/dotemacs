@@ -42,6 +42,19 @@
 (autoload 'django-html-mode "django-html-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . django-html-mode))
 
+;;; http://xahlee.org/emacs/emacs_html.html
+;;; Make css colour definitions the colour they represent:
+(defvar hexcolour-keywords
+  '(("#[abcdef[:digit:]]\\{6\\}"
+     (0 (put-text-property
+         (match-beginning 0)
+         (match-end 0)
+         'face (list :background 
+                     (match-string-no-properties 0)))))))
+(defun hexcolour-add-to-font-lock ()
+  (font-lock-add-keywords nil hexcolour-keywords))
+(add-hook 'css-mode-hook 'hexcolour-add-to-font-lock)
+
 ;; (add-to-list 'load-path (expand-file-name "~/elisp/mmm-mode-0.4.8"))
 ;; ;; MMM-Mode
 ;; (require 'mmm-auto)
