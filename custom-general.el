@@ -452,6 +452,9 @@
   "Major mode for editing markdown-formatted documents" t)
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
+;;; open jar files as well:
+(add-to-list 'auto-mode-alist '("\\.jar\\'" . archive-move))
+
 (eval-after-load "sql"
   '(load-library "sql-indent"))
 
