@@ -167,6 +167,11 @@
 ;;; same thing, and C-M-y and C-y as well):
 (define-key isearch-mode-map (kbd "<backspace>") 'isearch-del-char)
 
+;;; restore backspace behaviour in calc too; this will get disrupted
+;;; with the global-set-key used below (for the autopair stuff):
+(add-hook 'calc-mode-hook
+          (lambda () (local-set-key (kbd "<backspace>") 'calc-pop)))
+
 ;; kill-ring selection:
 (when (require 'browse-kill-ring nil t)
   (browse-kill-ring-default-keybindings)
