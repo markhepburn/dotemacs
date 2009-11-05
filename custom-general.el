@@ -208,6 +208,13 @@
       (let ((mark-even-if-inactive t))
         (indent-region (region-beginning) (region-end) nil))))
 
+;;; Suggestion from http://www.emacswiki.org/emacs-en/KillingAndYanking
+;;; Cycle backwards through the kill-ring with meta-shift-y:
+(defun yank-pop-backwards ()
+  (interactive)
+  (yank-pop -1))
+(global-set-key "\M-Y" 'yank-pop-backwards)
+
 ;; use shift-arrow to move between windows:
 (windmove-default-keybindings)
 ;; vi-like case toggle:
