@@ -11,6 +11,9 @@
 ;(set-default-font "Bitstream Vera Sans Mono-10")
 ;(set-default-font "Monospace-10")
 
+;;; font-lock for apt sources:
+(add-to-list 'auto-mode-alist '("sources\\.list\\'" . conf-mode))
+
 ;;; only use org-agenda mode in Linux:
 (eval-after-load "org"
   '(progn
