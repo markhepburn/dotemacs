@@ -38,6 +38,9 @@
        (interactive)
        (remove-hook 'after-change-functions 'moz-update t))))
 
+;;; basic html (and inherited by django-html); don't auto-fill:
+(add-hook 'html-mode-hook (lambda () (auto-fill-mode -1)))
+
 ;;; django templates:
 (autoload 'django-html-mode "django-html-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . django-html-mode))
