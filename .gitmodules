@@ -48,4 +48,4 @@
 	url = git@github.com:markhepburn/tags-view.git
 [submodule "magit"]
 	path = magit
-	url = git://gitorious.org/magit/mainline.git
+	url = git://gitorious.org/~philjackson/magit/philjacksons-reclone.git
