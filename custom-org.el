@@ -38,4 +38,29 @@ loads from source files instead."
      (defadvice htmlize-faces-in-buffer (after org-no-nil-faces activate)
        "Make sure there are no nil faces"
        (setq ad-return-value (delq nil ad-return-value)))))
+
+;;; function to insert my workout template in workouts.org:
+(defvar mh/workout-type-history-list nil)
+(defun mh/org-new-workout (type)
+  (interactive
+   (list
+    (read-string "Workout type: " nil 'mh/workout-type-history-list)))
+  (if (and type
+          (not (string= type "")))
+      (let ((template
+             "* %s %s
+** Workout:
+** Time taken = 
+** Heart-rate avg/max = 
+** Notes:"))
+        (end-of-buffer)
+        (unless (bolp) (newline))
+        (insert (format template
+                        (format-time-string "<%Y-%m-%d %a>")
+                        type))
+        ;; use org to do the tags, rather than trying to read them myself:
+        (outline-up-heading 1)
+        (org-set-tags)
+        (end-of-line 2))
+    (message "Aborted (no type specified)")))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
