@@ -220,7 +220,7 @@ If tags are unbalanced, raise error."
   (let ((open-tag (save-excursion (django-html-find-open-tag))))
     (if open-tag
         (insert
-         (format "%s end%s %s}"
+         (format "%s end%s %s"
                  django-html-open-block open-tag django-html-close-block))
       (error "Nothing to close"))))
 
