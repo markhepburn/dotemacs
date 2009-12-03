@@ -58,6 +58,9 @@
   (font-lock-add-keywords nil hexcolour-keywords))
 (add-hook 'css-mode-hook 'hexcolour-add-to-font-lock)
 
+;;; use c-style indentation in css:
+(setq cssm-indent-function 'cssm-c-style-indenter)
+
 ;; (add-to-list 'load-path (expand-file-name "~/elisp/mmm-mode-0.4.8"))
 ;; ;; MMM-Mode
 ;; (require 'mmm-auto)
