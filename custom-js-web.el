@@ -60,6 +60,8 @@
 
 ;;; use c-style indentation in css:
 (setq cssm-indent-function 'cssm-c-style-indenter)
+(add-hook 'css-mode-hook
+          (lambda () (local-set-key "{" 'autopair-open-block)))
 
 ;; (add-to-list 'load-path (expand-file-name "~/elisp/mmm-mode-0.4.8"))
 ;; ;; MMM-Mode
