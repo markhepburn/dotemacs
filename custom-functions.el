@@ -120,6 +120,13 @@ given a prefix argument."
 ;; general functions:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;; http://slashusr.wordpress.com/2010/01/19/quickly-diff-the-changes-made-in-the-current-buffer-with-its-file/
+(defun mh/diff-buffer-file-changes ()
+  (interactive)
+  (diff-buffer-with-file (current-buffer)))
+;;; this over-rides 'text-scale-adjust, but that's also available on C-x C-+:
+(global-set-key (kbd "C-x C-=") 'mh/diff-buffer-file-changes)
+
 ;; stole this from xemacs21:
 (defun switch-to-other-buffer (arg)
   (interactive "p")
