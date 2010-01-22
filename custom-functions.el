@@ -120,6 +120,31 @@ given a prefix argument."
 ;; general functions:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;;; Inspired by
+;;; http://emacs-fu.blogspot.com/2010/01/duplicating-lines-and-commenting-them.html,
+;;; with a few tweaks:
+(defun mh/duplicate-line (comment-first)
+  "Duplicate the current line below; optional prefix arg comments
+  the original line."
+  (interactive "P")
+  (beginning-of-line)
+  (let ((beg (point)))
+    (end-of-line)
+    (let ((str (buffer-substring beg (point))))
+      (when comment-first
+        (comment-region beg (point)))
+      (insert-string
+       (concat (if (= 0 (forward-line 1)) "" "\n") str "\n"))
+      (forward-line -1))))
+(global-set-key (kbd "C-x y") 'mh/duplicate-line)
+
+;; http://slashusr.wordpress.com/2010/01/19/quickly-diff-the-changes-made-in-the-current-buffer-with-its-file/
+(defun mh/diff-buffer-file-changes ()
+  (interactive)
+  (diff-buffer-with-file (current-buffer)))
+;;; this over-rides 'text-scale-adjust, but that's also available on C-x C-+:
+(global-set-key (kbd "C-x C-=") 'mh/diff-buffer-file-changes)
+
 ;; stole this from xemacs21:
 (defun switch-to-other-buffer (arg)
   (interactive "p")
