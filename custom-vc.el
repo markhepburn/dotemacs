@@ -49,6 +49,10 @@
 ;;; Experimenting with magit mode, on the advice of many (well, @philjackson and @jamesvnc on twitter :))
 (add-to-list 'load-path (concat *mh/lisp-base* "magit"))
 (autoload 'magit-status "magit" "magit interface for git" t)
+;;; http://www.bunkus.org/blog/2009/10/an-interactive-iterative-git-blame-mode-for-emacs/
+(add-to-list 'load-path (concat *mh/lisp-base* "mo-git-blame"))
+(autoload 'mo-git-blame-file "mo-git-blame" nil t)
+(autoload 'mo-git-blame-current "mo-git-blame" nil t)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

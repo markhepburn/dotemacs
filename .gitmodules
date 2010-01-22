@@ -49,3 +49,6 @@
 [submodule "magit"]
 	path = magit
 	url = git://gitorious.org/~philjackson/magit/philjacksons-reclone.git
+[submodule "mo-git-blame"]
+	path = mo-git-blame
+	url = git://git.bunkus.org/mo-git-blame.git
