@@ -15,6 +15,40 @@
   (move-end-of-line arg))
 (global-set-key (kbd "C-M-;") 'mh/mark-line)
 
+(defun mh/exchange-commenting-with-other-line (&optional arg)
+  "Exchange the commenting of the current line and the previous
+one, such that one is commented and the other not, leaving point
+on the uncommented line.  Designed to be used when experimenting
+with alterations to a line, such as with `mh/duplicate-line'.
+Optional non-zero prefix arg toggles with next line instead of
+previous."
+  (interactive "P")
+  (let ((commented-re (concat "[[:space:]]*" comment-start))
+        (direction (if arg 1 -1))
+        current-commented
+        other-commented
+        successfully-toggled)
+    (save-excursion
+      (beginning-of-line)
+      (setq current-commented (looking-at commented-re))
+      (if (not (zerop (forward-line direction)))
+          (message "No other line to toggle!")
+        (setq other-commented (looking-at commented-re))
+        (if (or (and current-commented other-commented)
+                (and (not current-commented) (not other-commented)))
+            (message "Exactly one line must be commented in order to toggle both.")
+          ;; Do the actual toggling:
+          (comment-or-uncomment-region (point-at-bol) (point-at-eol))
+          (forward-line (- direction))
+          (comment-or-uncomment-region (point-at-bol) (point-at-eol))
+          (setq successfully-toggled t))))
+    ;; If necessary, move to the uncommented line.  Note we use
+    ;; `next-line' rather than `forward-line' here in order to
+    ;; preserve the goal-column where possible:
+    (if (and successfully-toggled other-commented)
+        (next-line direction))))
+(global-set-key (kbd "C-x M-;") 'mh/exchange-commenting-with-other-line)
+
 ;;; From http://www.emacswiki.org/emacs/SlickCopy
 ;;; When kill/copy region commands are used with no region selected,
 ;;; operate on line instead:
