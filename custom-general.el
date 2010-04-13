@@ -308,6 +308,11 @@
 
 ;; gnu screen for emacs (multiple window configurations):
 ;(setq elscreen-display-tab nil)         ;don't display tabs by default
+;;; library apel is required for elscreen, but may be installed by the
+;;; distro; check before adding to the path ('alist is a proxy for
+;;; apel in this case)
+(unless (featurep 'alist)
+  (add-to-list 'load-path (concat *mh/lisp-base* "apel-10.7")))
 (when (require 'elscreen nil t)
   ;; C-a C-a is burned in to my fingers from gnu screen; this emulates
   ;; that feeling of hitting the prefix key twice to toggle:
