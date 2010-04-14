@@ -15,10 +15,10 @@
 (add-to-list 'auto-mode-alist '("sources\\.list\\'" . conf-mode))
 
 ;;; only use org-agenda mode in Linux:
-(eval-after-load "org"
-  '(progn
-     (add-to-list 'org-agenda-files (expand-file-name "~/todo-apa.org"))
-     (define-key org-mode-map  "\C-ca" 'org-agenda)))
+;; (eval-after-load "org"
+;;   '(progn
+;;      (add-to-list 'org-agenda-files (expand-file-name "~/todo-apa.org"))
+;;      (define-key org-mode-map  "\C-ca" 'org-agenda)))
 
 ;;; twit.el: use a bit more in Linux (have tweetie on the mac), so
 ;;; include a few linux-specific customisations:

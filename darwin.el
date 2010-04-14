@@ -41,6 +41,3 @@
       `("/Applications/Emacs.app/Contents/Resources/info"
         ,(concat *mh/lisp-base* "info")
         "/sw/share/info" "/usr/share/info" "/usr/local/info"))
-
-;; for elscreen:
-(add-to-list 'load-path (concat *mh/lisp-base* "apel-10.7"))
