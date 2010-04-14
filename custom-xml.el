@@ -11,13 +11,15 @@
 (defun mh/nxml-enable-hs ()
   "Functions to run when in nxml mode."
   (setq nxml-sexp-element-flag t)
+  (eval-after-load "hideshow"
+    (let ((nxml-mode-hs-info '(nxml-mode ("^\\s-*\\(<[^/].*>\\)\\s-*$" 1)
+                                         "^\\s-*</.*>\\s-*$")))
+      (when (not (member nxml-mode-hs-info hs-special-modes-alist))
+        (setq hs-special-modes-alist
+              (cons nxml-mode-hs-info hs-special-modes-alist))
+        t)))
   (hs-minor-mode 1))
-(eval-after-load "hideshow"
-  (let ((nxml-mode-hs-info '(nxml-mode ("^\\s-*\\(<[^/].*>\\)\\s-*$" 1)
-                                       "^\\s-*</.*>\\s-*$")))
-    (when (not (member nxml-mode-hs-info hs-special-modes-alist))
-      (setq hs-special-modes-alist
-            (cons nxml-mode-hs-info hs-special-modes-alist)))))
+
 (add-hook 'nxml-mode-hook 'mh/nxml-enable-hs)
 ;; (add-hook 'nxml-mode-hook
 ;;           ;; alternatively, see variable nxml-sexp-element-flag
