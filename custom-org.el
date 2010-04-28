@@ -18,6 +18,9 @@
      ;; restore default value of the tags alignment column:
      (setq org-tags-column -80)
 
+     ;; speed navigation commands:
+     (setq org-use-speed-commands t)
+
      ;; from http://orgmode.org/worg/org-hacks.php (Bernt Hansen, with my
      ;; tidy-ups)
      (defun org-reload-org (&optional source)
