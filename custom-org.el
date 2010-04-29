@@ -21,6 +21,12 @@
      ;; speed navigation commands:
      (setq org-use-speed-commands t)
 
+     ;; Don't use the agenda at the moment, so rebind C-, to my
+     ;; scrolling commands:
+     (add-hook 'org-mode-hook
+               (lambda ()
+                 (local-set-key (kbd "C-,") 'scroll-up-one-line)))
+
      ;; from http://orgmode.org/worg/org-hacks.php (Bernt Hansen, with my
      ;; tidy-ups)
      (defun org-reload-org (&optional source)
