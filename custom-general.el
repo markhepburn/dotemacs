@@ -55,10 +55,10 @@
   ;; options, and crucially has the ability refresh the cache):
   (setq smex-save-file "~/.emacs.d/smex.save")
   (add-to-list 'load-path (concat *mh/lisp-base* "smex"))
-  (require 'smex)                       ; note that it is /initialised/ at the very end of emacs init
+  (require 'smex)
+  (smex-initialize)
   (global-set-key (kbd "M-x") 'smex)
   (global-set-key (kbd "M-X") 'smex-major-mode-commands)
-  (global-set-key (kbd "C-x M-x") 'smex-update-and-run)
 
   (when (require 'imenu nil t)
     ;; http://chopmo.blogspot.com/2008/09/quickly-jumping-to-symbols.html

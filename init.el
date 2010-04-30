@@ -84,12 +84,6 @@
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 
-;;; smex should have been loaded in custom-general.el; this set-up
-;;; must be performed at the end of initialisation though (add a
-;;; safety-clause in case I tweak anything and forget to update it
-;;; here though):
-(if (featurep 'smex) (smex-initialize))
-
 ;;; Don't think this is needed, with the --daemon mode kicking in:
 ;(server-start)
 
