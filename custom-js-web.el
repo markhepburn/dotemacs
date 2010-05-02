@@ -41,6 +41,11 @@
 ;;; basic html (and inherited by django-html); don't auto-fill:
 (add-hook 'html-mode-hook (lambda () (auto-fill-mode -1)))
 
+;;; zencoding shortcuts for html generation:
+(add-to-list 'load-path (concat *mh/lisp-base* "zencoding"))
+(autoload 'zencoding-mode "zencoding-mode" "Zencoding HTML generation shortcuts" t)
+(add-hook 'sgml-mode-hook 'zencoding-mode)
+
 ;;; django templates:
 (autoload 'django-html-mode "django-html-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . django-html-mode))
