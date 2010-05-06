@@ -6,6 +6,10 @@
 (autoload 'js2-mode "js2" nil t)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (setq js2-auto-indent-flag nil)         ; must be set /before/ loading
+(setq-default js2-basic-offset 2)       ; (default has changed to
+                                        ; c-basic-offset, but I'm used
+                                        ; to 2 now)
+(setq js2-bounce-indent t)
 (eval-after-load "js2"
   '(when (require 'js-comint nil t)
      (setq inferior-js-program-command "rhino")
