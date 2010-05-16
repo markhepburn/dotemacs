@@ -35,17 +35,6 @@
 	(if diff-window (select-window diff-window))))
 
 ;; Git integration:
-;; (add-to-list 'load-path (expand-file-name "~/src/elisp/git-emacs"))
-;; (require 'git-emacs)
-;; Try using the official mode; the above seems better, but it forces
-;; ido mode which pisses me off (update: I'm using that now actually, but I'll
-;; stick with the standard inclusion for a while!) .  See also "magit".
-;; (add-to-list 'load-path (expand-file-name "~/src/git-1.6.0.1/contrib/emacs/"))
-;; (require 'git)
-;; (autoload 'git-status "git" "Git interaction mode" t)
-(autoload 'git-blame-mode "git-blame" "Minor mode for incremental blame for Git." t)
-(add-to-list 'load-path (concat *mh/lisp-base* "gitsum"))
-(require 'gitsum)
 ;;; Experimenting with magit mode, on the advice of many (well, @philjackson and @jamesvnc on twitter :))
 (add-to-list 'load-path (concat *mh/lisp-base* "magit"))
 (autoload 'magit-status "magit" "magit interface for git" t)
