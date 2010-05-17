@@ -31,12 +31,16 @@
   symlinks).")
 (add-to-list 'load-path *mh/lisp-base*)
 
-;;; site-specific customisations; for now, assume that this can be
-;;; done by platform, since it's linux at work, OSX at home.  Just
-;;; name the file the same as is reported by system-type (#'load will
-;;; stick the ".el" on the end automatically).
+;;; Some settings need to be machine-specific, such as CEDET project
+;;; definitions, while others are platform-specific (eg, I use
+;;; maxframe on osx, but this is redundant on linux where xmonad takes
+;;; care of that).  To do this, load files (if they exist)
+;;; corresponding to the reported 'system-type and 'system-name
+;;; (#'load will stick the ".el" on the end automatically).  Second
+;;; argument 't to 'load means no error if the file doesn't exist.
 (load (subst-char-in-string ?/ ?- (symbol-name system-type))
-      t)			       ; no error if it doesn't exist.
+      t)
+(load system-name t)       ; Assume for now it is not fully-qualified.
 
 ;;; loaded before custom-general because of enable-minor-mode-for
 ;;; macro, which is used in -general:
