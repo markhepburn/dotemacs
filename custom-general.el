@@ -325,6 +325,8 @@
 ;; quotes/brackets/tags:
 ;(require 'wrap-region)
 ;; Update -- already included in emacs!
+;;; See http://code.google.com/p/autopair/ for a more sophisticated
+;;; attempt; not installing yet but keep an eye on it.
 (setq skeleton-pair t)
 (when skeleton-pair
   (setq skeleton-autowrap t)
