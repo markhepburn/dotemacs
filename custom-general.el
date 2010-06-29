@@ -245,7 +245,8 @@
 (autoload 'ack-grep "ack" "Intelligent form of grep-find" t)
 
 ;; Twitter; only bother autoloading #'twit-post:
-(setq twit-user "markhepburn")
+(setq-default twit-user "markhepburn")
+(setq-default twit-protocol "https")
 (autoload 'twit-post "twit" "Post to twitter" t)
 
 ;; bind C-h a to 'apropos like in xemacs (not apropos-command as it is
