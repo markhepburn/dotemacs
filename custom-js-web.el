@@ -9,7 +9,7 @@
 (setq-default js2-basic-offset 2)       ; (default has changed to
                                         ; c-basic-offset, but I'm used
                                         ; to 2 now)
-(setq js2-bounce-indent t)
+(setq-default js2-bounce-indent-p t)
 (eval-after-load "js2"
   '(when (require 'js-comint nil t)
      (setq inferior-js-program-command "rhino")
