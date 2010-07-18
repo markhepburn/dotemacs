@@ -4,7 +4,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; nxml-mode should be auto-loaded automatically I think:
 (add-to-list 'auto-mode-alist
-             (cons (concat "\\." (regexp-opt '("xml" "xsd" "sch" "rng" "xslt" "svg" "rss") t) "\\'")
+             (cons (concat "\\." (regexp-opt '("xml" "xsd" "sch" "rng" "xslt" "svg" "rss" "kml" "kmz") t) "\\'")
                    'nxml-mode))
 (fset 'xml-mode 'nxml-mode)
 ;;; Hook(s):
