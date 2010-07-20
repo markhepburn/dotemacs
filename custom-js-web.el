@@ -13,7 +13,9 @@
 (eval-after-load "js2"
   '(when (require 'js-comint nil t)
      (setq inferior-js-program-command "rhino")
-     (add-hook 'js2-mode-hook '(lambda () 
+     (add-hook 'js2-mode-hook '(lambda ()
+                                 (local-set-key "\C-c\C-z" 'run-js)
+                                 (local-set-key "\C-c\C-r" 'js-send-region-and-go)
                                  (local-set-key "\C-x\C-e" 'js-send-last-sexp)
                                  (local-set-key "\C-\M-x"  'js-send-last-sexp-and-go)
                                  (local-set-key "\C-cb"    'js-send-buffer)
