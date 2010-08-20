@@ -39,13 +39,13 @@
 	url = git://github.com/jwiegley/haskell-mode.git
 [submodule "maxframe"]
 	path = maxframe
-	url = git@github.com:markhepburn/maxframe-el.git
+	url = git://github.com/markhepburn/maxframe-el.git
 [submodule "http-twiddle"]
 	path = http-twiddle
 	url = git://github.com/hassy/http-twiddle.git
 [submodule "tags-view"]
 	path = tags-view
-	url = git@github.com:markhepburn/tags-view.git
+	url = git://github.com/markhepburn/tags-view.git
 [submodule "magit"]
 	path = magit
 	url = http://github.com/philjackson/magit.git
