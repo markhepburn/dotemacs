@@ -2,7 +2,7 @@
   '(progn
      (ede-cpp-root-project "Atlantis"
                            :name "Atlantis"
-                           :file "~/Projects/atlantis/Project.ede"
+                           :file "~/Projects/Atlantis/atlantis/Project.ede"
                            :include-path '("/atassess/include"
                                            "/atecology/include"
                                            "/ateconomic/include"
@@ -22,7 +22,7 @@
                                                   "/usr/include/libcsoap-1.0"))
      (ede-cpp-root-project "Atlantis-integration"
                            :name "Atlantis-integration"
-                           :file "~/Projects/atlantis-integration-dev/Project.ede"
+                           :file "~/Projects/Atlantis/atlantis-integration-dev/Project.ede"
                            :include-path '("/atassess/include"
                                            "/atecology/include"
                                            "/ateconomic/include"
