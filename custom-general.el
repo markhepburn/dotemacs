@@ -453,12 +453,6 @@
                               (define-key comint-mode-map
                                 [(down)] 'comint-next-input)))
 
-
-;; M-g is currently bound to facemenu- stuff, which I don't
-;; use/understand; bind as in xemacs instead (update: recent
-;; versions bind to M-g g, which might be more tolerable):
-(global-set-key [(meta ?g)] #'goto-line)
-
 ;; Make sure script files are executable after save:
 (add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
 
