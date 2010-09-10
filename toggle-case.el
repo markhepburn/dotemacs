@@ -1,6 +1,6 @@
 ;;; **************************************************************************
-;; @(#) toggle-case.el -- toggles case at poitn like ~ in vi
-;; @(#) $Id: toggle-case.el,v 1.4 2001/01/11 03:03:33 root Exp $
+;; @(#) toggle-case.el -- toggles case at point like ~ in vi
+;; @(#) $Id: toggle-case.el,v 1.5 2008/11/20 23:40:53 joe Exp $
 
 ;; This file is not part of Emacs
 
@@ -49,45 +49,45 @@
 
 ;;; Usage:
 ;;
-;;  M-x `joc-toggle-case'
+;;  M-x `toggle-case'
 ;;     Toggles the case of the character under point.  If called with
 ;;     a prefix argument, it toggles that many characters (see
-;;     joc-toggle-case-stop-at-eol).  If the prefix is negative, the
+;;     toggle-case-stop-at-eol).  If the prefix is negative, the
 ;;     case of the character before point is toggled, and if called
 ;;     with a prefix argument, N characters before point will have
-;;     their case toggled (see also joc-toggle-case-backwards).
+;;     their case toggled (see also toggle-case-backwards).
 ;;
-;;  M-x `joc-toggle-case-backwards'
+;;  M-x `toggle-case-backwards'
 ;;     Convenience function to toggle case of character preceeding
-;;     point.  This is the same as calling joc-toggle-case with a
+;;     point.  This is the same as calling toggle-case with a
 ;;     negative prefix (and is in fact implemented that way).
 ;;
-;;  M-x `joc-toggle-case-by-word'
-;;     Similar to joc-toggle-case except that the count (supplied by
+;;  M-x `toggle-case-by-word'
+;;     Similar to toggle-case except that the count (supplied by
 ;;     the prefix argument) is of the number of words, not letters, to
 ;;     be toggled.  It will start from point and move to the end of
 ;;     the first word at a minimum, and then take whole words from
 ;;     there.  If called with a negative prefix, then from point to
 ;;     beginning of current word will have their case toggled, going
 ;;     backwards for N words (see also
-;;     joc-toggle-case-by-word-backwards).  Note that the
-;;     joc-toggle-case-stop-at-eol setting will be honored.
+;;     toggle-case-by-word-backwards).  Note that the
+;;     toggle-case-stop-at-eol setting will be honored.
 ;;
-;;  M-x `joc-toggle-case-by-word-backwards'
+;;  M-x `toggle-case-by-word-backwards'
 ;;     Convenience function to toggle case by word, backwards.  This
-;;     is the same as calling joc-toggle-case-by-word with a
+;;     is the same as calling toggle-case-by-word with a
 ;;     negative prefix (and is in fact implemented that way).
 ;;
-;;  M-x `joc-toggle-case-by-word-backwards'
+;;  M-x `toggle-case-by-word-backwards'
 ;;     Toggles the case of all characters in the current region.
 
 ;;; Customization:
 ;;
-;;  M-x `joc-toggle-case-customize' to customize all package options.
+;;  M-x `toggle-case-customize' to customize all package options.
 ;;
 ;;  The following variables can be customized:
 ;;
-;;  o `joc-toggle-case-stop-at-eol'
+;;  o `toggle-case-stop-at-eol'
 ;;        Boolean used to determine whether or not the toggle
 ;;        advancement stops at the end of a line.  Set to `t' it will
 ;;        stop at the end of the line, set to `nil' it will not (it
@@ -99,16 +99,11 @@
 ;;
 ;;  This is what I have -- use it or not as you like.
 ;;
-;;       (global-set-key [(control \`)] 'joc-toggle-case)
-;;       (global-set-key [(control ~)] 'joc-toggle-case-backwards)
+;;       (global-set-key [(control \`)] 'toggle-case)
+;;       (global-set-key [(control ~)] 'toggle-case-backwards)
 ;;
-;;       (global-set-key [(control meta \`)] 'joc-toggle-case-by-word)
-;;       (global-set-key [(control meta ~)] 'joc-toggle-case-by-word-backwards)
-;;
-;;       (define-key joc-F3-keymap [(\`)] 'joc-toggle-case-by-region)
-;;
-;;   I have a special F3 keymap which this last one is bound to.
-;;   Email me if you'd like more details.
+;;       (global-set-key [(control meta \`)] 'toggle-case-by-word)
+;;       (global-set-key [(control meta ~)] 'toggle-case-by-word-backwards)
 
 ;;; To Do:
 ;;
@@ -133,56 +128,56 @@
 ;;; **************************************************************************
 ;;; ***** customization routines
 ;;; **************************************************************************
-(defgroup joc-toggle-case nil
-  "joc-toggle-case package customization"
+(defgroup toggle-case nil
+  "toggle-case package customization"
   :group 'tools)
 
 ;; ---------------------------------------------------------------------------
-(defun joc-toggle-case-customize ()
-  "Customization of the group joc-toggle-case."
+(defun toggle-case-customize ()
+  "Customization of the group toggle-case."
   (interactive)
-  (customize-group "joc-toggle-case"))
+  (customize-group "toggle-case"))
 
 ;; ---------------------------------------------------------------------------
-(defcustom joc-toggle-case-stop-at-eol nil
+(defcustom toggle-case-stop-at-eol nil
   "Boolean used to determine whether or not the toggle
 advancement stops at the end of a line.  Set to `t' it will
 stop at the end of the line, set to `nil' it will not (it
 will continue on to the next line).  If direction of toggle
 is reversed, the semantics of this are reveresed as well
 (i.e. does it stop at the beginning of the line)."
-  :group 'joc-toggle-case
+  :group 'toggle-case
   :type 'boolean)
 
 ;;; **************************************************************************
 ;;; ***** version related routines
 ;;; **************************************************************************
-(defconst joc-toggle-case-version
-  "$Revision: 1.4 $"
-  "joc-toggle-case version number.")
+(defconst toggle-case-version
+  "$Revision: 1.5 $"
+  "toggle-case version number.")
 
 ;; ---------------------------------------------------------------------------
-(defun joc-toggle-case-version-number ()
-  "Returns joc-toggle-case version number."
-  (string-match "[0123456789.]+" joc-toggle-case-version)
-  (match-string 0 joc-toggle-case-version))
+(defun toggle-case-version-number ()
+  "Returns toggle-case version number."
+  (string-match "[0123456789.]+" toggle-case-version)
+  (match-string 0 toggle-case-version))
 
 ;; ---------------------------------------------------------------------------
-(defun joc-toggle-case-display-version ()
-  "Displays joc-toggle-case version."
+(defun toggle-case-display-version ()
+  "Displays toggle-case version."
   (interactive)
-  (message "joc-toggle-case version <%s>." (joc-toggle-case-version-number)))
+  (message "toggle-case version <%s>." (toggle-case-version-number)))
 
 ;;; **************************************************************************
 ;;; ***** interactive functions
 ;;; **************************************************************************
-(defun joc-toggle-case (prefix)
+(defun toggle-case (prefix)
   "Toggles the case of the character under point.  If called with
 a prefix argument, it toggles that many characters (see
-joc-toggle-case-stop-at-eol).  If the prefix is negative, the
+toggle-case-stop-at-eol).  If the prefix is negative, the
 case of the character before point is toggled, and if called
 with a prefix argument, N characters before point will have
-their case toggled (see also joc-toggle-case-backwards)."
+their case toggled (see also toggle-case-backwards)."
 
   (interactive "*p")
 
@@ -195,7 +190,7 @@ their case toggled (see also joc-toggle-case-backwards)."
 	  (setq lcv (1+ lcv))
 
 	  ;; make sure we're not at [be]ol
-	  (if (and joc-toggle-case-stop-at-eol
+	  (if (and toggle-case-stop-at-eol
 			   (or (and forward-flag (eolp))
 				   (and (not forward-flag) (bolp))))
 		  ;; set it high to exit
@@ -207,24 +202,24 @@ their case toggled (see also joc-toggle-case-backwards)."
 		  (setq lcv count)))))
 
 ;; ---------------------------------------------------------------------------
-(defun joc-toggle-case-backwards (prefix)
+(defun toggle-case-backwards (prefix)
   "Convenience function to toggle case of character preceeding
-point.  This is the same as calling joc-toggle-case with a
+point.  This is the same as calling toggle-case with a
 negative prefix (and is in fact implemented that way)."
   (interactive "*p")
-  (joc-toggle-case (- prefix)))
+  (toggle-case (- prefix)))
 
 ;; ---------------------------------------------------------------------------
-(defun joc-toggle-case-by-word (prefix)
-  "Similar to joc-toggle-case except that the count (supplied by
+(defun toggle-case-by-word (prefix)
+  "Similar to toggle-case except that the count (supplied by
 the prefix argument) is of the number of words, not letters, to
 be toggled.  It will start from point and move to the end of
 the first word at a minimum, and then take whole words from
 there.  If called with a negative prefix, then from point to
 beginning of current word will have their case toggled, going
 backwards for N words (see also
-joc-toggle-case-by-word-backwards).  Note that the
-joc-toggle-case-stop-at-eol setting will be honored."
+toggle-case-by-word-backwards).  Note that the
+toggle-case-stop-at-eol setting will be honored."
 
   (interactive "*p")
 
@@ -235,35 +230,35 @@ joc-toggle-case-stop-at-eol setting will be honored."
 	  ;; this leaves us at the end (or beginning) of the word
 	  (forward-word prefix)
 	  (setq end (point)))
-	(joc-toggle-case (- end start))))
+	(toggle-case (- end start))))
 
 ;; ---------------------------------------------------------------------------
-(defun joc-toggle-case-by-word-backwards (prefix)
+(defun toggle-case-by-word-backwards (prefix)
   "Convenience function to toggle case by word, backwards.  This
-is the same as calling joc-toggle-case-by-word with a
+is the same as calling toggle-case-by-word with a
 negative prefix (and is in fact implemented that way)."
   (interactive "*p")
-  (joc-toggle-case-by-word (- prefix)))
+  (toggle-case-by-word (- prefix)))
 
 ;; ---------------------------------------------------------------------------
-(defun joc-toggle-case-by-region (start end)
+(defun toggle-case-by-region (start end)
   "Toggles the case of all characters in the current region."
   (interactive "*r")
   (save-excursion
 	(let ((deactivate-mark nil))
 	  (goto-char start)
-	  (joc-toggle-case (- end start))
+	  (toggle-case (- end start))
 	  (forward-char 2))))
 
 ;;; **************************************************************************
 ;;; ***** non-interactive functions
 ;;; **************************************************************************
 (defun joc-internal-toggle-case (forward-flag)
-  "Internal workhorse for joc-toggle-case functions."
+  "Internal workhorse for toggle-case functions."
 
   (let ((backward-flag (not forward-flag)))
 	;; if we're to stop at [be]ol and we're already there, check that first
-	(if (and joc-toggle-case-stop-at-eol
+	(if (and toggle-case-stop-at-eol
 			 (or (and backward-flag (bolp))
 				 (and forward-flag (eolp))))
 		;; note an error
@@ -288,13 +283,13 @@ negative prefix (and is in fact implemented that way)."
 		;; maybe move point to next position
 
 		;; stop && backwards && BOL
-		(if (and joc-toggle-case-stop-at-eol
+		(if (and toggle-case-stop-at-eol
 				 backward-flag
 				 (bolp))
 			;; warn the user
 			(ding)
 		  ;; stop && forwards && EOL
-		  (if (and joc-toggle-case-stop-at-eol
+		  (if (and toggle-case-stop-at-eol
 				   forward-flag
 				   (eolp))
 			  ;; warn the user

@@ -218,11 +218,11 @@
 ;; use shift-arrow to move between windows:
 (windmove-default-keybindings)
 ;; vi-like case toggle:
-(when (require 'joc-toggle-case nil t)
-  (global-set-key [(control \`)]      'joc-toggle-case)
-  (global-set-key [(control ~)]       'joc-toggle-case-backwards)
-  (global-set-key [(control meta \`)] 'joc-toggle-case-by-word)
-  (global-set-key [(control meta ~)]  'joc-toggle-case-by-word-backwards))
+(when (require 'toggle-case nil t)
+  (global-set-key [(control \`)]      'toggle-case)
+  (global-set-key [(control ~)]       'toggle-case-backwards)
+  (global-set-key [(control meta \`)] 'toggle-case-by-word)
+  (global-set-key [(control meta ~)]  'toggle-case-by-word-backwards))
 
 ;; make all buffer-names unique:
 (when (require 'uniquify nil t)
