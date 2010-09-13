@@ -14,6 +14,10 @@
 ;;; font-lock for apt sources:
 (add-to-list 'auto-mode-alist '("sources\\.list\\'" . conf-mode))
 
+;;; Make sure that the default browser is used by browse-url*:
+(setq browse-url-browser-function 'browse-url-generic
+      browse-url-generic-program "x-www-browser")
+
 ;;; only use org-agenda mode in Linux:
 ;; (eval-after-load "org"
 ;;   '(progn
