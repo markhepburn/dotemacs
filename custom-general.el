@@ -217,6 +217,10 @@
 
 ;; use shift-arrow to move between windows:
 (windmove-default-keybindings)
+;;; and rotate windows too:
+(dolist (fn '(buf-move-up buf-move-down buf-move-left buf-move-right))
+  (let ((file "buffer-move"))
+    (autoload fn file "Swap buffers between windows" t)))
 ;; vi-like case toggle:
 (when (require 'toggle-case nil t)
   (global-set-key [(control \`)]      'toggle-case)
