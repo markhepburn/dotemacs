@@ -74,6 +74,9 @@
 (add-hook 'css-mode-hook
           (lambda () (local-set-key "{" 'autopair-open-block)))
 
+;;; Now using LessCSS; just use regular css-mode for that in the absence of anything specialised:
+(add-to-list 'auto-mode-alist '("\\.css\\'" . css-mode))
+
 ;; (add-to-list 'load-path (expand-file-name "~/elisp/mmm-mode-0.4.8"))
 ;; ;; MMM-Mode
 ;; (require 'mmm-auto)
