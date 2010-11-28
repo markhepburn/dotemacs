@@ -55,3 +55,6 @@
 [submodule "zencoding"]
 	path = zencoding
 	url = http://github.com/chrisdone/zencoding.git
+[submodule "auctex"]
+	path = auctex
+	url = https://github.com/eschulte/auctex.git

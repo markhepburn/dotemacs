@@ -1,6 +1,11 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; LaTeX stuff:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Load AucTeX:
+(add-to-list 'load-path (concat *mh/lisp-base* "auctex"))
+(load "auctex.el" nil t t)
+;; (load "preview-latex.el" nil t t)
+
 (eval-after-load "latex"
   '(progn
      ;; don't put comments to the middle of the page!
