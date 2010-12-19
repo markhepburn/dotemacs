@@ -95,3 +95,4 @@
          (destructuring-bind (hi lo ms) (current-time)
            (- (+ hi lo) (+ (first *mh/load-start-time*)
                            (second *mh/load-start-time*)))))
+(put 'set-goal-column 'disabled nil)
