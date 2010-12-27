@@ -8,6 +8,8 @@
 (setq backup-inhibited t)
 ;; work with compressed files:
 (auto-compression-mode 1)
+;; update files changed on disk (mainly for use with dropbox):
+(global-auto-revert-mode 1)
 ;; don't show toolbar:
 (tool-bar-mode -1)
 ;; hide the menu-bar by default (accessible by C-right-click):
