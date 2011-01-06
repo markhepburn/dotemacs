@@ -10,6 +10,49 @@
                                         ; c-basic-offset, but I'm used
                                         ; to 2 now)
 (setq-default js2-bounce-indent-p t)
+
+;;; Integration with espresso-mode's indenting, courtesy of
+;;; http://mihai.bazon.net/projects/editing-javascript-with-emacs-js2-mode
+;;; Note that "espresso.el" is now "js.el", included as part of emacs 23.2
+(autoload 'js-mode "js")
+(defun mh/js2-indent-function ()
+  (interactive)
+  (save-restriction
+    (widen)
+    (let* ((inhibit-point-motion-hooks t)
+           (parse-status (save-excursion (syntax-ppss (point-at-bol))))
+           (offset (- (current-column) (current-indentation)))
+           (indentation (js--proper-indentation parse-status))
+           node)
+
+      (save-excursion
+
+        ;; consecutive declarations in a var statement are nice if
+        ;; properly aligned, i.e:
+        ;;
+        ;; var foo = "bar",
+        ;;     bar = "foo";
+        (setq node (js2-node-at-point))
+        (when (and node
+                   (= js2-NAME (js2-node-type node))
+                   (= js2-VAR (js2-node-type (js2-node-parent node))))
+          (setq indentation (+ 4 indentation))))
+
+      (indent-line-to indentation)
+      (when (> offset 0) (forward-char offset)))))
+(defun mh/js-enable-espresso-indentation ()
+  (when (require 'js nil t)
+    (setq js-indent-level js2-basic-offset)
+    (set (make-local-variable 'indent-line-function)
+         'mh/js2-indent-function)))
+(add-hook 'js2-mode-hook 'mh/js-enable-espresso-indentation)
+;;; highlight-vars-mode from
+;;; http://mihai.bazon.net/projects/editing-javascript-with-emacs-js2-mode/js2-highlight-vars-mode
+(defun mh/js-enable-highlight-vars ()
+  (when (require 'js2-highlight-vars nil t)
+    (js2-highlight-vars-mode)))
+(add-hook 'js2-mode-hook 'mh/js-enable-highlight-vars)
+
 (eval-after-load "js2"
   '(when (require 'js-comint nil t)
      (setq inferior-js-program-command "rhino")
