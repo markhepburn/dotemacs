@@ -94,6 +94,10 @@
 (add-to-list 'load-path (concat *mh/lisp-base* "zencoding"))
 (autoload 'zencoding-mode "zencoding-mode" "Zencoding HTML generation shortcuts" t)
 (add-hook 'sgml-mode-hook 'zencoding-mode)
+;;; reclaim C-j keybinding from zencoding!
+(eval-after-load "zencoding-mode"
+  '(progn
+     (define-key zencoding-mode-keymap (kbd "C-j") nil)))
 
 ;;; django templates:
 (autoload 'django-html-mode "django-html-mode" nil t)
