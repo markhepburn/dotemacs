@@ -223,6 +223,11 @@
 (dolist (fn '(buf-move-up buf-move-down buf-move-left buf-move-right))
   (let ((file "buffer-move"))
     (autoload fn file "Swap buffers between windows" t)))
+(global-set-key (kbd "M-g <left>")  'buf-move-left)
+(global-set-key (kbd "M-g <right>") 'buf-move-right)
+(global-set-key (kbd "M-g <up>")    'buf-move-up)
+(global-set-key (kbd "M-g <down>")  'buf-move-down)
+
 ;; vi-like case toggle:
 (when (require 'toggle-case nil t)
   (global-set-key [(control \`)]      'toggle-case)
