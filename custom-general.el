@@ -11,7 +11,7 @@
 ;; update files changed on disk (mainly for use with dropbox):
 (global-auto-revert-mode 1)
 ;; don't show toolbar:
-(tool-bar-mode -1)
+(when window-system (tool-bar-mode -1))
 ;; hide the menu-bar by default (accessible by C-right-click):
 (menu-bar-mode -1)
 ;; line and column-number modes:
