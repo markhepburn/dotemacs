@@ -3,6 +3,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;; never mind all that, use Yegge's awesome mode:
+(add-to-list 'load-path (concat *mh/lisp-base* "js2-mode"))
 (autoload 'js2-mode "js2" nil t)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (setq js2-auto-indent-flag nil)         ; must be set /before/ loading
@@ -45,7 +46,8 @@
     (setq js-indent-level js2-basic-offset)
     (set (make-local-variable 'indent-line-function)
          'mh/js2-indent-function)))
-(add-hook 'js2-mode-hook 'mh/js-enable-espresso-indentation)
+;; (add-hook 'js2-mode-hook 'mh/js-enable-espresso-indentation)
+
 ;;; highlight-vars-mode from
 ;;; http://mihai.bazon.net/projects/editing-javascript-with-emacs-js2-mode/js2-highlight-vars-mode
 (defun mh/js-enable-highlight-vars ()
