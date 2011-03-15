@@ -335,17 +335,34 @@
 
 ;;; escreen; gnu-screen for emacs:
 (add-to-list 'load-path (concat *mh/lisp-base* "escreen"))
+(setq escreen-prefix-char (kbd "C-z"))  ;; must be done before loading!
 (when (require 'escreen nil t)
-  (setq escreen-prefix-char (kbd "C-z"))
-  (global-set-key escreen-prefix-char 'escreen-prefix)
-  (setq escreen-one-screen-p nil)
   (escreen-install)
+  (setq escreen-one-screen-p nil)
+  ;; adapted from http://blog.tapoueh.org/news.dim.html#%20Escreen%20integration
+  (defun escreen-get-active-screen-numbers-with-emphasis ()
+    "Display active screens, with the active screen emphasised."
+    (interactive)
+    (let ((escreens (escreen-get-active-screen-numbers))
+          (emphasised ""))
+      (dolist (s escreens)
+        (setq emphasised
+              (concat emphasised (if (= escreen-current-screen-number s)
+                                   (propertize (number-to-string s)
+                                               'face 'highlight)
+                                   (number-to-string s))
+                      " ")))
+      (message "[escreen] active screens: %s" emphasised)))
+  (defmacro escreen-advise-emphasis (fn)
+    `(defadvice ,fn (after ,(intern (concat (symbol-name fn) "-emphasis")) activate)
+       (escreen-get-active-screen-numbers-with-emphasis)))
 
   ;; Make the keybindings a bit more familiar:
-  (define-key escreen-map (kbd "C-c") 'escreen-create-screen)
-  (define-key escreen-map (kbd "C-k") 'escreen-kill-screen)
-  (define-key escreen-map (kbd "C-n") 'escreen-goto-next-screen)
-  (define-key escreen-map (kbd "C-p") 'escreen-goto-prev-screen))
+  (define-key escreen-map (kbd "C-l") 'escreen-get-active-screen-numbers-with-emphasis)
+  (define-key escreen-map (kbd "C-c") (escreen-advise-emphasis escreen-create-screen))
+  (define-key escreen-map (kbd "C-k") (escreen-advise-emphasis escreen-kill-screen))
+  (define-key escreen-map (kbd "C-n") (escreen-advise-emphasis escreen-goto-next-screen))
+  (define-key escreen-map (kbd "C-p") (escreen-advise-emphasis escreen-goto-prev-screen)))
 
 ;; Appearance: I don't mind the zenburn theme, might experiment with that occasionally:
 ; (autoload 'zenburn "zenburn" "Zenburn colour theme" t)
