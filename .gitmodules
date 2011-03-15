@@ -61,3 +61,6 @@
 [submodule "js2-mode"]
 	path = js2-mode
 	url = https://github.com/mooz/js2-mode.git
+[submodule "twittering-mode"]
+	path = twittering-mode
+	url = https://github.com/hayamiz/twittering-mode.git

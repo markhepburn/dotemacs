@@ -255,10 +255,18 @@
 ;;; use ack (note that I have two versions of this command installed):
 (autoload 'ack-grep "ack" "Intelligent form of grep-find" t)
 
-;; Twitter; only bother autoloading #'twit-post:
-(setq-default twit-user "markhepburn")
-(setq-default twit-protocol "https")
-(autoload 'twit-post "twit" "Post to twitter" t)
+;; Twitter (Used to use twit.el, but that doesn't support OAuth):
+(add-to-list 'load-path (concat *mh/lisp-base* "twittering-mode"))
+(autoload 'twit "twittering-mode" "Twittering mode" t)
+(eval-after-load "twittering-mode"
+  '(progn
+     (twittering-icon-mode)
+     (defalias 'twit-post 'twittering-update-status-interactive
+       "Post from the minibuffer (or whatever it is set to) without invoking twit.")))
+(setq twittering-update-status-function 'twittering-update-status-from-minibuffer
+      twittering-timer-interval 36000        ; I don't want auto-refresh
+      twittering-use-master-password t
+      twittering-url-show-status nil)
 
 ;; bind C-h a to 'apropos like in xemacs (not apropos-command as it is
 ;; in emacs by default)
