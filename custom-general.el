@@ -157,7 +157,7 @@
               (dired-omit-mode 1))))
 
 ;; Scroll-bars on the right please:
-(when window-system (set-scroll-bar-mode 'right))
+(if (fboundp 'set-scroll-bar-mode) (set-scroll-bar-mode 'right))
 ;; No startup message please:
 (setq inhibit-startup-message t)
 ;; save a few key strokes from typing 'yes':
