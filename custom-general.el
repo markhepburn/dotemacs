@@ -326,17 +326,26 @@
       (bm-show-all)
     ad-do-it))
 
-;; gnu screen for emacs (multiple window configurations):
-;(setq elscreen-display-tab nil)         ;don't display tabs by default
 ;;; library apel is required for elscreen, but may be installed by the
 ;;; distro; check before adding to the path ('alist is a proxy for
 ;;; apel in this case)
 (unless (featurep 'alist)
-  (add-to-list 'load-path (concat *mh/lisp-base* "apel-10.7")))
-(when (require 'elscreen nil t)
-  ;; C-a C-a is burned in to my fingers from gnu screen; this emulates
-  ;; that feeling of hitting the prefix key twice to toggle:
-  (define-key elscreen-map elscreen-prefix-key 'elscreen-toggle))
+  (add-to-list 'load-path (concat *mh/lisp-base* "apel-10.7"))
+  (require 'alist nil t))
+
+;;; escreen; gnu-screen for emacs:
+(add-to-list 'load-path (concat *mh/lisp-base* "escreen"))
+(when (require 'escreen nil t)
+  (setq escreen-prefix-char (kbd "C-z"))
+  (global-set-key escreen-prefix-char 'escreen-prefix)
+  (setq escreen-one-screen-p nil)
+  (escreen-install)
+
+  ;; Make the keybindings a bit more familiar:
+  (define-key escreen-map (kbd "C-c") 'escreen-create-screen)
+  (define-key escreen-map (kbd "C-k") 'escreen-kill-screen)
+  (define-key escreen-map (kbd "C-n") 'escreen-goto-next-screen)
+  (define-key escreen-map (kbd "C-p") 'escreen-goto-prev-screen))
 
 ;; Appearance: I don't mind the zenburn theme, might experiment with that occasionally:
 ; (autoload 'zenburn "zenburn" "Zenburn colour theme" t)
