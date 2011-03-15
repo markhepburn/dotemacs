@@ -337,8 +337,8 @@
 (add-to-list 'load-path (concat *mh/lisp-base* "escreen"))
 (setq escreen-prefix-char (kbd "C-z"))  ;; must be done before loading!
 (when (require 'escreen nil t)
-  (escreen-install)
   (setq escreen-one-screen-p nil)
+  (escreen-install)
   ;; adapted from http://blog.tapoueh.org/news.dim.html#%20Escreen%20integration
   (defun escreen-get-active-screen-numbers-with-emphasis ()
     "Display active screens, with the active screen emphasised."
