@@ -364,6 +364,7 @@
        (escreen-get-active-screen-numbers-with-emphasis)))
 
   ;; Make the keybindings a bit more familiar:
+  (escreen-advise-emphasis escreen-goto-last-screen)
   (define-key escreen-map (kbd "C-l") 'escreen-get-active-screen-numbers-with-emphasis)
   (define-key escreen-map (kbd "C-c") (escreen-advise-emphasis escreen-create-screen))
   (define-key escreen-map (kbd "C-k") (escreen-advise-emphasis escreen-kill-screen))
