@@ -339,6 +339,12 @@
 (when (require 'escreen nil t)
   (setq escreen-one-screen-p nil)
   (escreen-install)
+  (defun escreen-find-file-new-screen (filename &optional wildcards)
+    (interactive
+     (find-file-read-args "Find file: "
+                          (confirm-nonexistent-file-or-buffer)))
+    (escreen-create-screen)
+    (find-file filename wildcards))
   ;; adapted from http://blog.tapoueh.org/news.dim.html#%20Escreen%20integration
   (defun escreen-get-active-screen-numbers-with-emphasis ()
     "Display active screens, with the active screen emphasised."
@@ -362,7 +368,8 @@
   (define-key escreen-map (kbd "C-c") (escreen-advise-emphasis escreen-create-screen))
   (define-key escreen-map (kbd "C-k") (escreen-advise-emphasis escreen-kill-screen))
   (define-key escreen-map (kbd "C-n") (escreen-advise-emphasis escreen-goto-next-screen))
-  (define-key escreen-map (kbd "C-p") (escreen-advise-emphasis escreen-goto-prev-screen)))
+  (define-key escreen-map (kbd "C-p") (escreen-advise-emphasis escreen-goto-prev-screen))
+  (define-key escreen-map (kbd "C-f") (escreen-advise-emphasis escreen-find-file-new-screen)))
 
 ;; Appearance: I don't mind the zenburn theme, might experiment with that occasionally:
 ; (autoload 'zenburn "zenburn" "Zenburn colour theme" t)
