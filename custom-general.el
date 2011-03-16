@@ -345,6 +345,16 @@
                           (confirm-nonexistent-file-or-buffer)))
     (escreen-create-screen)
     (find-file filename wildcards))
+  (defun escreen-kill-screen-and-buffers ()
+    (interactive)
+    (let ((current-escreen (escreen-get-current-screen-number)))
+      (if (escreen-configuration-one-screen-p)
+          (error "[escreen] Only one active screen; can't kill it.")
+        (dolist (data-map (escreen-configuration-data-map
+                           (escreen-configuration-escreen current-escreen)))
+          (kill-buffer (escreen-configuration-data-map-critical-buffer
+                        (escreen-configuration-data-map-critical data-map))))
+        (escreen-kill-screen current-escreen))))
   ;; adapted from http://blog.tapoueh.org/news.dim.html#%20Escreen%20integration
   (defun escreen-get-active-screen-numbers-with-emphasis ()
     "Display active screens, with the active screen emphasised."
@@ -368,6 +378,7 @@
   (define-key escreen-map (kbd "C-l") 'escreen-get-active-screen-numbers-with-emphasis)
   (define-key escreen-map (kbd "C-c") (escreen-advise-emphasis escreen-create-screen))
   (define-key escreen-map (kbd "C-k") (escreen-advise-emphasis escreen-kill-screen))
+  (define-key escreen-map (kbd "M-k") (escreen-advise-emphasis escreen-kill-screen-and-buffers))
   (define-key escreen-map (kbd "C-n") (escreen-advise-emphasis escreen-goto-next-screen))
   (define-key escreen-map (kbd "C-p") (escreen-advise-emphasis escreen-goto-prev-screen))
   (define-key escreen-map (kbd "C-f") (escreen-advise-emphasis escreen-find-file-new-screen)))
