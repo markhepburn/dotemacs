@@ -326,13 +326,6 @@
       (bm-show-all)
     ad-do-it))
 
-;;; library apel is required for elscreen, but may be installed by the
-;;; distro; check before adding to the path ('alist is a proxy for
-;;; apel in this case)
-(unless (featurep 'alist)
-  (add-to-list 'load-path (concat *mh/lisp-base* "apel-10.7"))
-  (require 'alist nil t))
-
 ;;; escreen; gnu-screen for emacs:
 (add-to-list 'load-path (concat *mh/lisp-base* "escreen"))
 (setq escreen-prefix-char (kbd "C-z"))  ;; must be done before loading!
@@ -549,13 +542,15 @@
 ;; flymake stuff:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (when (require 'flymake nil t)
-  ;; doesn't seem to work for java or tex, currently:
-  (remove-alist 'flymake-allowed-file-name-masks "\\.java\\'")
-  (remove-alist 'flymake-allowed-file-name-masks "\\.tex\\'")
-  (remove-alist 'flymake-allowed-file-name-masks "[0-9]+\\.tex\\'")
-  ;; doesn't work with xml (needs program 'xml', not sure which that
-  ;; is for a start!), and nxml provides validation anyway:
-  (remove-alist 'flymake-allowed-file-name-masks "\\.xml\\'"))
+  (macrolet ((remove-alist (lst key)
+                           `(setq ,lst (delq (assoc ,key ,lst) ,lst))))
+   ;; doesn't seem to work for java or tex, currently:
+   (remove-alist flymake-allowed-file-name-masks "\\.java\\'")
+   (remove-alist flymake-allowed-file-name-masks "\\.tex\\'")
+   (remove-alist flymake-allowed-file-name-masks "[0-9]+\\.tex\\'")
+   ;; doesn't work with xml (needs program 'xml', not sure which that
+   ;; is for a start!), and nxml provides validation anyway:
+   (remove-alist flymake-allowed-file-name-masks "\\.xml\\'")))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
