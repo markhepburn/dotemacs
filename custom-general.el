@@ -258,11 +258,11 @@
 ;; Twitter (Used to use twit.el, but that doesn't support OAuth):
 (add-to-list 'load-path (concat *mh/lisp-base* "twittering-mode"))
 (autoload 'twit "twittering-mode" "Twittering mode" t)
+(autoload 'twittering-update-status-interactive "twittering-mode" "Twitter status update" t)
+(defalias 'twit-post 'twittering-update-status-interactive
+  "Post from the minibuffer (or whatever it is set to) without invoking twit.")
 (eval-after-load "twittering-mode"
-  '(progn
-     (twittering-icon-mode)
-     (defalias 'twit-post 'twittering-update-status-interactive
-       "Post from the minibuffer (or whatever it is set to) without invoking twit.")))
+  (twittering-icon-mode))
 (setq twittering-update-status-function 'twittering-update-status-from-minibuffer
       twittering-timer-interval 36000        ; I don't want auto-refresh
       twittering-use-master-password t
