@@ -262,7 +262,7 @@
 (defalias 'twit-post 'twittering-update-status-interactive
   "Post from the minibuffer (or whatever it is set to) without invoking twit.")
 (eval-after-load "twittering-mode"
-  (twittering-icon-mode))
+  '(twittering-icon-mode))
 (setq twittering-update-status-function 'twittering-update-status-from-minibuffer
       twittering-timer-interval 36000        ; I don't want auto-refresh
       twittering-use-master-password t
