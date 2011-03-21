@@ -67,3 +67,6 @@
 [submodule "escreen"]
 	path = escreen
 	url = https://github.com/emacsmirror/escreen.git
+[submodule "ess"]
+	path = ess
+	url = https://github.com/emacsmirror/ess.git
