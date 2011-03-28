@@ -12,7 +12,10 @@
                      ; them
 
 (eval-after-load "ess-mode"
-  '(progn 
+  '(progn
+     ;; R-specific utilities and keybindings:
+     (require 'ess-rutils)
+
      ;; http://www.sigmafield.org/2009/10/01/r-object-tooltips-in-ess/
      ;; Tidied up a fair bit (redunant progns removed, using with-temp-buffer)
      (setq ess-R-object-tooltip-alist
