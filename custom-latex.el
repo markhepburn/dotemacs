@@ -3,11 +3,11 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Load AucTeX:
 (add-to-list 'load-path (concat *mh/lisp-base* "auctex"))
-(load "auctex.el" nil t t)
+(load "auctex" nil t)
 ;; (load "preview-latex.el" nil t t)
 
-(eval-after-load "latex"
-  '(progn
+(eval-after-load "tex"
+  (progn
      ;; don't put comments to the middle of the page!
      (setq LaTeX-ignore-comment-regexp "%[^ a-zA-Z]")
      (setq LaTeX-right-comment-regexp "%[^ a-zA-Z]")
