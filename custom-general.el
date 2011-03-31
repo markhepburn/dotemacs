@@ -26,6 +26,8 @@
 ;;; 4-space tabs, and spaces-not-tabs:
 (setq default-tab-width 4)
 (setq-default indent-tabs-mode nil)
+;;; Default to view-mode for read-only files:
+(setq view-read-only t)
 ;; Cool-looking completion package:
 (icomplete-mode t)
 ;; use ido-mode for a while (see how it gels with firefox3 location
