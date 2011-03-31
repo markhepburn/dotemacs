@@ -267,6 +267,13 @@
       twittering-timer-interval 36000        ; I don't want auto-refresh
       twittering-use-master-password t
       twittering-url-show-status nil)
+;;; By default, it assumes you have already authorised credentials by
+;;; the time you try and update your status; because I'm auto-loading
+;;; the update function and don't necessarily think I'll be using the
+;;; main interface much, this won't be the case the first time:
+(defadvice twittering-update-status-interactive (before twittering-verify-before-update activate)
+  (unless (twittering-account-authorized-p)
+    (twittering-verify-credentials)))
 
 ;; bind C-h a to 'apropos like in xemacs (not apropos-command as it is
 ;; in emacs by default)
