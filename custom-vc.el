@@ -39,7 +39,7 @@
 (add-to-list 'load-path (concat *mh/lisp-base* "magit"))
 (autoload 'magit-status "magit" "magit interface for git" t)
 (eval-after-load "magit"
-  '(require magit-svn))                 ; svn integration needs to be explicitly loaded now.
+  '(require 'magit-svn))                 ; svn integration needs to be explicitly loaded now.
 ;;; http://www.bunkus.org/blog/2009/10/an-interactive-iterative-git-blame-mode-for-emacs/
 (add-to-list 'load-path (concat *mh/lisp-base* "mo-git-blame"))
 (autoload 'mo-git-blame-file "mo-git-blame" nil t)
