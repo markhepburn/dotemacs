@@ -4,7 +4,7 @@
 
 ;;; never mind all that, use Yegge's awesome mode:
 (add-to-list 'load-path (concat *mh/lisp-base* "js2-mode"))
-(autoload 'js2-mode "js2" nil t)
+(autoload 'js2-mode "js2-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (setq js2-auto-indent-flag nil)         ; must be set /before/ loading
 (setq-default js2-basic-offset 2)       ; (default has changed to
