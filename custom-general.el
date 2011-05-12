@@ -21,6 +21,8 @@
 ;;; http://bryan-murdock.blogspot.com/2009/03/emacs-next-line-changed-behavior.html
 ;;; originally, but things seem to have changed slightly since then):
 (setq line-move-visual nil)
+;;; trailing whitespace (see also M-x delete-trailing-whitespace):
+(setq-default show-trailing-whitespace t)
 ;;; high-light selections:
 (transient-mark-mode 1)
 ;;; 4-space tabs, and spaces-not-tabs:
