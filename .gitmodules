@@ -51,7 +51,7 @@
 	url = http://github.com/philjackson/magit.git
 [submodule "mo-git-blame"]
 	path = mo-git-blame
-	url = git://git.bunkus.org/mo-git-blame.git
+	url = https://github.com/emacsmirror/mo-git-blame.git
 [submodule "zencoding"]
 	path = zencoding
 	url = http://github.com/chrisdone/zencoding.git
