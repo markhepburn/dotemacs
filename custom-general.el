@@ -30,6 +30,9 @@
 (setq-default indent-tabs-mode nil)
 ;;; Default to view-mode for read-only files:
 (setq view-read-only t)
+;;; Single-frame ediff usage (mainly because floating windows seemed
+;;; to interact badly with xmonad, even when explicitly floated):
+(setq ediff-window-setup-function 'ediff-setup-windows-plain)
 ;; Cool-looking completion package:
 (icomplete-mode t)
 ;; use ido-mode for a while (see how it gels with firefox3 location
