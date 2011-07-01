@@ -49,21 +49,19 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Subversion interaction:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; (require 'psvn)
-(autoload 'svn-status "dsvn" "Run `svn status'." t)
-(autoload 'svn-update "dsvn" "Run `svn update'." t)
-;; (autoload 'svn-status "psvn" "Subversion interaction mode" t)
-;; (eval-after-load "psvn"
-;;   '(progn
-;;      (define-key svn-status-mode-map (kbd "n") 'svn-status-next-line)
-;;      (define-key svn-status-mode-map (kbd "p") 'svn-status-previous-line)
-;;      ;; No idea why the default behaviour is as it is (or even how to
-;;      ;; reproduce it in cmd-line svn for that matter), but this over-rides
-;;      ;; it with something reasonably useful (possibly replace with '("-v")
-;;      ;; to get a list of all files changed) :
-;;      (setq svn-status-default-log-arguments '())
-;;      ;; using external cmd here because psvn diff doesn't work with
-;;      ;; colordiff, which I'm using with command-line svn:
-;;      (setq svn-status-default-diff-arguments '("--diff-cmd" "diff" ))))
+(require 'psvn)
+(autoload 'svn-status "psvn" "Subversion interaction mode" t)
+(eval-after-load "psvn"
+  '(progn
+     (define-key svn-status-mode-map (kbd "n") 'svn-status-next-line)
+     (define-key svn-status-mode-map (kbd "p") 'svn-status-previous-line)
+     ;; No idea why the default behaviour is as it is (or even how to
+     ;; reproduce it in cmd-line svn for that matter), but this over-rides
+     ;; it with something reasonably useful (possibly replace with '("-v")
+     ;; to get a list of all files changed) :
+     (setq svn-status-default-log-arguments '())
+     ;; using external cmd here because psvn diff doesn't work with
+     ;; colordiff, which I'm using with command-line svn:
+     (setq svn-status-default-diff-arguments '("--diff-cmd" "diff" ))))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
