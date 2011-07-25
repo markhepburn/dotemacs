@@ -249,6 +249,10 @@
   (setq uniquify-ignore-buffers-re "^\\*") ; Ignore *scratch*, etc
   (setq uniquify-after-kill-buffer-p t))
 
+;;; csv support:
+(add-to-list 'auto-mode-alist '("\\.[Cc][Ss][Vv]\\'" . csv-mode))
+(autoload 'csv-mode "csv-mode"
+  "Major mode for editing comma-separated value files." t)
 
 ;; Show docs where available:
 (enable-minor-mode-for eldoc-mode '(emacs-lisp lisp inferior-lisp))
