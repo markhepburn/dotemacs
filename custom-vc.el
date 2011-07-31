@@ -49,6 +49,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Subversion interaction:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(add-to-list 'load-path (concat *mh/lisp-base* "psvn"))
 (require 'psvn)
 (autoload 'svn-status "psvn" "Subversion interaction mode" t)
 (eval-after-load "psvn"
