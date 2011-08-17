@@ -66,7 +66,7 @@
 	url = https://github.com/hayamiz/twittering-mode.git
 [submodule "escreen"]
 	path = escreen
-	url = https://github.com/emacsmirror/escreen.git
+	url = https://github.com/renard/escreen-el.git
 [submodule "ess"]
 	path = ess
 	url = https://github.com/emacsmirror/ess.git
