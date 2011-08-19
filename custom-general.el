@@ -112,6 +112,11 @@
               ))
   (ido-mode t))
 
+;;; Visual rectangle editing: /why/ the hell is this buried in a
+;;; package that makes emacs act more like windows??  Anyway:
+(cua-selection-mode t)                ;; Also disables the CUA keys
+(setq cua-auto-tabify-rectangles nil) ;; Don't tabify after rectangle commands
+
 ;;; experiment with find-file-at-point a bit (don't use their
 ;;; pre-configured bindings, as they will presumably over-write the
 ;;; ido ones!)
