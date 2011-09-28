@@ -87,8 +87,10 @@
 (add-hook 'css-mode-hook
           (lambda () (local-set-key "{" 'autopair-open-block)))
 
-;;; Now using LessCSS; just use regular css-mode for that in the absence of anything specialised:
-(add-to-list 'auto-mode-alist '("\\.less\\'" . css-mode))
+;;; Now using LessCSS, using it's own derived mode (with my fixes for nested indentation):
+(add-to-list 'load-path (concat *mh/lisp-base* "less-css-mode"))
+(when (require 'less-css-mode nil t)
+  (add-hook 'less-css-mode-hook 'hexcolour-add-to-font-lock))
 
 ;; (add-to-list 'load-path (expand-file-name "~/elisp/mmm-mode-0.4.8"))
 ;; ;; MMM-Mode
