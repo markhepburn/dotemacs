@@ -78,4 +78,4 @@
 	url = https://github.com/emacsmirror/psvn.git
 [submodule "less-css-mode"]
 	path = less-css-mode
-	url = git@github.com:markhepburn/less-css-mode.git
+	url = git@github.com:purcell/less-css-mode.git

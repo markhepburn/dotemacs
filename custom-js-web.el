@@ -87,7 +87,7 @@
 (add-hook 'css-mode-hook
           (lambda () (local-set-key "{" 'autopair-open-block)))
 
-;;; Now using LessCSS, using it's own derived mode (with my fixes for nested indentation):
+;;; Now using LessCSS, using it's own derived mode:
 (add-to-list 'load-path (concat *mh/lisp-base* "less-css-mode"))
 (when (require 'less-css-mode nil t)
   (add-hook 'less-css-mode-hook 'hexcolour-add-to-font-lock))
