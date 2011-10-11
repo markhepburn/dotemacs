@@ -63,7 +63,8 @@
 ;;; reclaim C-j keybinding from zencoding!
 (eval-after-load "zencoding-mode"
   '(progn
-     (define-key zencoding-mode-keymap (kbd "C-j") nil)))
+     (define-key zencoding-mode-keymap (kbd "C-j") nil)
+     (define-key zencoding-mode-keymap (kbd "M-<return>") 'zencoding-expand-line)))
 
 ;;; django templates:
 (autoload 'django-html-mode "django-html-mode" nil t)
