@@ -126,6 +126,10 @@
 ;;; shortcut for browse url at point:
 (global-set-key (kbd "C-x M-b") 'browse-url-at-point)
 
+;;; more specialised "opening" commands; mplayer control:
+(add-to-list 'load-path (concat *mh/lisp-base* "mplayer-mode"))
+(autoload 'mplayer-find-file "mplayer-mode" "Control mplayer from emacs while editing a file" t)
+
 ;;; Ignore .svn/ contents in find-grep:
 ;;; http://benjisimon.blogspot.com/2009/01/emacs-tip-slightly-better-find-grep.html
 (setq grep-find-command 
