@@ -23,6 +23,8 @@
 (setq line-move-visual nil)
 ;;; trailing whitespace (see also M-x delete-trailing-whitespace):
 (setq-default show-trailing-whitespace t)
+;;; Make sure we always include a trailing newline:
+(setq require-final-newline t)
 ;;; high-light selections:
 (transient-mark-mode 1)
 ;;; 4-space tabs, and spaces-not-tabs:
