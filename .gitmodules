@@ -1,48 +1,48 @@
 [submodule "cedet"]
 	path = cedet
-	url = git://github.com/emacsmirror/cedet.git
+	url = https://github.com/emacsmirror/cedet.git
 [submodule "clojure-mode"]
 	path = clojure-mode
-	url = git://github.com/jochu/clojure-mode.git
+	url = https://github.com/jochu/clojure-mode.git
 [submodule "distel"]
 	path = distel
-	url = git://github.com/emacsmirror/distel.git
+	url = https://github.com/emacsmirror/distel.git
 [submodule "git-emacs"]
 	path = git-emacs
-	url = git://github.com/tsgates/git-emacs.git
+	url = https://github.com/tsgates/git-emacs.git
 [submodule "gitsum"]
 	path = gitsum
-	url = git://github.com/chneukirchen/gitsum.git
+	url = https://github.com/chneukirchen/gitsum.git
 [submodule "hideshow-org"]
 	path = hideshow-org
-	url = git://github.com/secelis/hideshow-org.git
+	url = https://github.com/secelis/hideshow-org.git
 [submodule "j"]
 	path = j
-	url = git://github.com/secelis/j.git
+	url = https://github.com/secelis/j.git
 [submodule "org-mode"]
 	path = org-mode
 	url = git://repo.or.cz/org-mode.git
 [submodule "slime"]
 	path = slime
-	url = git://git.boinkor.net/slime.git
+	url = https://github.com/emacsmirror/slime.git
 [submodule "smex"]
 	path = smex
-	url = git://github.com/nonsequitur/smex.git
+	url = https://github.com/nonsequitur/smex.git
 [submodule "swank-clojure"]
 	path = swank-clojure
-	url = git://github.com/jochu/swank-clojure.git
+	url = https://github.com/jochu/swank-clojure.git
 [submodule "emacs-nav"]
 	path = emacs-nav
-	url = git://github.com/travisjeffery/emacs-nav.git
+	url = https://github.com/travisjeffery/emacs-nav.git
 [submodule "haskell-mode"]
 	path = haskell-mode
-	url = git://github.com/jwiegley/haskell-mode.git
+	url = https://github.com/jwiegley/haskell-mode.git
 [submodule "maxframe"]
 	path = maxframe
-	url = git://github.com/markhepburn/maxframe-el.git
+	url = https://github.com/markhepburn/maxframe-el.git
 [submodule "http-twiddle"]
 	path = http-twiddle
-	url = git://github.com/hassy/http-twiddle.git
+	url = https://github.com/hassy/http-twiddle.git
 [submodule "tags-view"]
 	path = tags-view
 	url = git://github.com/markhepburn/tags-view.git
@@ -54,7 +54,7 @@
 	url = https://github.com/emacsmirror/mo-git-blame.git
 [submodule "zencoding"]
 	path = zencoding
-	url = http://github.com/chrisdone/zencoding.git
+	url = https://github.com/chrisdone/zencoding.git
 [submodule "auctex"]
 	path = auctex
 	url = https://github.com/eschulte/auctex.git
