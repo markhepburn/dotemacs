@@ -89,12 +89,9 @@
 (put 'LaTeX-hide-environment 'disabled nil)
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
-
-;;; Don't think this is needed, with the --daemon mode kicking in:
-;(server-start)
+(put 'set-goal-column 'disabled nil)
 
 (message ".emacs loaded in %ds"
          (destructuring-bind (hi lo ms) (current-time)
            (- (+ hi lo) (+ (first *mh/load-start-time*)
                            (second *mh/load-start-time*)))))
-(put 'set-goal-column 'disabled nil)
