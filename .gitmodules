@@ -21,7 +21,7 @@
 	url = https://github.com/secelis/j.git
 [submodule "org-mode"]
 	path = org-mode
-	url = git://repo.or.cz/org-mode.git
+	url = git://orgmode.org/org-mode.git
 [submodule "slime"]
 	path = slime
 	url = https://github.com/emacsmirror/slime.git
