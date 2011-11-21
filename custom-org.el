@@ -25,18 +25,8 @@
      ;; scrolling commands:
      (add-hook 'org-mode-hook
                (lambda ()
-                 (local-set-key (kbd "C-,") 'scroll-up-one-line)))
+                 (local-set-key (kbd "C-,") 'scroll-up-one-line)))))
 
-     ;; from http://orgmode.org/worg/org-hacks.php (Bernt Hansen, with my
-     ;; tidy-ups)
-     (defun org-reload-org (&optional source)
-       "Reload compiled Org lisp files.  When invoked with non-nil argument,
-loads from source files instead."
-       (interactive "P")
-       (let ((files-regexp
-              (if source "\\.el\\'" "\\.elc\\'")))
-         (mapc (lambda(f) (load f))
-               (directory-files mh/org-mode-lisp-directory t files-regexp))))))
 ;;; Bit of a hack to work around htmlize-buffer (as called by
 ;;; org-write-agenda for eg) not working.  See
 ;;; http://www.mail-archive.com/emacs-orgmode@gnu.org/msg04365.html
