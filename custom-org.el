@@ -21,6 +21,10 @@
      ;; speed navigation commands:
      (setq org-use-speed-commands t)
 
+     ;; automatically use symbols for \alpha, etc (toggle with C-c C-x \
+     ;; if necessary):
+     (setq org-pretty-entities t)
+
      ;; Don't use the agenda at the moment, so rebind C-, to my
      ;; scrolling commands:
      (add-hook 'org-mode-hook
