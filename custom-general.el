@@ -260,7 +260,7 @@ should be a list of keys that will be bound globally to
     (win-switch-set-keys '("J") 'shrink-vertically)
     (win-switch-set-keys '("H") 'enlarge-horizontally)
     (win-switch-set-keys '("L") 'shrink-horizontally)
-    (win-switch-set-keys '(" ") 'other-frame)
+    (win-switch-set-keys '("O") 'other-frame)
     (win-switch-set-keys '(" " [return]) 'exit)
     (win-switch-set-keys '("i") 'split-horizontally)
     (win-switch-set-keys '("u") 'split-vertically)
