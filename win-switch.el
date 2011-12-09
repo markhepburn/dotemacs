@@ -998,8 +998,8 @@ and a warning when trying to empty the emergency-exit list."
       (error "Symbol %s is not a valid win-switch key list" key-sym))
     (when (and (null key-list) (eq key-sym 'win-switch-exit-keys))
       (error "The exit keys list for win-switch must remain non-empty"))
-    (dolist (oldkey (symbol-value key-sym))
-      (define-key win-switch-map oldkey 'win-switch-exit-and-redo)) ; bindings effectively erased
+    ;; Remove old bindings for the command before rebinding:
+    (substitute-key-definition cmd 'win-switch-exit-and-redo win-switch-map)
     (set key-sym key-list)
     (dolist (newkey key-list)
       (define-key win-switch-map newkey cmd)))
