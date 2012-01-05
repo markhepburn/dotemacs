@@ -30,7 +30,7 @@
 	url = https://github.com/nonsequitur/smex.git
 [submodule "swank-clojure"]
 	path = swank-clojure
-	url = https://github.com/jochu/swank-clojure.git
+	url = https://github.com/technomancy/swank-clojure.git
 [submodule "emacs-nav"]
 	path = emacs-nav
 	url = https://github.com/travisjeffery/emacs-nav.git
