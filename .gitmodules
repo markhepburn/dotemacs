@@ -3,7 +3,7 @@
 	url = https://github.com/emacsmirror/cedet.git
 [submodule "clojure-mode"]
 	path = clojure-mode
-	url = https://github.com/jochu/clojure-mode.git
+	url = https://github.com/technomancy/clojure-mode.git
 [submodule "distel"]
 	path = distel
 	url = https://github.com/emacsmirror/distel.git
