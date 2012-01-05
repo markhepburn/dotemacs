@@ -2,25 +2,26 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Slime:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-to-list 'load-path (concat *mh/lisp-base* "slime"))
-(setq slime-lisp-implementations
-      `((sbcl ("sbcl"))))
-(require 'slime-autoloads)
-(add-hook 'lisp-mode-hook (lambda ()
-                            (cond ((not (featurep 'slime))
-                                   (require 'slime)
-                                   (normal-mode)))))
-(eval-after-load "slime"
-  '(progn
-     (add-hook 'slime-repl-mode-hook (lambda ()
-                                       (define-key slime-repl-mode-map
-                                         [(up)] 'slime-repl-previous-input)
-                                       (define-key slime-repl-mode-map
-                                         [(down)] 'slime-repl-next-input)))
-     (add-to-list 'load-path (concat *mh/lisp-base* "slime/contrib"))
-     (slime-setup '(slime-fancy slime-asdf slime-banner))
-     (setq slime-complete-symbol*-fancy t)
-     (setq slime-complete-symbol-function 'slime-fuzzy-complete-symbol)))
+;;; Note: slime is now included with and loaded by clojure-mode,
+;;; typically invoked from clojure-jack-in (and this conflicts with
+;;; other versions of slime, and since I don't anticipate much CL dev
+;;; for a while, this should be OK).  So leaving this commented out
+;;; for now, but may remove entirely later on.
+
+;; (add-to-list 'load-path (concat *mh/lisp-base* "slime"))
+;; (setq slime-lisp-implementations
+;;       `((sbcl ("sbcl"))))
+;; (require 'slime-autoloads)
+;; (add-hook 'lisp-mode-hook (lambda ()
+;;                             (cond ((not (featurep 'slime))
+;;                                    (require 'slime)
+;;                                    (normal-mode)))))
+(add-hook 'slime-repl-mode-hook (lambda ()
+                                  (define-key slime-repl-mode-map
+                                    [(up)] 'slime-repl-previous-input)
+                                  (define-key slime-repl-mode-map
+                                    [(down)] 'slime-repl-next-input)))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -28,13 +29,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-to-list 'load-path (concat *mh/lisp-base* "clojure-mode"))
 (autoload 'clojure-mode "clojure-mode" "A major mode for Clojure" t)
+(autoload 'clojure-jack-in "clojure-mode" "A major mode for Clojure" t)
 (add-to-list 'auto-mode-alist '("\\.clj$" . clojure-mode))
-;;; swank
-(setq swank-clojure-jar-path (expand-file-name "~/src/clojure/clojure/clojure.jar"))
-(add-to-list 'load-path (concat *mh/lisp-base* "swank-clojure"))
-(require 'swank-clojure-autoload)
 
-(setq slime-default-lisp 'clojure)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
