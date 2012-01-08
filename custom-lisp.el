@@ -31,6 +31,7 @@
 (autoload 'clojure-mode "clojure-mode" "A major mode for Clojure" t)
 (autoload 'clojure-jack-in "clojure-mode" "A major mode for Clojure" t)
 (add-to-list 'auto-mode-alist '("\\.clj$" . clojure-mode))
+(add-to-list 'auto-mode-alist '("\\.cljs$" . clojure-mode))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -41,5 +42,5 @@
 ;; table with examples.
 (autoload 'paredit-mode "paredit-beta"
   "Structured editing of S-expressions" t)
-(enable-minor-mode-for paredit-mode '(emacs-lisp lisp inferior-lisp slime-repl))
+(enable-minor-mode-for paredit-mode '(emacs-lisp lisp clojure inferior-lisp slime-repl))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
