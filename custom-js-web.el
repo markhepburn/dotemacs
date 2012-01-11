@@ -70,18 +70,10 @@
 (autoload 'django-html-mode "django-html-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . django-html-mode))
 
-;;; http://xahlee.org/emacs/emacs_html.html
 ;;; Make css colour definitions the colour they represent:
-(defvar hexcolour-keywords
-  '(("#[abcdef[:digit:]]\\{6\\}"
-     (0 (put-text-property
-         (match-beginning 0)
-         (match-end 0)
-         'face (list :background 
-                     (match-string-no-properties 0)))))))
-(defun hexcolour-add-to-font-lock ()
-  (font-lock-add-keywords nil hexcolour-keywords))
-(add-hook 'css-mode-hook 'hexcolour-add-to-font-lock)
+(add-to-list 'load-path (concat *mh/lisp-base* "rainbow-mode"))
+(autoload 'rainbow-turn-on "rainbow-mode" nil t)
+(add-hook 'css-mode-hook 'rainbow-turn-on)
 
 ;;; use c-style indentation in css:
 (setq cssm-indent-function 'cssm-c-style-indenter)
@@ -91,7 +83,7 @@
 ;;; Now using LessCSS, using it's own derived mode:
 (add-to-list 'load-path (concat *mh/lisp-base* "less-css-mode"))
 (when (require 'less-css-mode nil t)
-  (add-hook 'less-css-mode-hook 'hexcolour-add-to-font-lock))
+  (add-hook 'less-css-mode-hook 'rainbow-turn-on))
 
 ;; (add-to-list 'load-path (expand-file-name "~/elisp/mmm-mode-0.4.8"))
 ;; ;; MMM-Mode
