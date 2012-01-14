@@ -47,7 +47,7 @@
 	path = zencoding
 	url = https://github.com/rooney/zencoding.git
 [submodule "auctex"]
-	path = auctex
+	path = thirdparty/auctex
 	url = https://github.com/eschulte/auctex.git
 [submodule "js2-mode"]
 	path = js2-mode
