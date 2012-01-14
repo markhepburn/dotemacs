@@ -141,11 +141,6 @@
 ;;; be better later on to use the plain package and customise it):
 (require 'yasnippet-bundle)
 
-;;; autojump support (provides dired buffer of shell history options):
-(add-to-list 'load-path (concat *mh/lisp-base* "j"))
-(autoload 'j "j" "Autojump support (dired buffer from shell history)" t)
-(global-set-key (kbd "C-x j") 'j)
-
 ;; Don't blink the cursor:
 (blink-cursor-mode -1)
 

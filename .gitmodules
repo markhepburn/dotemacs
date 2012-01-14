@@ -16,9 +16,6 @@
 [submodule "hideshow-org"]
 	path = hideshow-org
 	url = https://github.com/secelis/hideshow-org.git
-[submodule "j"]
-	path = j
-	url = https://github.com/secelis/j.git
 [submodule "org-mode"]
 	path = org-mode
 	url = git://orgmode.org/org-mode.git
