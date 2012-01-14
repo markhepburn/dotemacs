@@ -68,7 +68,7 @@
 	path = psvn
 	url = https://github.com/emacsmirror/psvn.git
 [submodule "less-css-mode"]
-	path = less-css-mode
+	path = thirdparty/less-css-mode
 	url = git@github.com:purcell/less-css-mode.git
 [submodule "rainbow-mode"]
 	path = rainbow-mode
