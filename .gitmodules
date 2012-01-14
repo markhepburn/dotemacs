@@ -50,7 +50,7 @@
 	path = thirdparty/auctex
 	url = https://github.com/eschulte/auctex.git
 [submodule "js2-mode"]
-	path = js2-mode
+	path = thirdparty/js2-mode
 	url = https://github.com/mooz/js2-mode.git
 [submodule "twittering-mode"]
 	path = twittering-mode
