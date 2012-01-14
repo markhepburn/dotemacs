@@ -26,7 +26,7 @@
 	path = emacs-nav
 	url = https://github.com/travisjeffery/emacs-nav.git
 [submodule "haskell-mode"]
-	path = haskell-mode
+	path = thirdparty/haskell-mode
 	url = https://github.com/jwiegley/haskell-mode.git
 [submodule "maxframe"]
 	path = maxframe
