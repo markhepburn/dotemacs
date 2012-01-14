@@ -31,6 +31,11 @@
   symlinks).")
 (add-to-list 'load-path *mh/lisp-base*)
 
+(defvar *mh/thirdparty-lisp* (concat *mh/lisp-base* "thirdparty")
+  "Directory containing most third-party code, both single files
+  and project directories such as git submodules.")
+(add-to-list 'load-path *mh/thirdparty-lisp*)
+
 ;;; Some settings need to be machine-specific, such as CEDET project
 ;;; definitions, while others are platform-specific (eg, I use
 ;;; maxframe on osx, but this is redundant on linux where xmonad takes
