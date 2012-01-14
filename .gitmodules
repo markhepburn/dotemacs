@@ -56,7 +56,7 @@
 	path = twittering-mode
 	url = https://github.com/hayamiz/twittering-mode.git
 [submodule "escreen"]
-	path = escreen
+	path = thirdparty/escreen
 	url = https://github.com/renard/escreen-el.git
 [submodule "ess"]
 	path = ess
