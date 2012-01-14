@@ -1,5 +1,5 @@
 [submodule "cedet"]
-	path = cedet
+	path = thirdparty-special/cedet
 	url = https://github.com/emacsmirror/cedet.git
 [submodule "clojure-mode"]
 	path = thirdparty/clojure-mode
