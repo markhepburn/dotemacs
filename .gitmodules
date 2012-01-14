@@ -14,7 +14,7 @@
 	path = gitsum
 	url = https://github.com/chneukirchen/gitsum.git
 [submodule "hideshow-org"]
-	path = hideshow-org
+	path = thirdparty/hideshow-org
 	url = https://github.com/secelis/hideshow-org.git
 [submodule "org-mode"]
 	path = org-mode
