@@ -35,7 +35,7 @@
 	path = thirdparty/http-twiddle
 	url = https://github.com/hassy/http-twiddle.git
 [submodule "tags-view"]
-	path = tags-view
+	path = thirdparty/tags-view
 	url = git://github.com/markhepburn/tags-view.git
 [submodule "magit"]
 	path = thirdparty/magit
