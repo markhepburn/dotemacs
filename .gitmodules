@@ -44,7 +44,7 @@
 	path = mo-git-blame
 	url = https://github.com/emacsmirror/mo-git-blame.git
 [submodule "zencoding"]
-	path = zencoding
+	path = thirdparty/zencoding
 	url = https://github.com/rooney/zencoding.git
 [submodule "auctex"]
 	path = thirdparty/auctex
