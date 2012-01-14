@@ -5,7 +5,7 @@
 	path = thirdparty/clojure-mode
 	url = https://github.com/technomancy/clojure-mode.git
 [submodule "distel"]
-	path = distel
+	path = thirdparty-special/distel
 	url = https://github.com/emacsmirror/distel.git
 [submodule "git-emacs"]
 	path = git-emacs
