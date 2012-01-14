@@ -17,7 +17,7 @@
 	path = thirdparty/hideshow-org
 	url = https://github.com/secelis/hideshow-org.git
 [submodule "org-mode"]
-	path = org-mode
+	path = thirdparty-special/org-mode
 	url = git://orgmode.org/org-mode.git
 [submodule "smex"]
 	path = thirdparty/smex
