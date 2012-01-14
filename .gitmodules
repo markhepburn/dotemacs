@@ -62,7 +62,7 @@
 	path = ess
 	url = https://github.com/emacsmirror/ess.git
 [submodule "mplayer-mode"]
-	path = mplayer-mode
+	path = thirdparty/mplayer-mode
 	url = git://github.com/markhepburn/mplayer-mode.git
 [submodule "psvn"]
 	path = psvn
