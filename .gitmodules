@@ -20,7 +20,7 @@
 	path = org-mode
 	url = git://orgmode.org/org-mode.git
 [submodule "smex"]
-	path = smex
+	path = thirdparty/smex
 	url = https://github.com/nonsequitur/smex.git
 [submodule "emacs-nav"]
 	path = emacs-nav
