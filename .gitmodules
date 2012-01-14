@@ -32,7 +32,7 @@
 	path = maxframe
 	url = https://github.com/markhepburn/maxframe-el.git
 [submodule "http-twiddle"]
-	path = http-twiddle
+	path = thirdparty/http-twiddle
 	url = https://github.com/hassy/http-twiddle.git
 [submodule "tags-view"]
 	path = tags-view
