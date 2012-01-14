@@ -71,5 +71,5 @@
 	path = thirdparty/less-css-mode
 	url = git@github.com:purcell/less-css-mode.git
 [submodule "rainbow-mode"]
-	path = rainbow-mode
+	path = thirdparty/rainbow-mode
 	url = https://github.com/emacsmirror/rainbow-mode.git
