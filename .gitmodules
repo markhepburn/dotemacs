@@ -59,7 +59,7 @@
 	path = thirdparty/escreen
 	url = https://github.com/renard/escreen-el.git
 [submodule "ess"]
-	path = ess
+	path = thirdparty-special/ess
 	url = https://github.com/emacsmirror/ess.git
 [submodule "mplayer-mode"]
 	path = thirdparty/mplayer-mode
