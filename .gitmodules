@@ -65,7 +65,7 @@
 	path = thirdparty/mplayer-mode
 	url = git://github.com/markhepburn/mplayer-mode.git
 [submodule "psvn"]
-	path = psvn
+	path = thirdparty/psvn
 	url = https://github.com/emacsmirror/psvn.git
 [submodule "less-css-mode"]
 	path = thirdparty/less-css-mode
