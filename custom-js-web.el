@@ -3,7 +3,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;; never mind all that, use Yegge's awesome mode:
-(add-to-list 'load-path (concat *mh/lisp-base* "js2-mode"))
 (autoload 'js2-mode "js2-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (setq js2-auto-indent-flag nil)         ; must be set /before/ loading
@@ -57,7 +56,6 @@
 (add-hook 'html-mode-hook (lambda () (auto-fill-mode -1)))
 
 ;;; zencoding shortcuts for html generation:
-(add-to-list 'load-path (concat *mh/lisp-base* "zencoding"))
 (autoload 'zencoding-mode "zencoding-mode" "Zencoding HTML generation shortcuts" t)
 (add-hook 'sgml-mode-hook 'zencoding-mode)
 ;;; reclaim C-j keybinding from zencoding!
@@ -71,7 +69,6 @@
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . django-html-mode))
 
 ;;; Make css colour definitions the colour they represent:
-(add-to-list 'load-path (concat *mh/lisp-base* "rainbow-mode"))
 (autoload 'rainbow-turn-on "rainbow-mode" nil t)
 (add-hook 'css-mode-hook 'rainbow-turn-on)
 
@@ -81,7 +78,6 @@
           (lambda () (local-set-key "{" 'autopair-open-block)))
 
 ;;; Now using LessCSS, using it's own derived mode:
-(add-to-list 'load-path (concat *mh/lisp-base* "less-css-mode"))
 (when (require 'less-css-mode nil t)
   (add-hook 'less-css-mode-hook 'rainbow-turn-on))
 

@@ -38,7 +38,7 @@
 ;;; http://xtalk.msk.su/~ott/en/writings/emacs-devenv/EmacsCedet.html
 ;;; (url seems to be about a much newer version than included with ubuntu atm, so using CVS)
 ;; (require 'cedet)
-(load-file (concat *mh/lisp-base* "cedet/common/cedet.el"))
+(load-file (concat *mh/thirdparty-special* "cedet/common/cedet.el"))
 ;; (semantic-load-enable-minimum-features)
 (semantic-load-enable-gaudy-code-helpers)
 (require 'semantic-ia)
@@ -51,6 +51,5 @@
 (define-key senator-prefix-map "v" 'semantic-decoration-include-visit)
 (add-hook 'c-mode-common-hook (lambda () (gtags-mode 1)))
 ;;; tags-view:
-(add-to-list 'load-path (concat *mh/lisp-base* "tags-view"))
 (autoload 'tv-view-history "tags-view" "Navigate and manipulate TAGS stack" t)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

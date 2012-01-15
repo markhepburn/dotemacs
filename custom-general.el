@@ -65,7 +65,6 @@
   ;; Let's use smex instead (basically the same as above but with more
   ;; options, and crucially has the ability refresh the cache):
   (setq smex-save-file "~/.emacs.d/smex.save")
-  (add-to-list 'load-path (concat *mh/lisp-base* "smex"))
   (require 'smex)
   (smex-initialize)
   (global-set-key (kbd "M-x") 'smex)
@@ -129,7 +128,6 @@
 (global-set-key (kbd "C-x M-b") 'browse-url-at-point)
 
 ;;; more specialised "opening" commands; mplayer control:
-(add-to-list 'load-path (concat *mh/lisp-base* "mplayer-mode"))
 (autoload 'mplayer-find-file "mplayer-mode" "Control mplayer from emacs while editing a file" t)
 
 ;;; Ignore .svn/ contents in find-grep:
@@ -305,7 +303,6 @@ should be a list of keys that will be bound globally to
 (autoload 'ack-grep "ack" "Intelligent form of grep-find" t)
 
 ;; Twitter (Used to use twit.el, but that doesn't support OAuth):
-(add-to-list 'load-path (concat *mh/lisp-base* "twittering-mode"))
 (autoload 'twit "twittering-mode" "Twittering mode" t)
 (autoload 'twittering-update-status-interactive "twittering-mode" "Twitter status update" t)
 (defalias 'twit-post 'twittering-update-status-interactive
@@ -383,7 +380,6 @@ should be a list of keys that will be bound globally to
     ad-do-it))
 
 ;;; escreen; gnu-screen for emacs:
-(add-to-list 'load-path (concat *mh/lisp-base* "escreen"))
 (setq escreen-prefix-char (kbd "C-z"))  ;; must be done before loading!
 (when (require 'escreen nil t)
   (setq escreen-one-screen-p nil)
@@ -614,7 +610,6 @@ should be a list of keys that will be bound globally to
 ;; hideshow:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (autoload 'hs-minor-mode "hideshow" "Enable code folding" t)
-(add-to-list 'load-path (concat *mh/lisp-base* "hideshow-org"))
 (autoload 'hs-org/minor-mode "hideshow-org" "Code-folding using the TAB key" t)
 ;; (eval-after-load "hideshow"
 ;;   '(progn

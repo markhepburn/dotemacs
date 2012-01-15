@@ -2,7 +2,6 @@
 ;; LaTeX stuff:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Load AucTeX:
-(add-to-list 'load-path (concat *mh/lisp-base* "auctex"))
 (load "auctex" nil t)
 ;; (load "preview-latex.el" nil t t)
 

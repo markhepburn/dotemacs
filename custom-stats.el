@@ -1,6 +1,6 @@
 ;;; Set-up and configuration for stats stuff, mainly ESS (for R)
 
-(add-to-list 'load-path (concat *mh/lisp-base* "ess/lisp"))
+(add-to-list 'load-path (concat *mh/thirdparty-special* "ess/lisp"))
 (require 'ess-site)
 
 (setq ess-eval-visibly-p nil) ; otherwise C-c C-r (eval-region) takes

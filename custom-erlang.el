@@ -10,7 +10,7 @@
      (defvar inferior-erlang-prompt-timeout t)
 
      ;; use distel as well:
-     (let ((distel-dir (concat *mh/lisp-base* "distel/elisp")))
+     (let ((distel-dir (concat *mh/thirdparty-special* "distel/elisp")))
        (unless (member distel-dir load-path)
          (add-to-list 'load-path distel-dir t)))
      (require 'distel)

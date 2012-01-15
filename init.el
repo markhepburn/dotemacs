@@ -31,10 +31,15 @@
   symlinks).")
 (add-to-list 'load-path *mh/lisp-base*)
 
-(defvar *mh/thirdparty-lisp* (concat *mh/lisp-base* "thirdparty")
+(defvar *mh/thirdparty-lisp* (concat *mh/lisp-base* "thirdparty/")
   "Directory containing most third-party code, both single files
   and project directories such as git submodules.")
 (add-to-list 'load-path *mh/thirdparty-lisp*)
+
+(defvar *mh/thirdparty-special* (concat *mh/lisp-base* "thirdparty-special/")
+  "Directory containing third-party directories that require
+special treatment; generally, they will have a subdirectory
+containing the code, or a special file that must be autoloaded")
 
 ;;; Now add every directory under the thirdparty/ dir to the path as
 ;;; well (thirdparty-special requires manual handling):
