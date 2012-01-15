@@ -28,9 +28,6 @@
 [submodule "haskell-mode"]
 	path = thirdparty/haskell-mode
 	url = https://github.com/jwiegley/haskell-mode.git
-[submodule "maxframe"]
-	path = maxframe
-	url = https://github.com/markhepburn/maxframe-el.git
 [submodule "http-twiddle"]
 	path = thirdparty/http-twiddle
 	url = https://github.com/hassy/http-twiddle.git
