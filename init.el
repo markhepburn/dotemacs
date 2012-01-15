@@ -36,6 +36,13 @@
   and project directories such as git submodules.")
 (add-to-list 'load-path *mh/thirdparty-lisp*)
 
+;;; Now add every directory under the thirdparty/ dir to the path as
+;;; well (thirdparty-special requires manual handling):
+(dolist (entry (directory-files *mh/thirdparty-lisp*))
+  (let ((dir (expand-file-name entry *mh/thirdparty-lisp*)))
+    (when (file-directory-p dir)
+      (add-to-list 'load-path dir))))
+
 ;;; Some settings need to be machine-specific, such as CEDET project
 ;;; definitions, while others are platform-specific (eg, I use
 ;;; maxframe on osx, but this is redundant on linux where xmonad takes
