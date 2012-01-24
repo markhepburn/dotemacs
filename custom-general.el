@@ -141,6 +141,14 @@
 ;;; be better later on to use the plain package and customise it):
 (require 'yasnippet-bundle)
 
+;;; Auto-complete mode: all the cool kids are using it, and it's more
+;;; active than company mode (see
+;;; http://stackoverflow.com/questions/4704748/emacs-completion-autocomplete-or-company).
+;;; Also, eclim can use it, and that looks quite handy.
+(when (require 'auto-complete-config nil t)
+  (add-to-list 'ac-dictionary-directories (concat *mh/thirdparty-lisp* "auto-complete/dict"))
+  (ac-config-default))
+
 ;;; paren-matching (investigate mic-paren mode properly at some stage):
 ;(show-paren-mode 1)
 ;;; Ok, mic-paren time is now.  Pretty happy with the defaults for
