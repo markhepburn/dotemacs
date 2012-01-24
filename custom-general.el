@@ -325,16 +325,9 @@ should be a list of keys that will be bound globally to
 ;; in emacs by default)
 (global-set-key [(C ?h) ?a] #'apropos)
 
-;; Use bs-show instead of the default list-buffers:
-(global-set-key [(C ?x) (C ?b)] #'bs-show)
-(defadvice bs-show (around bs-show-maybe-ibuffer (arg) activate)
-  "If invoked with two C-u prefixes, ie C-u C-u C-x C-b in my
-  setup, invoke ibuffer instead."
-  (interactive "P")
-  (if (and arg
-           (eq (car arg) 16))
-      (ibuffer)
-    ad-do-it))
+;; Used to use bs-show, but the ibuffer emulation does it all and more:
+(when (require 'ibuf-ext nil t)
+  (global-set-key (kbd "C-x C-b") 'ibuffer-bs-show))
 (setq-default ibuffer-default-sorting-mode 'major-mode)
 
 ;; let's play with using C-w to delete words backwards:
