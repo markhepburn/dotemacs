@@ -73,3 +73,6 @@
 [submodule "thirdparty/auto-complete"]
 	path = thirdparty/auto-complete
 	url = https://github.com/m2ym/auto-complete.git
+[submodule "thirdparty-special/emacs-eclim"]
+	path = thirdparty-special/emacs-eclim
+	url = https://github.com/senny/emacs-eclim.git

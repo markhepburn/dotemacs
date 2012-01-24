@@ -53,3 +53,20 @@
 ;;; tags-view:
 (autoload 'tv-view-history "tags-view" "Navigate and manipulate TAGS stack" t)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Java mode (going to play with eclim to see if that's a viable
+;;; eclipse alternative)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(add-to-list 'load-path (concat *mh/thirdparty-special* "emacs-eclim"))
+(add-to-list 'load-path (concat *mh/thirdparty-special* "emacs-eclim/vendor"))
+(when (require 'eclim nil t)
+  (setq eclim-executable "/opt/eclipse/eclipse-java-indigo/eclim")
+  (setq eclim-auto-save t)
+  ;; completion too, assuming it's available:
+  (when (require 'auto-complete-config nil t)
+    (require 'ac-emacs-eclim-source)
+    (add-hook 'eclim-mode-hook
+              (lambda () (add-to-list 'ac-sources 'ac-source-emacs-eclim))))
+  (global-eclim-mode))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
