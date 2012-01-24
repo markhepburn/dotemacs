@@ -17,6 +17,8 @@
 ;; line and column-number modes:
 (line-number-mode 1)
 (column-number-mode 1)
+;; Don't blink the cursor:
+(blink-cursor-mode -1)
 ;;; next-line should go next text line (old default), not visual line (from
 ;;; http://bryan-murdock.blogspot.com/2009/03/emacs-next-line-changed-behavior.html
 ;;; originally, but things seem to have changed slightly since then):
@@ -138,9 +140,6 @@
 ;;; use some code templating (note that I'm using the bundle here; may
 ;;; be better later on to use the plain package and customise it):
 (require 'yasnippet-bundle)
-
-;; Don't blink the cursor:
-(blink-cursor-mode -1)
 
 ;;; paren-matching (investigate mic-paren mode properly at some stage):
 ;(show-paren-mode 1)
