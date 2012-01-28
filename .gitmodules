@@ -76,3 +76,6 @@
 [submodule "thirdparty-special/emacs-eclim"]
 	path = thirdparty-special/emacs-eclim
 	url = https://github.com/senny/emacs-eclim.git
+[submodule "thirdparty/expand-region"]
+	path = thirdparty/expand-region
+	url = https://github.com/magnars/expand-region.el.git
