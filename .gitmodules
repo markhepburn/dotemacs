@@ -79,3 +79,6 @@
 [submodule "thirdparty/expand-region"]
 	path = thirdparty/expand-region
 	url = https://github.com/magnars/expand-region.el.git
+[submodule "thirdparty/zenburn"]
+	path = thirdparty/zenburn
+	url = https://github.com/bbatsov/zenburn-emacs.git
