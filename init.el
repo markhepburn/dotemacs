@@ -87,6 +87,10 @@ containing the code, or a special file that must be autoloaded")
 
 (load "custom-stats")
 
+;;; I'm a convert:
+(when (require 'color-theme-zenburn nil t)
+  (color-theme-zenburn))
+
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
