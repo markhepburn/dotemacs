@@ -186,6 +186,9 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 ;; M-y to browse kill-ring:
 
+(when (require 'undo-tree nil t)
+  (global-undo-tree-mode))
+
 ;;; I don't know why this seemed to suddenly change; make backspace
 ;;; work again in isearch-mode anyway (see also C-M-w which does the
 ;;; same thing, and C-M-y and C-y as well):
