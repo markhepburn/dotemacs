@@ -85,3 +85,6 @@
 [submodule "thirdparty/undo-tree"]
 	path = thirdparty/undo-tree
 	url = https://github.com/emacsmirror/undo-tree.git
+[submodule "thirdparty/yaml-mode"]
+	path = thirdparty/yaml-mode
+	url = https://github.com/yoshiki/yaml-mode.git
