@@ -9,14 +9,6 @@
 ;;; platform-specific customisations, which for simplicity is just the
 ;;; platform name as reported by 'system-type).
 
-;;; TODO: I really need to stick to a consistent form of defining key
-;;; sequences (ie, pick one of strings, vectors, #'kbd,..).  Somewhere
-;;; I know I've seen an article describing them all, and which one(s)
-;;; you should use for maximum portability, etc.  If only I could find
-;;; that again...
-;;; Ok, it's this one: http://www.nongnu.org/emacs-tiny-tools/keybindings/
-;;; see also: http://www.emacswiki.org/emacs/KeyBindingNotation
-
 
 ;; http://a-nickels-worth.blogspot.com/2007/11/effective-emacs.html
 ;; Measure load-time for .emacs:

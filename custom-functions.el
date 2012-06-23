@@ -145,8 +145,8 @@ given a prefix argument."
 ;; bind to C-' and C-" respectively (note that M-r --
 ;; move-to-window-line -- with no arguments) moves point to center of
 ;; window)
-(global-set-key [(control ?')] 'goto-beginnning-of-window)
-(global-set-key [(control ?\")] 'goto-end-of-window)
+(global-set-key (kbd "C-'")  'goto-beginnning-of-window)
+(global-set-key (kbd "C-\"") 'goto-end-of-window)
 ;; See also C-l, now (?) bound to recenter-top-bottom which moves the
 ;; current line to the middle/top/bottom when invoked successively.
 
@@ -188,7 +188,7 @@ given a prefix argument."
    (if (<= arg 1) (other-buffer (current-buffer))
      (nth (1+ arg) (buffer-list)))))
 ;; bind to C-M-l, just like in xemacs:
-(global-set-key [(control meta ?l)] #'switch-to-other-buffer)
+(global-set-key (kbd "C-M-l") 'switch-to-other-buffer)
 
 ;; Scroll up/down with C-./C-,
 (defun scroll-down-one-line (arg)
@@ -199,11 +199,11 @@ given a prefix argument."
   (interactive "p")
   (if (eq arg 0) (setq arg 1))
   (scroll-up arg))
-(global-set-key [(control ?,)] #'scroll-up-one-line) ; C-,
-(global-set-key [(control ?.)] #'scroll-down-one-line) ; C-.
+(global-set-key (kbd "C-,") 'scroll-up-one-line) ; C-,
+(global-set-key (kbd "C-.") 'scroll-down-one-line) ; C-.
 ;; also use C-(/) because flyspell-mode steals C-,/.
-(global-set-key [(control ?\()] #'scroll-up-one-line) ; C-(
-(global-set-key [(control ?\))] #'scroll-down-one-line) ;C-)
+(global-set-key (kbd "C-(") 'scroll-up-one-line) ; C-(
+(global-set-key (kbd "C-)") 'scroll-down-one-line) ;C-)
 ;; Move line cursor is on to top of screen:
 ;; Update: see also repeated use of C-l (`recenter-top-bottom`)
 (defun mh/current-line-to-top (&optional distance)
@@ -218,7 +218,7 @@ line to that many lines below top.  Absolute value of argument is used."
     (forward-line distance)
     (beginning-of-line)
     (set-window-start (selected-window) (point))))
-(global-set-key [(control meta ?')] #'mh/current-line-to-top)
+(global-set-key (kbd "C-M-'") 'mh/current-line-to-top)
 
 ;; Really can't believe this doesn't already exist; what am I missing?
 ;; Update: see also M-x how-many

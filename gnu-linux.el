@@ -50,14 +50,14 @@
 
 ;; In X-windows, play nicely with the clipboard:
 (setq x-select-enable-clipboard t)
-(global-set-key [(C ?y)] #'x-clipboard-yank)
+(global-set-key (kbd "C-y") 'x-clipboard-yank)
 
 (add-hook 'c-mode-common-hook
           (lambda ()
             (local-set-key [(control return)] 'semantic-ia-complete-symbol)
-            (local-set-key "\C-c?" 'semantic-ia-complete-symbol-menu)
-            (local-set-key "\C-c>" 'semantic-complete-analyze-inline)
-            (local-set-key "\C-cp" 'semantic-analyze-proto-impl-toggle)
+            (local-set-key (kbd "C-c ?") 'semantic-ia-complete-symbol-menu)
+            (local-set-key (kbd "C-c >") 'semantic-complete-analyze-inline)
+            (local-set-key (kbd "C-c p") 'semantic-analyze-proto-impl-toggle)
 
             (local-set-key "." 'semantic-complete-self-insert)
             (local-set-key ">" 'semantic-complete-self-insert)

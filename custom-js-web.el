@@ -22,13 +22,13 @@
   '(when (require 'js-comint nil t)
      (setq inferior-js-program-command "rhino")
      (add-hook 'js2-mode-hook '(lambda ()
-                                 (local-set-key "\C-c\C-z" 'run-js)
-                                 (local-set-key "\C-c\C-r" 'js-send-region-and-go)
-                                 (local-set-key "\C-x\C-e" 'js-send-last-sexp)
-                                 (local-set-key "\C-\M-x"  'js-send-last-sexp-and-go)
-                                 (local-set-key "\C-cb"    'js-send-buffer)
-                                 (local-set-key "\C-c\C-b" 'js-send-buffer-and-go)
-                                 (local-set-key "\C-cl"    'js-load-file-and-go)))))
+                                 (local-set-key (kbd "C-c C-z") 'run-js)
+                                 (local-set-key (kbd "C-c C-r") 'js-send-region-and-go)
+                                 (local-set-key (kbd "C-x C-e") 'js-send-last-sexp)
+                                 (local-set-key (kbd "C-M-x")   'js-send-last-sexp-and-go)
+                                 (local-set-key (kbd "C-c b")   'js-send-buffer)
+                                 (local-set-key (kbd "C-c C-b") 'js-send-buffer-and-go)
+                                 (local-set-key (kbd "C-c l")   'js-load-file-and-go)))))
 
 ;;; mozrepl integration
 ;;; (http://people.internetconnection.net/2009/02/interactive-html-development-in-emacs/):

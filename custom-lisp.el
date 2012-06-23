@@ -18,9 +18,9 @@
 ;;                                    (normal-mode)))))
 (add-hook 'slime-repl-mode-hook (lambda ()
                                   (define-key slime-repl-mode-map
-                                    [(up)] 'slime-repl-previous-input)
+                                    (kbd "<up>") 'slime-repl-previous-input)
                                   (define-key slime-repl-mode-map
-                                    [(down)] 'slime-repl-next-input)))
+                                    (kbd "<down>") 'slime-repl-next-input)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 

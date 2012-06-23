@@ -22,7 +22,7 @@ Negative argument searches backwards."
            (message "No more \\items found.")))
      (add-hook 'LaTeX-mode-hook
                (lambda ()
-                 (define-key LaTeX-mode-map "\C-ci" 'mh/LaTeX-find-next-item)))
+                 (define-key LaTeX-mode-map (kbd "C-c i") 'mh/LaTeX-find-next-item)))
 
      ;; Function to move point to the next \section (or subsection, etc):
      (defun mh/LaTeX-find-next-section (count)
@@ -34,7 +34,7 @@ Negative argument searches backwards."
            (message "No more sections found.")))
      (add-hook 'LaTeX-mode-hook
                (lambda ()
-                 (define-key LaTeX-mode-map "\C-cs" 'mh/LaTeX-find-next-section)))
+                 (define-key LaTeX-mode-map (kbd "C-c s") 'mh/LaTeX-find-next-section)))
 
      (add-hook 'LaTeX-mode-hook
                (lambda () (TeX-global-PDF-mode 1)))

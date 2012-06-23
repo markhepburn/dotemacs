@@ -106,7 +106,7 @@
           (goto-char position))))
 
     ;; Note: over-rides default binding of abbrev-prefix-mark
-    (global-set-key [(meta \')] 'ido-goto-symbol))
+    (global-set-key (kbd "M-'") 'ido-goto-symbol))
   
   (add-hook 'ido-setup-hook
             (lambda ()
@@ -240,7 +240,7 @@
 (defun yank-pop-backwards ()
   (interactive)
   (yank-pop -1))
-(global-set-key "\M-Y" 'yank-pop-backwards)
+(global-set-key (kbd "M-Y") 'yank-pop-backwards)
 
 ;; use shift-arrow to move between windows:
 (windmove-default-keybindings)
@@ -287,10 +287,10 @@ should be a list of keys that will be bound globally to
 
 ;; vi-like case toggle:
 (when (require 'toggle-case nil t)
-  (global-set-key [(control \`)]      'toggle-case)
-  (global-set-key [(control ~)]       'toggle-case-backwards)
-  (global-set-key [(control meta \`)] 'toggle-case-by-word)
-  (global-set-key [(control meta ~)]  'toggle-case-by-word-backwards))
+  (global-set-key (kbd "C-`")   'toggle-case)
+  (global-set-key (kbd "C-~")   'toggle-case-backwards)
+  (global-set-key (kbd "C-M-`") 'toggle-case-by-word)
+  (global-set-key (kbd "C-M-~") 'toggle-case-by-word-backwards))
 
 ;; make all buffer-names unique:
 (when (require 'uniquify nil t)
@@ -337,7 +337,7 @@ should be a list of keys that will be bound globally to
 
 ;; bind C-h a to 'apropos like in xemacs (not apropos-command as it is
 ;; in emacs by default)
-(global-set-key [(C ?h) ?a] #'apropos)
+(global-set-key (kbd "C-h a") 'apropos)
 
 ;; Used to use bs-show, but the ibuffer emulation does it all and more:
 (when (require 'ibuf-ext nil t)
@@ -345,8 +345,8 @@ should be a list of keys that will be bound globally to
 (setq-default ibuffer-default-sorting-mode 'major-mode)
 
 ;; let's play with using C-w to delete words backwards:
-(global-set-key "\C-w" 'backward-kill-word)
-(global-set-key "\C-x\C-k" 'kill-region)
+(global-set-key (kbd "C-w")     'backward-kill-word)
+(global-set-key (kbd "C-x C-k") 'kill-region)
 
 ;; high-light line mode is occasionally useful:
 (autoload 'hll-toggle-line "hll"
@@ -554,7 +554,7 @@ should be a list of keys that will be bound globally to
 ;;           (setenv "SSH_AGENT_PID" (get-value-by-line 2))))))
 
 ;; use hippie-expand (mainly abbrev expand and dabbrev):
-(global-set-key [(meta ?/)] #'hippie-expand)
+(global-set-key (kbd "M-/") 'hippie-expand)
 (setq hippie-expand-try-functions-list
       '(try-expand-all-abbrevs
         try-expand-dabbrev
@@ -564,10 +564,10 @@ should be a list of keys that will be bound globally to
 ;; make arrow keys work properly in comint buffers:
 (add-hook 'comint-mode-hook (lambda ()
                               (define-key comint-mode-map
-                                [(up)] 'comint-previous-input)))
+                                (kbd "<up>") 'comint-previous-input)))
 (add-hook 'comint-mode-hook (lambda ()
                               (define-key comint-mode-map
-                                [(down)] 'comint-next-input)))
+                                (kbd "<down>") 'comint-next-input)))
 
 ;; Make sure script files are executable after save:
 (add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
