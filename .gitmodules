@@ -25,9 +25,6 @@
 [submodule "emacs-nav"]
 	path = emacs-nav
 	url = https://github.com/travisjeffery/emacs-nav.git
-[submodule "haskell-mode"]
-	path = thirdparty/haskell-mode
-	url = https://github.com/jwiegley/haskell-mode.git
 [submodule "http-twiddle"]
 	path = thirdparty/http-twiddle
 	url = https://github.com/hassy/http-twiddle.git
@@ -88,3 +85,6 @@
 [submodule "thirdparty/yaml-mode"]
 	path = thirdparty/yaml-mode
 	url = https://github.com/yoshiki/yaml-mode.git
+[submodule "thirdparty/haskell-mode"]
+	path = thirdparty/haskell-mode
+	url = https://github.com/haskell/haskell-mode.git
