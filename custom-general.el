@@ -122,7 +122,7 @@
 
 ;;; expand-region; see http://emacsrocks.com/e09.html
 (autoload 'er/expand-region "expand-region" t)
-(global-set-key (kbd "C-@") 'er/expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
 
 ;;; experiment with find-file-at-point a bit (don't use their
 ;;; pre-configured bindings, as they will presumably over-write the
