@@ -241,6 +241,32 @@ active, in the region.  Optional prefix arg means behave similarly to
         result))))
 
 
+;;; http://www.emacswiki.org/emacs/IntegerAtPoint
+(defun integer-bounds-of-integer-at-point ()
+  "Return the start and end points of an integer at the current point.
+   The result is a paired list of character positions for an integer
+   located at the current point in the current buffer.  An integer is any
+   decimal digit 0 through 9 with an optional starting minus symbol
+   \(\"-\")."
+  (save-excursion
+    (skip-chars-backward "-0123456789")
+    (if (looking-at "-?[0-9]+")
+        (cons (point) (match-end 0)) ; bounds of integer
+      nil)))
+(put 'integer 'bounds-of-thing-at-point
+     'integer-bounds-of-integer-at-point)
+
+(defun inc-num-at-point ()
+  (interactive)
+  (let ((numstr (thing-at-point 'integer)))
+    (unless (null numstr)
+      (let* ((num (string-to-int numstr))
+             (incnum (1+ num))
+             (beg (beginning-of-thing 'integer))
+             (end (end-of-thing 'integer)))
+        (delete-region beg end)
+        (insert (number-to-string incnum))))))
+
 ;; 
 ;; Courtesy of Steve Yegge, http://steve.yegge.googlepages.com/my-dot-emacs-file
 ;; 
