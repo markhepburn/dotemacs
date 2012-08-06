@@ -58,6 +58,7 @@
 ;;; zencoding shortcuts for html generation:
 (autoload 'zencoding-mode "zencoding-mode" "Zencoding HTML generation shortcuts" t)
 (add-hook 'sgml-mode-hook 'zencoding-mode)
+(setq-default zencoding-indentation 2)
 ;;; reclaim C-j keybinding from zencoding!
 (eval-after-load "zencoding-mode"
   '(progn
