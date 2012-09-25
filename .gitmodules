@@ -85,3 +85,6 @@
 [submodule "thirdparty/haskell-mode"]
 	path = thirdparty/haskell-mode
 	url = https://github.com/haskell/haskell-mode.git
+[submodule "thirdparty/multiple-cursors"]
+	path = thirdparty/multiple-cursors
+	url = https://github.com/magnars/multiple-cursors.el.git
