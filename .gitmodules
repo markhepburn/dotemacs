@@ -34,9 +34,6 @@
 [submodule "magit"]
 	path = thirdparty/magit
 	url = https://github.com/magit/magit.git
-[submodule "mo-git-blame"]
-	path = thirdparty/mo-git-blame
-	url = https://github.com/emacsmirror/mo-git-blame.git
 [submodule "zencoding"]
 	path = thirdparty/zencoding
 	url = https://github.com/rooney/zencoding.git
