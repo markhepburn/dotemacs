@@ -256,16 +256,17 @@ active, in the region.  Optional prefix arg means behave similarly to
 (put 'integer 'bounds-of-thing-at-point
      'integer-bounds-of-integer-at-point)
 
-(defun inc-num-at-point ()
-  (interactive)
+(defun increment-number-at-point (increment)
+  (interactive "p")
   (let ((numstr (thing-at-point 'integer)))
     (unless (null numstr)
       (let* ((num (string-to-int numstr))
-             (incnum (1+ num))
+             (incnum (+ num increment))
              (beg (beginning-of-thing 'integer))
              (end (end-of-thing 'integer)))
         (delete-region beg end)
         (insert (number-to-string incnum))))))
+(global-set-key (kbd "C-x n +") 'increment-number-at-point)
 
 ;; 
 ;; Courtesy of Steve Yegge, http://steve.yegge.googlepages.com/my-dot-emacs-file
