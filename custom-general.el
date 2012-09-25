@@ -46,26 +46,9 @@
   ;; can use ido functions with elscreen etc.
   (ido-everywhere 1)
 
-  (setq ido-execute-command-cache nil)
+  (setq ido-enable-flex-matching t)
 
-  ;; Kept for posterity's sake; see below for the more complete smex
-  ;; that I now use:
-  (defun ido-execute-command ()
-    (interactive)
-    (call-interactively
-     (intern
-      (ido-completing-read
-       "M-x "
-       (progn
-         (unless ido-execute-command-cache
-           (mapatoms (lambda (s)
-                       (when (commandp s)
-                         (setq ido-execute-command-cache
-                               (cons (format "%S" s) ido-execute-command-cache))))))
-         ido-execute-command-cache)))))
-
-  ;; Let's use smex instead (basically the same as above but with more
-  ;; options, and crucially has the ability refresh the cache):
+  ;; Smex: ido for M-x.
   (setq smex-save-file "~/.emacs.d/smex.save")
   (require 'smex)
   (smex-initialize)
@@ -75,7 +58,7 @@
   (when (require 'imenu nil t)
     ;; http://chopmo.blogspot.com/2008/09/quickly-jumping-to-symbols.html
     (defun ido-goto-symbol ()
-      "Will update the imenu index and then use ido to select a 
+      "Will update the imenu index and then use ido to select a
    symbol to navigate to"
       (interactive)
       (imenu--make-index-alist)
@@ -88,15 +71,15 @@
                                  (cond
                                   ((and (listp symbol) (imenu--subalist-p symbol))
                                    (addsymbols symbol))
-                                  
+
                                   ((listp symbol)
                                    (setq name (car symbol))
                                    (setq position (cdr symbol)))
-                                  
+
                                   ((stringp symbol)
                                    (setq name symbol)
                                    (setq position (get-text-property 1 'org-imenu-marker symbol))))
-                                 
+
                                  (unless (or (null position) (null name))
                                    (add-to-list 'symbol-names name)
                                    (add-to-list 'name-and-pos (cons name position))))))))
@@ -107,12 +90,7 @@
 
     ;; Note: over-rides default binding of abbrev-prefix-mark
     (global-set-key (kbd "M-'") 'ido-goto-symbol))
-  
-  (add-hook 'ido-setup-hook
-            (lambda ()
-              (setq ido-enable-flex-matching t)
-              ;; (global-set-key "\M-x" 'ido-execute-command)
-              ))
+
   (ido-mode t))
 
 (when (require 'multiple-cursors nil t)
@@ -144,7 +122,7 @@
 
 ;;; Ignore .svn/ contents in find-grep:
 ;;; http://benjisimon.blogspot.com/2009/01/emacs-tip-slightly-better-find-grep.html
-(setq grep-find-command 
+(setq grep-find-command
   "find . -type f '!' -wholename '*/.svn/*' -print0 | xargs -0 -e grep -nH -e ")
 
 ;;; use some code templating (note that I'm using the bundle here; may
