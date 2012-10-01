@@ -48,6 +48,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'psvn)
 (autoload 'svn-status "psvn" "Subversion interaction mode" t)
+(setq svn-status-track-user-input t)    ; Needs this to prompt for a password!
 (eval-after-load "psvn"
   '(progn
      (define-key svn-status-mode-map (kbd "n") 'svn-status-next-line)
