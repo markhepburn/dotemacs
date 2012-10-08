@@ -15,6 +15,10 @@
 	 (setq org-special-ctrl-k t)		; behaviour of this is a bit subtle
 	 (setq org-completion-use-ido t)
 
+     ;; Be consistent with spacing between headings, even if already
+     ;; on a new line:
+     (setq org-insert-heading-respect-content t)
+
      ;; restore default value of the tags alignment column:
      (setq org-tags-column -80)
 
