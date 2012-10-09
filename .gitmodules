@@ -88,3 +88,6 @@
 [submodule "thirdparty/auto-complete"]
 	path = thirdparty/auto-complete
 	url = https://github.com/auto-complete/auto-complete.git
+[submodule "thirdparty/popup"]
+	path = thirdparty/popup
+	url = https://github.com/auto-complete/popup-el.git
