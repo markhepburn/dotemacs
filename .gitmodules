@@ -85,3 +85,6 @@
 [submodule "thirdparty/less-css-mode"]
 	path = thirdparty/less-css-mode
 	url = https://github.com/purcell/less-css-mode.git
+[submodule "thirdparty/auto-complete"]
+	path = thirdparty/auto-complete
+	url = https://github.com/auto-complete/auto-complete.git
