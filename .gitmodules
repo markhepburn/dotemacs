@@ -91,3 +91,6 @@
 [submodule "thirdparty/popup"]
 	path = thirdparty/popup
 	url = https://github.com/auto-complete/popup-el.git
+[submodule "thirdparty/nrepl"]
+	path = thirdparty/nrepl
+	url = https://github.com/kingtim/nrepl.el.git
