@@ -32,6 +32,9 @@
 (add-to-list 'auto-mode-alist '("\\.clj$" . clojure-mode))
 (add-to-list 'auto-mode-alist '("\\.cljs$" . clojure-mode))
 
+;;; ...and nrepl integration:
+(autoload 'nrepl "nrepl" "Connect to existing nrepl instance")
+(autoload 'nrepl-jack-in "nrepl" "Launch a nrepl instance")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
