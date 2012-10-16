@@ -35,6 +35,11 @@
 ;;; ...and nrepl integration:
 (autoload 'nrepl "nrepl" "Connect to existing nrepl instance")
 (autoload 'nrepl-jack-in "nrepl" "Launch a nrepl instance")
+(add-hook 'nrepl-mode-hook (lambda ()
+                             (define-key nrepl-mode-map
+                               (kbd "<up>") 'nrepl-previous-input)
+                             (define-key nrepl-mode-map
+                               (kbd "<down>") 'nrepl-next-input)))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
