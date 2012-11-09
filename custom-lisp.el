@@ -49,5 +49,5 @@
 ;; table with examples.
 (autoload 'paredit-mode "paredit-beta"
   "Structured editing of S-expressions" t)
-(enable-minor-mode-for paredit-mode '(emacs-lisp lisp clojure inferior-lisp slime-repl))
+(enable-minor-mode-for paredit-mode '(emacs-lisp lisp clojure inferior-lisp slime-repl nrepl))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
