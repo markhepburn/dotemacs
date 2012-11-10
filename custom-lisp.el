@@ -47,7 +47,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; See http://mumble.net/~campbell/emacs/paredit.html for a reference
 ;; table with examples.
-(autoload 'paredit-mode "paredit-beta"
+(autoload 'paredit-mode "paredit"
   "Structured editing of S-expressions" t)
 (enable-minor-mode-for paredit-mode '(emacs-lisp lisp clojure inferior-lisp slime-repl nrepl))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

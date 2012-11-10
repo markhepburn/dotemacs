@@ -94,3 +94,6 @@
 [submodule "thirdparty/nrepl"]
 	path = thirdparty/nrepl
 	url = https://github.com/kingtim/nrepl.el.git
+[submodule "thirdparty/paredit"]
+	path = thirdparty/paredit
+	url = https://github.com/emacsmirror/paredit.git
