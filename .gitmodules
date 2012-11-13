@@ -97,3 +97,6 @@
 [submodule "thirdparty/paredit"]
 	path = thirdparty/paredit
 	url = https://github.com/emacsmirror/paredit.git
+[submodule "thirdparty/browse-kill-ring"]
+	path = thirdparty/browse-kill-ring
+	url = https://github.com/browse-kill-ring/browse-kill-ring.git
