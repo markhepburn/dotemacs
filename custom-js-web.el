@@ -69,6 +69,11 @@
 (autoload 'django-html-mode "django-html-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . django-html-mode))
 
+;;; Interactive django mode (virtualenv and fabric integration, etc):
+(add-to-list 'load-path (concat *mh/thirdparty-special* "pony-mode/src"))
+;; Loading now then plugs it in to the related major-modes:
+(require 'pony-mode nil t)
+
 ;;; Make css colour definitions the colour they represent:
 (autoload 'rainbow-turn-on "rainbow-mode" nil t)
 (add-hook 'css-mode-hook 'rainbow-turn-on)
