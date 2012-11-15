@@ -100,3 +100,6 @@
 [submodule "thirdparty/browse-kill-ring"]
 	path = thirdparty/browse-kill-ring
 	url = https://github.com/browse-kill-ring/browse-kill-ring.git
+[submodule "thirdparty-special/pony-mode"]
+	path = thirdparty-special/pony-mode
+	url = https://github.com/davidmiller/pony-mode.git
