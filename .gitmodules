@@ -103,3 +103,6 @@
 [submodule "thirdparty-special/pony-mode"]
 	path = thirdparty-special/pony-mode
 	url = https://github.com/davidmiller/pony-mode.git
+[submodule "thirdparty/python"]
+	path = thirdparty/python
+	url = https://github.com/fgallina/python.el.git

@@ -8,11 +8,9 @@
                (lambda () (imenu-add-to-menubar "Declarations")))
      (add-hook 'python-mode-hook
                (lambda () (semantic-decoration-mode -1)))
-     (add-hook 'python-mode-hook
-               (lambda () (require 'virtualenv nil t)))
      ;; restore python's backspace binding after it is clobbered by my autopairs stuff:
      (add-hook 'python-mode-hook
-               (lambda () (local-set-key (kbd "<backspace>") 'python-backspace)))
+               (lambda () (local-set-key (kbd "<backspace>") 'python-indent-dedent-line-backspace)))
      (when (load "flymake" t)
        (defun flymake-pylint-init ()
          (let* ((temp-file (flymake-init-create-temp-buffer-copy
