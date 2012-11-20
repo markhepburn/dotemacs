@@ -106,3 +106,6 @@
 [submodule "thirdparty/python"]
 	path = thirdparty/python
 	url = https://github.com/fgallina/python.el.git
+[submodule "thirdparty/autopair"]
+	path = thirdparty/autopair
+	url = https://github.com/capitaomorte/autopair.git
