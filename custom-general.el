@@ -161,6 +161,7 @@
               (setq dired-omit-files      "\\(^\\..*\\)\\|\\(CVS\\)"
                     dired-omit-extensions '("~" ".bak" ".pyc" ".elc"))
               (dired-omit-mode 1))))
+(add-hook 'dired-mode-hook (lambda () (hl-line-mode 1)))
 
 ;; Scroll-bars on the right please:
 (if (fboundp 'set-scroll-bar-mode) (set-scroll-bar-mode 'right))
