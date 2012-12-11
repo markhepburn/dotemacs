@@ -77,7 +77,7 @@ containing the code, or a special file that must be autoloaded")
 
 (load "custom-xml")
 
-(load "custom-stats")
+;; (load "custom-stats")
 
 ;;; I'm a convert:
 (when (require 'zenburn-theme nil t)
