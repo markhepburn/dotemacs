@@ -112,3 +112,6 @@
 [submodule "thirdparty/markdown-mode"]
 	path = thirdparty/markdown-mode
 	url = https://github.com/emacsmirror/markdown-mode.git
+[submodule "thirdparty/monky"]
+	path = thirdparty/monky
+	url = https://github.com/ananthakumaran/monky.git
