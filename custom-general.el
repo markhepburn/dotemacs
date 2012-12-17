@@ -33,7 +33,7 @@
 (setq default-tab-width 4)
 (setq-default indent-tabs-mode nil)
 ;;; Default to view-mode for read-only files:
-(setq view-read-only t)
+;; (setq view-read-only t)
 ;;; Single-frame ediff usage (mainly because floating windows seemed
 ;;; to interact badly with xmonad, even when explicitly floated):
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
