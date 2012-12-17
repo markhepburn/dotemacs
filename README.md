@@ -5,6 +5,13 @@ This is my emacs configuration, placed on github for portability and
 general sharing.  It has accumulated a decent amount of cruft over the
 years, so please feel free to point out where it can be improved.
 
+These days I have a fairly homogenous environment across my different
+installations, so there's not a lot of effort put in to making things
+backwards-compatible.  Currently that means Emacs24, on a Linux
+(Ubuntu) host, although the only thing I'm aware of that breaks on
+Emacs23 is the colour-theme stuff.  See also the platform and
+host-specific loading files if things start to deviate much.
+
 Post-Installation
 -----------------
 
