@@ -115,3 +115,6 @@
 [submodule "thirdparty/monky"]
 	path = thirdparty/monky
 	url = https://github.com/ananthakumaran/monky.git
+[submodule "thirdparty/elisp-slime-nav"]
+	path = thirdparty/elisp-slime-nav
+	url = https://github.com/purcell/elisp-slime-nav.git
