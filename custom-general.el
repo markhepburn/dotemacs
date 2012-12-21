@@ -1,6 +1,10 @@
 ;;; Miscellaneous customisations; mostly one-liner tweaks of
 ;;; appearance and functionality.
 
+;; Save point position between sessions (hat tip, http://whattheemacsd.com/init.el-03.html)
+(require 'saveplace)
+(setq-default save-place t)
+(setq save-place-file (expand-file-name "saved.places" user-emacs-directory))
 
 ;; use font lock where possible:
 (global-font-lock-mode t)
