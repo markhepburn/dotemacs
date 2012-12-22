@@ -188,6 +188,12 @@
 (add-hook 'calc-mode-hook
           (lambda () (local-set-key (kbd "<backspace>") 'calc-pop)))
 
+;;; Can't believe I never went looking for this; great choice of
+;;; keybinding too.  Hat-tip to http://irreal.org/blog/?p=1536
+(autoload 'zap-up-to-char "misc"
+  "Kill up to, but not including ARGth occurrence of CHAR.")
+(global-set-key (kbd "M-Z") 'zap-up-to-char)
+
 ;; kill-ring selection:
 (when (require 'browse-kill-ring nil t)
   (browse-kill-ring-default-keybindings)
