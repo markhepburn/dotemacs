@@ -194,6 +194,18 @@
   "Kill up to, but not including ARGth occurrence of CHAR.")
 (global-set-key (kbd "M-Z") 'zap-up-to-char)
 
+;;; Temporarily enable fringe line-numbers during goto-line.
+;;; Via http://whattheemacsd.com/key-bindings.el-01.html
+(defun goto-line-with-feedback ()
+  "Show line numbers temporarily, while prompting for the line number input"
+  (interactive)
+  (unwind-protect
+      (progn
+        (linum-mode 1)
+        (call-interactively 'goto-line))
+    (linum-mode -1)))
+(global-set-key [remap goto-line] 'goto-line-with-feedback)
+
 ;; kill-ring selection:
 (when (require 'browse-kill-ring nil t)
   (browse-kill-ring-default-keybindings)
