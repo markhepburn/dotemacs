@@ -133,7 +133,8 @@
 
 ;;; use some code templating (note that I'm using the bundle here; may
 ;;; be better later on to use the plain package and customise it):
-(require 'yasnippet-bundle)
+(when (require 'yasnippet nil t)
+  (yas-global-mode 1))
 
 ;;; Auto-complete mode: all the cool kids are using it, and it's more
 ;;; active than company mode (see

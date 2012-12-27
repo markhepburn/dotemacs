@@ -118,3 +118,6 @@
 [submodule "thirdparty/elisp-slime-nav"]
 	path = thirdparty/elisp-slime-nav
 	url = https://github.com/purcell/elisp-slime-nav.git
+[submodule "thirdparty/yasnippet"]
+	path = thirdparty/yasnippet
+	url = https://github.com/capitaomorte/yasnippet.git
