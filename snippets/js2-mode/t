@@ -1,0 +1,7 @@
+# -*- coding: utf-8; mode: snippet -*-
+# name: assert.true
+# key: t
+# group: nodejs
+# contributor: Sergio Garcia Mondaray <sgmonda@gmail.com>
+# --
+${1:assert}.ok(${2:expression_to_test_true}, '${3:fail message}');

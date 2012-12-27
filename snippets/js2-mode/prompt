@@ -1,0 +1,7 @@
+# -*- coding: utf-8; mode: snippet -*-
+# name: Prompt input dialog
+# key: prompt
+# contributor: Sergio Garcia Mondaray <sgmonda@gmail.com>
+# --
+var ${2:text} = prompt('${1:question}');
+$0

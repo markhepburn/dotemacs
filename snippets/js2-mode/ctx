@@ -1,0 +1,8 @@
+# -*- coding: utf-8; mode: snippet -*-
+# name: HTML5 getContext()
+# key: ctx
+# group: html5
+# contributor: Sergio Garcia Mondaray <sgmonda@gmail.com>
+# --
+var canvas = document.getElementById('${1:canvas}');
+var ctx = canvas.getContext('${2:2d}');

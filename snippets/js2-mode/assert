@@ -1,0 +1,7 @@
+# -*- coding: utf-8; mode: snippet -*-
+# name: var assert = require('assert');
+# key: assert
+# group: nodejs
+# contributor: Sergio Garcia Mondaray <sgmonda@gmail.com>
+# --
+var assert = require('assert');

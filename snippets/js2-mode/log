@@ -1,0 +1,6 @@
+# -*- coding: utf-8; mode: snippet -*-
+# name: log
+# key: log
+# contributor: Sergio Garcia <sgmonda@gmail.com>
+# --
+console.log($0);

@@ -1,0 +1,21 @@
+# -*- coding: utf-8; mode: snippet -*-
+# name: MySQL access from NodeJS using nodejs-mysql
+# key: mysql
+# group: nodejs
+# contributor: Sergio Garcia <sgmonda@gmail.com>
+# --
+var mysql = require('mysql');
+
+var db = mysql.createClient({
+    user: '${1:root}',
+    password: '${2:pass}',
+    host: '${3:127.0.0.1}',
+    port: '${4:3306}',
+    database: '${5:schema_name}'
+});
+
+db.query(
+    '${6:TU CONSULTA AQUÍ}'
+);
+
+$0

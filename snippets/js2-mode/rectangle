@@ -1,0 +1,11 @@
+# -*- coding: utf-8; mode: snippet -*-
+# name: HTML5 rectangle
+# key: rectangle
+# group: html5
+# contributor: Sergio Garcia Mondaray <sgmonda@gmail.com>
+# --
+${1:context}.strokeStyle = "${2:borderColor}";
+$1.fillStyle = "${3:backgroundColor}";
+$1.fillRect(${4:x}, ${5:y}, ${6:width}, ${7:height});
+$1.stroke();
+$1.fill();

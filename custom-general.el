@@ -131,10 +131,11 @@
 (setq grep-find-command
   "find . -type f '!' -wholename '*/.svn/*' -print0 | xargs -0 -e grep -nH -e ")
 
-;;; use some code templating (note that I'm using the bundle here; may
-;;; be better later on to use the plain package and customise it):
+;;; Code templating:
 (when (require 'yasnippet nil t)
-  (yas-global-mode 1))
+  (yas-global-mode 1)
+  ;; 't to jit-load snippets:
+  (yas-load-directory (concat *mh/lisp-base* "snippets") t))
 
 ;;; Auto-complete mode: all the cool kids are using it, and it's more
 ;;; active than company mode (see

@@ -1,0 +1,33 @@
+# -*- coding: utf-8; mode: snippet -*-
+# name: Class structure
+# key: class
+# contributor: Sergio Garcia Mondaray <sgmonda@gmail.com>
+# --
+/**
+  * class ${1:ClassName}
+  * ${2:Description}
+  * @author ${3:Author's name'}
+  */
+
+$1 = function (){
+  this._init ();
+}
+
+$1.prototype = new ${4:MotherClass}();
+
+/** 
+ * _init sets all $1 attributes to their default value.
+ */
+$1.prototype._init = function (){
+  this.${5:attributeName} = ${6:something};
+}
+
+/**
+ * ${7:New operation description}
+ * @param ${8:new_parameter_1}
+ * @return ${9:return descritpion}
+ */
+$1.prototype.${10:methodName} = function(${11:newParameter}){
+  $0
+}
+

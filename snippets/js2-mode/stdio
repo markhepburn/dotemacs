@@ -1,0 +1,19 @@
+# -*- coding: utf-8; mode: snippet -*-
+# name: standard input base
+# key: stdio
+# group: nodejs
+# contributor: Sergio Garcia <sgmonda@gmail.com>
+# --
+var stdin = process.openStdin();
+
+stdin.on('data', function(text){
+    var ls = String(text).split("\n");
+    for(var i = 0, len = ls.length; i < len; i++){
+        var line = ls[i];
+        ${1://Do what you want with line}
+    }
+});
+
+stdin.on('end', function(){
+    ${2://Fin de la entrada estandar: Ctrl+D}
+});

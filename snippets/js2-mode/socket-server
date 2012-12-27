@@ -1,0 +1,16 @@
+# -*- coding: utf-8; mode: snippet -*-
+# name: Server structure
+# key: server
+# group: nodejs
+# contributor: Sergio Garcia Mondaray <sgmonda@gmail.com>
+# --
+var sio = require('socket.io');
+var io = sio.listen(${1:8077}, {log: false});
+io.sockets.on('connection', function (socket) {
+  socket.emit('message', { text: 'Esto es un mensaje del servidor' });
+  socket.on('message', function (data) {
+      console.log(data);
+      socket.broadcast.emit('message', data)
+  });
+});
+

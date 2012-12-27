@@ -1,0 +1,9 @@
+# -*- coding: utf-8; mode: snippet -*-
+# name: process.on('SIGINT', ...)
+# key: sigint
+# group: nodejs
+# contributor: Sergio Garcia Mondaray <sgm@gmail.com>
+# --
+process.on('SIGINT', function(){
+    $0
+});

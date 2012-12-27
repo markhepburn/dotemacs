@@ -1,0 +1,6 @@
+# -*- coding: utf-8; mode: snippet -*-
+# name: setInterval(...)
+# key: interval
+# contributor: Sergio Garcia Mondaray <sgmonda@gmail.com>
+# --
+setInterval('${1:functionCall()}', ${2:interval_in_miliseconds});

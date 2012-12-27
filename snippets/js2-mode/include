@@ -1,0 +1,6 @@
+# -*- coding: utf-8; mode: snippet -*-
+# name: #include "something.js"
+# key: include
+# contributor: Sergio Garcia Mondaray <sgmonda@gmail.com>
+# --
+#include "${1:Something.js}"

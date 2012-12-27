@@ -1,0 +1,12 @@
+# -*- coding: utf-8; mode: snippet -*-
+# name: fun
+# key: fun
+# contributor: Sergio Garcia Mondaray <sgmonda@gmail.com>
+# --
+/**
+ * ${2:description}
+ * @param {object} $3
+ */
+var ${1:name} = function(${3:args}){
+    $0
+};
