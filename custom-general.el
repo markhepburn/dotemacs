@@ -140,6 +140,10 @@
 ;;; http://stackoverflow.com/questions/4704748/emacs-completion-autocomplete-or-company).
 ;;; Also, eclim can use it, and that looks quite handy.
 (when (require 'auto-complete-config nil t)
+  ;; no forced arrow keys, thank you:
+  (define-key ac-completing-map (kbd "C-n") 'ac-next)
+  (define-key ac-completing-map (kbd "C-p") 'ac-previous)
+
   (add-to-list 'ac-dictionary-directories (concat *mh/thirdparty-lisp* "auto-complete/dict"))
   (ac-config-default))
 
