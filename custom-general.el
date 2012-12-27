@@ -474,7 +474,8 @@ should be a list of keys that will be bound globally to
 ;; use hippie-expand (mainly abbrev expand and dabbrev):
 (global-set-key (kbd "M-/") 'hippie-expand)
 (setq hippie-expand-try-functions-list
-      '(try-expand-all-abbrevs
+      '(yas-hippie-try-expand
+        try-expand-all-abbrevs
         try-expand-dabbrev
         try-expand-dabbrev-all-buffers
         try-expand-dabbrev-from-kill))
