@@ -47,6 +47,13 @@
                                (kbd "<up>") 'nrepl-previous-input)
                              (define-key nrepl-mode-map
                                (kbd "<down>") 'nrepl-next-input)))
+
+;;; auto-complete support for nrepl:
+(when (require 'ac-nrepl nil t)
+  (add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
+  (add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
+  (eval-after-load "auto-complete"
+    '(add-to-list 'ac-modes 'nrepl-mode)))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

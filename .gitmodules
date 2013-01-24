@@ -121,3 +121,6 @@
 [submodule "thirdparty/yasnippet"]
 	path = thirdparty/yasnippet
 	url = https://github.com/capitaomorte/yasnippet.git
+[submodule "thirdparty/ac-nrepl"]
+	path = thirdparty/ac-nrepl
+	url = https://github.com/purcell/ac-nrepl.git
