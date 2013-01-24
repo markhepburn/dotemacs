@@ -1,4 +1,4 @@
-(eval-after-load "cedet"
+(eval-after-load "ede/cpp-root"
   '(progn
      (ede-cpp-root-project "Atlantis"
                            :name "Atlantis"

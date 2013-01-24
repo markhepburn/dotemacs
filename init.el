@@ -57,11 +57,11 @@ containing the code, or a special file that must be autoloaded")
 
 (load "custom-general")
 
+(load "custom-c")
+
 (load "custom-lisp")
 
 (load "custom-org")
-
-(load "custom-c")
 
 (load "custom-haskell")
 
