@@ -61,6 +61,19 @@
   (global-set-key (kbd "M-x") 'smex)
   (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 
+  ;; ...extend the reach of ido (see http://whattheemacsd.com//setup-ido.el-01.html):
+  (when (require 'ido-ubiquitous nil t)
+    (ido-ubiquitous-mode 1)
+
+    ;; Fix ido-ubiquitous for newer packages
+    (defmacro ido-ubiquitous-use-new-completing-read (cmd package)
+      `(eval-after-load ,package
+         '(defadvice ,cmd (around ido-ubiquitous-new activate)
+            (let ((ido-ubiquitous-enable-compatibility nil))
+              ad-do-it))))
+    (ido-ubiquitous-use-new-completing-read yas/expand 'yasnippet)
+    (ido-ubiquitous-use-new-completing-read yas/visit-snippet-file ')yasnippet))
+
   (when (require 'imenu nil t)
     ;; http://chopmo.blogspot.com/2008/09/quickly-jumping-to-symbols.html
     (defun ido-goto-symbol ()

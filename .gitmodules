@@ -124,3 +124,6 @@
 [submodule "thirdparty/ac-nrepl"]
 	path = thirdparty/ac-nrepl
 	url = https://github.com/purcell/ac-nrepl.git
+[submodule "thirdparty/ido-ubiquitous"]
+	path = thirdparty/ido-ubiquitous
+	url = https://github.com/DarwinAwardWinner/ido-ubiquitous.git
