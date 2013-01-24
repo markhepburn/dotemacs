@@ -72,7 +72,7 @@
             (let ((ido-ubiquitous-enable-compatibility nil))
               ad-do-it))))
     (ido-ubiquitous-use-new-completing-read yas/expand 'yasnippet)
-    (ido-ubiquitous-use-new-completing-read yas/visit-snippet-file ')yasnippet))
+    (ido-ubiquitous-use-new-completing-read yas/visit-snippet-file 'yasnippet))
 
   (when (require 'imenu nil t)
     ;; http://chopmo.blogspot.com/2008/09/quickly-jumping-to-symbols.html
