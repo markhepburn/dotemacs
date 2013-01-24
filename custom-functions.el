@@ -268,9 +268,9 @@ active, in the region.  Optional prefix arg means behave similarly to
         (insert (number-to-string incnum))))))
 (global-set-key (kbd "C-x n +") 'increment-number-at-point)
 
-;; 
+;;
 ;; Courtesy of Steve Yegge, http://steve.yegge.googlepages.com/my-dot-emacs-file
-;; 
+;;
 (defun rename-file-and-buffer (new-name)
   "Renames both current buffer and file it's visiting to NEW-NAME."
   (interactive "sNew name: ")
@@ -302,7 +302,21 @@ active, in the region.  Optional prefix arg means behave similarly to
         (delete-file filename)
         (set-visited-file-name newname)
         (set-buffer-modified-p nil)
-        t)))) 
+        t))))
+
+;;; Similarly, http://whattheemacsd.com/file-defuns.el-02.html
+(defun delete-current-buffer-file ()
+  "Removes file connected to current buffer and kills buffer."
+  (interactive)
+  (let ((filename (buffer-file-name))
+        (buffer (current-buffer))
+        (name (buffer-name)))
+    (if (not (and filename (file-exists-p filename)))
+        (ido-kill-buffer)
+      (when (yes-or-no-p "Are you sure you want to remove this file? ")
+        (delete-file filename)
+        (kill-buffer buffer)
+        (message "File '%s' successfully removed" filename)))))
 
 ;; stupidity :)
 (defun mh/scrum-p ()
