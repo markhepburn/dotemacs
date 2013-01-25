@@ -8,6 +8,8 @@
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 (eval-after-load "org"
   '(progn
+     (setq org-directory (expand-file-name (file-name-as-directory "~/Dropbox/org")))
+
      (setq org-log-done t)
 
 	 ;; Some great tips from http://orgmode.org/worg/org-customization-guide.php
@@ -29,7 +31,14 @@
      ;; if necessary):
      (setq org-pretty-entities t)
 
-     ;; Don't use the agenda at the moment, so rebind C-, to my
+     ;; Agenda and mobile usage:
+     (setq org-agenda-files (list (expand-file-name "csiro-projects.org" org-directory)))
+     (setq org-mobile-directory (expand-file-name "MobileOrg" org-directory))
+     (setq org-mobile-files (cons (expand-file-name "notes.org" org-directory)
+                                  org-agenda-files))
+     (setq org-mobile-inbox-for-pull (expand-file-name "from-mobile.org" org-directory))
+
+     ;; Don't use agenda-cycle at the moment, so rebind C-, to my
      ;; scrolling commands:
      (add-hook 'org-mode-hook
                (lambda ()
