@@ -429,6 +429,12 @@ should be a list of keys that will be bound globally to
       (bm-show-all)
     ad-do-it))
 
+;;; Winner-mode; undo for window configurations (key bindings clobber
+;;; next and previous-buffer, which I never use):
+(winner-mode 1)
+(global-set-key (kbd "C-x <left>")  'winner-undo)
+(global-set-key (kbd "C-x <right>") 'winner-redo)
+
 ;;; escreen; gnu-screen for emacs:
 (setq escreen-prefix-char (kbd "C-z"))  ;; must be done before loading!
 (when (require 'escreen nil t)
