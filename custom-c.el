@@ -88,11 +88,11 @@
 (when (cedet-ectag-version-check t)
   (semantic-load-enable-primary-ectags-support))
 
-;; SRecode
-(global-srecode-minor-mode 1)
-;; EDE
-(global-ede-mode 1)
-(ede-enable-generic-projects)
+;; ;; SRecode
+;; (global-srecode-minor-mode 1)
+;; ;; EDE
+;; (global-ede-mode 1)
+;; (ede-enable-generic-projects)
 
 ;; Setup JAVA....
 (require 'cedet-java)
