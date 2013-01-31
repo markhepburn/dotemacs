@@ -4,6 +4,7 @@
 (autoload 'elisp-slime-nav-mode "elisp-slime-nav"
   "M-./M-, navigation for elisp" t)
 (add-hook 'emacs-lisp-mode-hook (lambda () (elisp-slime-nav-mode t)))
+(eval-after-load "elisp-slime-nav" '(diminish 'elisp-slime-nav-mode))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -64,4 +65,5 @@
 (autoload 'paredit-mode "paredit"
   "Structured editing of S-expressions" t)
 (enable-minor-mode-for paredit-mode '(emacs-lisp lisp clojure inferior-lisp slime-repl nrepl))
+(eval-after-load 'paredit '(diminish 'paredit-mode))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

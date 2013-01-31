@@ -6,6 +6,11 @@
 (setq-default save-place t)
 (setq save-place-file (expand-file-name "saved.places" user-emacs-directory))
 
+;;; Trim the modeline (http://whattheemacsd.com/init.el-04.html).  We
+;;; require this early, and don't ignore errors either, because it
+;;; will wind up sprinkled all through the config.
+(require 'diminish)
+
 ;; use font lock where possible:
 (global-font-lock-mode t)
 ;; don't use those irritating ~ backup files:
@@ -181,7 +186,9 @@
   (define-key ac-completing-map (kbd "C-p") 'ac-previous)
 
   (add-to-list 'ac-dictionary-directories (concat *mh/thirdparty-lisp* "auto-complete/dict"))
-  (ac-config-default))
+  (ac-config-default)
+
+  (diminish 'auto-complete-mode))
 
 ;;; paren-matching (investigate mic-paren mode properly at some stage):
 ;(show-paren-mode 1)
@@ -218,7 +225,8 @@
 ;; M-y to browse kill-ring:
 
 (when (require 'undo-tree nil t)
-  (global-undo-tree-mode))
+  (global-undo-tree-mode)
+  (diminish 'undo-tree-mode))
 
 ;;; I don't know why this seemed to suddenly change; make backspace
 ;;; work again in isearch-mode anyway (see also C-M-w which does the
@@ -355,6 +363,7 @@ should be a list of keys that will be bound globally to
 
 ;; Show docs where available:
 (enable-minor-mode-for eldoc-mode '(emacs-lisp lisp inferior-lisp))
+(eval-after-load 'eldoc '(diminish 'eldoc-mode))
 
 ;; view pdfs etc inline:
 (autoload 'doc-view "doc-view" "View pdfs inline" t)
@@ -492,7 +501,8 @@ should be a list of keys that will be bound globally to
 
 ;;; Replacing a lot of cruft from my skeleton-pair add-ons!
 (when (require 'autopair nil t)
-  (autopair-global-mode))
+  (autopair-global-mode)
+  (diminish 'autopair-mode))
 
 
 ;; parse keychain-generated environment variables and set them, if
@@ -555,6 +565,7 @@ should be a list of keys that will be bound globally to
   "Highlighting of FIXMEs, TODOs, etc" t)
 (enable-minor-mode-for
  highlight-fixmes-mode '(c python lisp LaTeX js2 haskell))
+(eval-after-load 'highlight-fixmes-mode '(diminish 'highlight-fixmes-mode))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; flymake stuff:
@@ -583,6 +594,7 @@ should be a list of keys that will be bound globally to
 ;;      (add-hook 'hs-minor-mode-hook 'hideshowvis-enable)))
 ;;; add hooks here too
 (enable-minor-mode-for hs-org/minor-mode '(emacs-lisp lisp inferior-lisp))
+(eval-after-load 'hideshow '(diminish 'hs-minor-mode))
 ;; (enable-minor-mode-for hs-minor-mode '(emacs-lisp lisp inferior-lisp))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 

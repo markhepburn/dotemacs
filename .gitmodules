@@ -130,3 +130,6 @@
 [submodule "thirdparty/move-text"]
 	path = thirdparty/move-text
 	url = https://github.com/emacsmirror/move-text.git
+[submodule "thirdparty/diminish"]
+	path = thirdparty/diminish
+	url = https://github.com/emacsmirror/diminish.git
