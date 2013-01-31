@@ -115,8 +115,8 @@
          '(defadvice ,cmd (around ido-ubiquitous-new activate)
             (let ((ido-ubiquitous-enable-compatibility nil))
               ad-do-it))))
-    (ido-ubiquitous-use-new-completing-read yas/expand 'yasnippet)
-    (ido-ubiquitous-use-new-completing-read yas/visit-snippet-file 'yasnippet)))
+    (ido-ubiquitous-use-new-completing-read yas-expand 'yasnippet)
+    (ido-ubiquitous-use-new-completing-read yas-visit-snippet-file 'yasnippet)))
 
 (when (require 'multiple-cursors nil t)
   (global-set-key (kbd "C-C C-C") 'mc/edit-lines)
