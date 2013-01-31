@@ -127,3 +127,6 @@
 [submodule "thirdparty/ido-ubiquitous"]
 	path = thirdparty/ido-ubiquitous
 	url = https://github.com/DarwinAwardWinner/ido-ubiquitous.git
+[submodule "thirdparty/move-text"]
+	path = thirdparty/move-text
+	url = https://github.com/emacsmirror/move-text.git

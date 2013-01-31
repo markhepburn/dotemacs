@@ -133,6 +133,12 @@
 (autoload 'ffap "ffap" "Find file at point functionality" t)
 (global-set-key (kbd "C-x M-f") 'ffap)
 
+;;; Move text up and down:
+(autoload 'move-text-up   "move-text" "Shuffle text around" t)
+(autoload 'move-text-down "move-text" "Shuffle text around" t)
+(global-set-key (kbd "C-S-p") 'move-text-up)
+(global-set-key (kbd "C-S-n") 'move-text-down)
+
 ;;; shortcut for browse url at point:
 (global-set-key (kbd "C-x M-b") 'browse-url-at-point)
 
