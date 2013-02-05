@@ -1,2 +1,10 @@
 *.elc
 *~
+/saved.places
+/smex.save
+/srecode-map.el
+/tramp
+/ede-projects.el
+/ac-comphist.dat
+/eshell/
+/session.*
