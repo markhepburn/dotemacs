@@ -489,6 +489,10 @@ should be a list of keys that will be bound globally to
           (kill-buffer (escreen-configuration-data-map-critical-buffer
                         (escreen-configuration-data-map-critical data-map))))
         (escreen-kill-screen current-escreen))))
+  (defun escreen-open-buffer-new-screen (buf)
+    (interactive "B")
+    (escreen-create-screen)
+    (switch-to-buffer buf))
   ;; adapted from http://blog.tapoueh.org/news.dim.html#%20Escreen%20integration
   (defun escreen-get-active-screen-numbers-with-emphasis ()
     "Display active screens, with the active screen emphasised."
@@ -509,6 +513,7 @@ should be a list of keys that will be bound globally to
 
   ;; Make the keybindings a bit more familiar:
   (escreen-advise-emphasis escreen-goto-last-screen)
+  (define-key escreen-map (kbd "b")   'escreen-open-buffer-new-screen)
   (define-key escreen-map (kbd "C-l") 'escreen-get-active-screen-numbers-with-emphasis)
   (define-key escreen-map (kbd "C-c") (escreen-advise-emphasis escreen-create-screen))
   (define-key escreen-map (kbd "C-k") (escreen-advise-emphasis escreen-kill-screen))
