@@ -7,12 +7,6 @@
 [submodule "distel"]
 	path = thirdparty-special/distel
 	url = https://github.com/emacsmirror/distel.git
-[submodule "git-emacs"]
-	path = git-emacs
-	url = https://github.com/tsgates/git-emacs.git
-[submodule "gitsum"]
-	path = gitsum
-	url = https://github.com/chneukirchen/gitsum.git
 [submodule "hideshow-org"]
 	path = thirdparty/hideshow-org
 	url = https://github.com/secelis/hideshow-org.git
@@ -22,9 +16,6 @@
 [submodule "smex"]
 	path = thirdparty/smex
 	url = https://github.com/nonsequitur/smex.git
-[submodule "emacs-nav"]
-	path = emacs-nav
-	url = https://github.com/travisjeffery/emacs-nav.git
 [submodule "http-twiddle"]
 	path = thirdparty/http-twiddle
 	url = https://github.com/hassy/http-twiddle.git
