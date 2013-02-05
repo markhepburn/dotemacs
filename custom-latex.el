@@ -2,7 +2,7 @@
 ;; LaTeX stuff:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Load AucTeX:
-(load "auctex" nil t)
+(load "tex-site" nil t)
 ;; (load "preview-latex.el" nil t t)
 
 (eval-after-load "tex"
