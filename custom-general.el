@@ -221,16 +221,19 @@
 (add-hook 'dired-mode-hook (lambda () (hl-line-mode 1)))
 ;;; Make dired buffer navigation a bit more friendly
 ;;; (http://whattheemacsd.com/setup-dired.el-02.html)
-(defun dired-back-to-top ()
-  (interactive)
-  (beginning-of-buffer)
-  (dired-next-line (if dired-omit-mode 2 4)))
-(define-key dired-mode-map (vector 'remap 'beginning-of-buffer) 'dired-back-to-top)
-(defun dired-jump-to-bottom ()
-  (interactive)
-  (end-of-buffer)
-  (dired-next-line -1))
-(define-key dired-mode-map (vector 'remap 'end-of-buffer) 'dired-jump-to-bottom)
+;;; Note, dired-mode-map isn't defined at load-time, so delay until dired appears:
+(eval-after-load 'dired
+  '(progn
+     (defun dired-back-to-top ()
+       (interactive)
+       (beginning-of-buffer)
+       (dired-next-line (if dired-omit-mode 2 4)))
+     (define-key dired-mode-map (vector 'remap 'beginning-of-buffer) 'dired-back-to-top)
+     (defun dired-jump-to-bottom ()
+       (interactive)
+       (end-of-buffer)
+       (dired-next-line -1))
+     (define-key dired-mode-map (vector 'remap 'end-of-buffer) 'dired-jump-to-bottom)))
 
 ;; Scroll-bars on the right please:
 (if (fboundp 'set-scroll-bar-mode) (set-scroll-bar-mode 'right))
