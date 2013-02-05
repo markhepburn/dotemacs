@@ -130,3 +130,6 @@
 [submodule "thirdparty/diminish"]
 	path = thirdparty/diminish
 	url = https://github.com/emacsmirror/diminish.git
+[submodule "thirdparty/auctex"]
+	path = thirdparty/auctex
+	url = https://github.com/emacsmirror/auctex.git
