@@ -214,6 +214,7 @@
             ;(local-set-key (kbd "C-c C-r") 'wdired-change-to-wdired-mode)
             (when (require 'dired-x nil t)
               (setq dired-omit-files      "\\(^\\..*\\)\\|\\(CVS\\)"
+                    dired-omit-verbose    nil
                     dired-omit-extensions '("~" ".bak" ".pyc" ".elc"))
               (dired-omit-mode 1))))
 (add-hook 'dired-mode-hook (lambda () (hl-line-mode 1)))
