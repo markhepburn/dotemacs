@@ -242,6 +242,10 @@
   (global-undo-tree-mode)
   (diminish 'undo-tree-mode))
 
+;;; Alternative direction for `delete-indentation'
+;;; (http://whattheemacsd.com/key-bindings.el-03.html):
+(global-set-key (kbd "M-j") (lambda () (interactive) (join-line -1)))
+
 ;;; I don't know why this seemed to suddenly change; make backspace
 ;;; work again in isearch-mode anyway (see also C-M-w which does the
 ;;; same thing, and C-M-y and C-y as well):
