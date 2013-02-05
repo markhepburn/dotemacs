@@ -19,8 +19,9 @@
 (auto-compression-mode 1)
 ;; update files changed on disk (mainly for use with dropbox):
 (global-auto-revert-mode 1)
-;;; ...and dired buffers too (see `auto-revert-verbose' if this gets too chatty)
-(setq global-auto-revert-non-file-buffers t)
+;;; ...and dired buffers too, and don't be chatty:
+(setq global-auto-revert-non-file-buffers t
+      auto-revert-verbose nil)
 ;; don't show toolbar:
 (tool-bar-mode -1)
 ;; hide the menu-bar by default (accessible by C-right-click):
