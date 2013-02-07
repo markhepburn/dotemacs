@@ -8,3 +8,6 @@
 /ac-comphist.dat
 /eshell/
 /session.*
+/.emacs.desktop
+/.emacs.desktop.lock
+/.org-id-locations
