@@ -84,7 +84,7 @@ containing the code, or a special file that must be autoloaded")
   (load-theme 'zenburn t))
 
 ;;; Load in customize stuff:
-(setq custom-file (concat *mh/lisp-base* "custom-variables.el"))
+(setq custom-file (concat *mh/lisp-base* system-name "-variables.el"))
 (load custom-file)
 
 (message ".emacs loaded in %ds"
