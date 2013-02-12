@@ -11,6 +11,19 @@
      ;; restore python's backspace binding after it is clobbered by my autopairs stuff:
      (add-hook 'python-mode-hook
                (lambda () (local-set-key (kbd "<backspace>") 'python-indent-dedent-line-backspace)))
+
+     ;; Advice ':' so typing ':)' results in in '):', eg for function
+     ;; definitions.  Useful in conjunction with autopair
+     ;; functionality:
+     (defadvice python-indent-electric-colon (around python-electric-colon-autoplace (arg)
+                                                     activate)
+       (if (and (looking-at ")")
+                (not arg))
+         (progn
+           ad-do-it
+           (transpose-chars 1))
+         ad-do-it))
+
      (when (load "flymake" t)
        (defun flymake-pylint-init ()
          (let* ((temp-file (flymake-init-create-temp-buffer-copy
