@@ -240,6 +240,17 @@ active, in the region.  Optional prefix arg means behave similarly to
         (message "%d word%s." result (if (> result 1) "s" ""))
         result))))
 
+(defun mh/electric-punctuation ()
+  "Tidy up whitespace around punctuation: delete any preceding
+  whitespace and insert one space afterwards.  Idea stolen from
+  the SwiftKey android keyboard."
+  (interactive)
+  (when (looking-back "\s+" nil t)
+    (delete-region (match-beginning 0) (match-end 0)))
+  (call-interactively 'self-insert-command)
+  (just-one-space))
+(dolist (punc '(?, ?\; ?.))
+  (define-key text-mode-map `[,punc] 'mh/electric-punctuation)))
 
 ;;; http://www.emacswiki.org/emacs/IntegerAtPoint
 (defun integer-bounds-of-integer-at-point ()
