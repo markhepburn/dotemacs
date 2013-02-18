@@ -250,7 +250,7 @@ active, in the region.  Optional prefix arg means behave similarly to
   (call-interactively 'self-insert-command)
   (just-one-space))
 (dolist (punc '(?, ?\; ?.))
-  (define-key text-mode-map `[,punc] 'mh/electric-punctuation)))
+  (define-key text-mode-map `[,punc] 'mh/electric-punctuation))
 
 ;;; http://www.emacswiki.org/emacs/IntegerAtPoint
 (defun integer-bounds-of-integer-at-point ()
