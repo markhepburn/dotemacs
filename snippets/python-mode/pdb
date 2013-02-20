@@ -1,0 +1,6 @@
+# -*- coding: utf-8; mode: snippet -*-
+# name: import pdb; pdb.set_trace()
+# key: pdb
+# contributor: Mark Hepburn <mark.hepburn@gmail.com>
+# --
+import pdb; pdb.set_trace()

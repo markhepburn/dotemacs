@@ -1,0 +1,6 @@
+# -*- coding: utf-8; mode: snippet -*-
+# name: import ipdb; ipdb.set_trace()
+# key: ipdb
+# contributor: Mark Hepburn <mark.hepburn@gmail.com>
+# --
+import ipdb; ipdb.set_trace()
