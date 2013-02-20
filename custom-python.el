@@ -20,8 +20,9 @@
        (if (and (looking-at ")")
                 (not arg))
          (progn
+           (move-end-of-line nil)
            ad-do-it
-           (transpose-chars 1))
+           (newline-and-indent))
          ad-do-it))
 
      (when (load "flymake" t)
