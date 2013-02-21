@@ -248,7 +248,7 @@ active, in the region.  Optional prefix arg means behave similarly to
   (when (looking-back "\s+" nil t)
     (delete-region (match-beginning 0) (match-end 0)))
   (call-interactively 'self-insert-command)
-  (just-one-space))
+  (unless (looking-back "[0-9].") (just-one-space)))
 (dolist (punc '(?, ?\; ?.))
   (define-key text-mode-map `[,punc] 'mh/electric-punctuation))
 
