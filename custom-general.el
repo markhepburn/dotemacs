@@ -11,6 +11,9 @@
 ;;; will wind up sprinkled all through the config.
 (require 'diminish)
 
+;;; Quit emacs (??) easier:
+(defalias 'sbke 'save-buffers-kill-emacs)
+
 ;; use font lock where possible:
 (global-font-lock-mode t)
 ;; don't use those irritating ~ backup files:
