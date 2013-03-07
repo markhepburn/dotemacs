@@ -290,7 +290,6 @@
     (if (member major-mode '(emacs-lisp-mode
                              lisp-mode
                              erlang-mode
-                             python-mode
                              c-mode c++-mode objc-mode
                              latex-mode plain-tex-mode))
         (let ((mark-even-if-inactive t))
@@ -302,7 +301,6 @@
   (if (member major-mode '(emacs-lisp-mode
                            lisp-mode
                            erlang-mode
-                           python-mode
                            c-mode c++-mode objc-mode
                            latex-mode plain-tex-mode))
       (let ((mark-even-if-inactive t))
@@ -312,7 +310,6 @@
   (if (member major-mode '(emacs-lisp-mode
                            lisp-mode
                            erlang-mode
-                           python-mode
                            c-mode c++-mode objc-mode
                            latex-mode plain-tex-mode))
       (let ((mark-even-if-inactive t))
