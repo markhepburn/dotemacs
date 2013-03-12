@@ -249,7 +249,7 @@ active, in the region.  Optional prefix arg means behave similarly to
     (delete-region (match-beginning 0) (match-end 0)))
   (call-interactively 'self-insert-command)
   ;; Don't insert space if we might be in a number/email/URL:
-  (unless (looking-back "\\([@\\.]\\w+\\|[0-9]\\).") (just-one-space)))
+  (unless (looking-back "\\([@\\./]\\w+\\|[0-9]\\).") (just-one-space)))
 (dolist (punc '(?, ?\; ?.))
   (define-key text-mode-map `[,punc] 'mh/electric-punctuation))
 
