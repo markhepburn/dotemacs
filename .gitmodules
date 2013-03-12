@@ -121,3 +121,6 @@
 [submodule "thirdparty/auctex"]
 	path = thirdparty/auctex
 	url = https://github.com/emacsmirror/auctex.git
+[submodule "thirdparty/ag.el"]
+	path = thirdparty/ag.el
+	url = https://github.com/Wilfred/ag.el.git

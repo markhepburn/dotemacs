@@ -397,6 +397,9 @@ should be a list of keys that will be bound globally to
 ;;; use ack (note that I have two versions of this command installed):
 (autoload 'ack-grep "ack" "Intelligent form of grep-find" t)
 
+;;; Try ag (the silver-searcher) as well:
+(setq ag-highlight-search t)
+
 ;; Twitter (Used to use twit.el, but that doesn't support OAuth):
 (autoload 'twit "twittering-mode" "Twittering mode" t)
 (autoload 'twittering-update-status-interactive "twittering-mode" "Twitter status update" t)
