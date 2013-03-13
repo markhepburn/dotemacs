@@ -33,6 +33,9 @@
      ;; if necessary):
      (setq org-pretty-entities t)
 
+     ;; For +BEGIN_SRC blocks, use native fontification:
+     (setq org-src-fontify-natively t)
+
      ;; Agenda and mobile usage:
      (setq org-agenda-files (list (expand-file-name "csiro-projects.org" org-directory)))
      (setq org-mobile-directory (expand-file-name "MobileOrg" org-directory))
