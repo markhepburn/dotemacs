@@ -127,3 +127,6 @@
 [submodule "thirdparty/csv-mode"]
 	path = thirdparty/csv-mode
 	url = https://github.com/emacsmirror/csv-mode.git
+[submodule "thirdparty/pcre2el"]
+	path = thirdparty/pcre2el
+	url = https://github.com/joddie/pcre2el.git
