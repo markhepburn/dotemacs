@@ -338,4 +338,33 @@ active, in the region.  Optional prefix arg means behave similarly to
     (cond ((< scrum-time 630) (message "Scrum"))
           ((< scrum-time 900) (message "Scrum++"))
           (t (message "No more scrum today :(")))))
+
+(defun mh/tag-posts (tags)
+  "Apply tags (specified interactively) to the files marked in
+dired, merging with existing tags.  Assumes the use of
+jekyll-bootstrap, ie with the `---' delimited yaml front-matter
+at the beginning."
+  (interactive (list (read-from-minibuffer "Tag(s), comma-separated: ")))
+  (let ((tags (split-string tags "[, ]+")))
+    (labels
+        ((do-tags (f)
+                  (with-current-buffer (find-file-noselect f)
+                    (save-excursion
+                      (goto-char 0)
+                      (if (re-search-forward "^tags: \\[\\([[:alnum:], ]*\\)\\]" nil t)
+                          (let* ((existing-tags (split-string (match-string 1) "[, ]+"))
+                                 (combined (union existing-tags tags))
+                                 (new-tags (mapconcat 'identity combined ",")))
+                            ;; replace-match wasn't working for some reason:
+                            (goto-char (match-beginning 1))
+                            (delete-region (match-beginning 1) (match-end 1))
+                            (insert new-tags))
+                        (progn
+                          (goto-char 0)
+                          (forward-line 1)
+                          (re-search-forward "^---" nil t) ; find second occurence, assuming first is on line 1
+                          (goto-char (match-beginning 0))
+                          (insert (format "Tags: [%s]\n" (mapconcat 'identity tags ","))))))
+                    (save-buffer))))
+      (mapcar #'do-tags (dired-get-marked-files)))))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
