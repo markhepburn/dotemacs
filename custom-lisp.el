@@ -65,5 +65,12 @@
 (autoload 'paredit-mode "paredit"
   "Structured editing of S-expressions" t)
 (enable-minor-mode-for paredit-mode '(emacs-lisp lisp clojure inferior-lisp slime-repl nrepl))
+;;; Autopair clashes badly with paredit, so disable when we're doing lispy stuff:
+(defadvice paredit-mode (around disable-autopairs-around (arg) activate)
+  "Disable autopairs mode if paredit-mode is turned on"
+  ad-do-it
+  (if (null ad-return-value)
+      (autopair-mode 1)
+    (autopair-mode 0)))
 (eval-after-load 'paredit '(diminish 'paredit-mode))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
