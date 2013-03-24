@@ -364,7 +364,7 @@ at the beginning."
                           (forward-line 1)
                           (re-search-forward "^---" nil t) ; find second occurence, assuming first is on line 1
                           (goto-char (match-beginning 0))
-                          (insert (format "Tags: [%s]\n" (mapconcat 'identity tags ","))))))
+                          (insert (format "tags: [%s]\n" (mapconcat 'identity tags ","))))))
                     (save-buffer))))
       (mapcar #'do-tags (dired-get-marked-files)))))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
