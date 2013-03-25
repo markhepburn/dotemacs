@@ -354,7 +354,7 @@ at the beginning."
                       (if (re-search-forward "^tags: \\[\\([[:alnum:], ]*\\)\\]" nil t)
                           (let* ((existing-tags (split-string (match-string 1) "[, ]+"))
                                  (combined (union existing-tags tags))
-                                 (new-tags (mapconcat 'identity combined ",")))
+                                 (new-tags (mapconcat 'identity combined ", ")))
                             ;; replace-match wasn't working for some reason:
                             (goto-char (match-beginning 1))
                             (delete-region (match-beginning 1) (match-end 1))
@@ -364,7 +364,7 @@ at the beginning."
                           (forward-line 1)
                           (re-search-forward "^---" nil t) ; find second occurence, assuming first is on line 1
                           (goto-char (match-beginning 0))
-                          (insert (format "tags: [%s]\n" (mapconcat 'identity tags ","))))))
+                          (insert (format "tags: [%s]\n" (mapconcat 'identity tags ", "))))))
                     (save-buffer))))
       (mapcar #'do-tags (dired-get-marked-files)))))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
