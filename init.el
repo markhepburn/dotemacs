@@ -37,12 +37,15 @@
 
 (setq *mh/packages*
   '(el-get
-    cedet
     ;distel
     ;eclim
+    cedet
+    diminish
     ess
     org-mode
-    pony-mode))
+    pony-mode
+    smex
+    zenburn-theme))
 
 
 (el-get-cleanup *mh/packages*)
