@@ -23,22 +23,37 @@
   symlinks).")
 (add-to-list 'load-path *mh/lisp-base*)
 
+(setq el-get-dir (concat *mh/lisp-base* "el-get/"))
+
+(add-to-list 'load-path (concat el-get-dir "el-get"))
+
+(unless (require 'el-get nil t)
+  (url-retrieve
+   "https://raw.github.com/dimitri/el-get/master/el-get-install.el"
+   (lambda (s)
+     (let (el-get-master-branch)
+       (goto-char (point-max))
+       (eval-print-last-sexp)))))
+
+(setq *mh/packages*
+  '(el-get
+    cedet
+    ;distel
+    ;eclim
+    ess
+    org-mode
+    pony-mode))
+
+
+(el-get-cleanup *mh/packages*)
+(el-get 'sync *mh/packages*)
+
+
+
 (defvar *mh/thirdparty-lisp* (concat *mh/lisp-base* "thirdparty/")
   "Directory containing most third-party code, both single files
   and project directories such as git submodules.")
 (add-to-list 'load-path *mh/thirdparty-lisp*)
-
-(defvar *mh/thirdparty-special* (concat *mh/lisp-base* "thirdparty-special/")
-  "Directory containing third-party directories that require
-special treatment; generally, they will have a subdirectory
-containing the code, or a special file that must be autoloaded")
-
-;;; Now add every directory under the thirdparty/ dir to the path as
-;;; well (thirdparty-special requires manual handling):
-(dolist (entry (directory-files *mh/thirdparty-lisp*))
-  (let ((dir (expand-file-name entry *mh/thirdparty-lisp*)))
-    (when (file-directory-p dir)
-      (add-to-list 'load-path dir))))
 
 ;;; Some settings need to be machine-specific, such as CEDET project
 ;;; definitions, while others are platform-specific (eg, I use
