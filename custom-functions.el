@@ -321,14 +321,16 @@ active, in the region.  Optional prefix arg means behave similarly to
   "Removes file connected to current buffer and kills buffer."
   (interactive)
   (let ((filename (buffer-file-name))
-        (buffer (current-buffer))
-        (name (buffer-name)))
+        (buffer (current-buffer)))
     (if (not (and filename (file-exists-p filename)))
         (ido-kill-buffer)
       (when (yes-or-no-p "Are you sure you want to remove this file? ")
-        (delete-file filename)
-        (kill-buffer buffer)
-        (message "File '%s' successfully removed" filename)))))
+        (if (vc-backend filename)
+            (vc-delete-file filename)
+          (progn
+            (delete-file filename)
+            (kill-buffer buffer)
+            (message "File '%s' successfully removed" filename)))))))
 
 ;; stupidity :)
 (defun mh/scrum-p ()
