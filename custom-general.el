@@ -613,22 +613,6 @@ should be a list of keys that will be bound globally to
    (remove-alist flymake-allowed-file-name-masks "\\.xml\\'")))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; hideshow:
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(autoload 'hs-minor-mode "hideshow" "Enable code folding" t)
-(autoload 'hs-org/minor-mode "hideshow-org" "Code-folding using the TAB key" t)
-;; (eval-after-load "hideshow"
-;;   '(progn
-;;      (load-library "hideshowvis")
-;;      (add-hook 'hs-minor-mode-hook 'hideshowvis-enable)))
-;;; add hooks here too
-(enable-minor-mode-for hs-org/minor-mode '(emacs-lisp lisp inferior-lisp))
-(eval-after-load 'hideshow '(diminish 'hs-minor-mode))
-;; (enable-minor-mode-for hs-minor-mode '(emacs-lisp lisp inferior-lisp))
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; compression; edit compressed kml files too:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
