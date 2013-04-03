@@ -45,7 +45,8 @@
     org-mode
     pony-mode
     smex
-    zenburn-theme))
+    zenburn-theme
+    zencoding-mode))
 
 
 (el-get-cleanup *mh/packages*)
@@ -83,7 +84,7 @@
 
 (load "custom-haskell")
 
-(load "custom-erlang")
+;(load "custom-erlang")
 
 (load "custom-python")
 
