@@ -16,9 +16,6 @@
 [submodule "rainbow-mode"]
 	path = thirdparty/rainbow-mode
 	url = https://github.com/emacsmirror/rainbow-mode.git
-[submodule "thirdparty/undo-tree"]
-	path = thirdparty/undo-tree
-	url = https://github.com/emacsmirror/undo-tree.git
 [submodule "thirdparty/yaml-mode"]
 	path = thirdparty/yaml-mode
 	url = https://github.com/yoshiki/yaml-mode.git
@@ -28,24 +25,12 @@
 [submodule "thirdparty/less-css-mode"]
 	path = thirdparty/less-css-mode
 	url = https://github.com/purcell/less-css-mode.git
-[submodule "thirdparty/browse-kill-ring"]
-	path = thirdparty/browse-kill-ring
-	url = https://github.com/browse-kill-ring/browse-kill-ring.git
 [submodule "thirdparty/python"]
 	path = thirdparty/python
 	url = https://github.com/fgallina/python.el.git
 [submodule "thirdparty/markdown-mode"]
 	path = thirdparty/markdown-mode
 	url = https://github.com/emacsmirror/markdown-mode.git
-[submodule "thirdparty/yasnippet"]
-	path = thirdparty/yasnippet
-	url = https://github.com/capitaomorte/yasnippet.git
-[submodule "thirdparty/ido-ubiquitous"]
-	path = thirdparty/ido-ubiquitous
-	url = https://github.com/DarwinAwardWinner/ido-ubiquitous.git
-[submodule "thirdparty/move-text"]
-	path = thirdparty/move-text
-	url = https://github.com/emacsmirror/move-text.git
 [submodule "thirdparty/csv-mode"]
 	path = thirdparty/csv-mode
 	url = https://github.com/emacsmirror/csv-mode.git

@@ -47,7 +47,10 @@
                :description "It's Magit! An Emacs mode for Git."
                :type github
                :pkgname "magit/magit"
-               :depends (cl-lib))))
+               :depends (cl-lib))
+        (:name move-text
+               :type github
+               :pkgname "emacsmirror/move-text")))
 
 ;; My installed package list:
 (setq *mh/packages*
@@ -70,6 +73,7 @@
     expand-region
     ido-ubiquitous
     magit
+    move-text
     multiple-cursors
     nrepl
     nrepl-ritz
