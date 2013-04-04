@@ -1,9 +1,3 @@
-[submodule "psvn"]
-	path = thirdparty/psvn
-	url = https://github.com/emacsmirror/psvn.git
-[submodule "thirdparty/haskell-mode"]
-	path = thirdparty/haskell-mode
-	url = https://github.com/haskell/haskell-mode.git
 [submodule "thirdparty/pcre2el"]
 	path = thirdparty/pcre2el
 	url = https://github.com/joddie/pcre2el.git

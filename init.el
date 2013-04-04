@@ -79,6 +79,7 @@
     auctex
     autopair
     browse-kill-ring
+    buffer-move
     cedet
     clojure-mode
     csv-mode
@@ -87,12 +88,15 @@
     escreen
     ess
     expand-region
+    haskell-mode
+    haskell-mode-exts
     http-twiddle
     ido-ubiquitous
     js2-mode
     json
     less-css-mode
     lively
+    lorem-ipsum
     magit
     markdown-mode
     mic-paren
@@ -104,6 +108,7 @@
     org-mode
     paredit
     pony-mode
+    psvn
     python                              ; fagillina version
     rainbow-mode
     rst-mode
