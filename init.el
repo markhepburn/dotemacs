@@ -54,6 +54,8 @@
                :type github
                :pkgname "magit/magit"
                :depends (cl-lib))
+        (:name mic-paren
+               :type emacswiki)
         (:name mplayer-mode
                :type github
                :pkgname "markhepburn/mplayer-mode")
@@ -93,6 +95,7 @@
     lively
     magit
     markdown-mode
+    mic-paren
     move-text
     mplayer-mode
     multiple-cursors
