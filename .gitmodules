@@ -85,9 +85,6 @@
 [submodule "thirdparty/move-text"]
 	path = thirdparty/move-text
 	url = https://github.com/emacsmirror/move-text.git
-[submodule "thirdparty/auctex"]
-	path = thirdparty/auctex
-	url = https://github.com/emacsmirror/auctex.git
 [submodule "thirdparty/csv-mode"]
 	path = thirdparty/csv-mode
 	url = https://github.com/emacsmirror/csv-mode.git

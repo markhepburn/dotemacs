@@ -49,6 +49,7 @@
     ;eclim
 
     ag
+    auctex
     cedet
     diminish
     ess
