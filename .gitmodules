@@ -25,9 +25,6 @@
 [submodule "thirdparty/less-css-mode"]
 	path = thirdparty/less-css-mode
 	url = https://github.com/purcell/less-css-mode.git
-[submodule "thirdparty/python"]
-	path = thirdparty/python
-	url = https://github.com/fgallina/python.el.git
 [submodule "thirdparty/markdown-mode"]
 	path = thirdparty/markdown-mode
 	url = https://github.com/emacsmirror/markdown-mode.git

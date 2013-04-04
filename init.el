@@ -80,6 +80,7 @@
     org-mode
     paredit
     pony-mode
+    python                              ; fagillina version
     smex
     undo-tree
     yasnippet
