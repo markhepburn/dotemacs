@@ -67,7 +67,11 @@
                :pkgname "joddie/pcre2el")
         (:name tags-view
                :type github
-               :pkgname "markhepburn/tags-view")))
+               :pkgname "markhepburn/tags-view")
+        (:name win-switch
+               :type github
+               :pkgname "genovese/win-switch"
+               :build (win-switch))))
 
 ;; My installed package list:
 (setq *mh/packages*
@@ -119,6 +123,7 @@
     smex
     tags-view
     undo-tree
+    win-switch
     yaml-mode
     yasnippet
     zenburn-theme
