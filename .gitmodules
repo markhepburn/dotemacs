@@ -7,9 +7,6 @@
 [submodule "js2-mode"]
 	path = thirdparty/js2-mode
 	url = https://github.com/mooz/js2-mode.git
-[submodule "twittering-mode"]
-	path = thirdparty/twittering-mode
-	url = https://github.com/hayamiz/twittering-mode.git
 [submodule "mplayer-mode"]
 	path = thirdparty/mplayer-mode
 	url = git://github.com/markhepburn/mplayer-mode.git
