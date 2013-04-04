@@ -1,18 +1,9 @@
-[submodule "cedet"]
-	path = thirdparty-special/cedet
-	url = https://github.com/emacsmirror/cedet.git
 [submodule "clojure-mode"]
 	path = thirdparty/clojure-mode
 	url = https://github.com/technomancy/clojure-mode.git
-[submodule "distel"]
-	path = thirdparty-special/distel
-	url = https://github.com/emacsmirror/distel.git
 [submodule "hideshow-org"]
 	path = thirdparty/hideshow-org
 	url = https://github.com/secelis/hideshow-org.git
-[submodule "org-mode"]
-	path = thirdparty-special/org-mode
-	url = git://orgmode.org/org-mode.git
 [submodule "smex"]
 	path = thirdparty/smex
 	url = https://github.com/nonsequitur/smex.git
@@ -37,9 +28,6 @@
 [submodule "escreen"]
 	path = thirdparty/escreen
 	url = https://github.com/renard/escreen-el.git
-[submodule "ess"]
-	path = thirdparty-special/ess
-	url = https://github.com/emacsmirror/ess.git
 [submodule "mplayer-mode"]
 	path = thirdparty/mplayer-mode
 	url = git://github.com/markhepburn/mplayer-mode.git
@@ -49,9 +37,6 @@
 [submodule "rainbow-mode"]
 	path = thirdparty/rainbow-mode
 	url = https://github.com/emacsmirror/rainbow-mode.git
-[submodule "thirdparty-special/emacs-eclim"]
-	path = thirdparty-special/emacs-eclim
-	url = https://github.com/senny/emacs-eclim.git
 [submodule "thirdparty/expand-region"]
 	path = thirdparty/expand-region
 	url = https://github.com/magnars/expand-region.el.git
@@ -88,9 +73,6 @@
 [submodule "thirdparty/browse-kill-ring"]
 	path = thirdparty/browse-kill-ring
 	url = https://github.com/browse-kill-ring/browse-kill-ring.git
-[submodule "thirdparty-special/pony-mode"]
-	path = thirdparty-special/pony-mode
-	url = https://github.com/davidmiller/pony-mode.git
 [submodule "thirdparty/python"]
 	path = thirdparty/python
 	url = https://github.com/fgallina/python.el.git
