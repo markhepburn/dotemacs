@@ -62,6 +62,7 @@
     ;eclim
 
     auto-complete
+    auto-complete-rst
     ac-nrepl
     ag
     auctex
@@ -69,6 +70,7 @@
     browse-kill-ring
     cedet
     clojure-mode
+    csv-mode
     diminish
     elisp-slime-nav
     escreen
@@ -89,8 +91,10 @@
     pony-mode
     python                              ; fagillina version
     rainbow-mode
+    rst-mode
     smex
     undo-tree
+    yaml-mode
     yasnippet
     zenburn-theme
     zencoding-mode))

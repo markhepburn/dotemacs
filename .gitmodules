@@ -10,15 +10,9 @@
 [submodule "psvn"]
 	path = thirdparty/psvn
 	url = https://github.com/emacsmirror/psvn.git
-[submodule "thirdparty/yaml-mode"]
-	path = thirdparty/yaml-mode
-	url = https://github.com/yoshiki/yaml-mode.git
 [submodule "thirdparty/haskell-mode"]
 	path = thirdparty/haskell-mode
 	url = https://github.com/haskell/haskell-mode.git
-[submodule "thirdparty/csv-mode"]
-	path = thirdparty/csv-mode
-	url = https://github.com/emacsmirror/csv-mode.git
 [submodule "thirdparty/pcre2el"]
 	path = thirdparty/pcre2el
 	url = https://github.com/joddie/pcre2el.git
