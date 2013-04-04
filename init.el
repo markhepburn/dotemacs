@@ -41,6 +41,9 @@
                :type github
                :pkgname "Wilfred/ag.el"
                :features ag)
+        (:name http-twiddle
+               :type github
+               :pkgname "hassy/http-twiddle")
         (:name less-css-mode
                :type github
                :pkgname "purcell/less-css-mode")
@@ -76,10 +79,12 @@
     escreen
     ess
     expand-region
+    http-twiddle
     ido-ubiquitous
     js2-mode
     json
     less-css-mode
+    lively
     magit
     markdown-mode
     move-text
