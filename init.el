@@ -35,10 +35,20 @@
        (goto-char (point-max))
        (eval-print-last-sexp)))))
 
+;; Additional custom recipes, not yet in the repository:
+(setq el-get-sources
+      '((:name ag
+               :type github
+               :pkgname "Wilfred/ag.el"
+               :features ag)))
+
+;; My installed package list:
 (setq *mh/packages*
   '(el-get
     ;distel
     ;eclim
+
+    ag
     cedet
     diminish
     ess
