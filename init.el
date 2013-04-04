@@ -61,7 +61,9 @@
     cedet
     diminish
     ess
+    expand-region
     magit
+    multiple-cursors
     org-mode
     pony-mode
     smex

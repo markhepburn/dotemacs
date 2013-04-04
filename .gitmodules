@@ -25,9 +25,6 @@
 [submodule "rainbow-mode"]
 	path = thirdparty/rainbow-mode
 	url = https://github.com/emacsmirror/rainbow-mode.git
-[submodule "thirdparty/expand-region"]
-	path = thirdparty/expand-region
-	url = https://github.com/magnars/expand-region.el.git
 [submodule "thirdparty/undo-tree"]
 	path = thirdparty/undo-tree
 	url = https://github.com/emacsmirror/undo-tree.git
@@ -37,9 +34,6 @@
 [submodule "thirdparty/haskell-mode"]
 	path = thirdparty/haskell-mode
 	url = https://github.com/haskell/haskell-mode.git
-[submodule "thirdparty/multiple-cursors"]
-	path = thirdparty/multiple-cursors
-	url = https://github.com/magnars/multiple-cursors.el.git
 [submodule "thirdparty/less-css-mode"]
 	path = thirdparty/less-css-mode
 	url = https://github.com/purcell/less-css-mode.git
