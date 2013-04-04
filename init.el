@@ -54,9 +54,15 @@
                :type github
                :pkgname "magit/magit"
                :depends (cl-lib))
+        (:name mplayer-mode
+               :type github
+               :pkgname "markhepburn/mplayer-mode")
         (:name move-text
                :type github
-               :pkgname "emacsmirror/move-text")))
+               :pkgname "emacsmirror/move-text")
+        (:name tags-view
+               :type github
+               :pkgname "markhepburn/tags-view")))
 
 ;; My installed package list:
 (setq *mh/packages*
@@ -88,6 +94,7 @@
     magit
     markdown-mode
     move-text
+    mplayer-mode
     multiple-cursors
     nrepl
     nrepl-ritz
@@ -98,6 +105,7 @@
     rainbow-mode
     rst-mode
     smex
+    tags-view
     undo-tree
     yaml-mode
     yasnippet

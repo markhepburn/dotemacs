@@ -1,9 +1,3 @@
-[submodule "tags-view"]
-	path = thirdparty/tags-view
-	url = git://github.com/markhepburn/tags-view.git
-[submodule "mplayer-mode"]
-	path = thirdparty/mplayer-mode
-	url = git://github.com/markhepburn/mplayer-mode.git
 [submodule "psvn"]
 	path = thirdparty/psvn
 	url = https://github.com/emacsmirror/psvn.git
