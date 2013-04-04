@@ -40,7 +40,14 @@
       '((:name ag
                :type github
                :pkgname "Wilfred/ag.el"
-               :features ag)))
+               :features ag)
+        ;; See https://github.com/dimitri/el-get/issues/1120
+        (:name magit
+               :website "https://github.com/magit/magit#readme"
+               :description "It's Magit! An Emacs mode for Git."
+               :type github
+               :pkgname "magit/magit"
+               :depends (cl-lib))))
 
 ;; My installed package list:
 (setq *mh/packages*
@@ -54,6 +61,7 @@
     cedet
     diminish
     ess
+    magit
     org-mode
     pony-mode
     smex

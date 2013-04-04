@@ -7,9 +7,6 @@
 [submodule "tags-view"]
 	path = thirdparty/tags-view
 	url = git://github.com/markhepburn/tags-view.git
-[submodule "magit"]
-	path = thirdparty/magit
-	url = https://github.com/magit/magit.git
 [submodule "js2-mode"]
 	path = thirdparty/js2-mode
 	url = https://github.com/mooz/js2-mode.git
