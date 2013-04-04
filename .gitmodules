@@ -13,9 +13,6 @@
 [submodule "twittering-mode"]
 	path = thirdparty/twittering-mode
 	url = https://github.com/hayamiz/twittering-mode.git
-[submodule "escreen"]
-	path = thirdparty/escreen
-	url = https://github.com/renard/escreen-el.git
 [submodule "mplayer-mode"]
 	path = thirdparty/mplayer-mode
 	url = git://github.com/markhepburn/mplayer-mode.git

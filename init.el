@@ -60,6 +60,7 @@
     autopair
     cedet
     diminish
+    escreen
     ess
     expand-region
     magit
