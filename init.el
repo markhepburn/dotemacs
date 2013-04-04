@@ -41,6 +41,9 @@
                :type github
                :pkgname "Wilfred/ag.el"
                :features ag)
+        (:name less-css-mode
+               :type github
+               :pkgname "purcell/less-css-mode")
         ;; See https://github.com/dimitri/el-get/issues/1120
         (:name magit
                :website "https://github.com/magit/magit#readme"
@@ -72,7 +75,11 @@
     ess
     expand-region
     ido-ubiquitous
+    js2-mode
+    json
+    less-css-mode
     magit
+    markdown-mode
     move-text
     multiple-cursors
     nrepl
@@ -81,6 +88,7 @@
     paredit
     pony-mode
     python                              ; fagillina version
+    rainbow-mode
     smex
     undo-tree
     yasnippet
