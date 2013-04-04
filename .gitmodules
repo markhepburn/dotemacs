@@ -1,9 +1,6 @@
 [submodule "clojure-mode"]
 	path = thirdparty/clojure-mode
 	url = https://github.com/technomancy/clojure-mode.git
-[submodule "hideshow-org"]
-	path = thirdparty/hideshow-org
-	url = https://github.com/secelis/hideshow-org.git
 [submodule "http-twiddle"]
 	path = thirdparty/http-twiddle
 	url = https://github.com/hassy/http-twiddle.git
