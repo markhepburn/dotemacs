@@ -10,9 +10,6 @@
 [submodule "magit"]
 	path = thirdparty/magit
 	url = https://github.com/magit/magit.git
-[submodule "zencoding"]
-	path = thirdparty/zencoding
-	url = https://github.com/rooney/zencoding.git
 [submodule "js2-mode"]
 	path = thirdparty/js2-mode
 	url = https://github.com/mooz/js2-mode.git
@@ -34,9 +31,6 @@
 [submodule "thirdparty/expand-region"]
 	path = thirdparty/expand-region
 	url = https://github.com/magnars/expand-region.el.git
-[submodule "thirdparty/zenburn"]
-	path = thirdparty/zenburn
-	url = https://github.com/bbatsov/zenburn-emacs.git
 [submodule "thirdparty/undo-tree"]
 	path = thirdparty/undo-tree
 	url = https://github.com/emacsmirror/undo-tree.git
