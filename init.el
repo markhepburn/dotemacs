@@ -50,6 +50,7 @@
 
     ag
     auctex
+    autopair
     cedet
     diminish
     ess
