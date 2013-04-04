@@ -60,6 +60,7 @@
     ag
     auctex
     autopair
+    browse-kill-ring
     cedet
     clojure-mode
     diminish
@@ -67,6 +68,7 @@
     escreen
     ess
     expand-region
+    ido-ubiquitous
     magit
     multiple-cursors
     nrepl
@@ -75,6 +77,8 @@
     paredit
     pony-mode
     smex
+    undo-tree
+    yasnippet
     zenburn-theme
     zencoding-mode))
 
