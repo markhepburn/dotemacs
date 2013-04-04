@@ -55,17 +55,24 @@
     ;distel
     ;eclim
 
+    auto-complete
+    ac-nrepl
     ag
     auctex
     autopair
     cedet
+    clojure-mode
     diminish
+    elisp-slime-nav
     escreen
     ess
     expand-region
     magit
     multiple-cursors
+    nrepl
+    nrepl-ritz
     org-mode
+    paredit
     pony-mode
     smex
     zenburn-theme

@@ -1,6 +1,3 @@
-[submodule "clojure-mode"]
-	path = thirdparty/clojure-mode
-	url = https://github.com/technomancy/clojure-mode.git
 [submodule "http-twiddle"]
 	path = thirdparty/http-twiddle
 	url = https://github.com/hassy/http-twiddle.git
@@ -34,18 +31,6 @@
 [submodule "thirdparty/less-css-mode"]
 	path = thirdparty/less-css-mode
 	url = https://github.com/purcell/less-css-mode.git
-[submodule "thirdparty/auto-complete"]
-	path = thirdparty/auto-complete
-	url = https://github.com/auto-complete/auto-complete.git
-[submodule "thirdparty/popup"]
-	path = thirdparty/popup
-	url = https://github.com/auto-complete/popup-el.git
-[submodule "thirdparty/nrepl"]
-	path = thirdparty/nrepl
-	url = https://github.com/kingtim/nrepl.el.git
-[submodule "thirdparty/paredit"]
-	path = thirdparty/paredit
-	url = https://github.com/emacsmirror/paredit.git
 [submodule "thirdparty/browse-kill-ring"]
 	path = thirdparty/browse-kill-ring
 	url = https://github.com/browse-kill-ring/browse-kill-ring.git
@@ -55,15 +40,9 @@
 [submodule "thirdparty/markdown-mode"]
 	path = thirdparty/markdown-mode
 	url = https://github.com/emacsmirror/markdown-mode.git
-[submodule "thirdparty/elisp-slime-nav"]
-	path = thirdparty/elisp-slime-nav
-	url = https://github.com/purcell/elisp-slime-nav.git
 [submodule "thirdparty/yasnippet"]
 	path = thirdparty/yasnippet
 	url = https://github.com/capitaomorte/yasnippet.git
-[submodule "thirdparty/ac-nrepl"]
-	path = thirdparty/ac-nrepl
-	url = https://github.com/purcell/ac-nrepl.git
 [submodule "thirdparty/ido-ubiquitous"]
 	path = thirdparty/ido-ubiquitous
 	url = https://github.com/DarwinAwardWinner/ido-ubiquitous.git
