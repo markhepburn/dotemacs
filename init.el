@@ -62,6 +62,9 @@
         (:name move-text
                :type github
                :pkgname "emacsmirror/move-text")
+        (:name pcre2el
+               :type github
+               :pkgname "joddie/pcre2el")
         (:name tags-view
                :type github
                :pkgname "markhepburn/tags-view")))
@@ -107,6 +110,7 @@
     nrepl-ritz
     org-mode
     paredit
+    pcre2el
     pony-mode
     psvn
     python                              ; fagillina version
