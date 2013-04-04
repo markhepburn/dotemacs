@@ -4,9 +4,6 @@
 [submodule "hideshow-org"]
 	path = thirdparty/hideshow-org
 	url = https://github.com/secelis/hideshow-org.git
-[submodule "smex"]
-	path = thirdparty/smex
-	url = https://github.com/nonsequitur/smex.git
 [submodule "http-twiddle"]
 	path = thirdparty/http-twiddle
 	url = https://github.com/hassy/http-twiddle.git
@@ -97,9 +94,6 @@
 [submodule "thirdparty/move-text"]
 	path = thirdparty/move-text
 	url = https://github.com/emacsmirror/move-text.git
-[submodule "thirdparty/diminish"]
-	path = thirdparty/diminish
-	url = https://github.com/emacsmirror/diminish.git
 [submodule "thirdparty/auctex"]
 	path = thirdparty/auctex
 	url = https://github.com/emacsmirror/auctex.git
