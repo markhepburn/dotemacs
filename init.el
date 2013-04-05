@@ -68,6 +68,9 @@
         (:name tags-view
                :type github
                :pkgname "markhepburn/tags-view")
+        (:name unscroll
+               :type emacswiki
+               :pkgname "atim-unscroll")
         (:name win-switch
                :type github
                :pkgname "genovese/win-switch"
@@ -123,6 +126,7 @@
     smex
     tags-view
     undo-tree
+    unscroll
     win-switch
     yaml-mode
     yasnippet
