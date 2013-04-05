@@ -65,6 +65,8 @@
         (:name pcre2el
                :type github
                :pkgname "joddie/pcre2el")
+        (:name sql-indent
+               :type emacswiki)
         (:name tags-view
                :type github
                :pkgname "markhepburn/tags-view")
@@ -97,7 +99,7 @@
     buffer-move
     cedet
     clojure-mode
-    csv-mode
+    ;csv-mode
     diminish
     elisp-slime-nav
     escreen
@@ -130,6 +132,7 @@
     rainbow-mode
     rst-mode
     smex
+    sql-indent
     tags-view
     toggle-case
     undo-tree
