@@ -100,6 +100,7 @@
     escreen
     ess
     expand-region
+    fic-ext-mode
     haskell-mode
     haskell-mode-exts
     http-twiddle
