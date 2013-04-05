@@ -23,22 +23,145 @@
   symlinks).")
 (add-to-list 'load-path *mh/lisp-base*)
 
+(setq el-get-dir (concat *mh/lisp-base* "el-get/"))
+(setq el-get-emacswiki-base-url "http://www.emacswiki.org/emacs/download/")
+(add-to-list 'load-path (concat el-get-dir "el-get"))
+
+(unless (require 'el-get nil t)
+  (url-retrieve
+   "https://raw.github.com/dimitri/el-get/master/el-get-install.el"
+   (lambda (s)
+     (let (el-get-master-branch)
+       (goto-char (point-max))
+       (eval-print-last-sexp)))))
+
+(unless (featurep 'cedet)
+  (when (file-directory-p "~/.emacs.d/el-get/cedet")
+    (progn
+      (add-to-list 'load-path  "~/.emacs.d/el-get/cedet")
+      (load-file "~/.emacs.d/el-get/cedet/cedet-devel-load.el"))))
+
+;; Additional custom recipes, not yet in the repository:
+(setq el-get-sources
+      '((:name ag
+               :type github
+               :pkgname "Wilfred/ag.el"
+               :features ag)
+        (:name grep-buffers
+               :type emacswiki)
+        (:name http-twiddle
+               :type github
+               :pkgname "hassy/http-twiddle")
+        (:name less-css-mode
+               :type github
+               :pkgname "purcell/less-css-mode")
+        ;; See https://github.com/dimitri/el-get/issues/1120
+        (:name magit
+               :website "https://github.com/magit/magit#readme"
+               :description "It's Magit! An Emacs mode for Git."
+               :type github
+               :pkgname "magit/magit"
+               :depends (cl-lib))
+        (:name mic-paren
+               :type emacswiki)
+        (:name mplayer-mode
+               :type github
+               :pkgname "markhepburn/mplayer-mode")
+        (:name move-text
+               :type github
+               :pkgname "emacsmirror/move-text")
+        (:name pcre2el
+               :type github
+               :pkgname "joddie/pcre2el")
+        (:name sql-indent
+               :type emacswiki)
+        (:name tags-view
+               :type github
+               :pkgname "markhepburn/tags-view")
+        (:name toggle-case
+               :type http
+               :url "http://www.cs.virginia.edu/~wh5a/personal/Emacs/toggle-case.el")
+        (:name unbound
+               :type emacswiki)
+        (:name atim-unscroll
+               :type emacswiki)
+        (:name win-switch
+               :type github
+               :pkgname "genovese/win-switch"
+               :build (win-switch))))
+
+;; My installed package list:
+(setq *mh/packages*
+  '(el-get
+    ;distel
+    ;eclim
+
+    atim-unscroll
+    auto-complete
+    auto-complete-rst
+    ac-nrepl
+    ag
+    auctex
+    autopair
+    browse-kill-ring
+    buffer-move
+    cedet
+    clojure-mode
+    ;csv-mode
+    diminish
+    elisp-slime-nav
+    escreen
+    ess
+    expand-region
+    fic-ext-mode
+    grep-buffers
+    haskell-mode
+    haskell-mode-exts
+    http-twiddle
+    ido-ubiquitous
+    js2-mode
+    json
+    less-css-mode
+    lively
+    lorem-ipsum
+    magit
+    markdown-mode
+    mic-paren
+    move-text
+    mplayer-mode
+    multiple-cursors
+    nrepl
+    nrepl-ritz
+    org-mode
+    paredit
+    pcre2el
+    pony-mode
+    psvn
+    python                              ; fagillina version
+    rainbow-mode
+    rst-mode
+    smex
+    sql-indent
+    tags-view
+    toggle-case
+    undo-tree
+    unbound
+    win-switch
+    yaml-mode
+    yasnippet
+    zenburn-theme
+    zencoding-mode))
+
+
+(el-get-cleanup *mh/packages*)
+(el-get 'sync *mh/packages*)
+
+
+
 (defvar *mh/thirdparty-lisp* (concat *mh/lisp-base* "thirdparty/")
   "Directory containing most third-party code, both single files
   and project directories such as git submodules.")
 (add-to-list 'load-path *mh/thirdparty-lisp*)
-
-(defvar *mh/thirdparty-special* (concat *mh/lisp-base* "thirdparty-special/")
-  "Directory containing third-party directories that require
-special treatment; generally, they will have a subdirectory
-containing the code, or a special file that must be autoloaded")
-
-;;; Now add every directory under the thirdparty/ dir to the path as
-;;; well (thirdparty-special requires manual handling):
-(dolist (entry (directory-files *mh/thirdparty-lisp*))
-  (let ((dir (expand-file-name entry *mh/thirdparty-lisp*)))
-    (when (file-directory-p dir)
-      (add-to-list 'load-path dir))))
 
 ;;; Some settings need to be machine-specific, such as CEDET project
 ;;; definitions, while others are platform-specific (eg, I use
@@ -65,7 +188,7 @@ containing the code, or a special file that must be autoloaded")
 
 (load "custom-haskell")
 
-(load "custom-erlang")
+;(load "custom-erlang")
 
 (load "custom-python")
 

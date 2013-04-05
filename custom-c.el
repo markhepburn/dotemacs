@@ -39,9 +39,7 @@
 ;;; Note that we need to load this early in init.el, or the built-in
 ;;; cedet is loaded first and we get a conflict.  This config taken
 ;;; from Alex Ott's sample at https://gist.github.com/3930120
-(setq cedet-root-path (concat *mh/thirdparty-special* "cedet/"))
-(load-file (concat cedet-root-path "cedet-devel-load.el"))
-(add-to-list 'load-path (concat cedet-root-path "contrib"))
+(add-to-list 'load-path (concat el-get-dir "cedet/contrib/"))
 ;; select which submodes we want to activate
 (add-to-list 'semantic-default-submodes 'global-semantic-mru-bookmark-mode)
 (add-to-list 'semantic-default-submodes 'global-semanticdb-minor-mode)
@@ -112,8 +110,6 @@
 ;;; Java mode (going to play with eclim to see if that's a viable
 ;;; eclipse alternative)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-to-list 'load-path (concat *mh/thirdparty-special* "emacs-eclim"))
-(add-to-list 'load-path (concat *mh/thirdparty-special* "emacs-eclim/vendor"))
 (when (require 'eclim nil t)
   (setq eclim-executable "/opt/eclipse/eclipse-java-indigo/eclim")
   (setq eclim-auto-save t)
