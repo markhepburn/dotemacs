@@ -47,6 +47,9 @@
                :type github
                :pkgname "Wilfred/ag.el"
                :features ag)
+        ;; override; current recipe times out:
+        (:name csv-mode
+               :type emacswiki)
         (:name grep-buffers
                :type emacswiki)
         (:name http-twiddle
@@ -107,7 +110,7 @@
     buffer-move
     cedet
     clojure-mode
-    ;csv-mode
+    csv-mode
     diminish
     elisp-slime-nav
     escreen
