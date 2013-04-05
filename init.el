@@ -68,6 +68,8 @@
         (:name tags-view
                :type github
                :pkgname "markhepburn/tags-view")
+        (:name unbound
+               :type emacswiki)
         (:name unscroll
                :type emacswiki
                :pkgname "atim-unscroll")
@@ -126,6 +128,7 @@
     smex
     tags-view
     undo-tree
+    unbound
     unscroll
     win-switch
     yaml-mode
