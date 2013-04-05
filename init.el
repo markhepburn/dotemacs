@@ -41,6 +41,8 @@
                :type github
                :pkgname "Wilfred/ag.el"
                :features ag)
+        (:name grep-buffers
+               :type emacswiki)
         (:name http-twiddle
                :type github
                :pkgname "hassy/http-twiddle")
@@ -106,6 +108,7 @@
     ess
     expand-region
     fic-ext-mode
+    grep-buffers
     haskell-mode
     haskell-mode-exts
     http-twiddle
