@@ -70,7 +70,6 @@
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . django-html-mode))
 
 ;;; Interactive django mode (virtualenv and fabric integration, etc):
-(add-to-list 'load-path (concat *mh/thirdparty-special* "pony-mode/src"))
 ;; Loading now then plugs it in to the related major-modes:
 (require 'pony-mode nil t)
 
