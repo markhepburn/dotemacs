@@ -35,6 +35,12 @@
        (goto-char (point-max))
        (eval-print-last-sexp)))))
 
+(unless (featurep 'cedet)
+  (when (file-directory-p "~/.emacs.d/el-get/cedet")
+    (progn
+      (add-to-list 'load-path  "~/.emacs.d/el-get/cedet")
+      (load-file "~/.emacs.d/el-get/cedet/cedet-devel-load.el"))))
+
 ;; Additional custom recipes, not yet in the repository:
 (setq el-get-sources
       '((:name ag
