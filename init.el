@@ -68,6 +68,9 @@
         (:name tags-view
                :type github
                :pkgname "markhepburn/tags-view")
+        (:name toggle-case
+               :type http
+               :url "http://www.cs.virginia.edu/~wh5a/personal/Emacs/toggle-case.el")
         (:name unbound
                :type emacswiki)
         (:name unscroll
@@ -128,6 +131,7 @@
     rst-mode
     smex
     tags-view
+    toggle-case
     undo-tree
     unbound
     unscroll
