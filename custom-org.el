@@ -2,8 +2,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; org-mode stuff:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(setq mh/org-mode-lisp-directory (concat *mh/thirdparty-special* "org-mode/lisp"))
-(add-to-list 'load-path mh/org-mode-lisp-directory)
 (autoload 'org-mode "org" "Org-mode; outline on steroids" t)
 (autoload 'org-agenda "org" "Org-mode; top-level agenda dispatch command" t)
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
