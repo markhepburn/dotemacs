@@ -140,7 +140,7 @@
     pcre2el
     pony-mode
     psvn
-    python                              ; fagillina version
+    python                              ; fgallina version
     rainbow-mode
     rst-mode
     smex
