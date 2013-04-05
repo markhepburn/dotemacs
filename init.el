@@ -24,7 +24,7 @@
 (add-to-list 'load-path *mh/lisp-base*)
 
 (setq el-get-dir (concat *mh/lisp-base* "el-get/"))
-
+(setq el-get-emacswiki-base-url "http://www.emacswiki.org/emacs/download/")
 (add-to-list 'load-path (concat el-get-dir "el-get"))
 
 (unless (require 'el-get nil t)
@@ -77,9 +77,8 @@
                :url "http://www.cs.virginia.edu/~wh5a/personal/Emacs/toggle-case.el")
         (:name unbound
                :type emacswiki)
-        (:name unscroll
-               :type emacswiki
-               :pkgname "atim-unscroll")
+        (:name atim-unscroll
+               :type emacswiki)
         (:name win-switch
                :type github
                :pkgname "genovese/win-switch"
@@ -91,6 +90,7 @@
     ;distel
     ;eclim
 
+    atim-unscroll
     auto-complete
     auto-complete-rst
     ac-nrepl
@@ -140,7 +140,6 @@
     toggle-case
     undo-tree
     unbound
-    unscroll
     win-switch
     yaml-mode
     yasnippet
