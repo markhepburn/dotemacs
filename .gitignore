@@ -12,4 +12,5 @@
 /.emacs.desktop.lock
 /.org-id-locations
 /url
+/request
 /el-get
