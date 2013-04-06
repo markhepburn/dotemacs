@@ -12,22 +12,19 @@ backwards-compatible.  Currently that means Emacs24, on a Linux
 Emacs23 is the colour-theme stuff.  See also the platform and
 host-specific loading files if things start to deviate much.
 
-Post-Installation
------------------
+Installation
+------------
 
-There's a couple of things you need to do after checking this out
-(where-ever that is; `~/.emacs.d` or whatever works for you.  I'll use
-`checkoutdir` below):
+This should be as simple as cloning from github.  If you check out to
+`~/.emacs.d` then you are finished.  Otherwise, you can place it
+where-ever you feel like and just symlink `init.el` to `~/.emacs`; it
+is designed to be portable like this.
 
-* Symlink `~/.emacs` to `init.el` (`ln -s checkoutdir/init.el
-  ~/.emacs`).  Not needed if you have checked out to `~/.emacs.d`.
-* Pull in the git sub-modules as well (`cd checkoutdir; git submodule
-  init; git submodule update`).  Alternatively, you can avoid this
-  step by using the `--recursive` argument to the initial clone.
-* Byte-compile `js2.el` and `mic-paren.el` if you're using these.
-* compile cedet as per instructions; just using `make` should work
-  (else you'll need to disable it somehow, such as by commenting out
-  the load of `custom-c.el`)
+I now use [el-get](https://github.com/dimitri/el-get) for managing
+dependencies, which made a huge difference after years of
+hand-managing git submodules.  This should bootstrap itself already on
+first load, but if for some reason an install fails (a host is down,
+etc) you might need to disable entries in `*mh/packages*` for example.
 
 General Notes
 -------------
