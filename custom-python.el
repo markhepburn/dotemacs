@@ -51,4 +51,10 @@
                     '("\\.py\\'" flymake-pylint-init))
        ;; (add-hook 'python-mode-hook 'flymake-mode)
        )))
+
+;;; ipython-notebook integration:
+(eval-after-load "ein"
+  '(progn
+     (setq ein:use-auto-complete t)))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

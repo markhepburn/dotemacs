@@ -112,6 +112,7 @@
     clojure-mode
     csv-mode
     diminish
+    ein
     elisp-slime-nav
     escreen
     ess
