@@ -47,6 +47,8 @@
                :type github
                :pkgname "Wilfred/ag.el"
                :features ag)
+        (:name atim-unscroll
+               :type emacswiki)
         ;; override; current recipe times out:
         (:name csv-mode
                :type emacswiki)
@@ -85,8 +87,6 @@
                :type http
                :url "http://www.cs.virginia.edu/~wh5a/personal/Emacs/toggle-case.el")
         (:name unbound
-               :type emacswiki)
-        (:name atim-unscroll
                :type emacswiki)
         (:name visual-regexp
                :type github

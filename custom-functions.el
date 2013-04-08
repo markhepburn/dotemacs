@@ -130,7 +130,6 @@ given a prefix argument."
    (list (read-buffer "Switch to buffer: "
                       (other-buffer)
                       (null current-prefix-arg)))))
-(require 'atim-unscroll)
 
 ;; functions to move point to beginning and end of window, respectively:
 (defun goto-beginnning-of-window ()

@@ -246,6 +246,10 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 ;; M-y to browse kill-ring:
 
+(when (require 'atim-unscroll nil t)
+  (atim-unscroll-global-mode)
+  (diminish 'atim-unscroll-mode))
+
 (when (require 'undo-tree nil t)
   (global-undo-tree-mode)
   (diminish 'undo-tree-mode))
