@@ -88,6 +88,11 @@
                :type emacswiki)
         (:name atim-unscroll
                :type emacswiki)
+        (:name visual-regexp
+               :type github
+               :pkgname "benma/visual-regexp.el"
+               :features (visual-regexp)
+               :post-init (global-set-key (kbd "C-x r q") 'vr/query-replace))
         (:name win-switch
                :type github
                :pkgname "genovese/win-switch"
@@ -155,6 +160,7 @@
     toggle-case
     undo-tree
     unbound
+    visual-regexp
     win-switch
     yaml-mode
     yasnippet
