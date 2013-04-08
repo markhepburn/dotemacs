@@ -91,7 +91,7 @@
         (:name win-switch
                :type github
                :pkgname "genovese/win-switch"
-               :build (win-switch))))
+               :compile "win-switch.el")))
 
 ;; My installed package list:
 (setq *mh/packages*
