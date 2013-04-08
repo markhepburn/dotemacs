@@ -91,7 +91,12 @@
         (:name win-switch
                :type github
                :pkgname "genovese/win-switch"
-               :compile "win-switch.el")))
+               :compile "win-switch.el")
+        (:name zenburn-theme
+               :type github
+               :pkgname "bbatsov/zenburn-emacs"
+               :post-init (add-to-list 'custom-theme-load-path
+                                       default-directory))))
 
 ;; My installed package list:
 (setq *mh/packages*
