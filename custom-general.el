@@ -596,11 +596,9 @@ should be a list of keys that will be bound globally to
 (setq woman-use-own-frame nil)
 
 ;;; Programming modes: enable "FIXME/TODO/etc" highlighting:
-(autoload 'highlight-fixmes-mode "highlight-fixmes-mode"
-  "Highlighting of FIXMEs, TODOs, etc" t)
-(enable-minor-mode-for
- highlight-fixmes-mode '(c python lisp LaTeX js2 haskell))
-(eval-after-load 'highlight-fixmes-mode '(diminish 'highlight-fixmes-mode))
+(when (require 'fic-ext-mode nil t)
+  (add-hook 'prog-mode-hook 'fic-ext-mode)
+  (diminish 'fic-ext-mode))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; flymake stuff:
