@@ -389,7 +389,7 @@ should be a list of keys that will be bound globally to
   "Major mode for editing comma-separated value files." t)
 
 ;; Show docs where available:
-(enable-minor-mode-for eldoc-mode '(emacs-lisp lisp inferior-lisp))
+(enable-minor-mode-for eldoc-mode '(emacs-lisp lisp inferior-lisp ielm))
 (eval-after-load 'eldoc '(diminish 'eldoc-mode))
 
 ;; view pdfs etc inline:
