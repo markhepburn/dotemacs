@@ -431,6 +431,7 @@ should be a list of keys that will be bound globally to
 (when (require 'ibuf-ext nil t)
   (global-set-key (kbd "C-x C-b") 'ibuffer-bs-show))
 (setq-default ibuffer-default-sorting-mode 'major-mode)
+(add-hook 'ibuffer-mode-hook (lambda () (hl-line-mode 1)))
 
 ;; let's play with using C-w to delete words backwards:
 (global-set-key (kbd "C-w")     'backward-kill-word)
