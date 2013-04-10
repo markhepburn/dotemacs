@@ -169,6 +169,28 @@ given a prefix argument."
       (forward-line -1))))
 (global-set-key (kbd "C-x y") 'mh/duplicate-line)
 
+;;; I quite like the vi functionality of opening the next line,
+;;; regardless of your position on the current line.  Deriving these
+;;; from http://www.emacswiki.org/emacs/OpenNextLine, although they're
+;;; not exactly tricky to write:
+(defun open-next-line (arg)
+  "Move to the next line and then opens a line.
+    See also `newline-and-indent'."
+  (interactive "p")
+  (end-of-line)
+  (open-line arg)
+  (next-line 1)
+  (indent-according-to-mode))
+(defun open-previous-line (arg)
+  "Open a new line before the current one. 
+     See also `newline-and-indent'."
+  (interactive "p")
+  (beginning-of-line)
+  (open-line arg)
+  (indent-according-to-mode))
+(global-set-key (kbd "S-<return>") 'open-next-line)
+(global-set-key (kbd "C-S-<return>") 'open-previous-line)
+
 ;; http://slashusr.wordpress.com/2010/01/19/quickly-diff-the-changes-made-in-the-current-buffer-with-its-file/
 (defun mh/diff-buffer-file-changes ()
   (interactive)
