@@ -301,9 +301,12 @@ active, in the region.  Optional prefix arg means behave similarly to
 
 ;;
 ;; Courtesy of Steve Yegge, http://steve.yegge.googlepages.com/my-dot-emacs-file
+;; (with tweaks for vc integration)
 ;;
 (defun rename-file-and-buffer (new-name)
-  "Renames both current buffer and file it's visiting to NEW-NAME."
+  "Renames both current buffer and file it's visiting to
+NEW-NAME.  Does the right thing if the file is under version
+control"
   (interactive "sNew name: ")
   (let ((name (buffer-name))
         (filename (buffer-file-name)))
@@ -311,14 +314,16 @@ active, in the region.  Optional prefix arg means behave similarly to
         (message "Buffer '%s' is not visiting a file!" name)
       (if (get-buffer new-name)
           (message "A buffer named '%s' already exists!" new-name)
-        (progn
+        (if (vc-backend filename)
+            (vc-rename-file filename new-name)
           (rename-file name new-name 1)
           (rename-buffer new-name)
           (set-visited-file-name new-name)
           (set-buffer-modified-p nil))))))
 
 (defun move-buffer-file (dir)
-  "Moves both current buffer and file it's visiting to DIR."
+  "Moves both current buffer and file it's visiting to DIR.  Does
+the right thing if the file is under version control."
   (interactive "DNew directory: ")
   (let* ((name (buffer-name))
          (filename (buffer-file-name))
@@ -328,12 +333,12 @@ active, in the region.  Optional prefix arg means behave similarly to
          (newname (concat dir "/" name)))
     (if (not filename)
         (message "Buffer '%s' is not visiting a file!" name)
-      (progn
+      (if (vc-backend filename)
+          (vc-rename-file filename newname)
         (copy-file filename newname 1)
         (delete-file filename)
         (set-visited-file-name newname)
-        (set-buffer-modified-p nil)
-        t))))
+        (set-buffer-modified-p nil)))))
 
 ;;; Similarly, http://whattheemacsd.com/file-defuns.el-02.html
 (defun delete-current-buffer-file ()
