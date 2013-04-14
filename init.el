@@ -114,6 +114,7 @@
     cedet
     clojure-mode
     csv-mode
+    dash
     diminish
     ein
     elisp-slime-nav
@@ -147,6 +148,7 @@
     python                              ; fgallina version
     rainbow-mode
     rst-mode
+    s
     smex
     sql-indent
     tags-view
