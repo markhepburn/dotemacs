@@ -60,13 +60,6 @@
         (:name less-css-mode
                :type github
                :pkgname "purcell/less-css-mode")
-        ;; See https://github.com/dimitri/el-get/issues/1120
-        (:name magit
-               :website "https://github.com/magit/magit#readme"
-               :description "It's Magit! An Emacs mode for Git."
-               :type github
-               :pkgname "magit/magit"
-               :depends (cl-lib))
         (:name mic-paren
                :type emacswiki)
         (:name mplayer-mode
