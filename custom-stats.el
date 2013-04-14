@@ -1,14 +1,11 @@
 ;;; Set-up and configuration for stats stuff, mainly ESS (for R)
 
-(add-to-list 'load-path (concat *mh/thirdparty-special* "ess/lisp"))
-(require 'ess-site)
-
 (setq ess-eval-visibly-p nil) ; otherwise C-c C-r (eval-region) takes
                               ; forever
 (setq ess-ask-for-ess-directory nil) ; otherwise you are prompted each
                                      ; time you start an interactive R
                                      ; session
-(require 'ess-eldoc) ; to show function arguments while you are typing
+;(require 'ess-eldoc) ; to show function arguments while you are typing
                      ; them
 
 (eval-after-load "ess-mode"

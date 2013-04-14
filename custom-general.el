@@ -190,7 +190,6 @@
   (define-key ac-completing-map (kbd "C-n") 'ac-next)
   (define-key ac-completing-map (kbd "C-p") 'ac-previous)
 
-  (add-to-list 'ac-dictionary-directories (concat *mh/thirdparty-lisp* "auto-complete/dict"))
   (ac-config-default)
 
   (diminish 'auto-complete-mode))
