@@ -602,21 +602,6 @@ should be a list of keys that will be bound globally to
   (diminish 'fic-ext-mode))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; flymake stuff:
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(when (require 'flymake nil t)
-  (macrolet ((remove-alist (lst key)
-                           `(setq ,lst (delq (assoc ,key ,lst) ,lst))))
-   ;; doesn't seem to work for java or tex, currently:
-   (remove-alist flymake-allowed-file-name-masks "\\.java\\'")
-   (remove-alist flymake-allowed-file-name-masks "\\.tex\\'")
-   (remove-alist flymake-allowed-file-name-masks "[0-9]+\\.tex\\'")
-   ;; doesn't work with xml (needs program 'xml', not sure which that
-   ;; is for a start!), and nxml provides validation anyway:
-   (remove-alist flymake-allowed-file-name-masks "\\.xml\\'")))
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; compression; edit compressed kml files too:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (eval-after-load "jka-compr"

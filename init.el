@@ -52,6 +52,11 @@
         ;; override; current recipe times out:
         (:name csv-mode
                :type emacswiki)
+        (:name flycheck
+               :type github
+               :pkgname "lunaryorn/flycheck"
+               :depends (s dash)
+               :post-init (add-hook 'after-init-hook 'global-flycheck-mode))
         (:name grep-buffers
                :type emacswiki)
         (:name http-twiddle
@@ -122,6 +127,7 @@
     ess
     expand-region
     fic-ext-mode
+    flycheck
     grep-buffers
     haskell-mode
     haskell-mode-exts
