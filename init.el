@@ -49,7 +49,10 @@
                :features ag)
         (:name atim-unscroll
                :type emacswiki)
-        ;; override; current recipe times out:
+        (:name cl-lib
+	       :type emacsmirror
+	       :pkgname "cl-lib")
+	;; override; current recipe times out:
         (:name csv-mode
                :type emacswiki)
         (:name flycheck
