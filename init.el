@@ -89,6 +89,7 @@
         (:name visual-regexp
                :type github
                :pkgname "benma/visual-regexp.el"
+	       :depends (cl-lib)
                :features (visual-regexp)
                :post-init (global-set-key (kbd "C-x r q") 'vr/query-replace))
         (:name win-switch
