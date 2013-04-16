@@ -68,8 +68,6 @@
         (:name less-css-mode
                :type github
                :pkgname "purcell/less-css-mode")
-        (:name mic-paren
-               :type emacswiki)
         (:name mplayer-mode
                :type github
                :pkgname "markhepburn/mplayer-mode")
@@ -144,7 +142,6 @@
     lorem-ipsum
     magit
     markdown-mode
-    mic-paren
     move-text
     mplayer-mode
     multiple-cursors

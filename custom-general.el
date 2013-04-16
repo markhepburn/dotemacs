@@ -194,15 +194,9 @@
 
   (diminish 'auto-complete-mode))
 
-;;; paren-matching (investigate mic-paren mode properly at some stage):
-;(show-paren-mode 1)
-;;; Ok, mic-paren time is now.  Pretty happy with the defaults for
-;;; now; mainly using it for off-screen notification, and because I
-;;; have braces on the same line in my C code I don't need to toggle
-;;; paren-open-context-backward.  May want to play with
-;;; paren-match-{quoted-paren,paired-delimiter} later though.
-(when (require 'mic-paren nil t)
-  (paren-activate))
+;;; paren-matching:
+(setq show-paren-delay 0)
+(show-paren-mode 1)
 
 ;; paper size:
 (setq ps-paper-type 'a4)
