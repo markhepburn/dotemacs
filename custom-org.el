@@ -60,9 +60,6 @@
                      (if (string= (expand-file-name (car file)) (buffer-file-name))
                          (org-mobile-push-with-delay 30))))))
 
-     ;; do NOT use refill mode with org; it refills without respecting org at all:
-     (add-hook 'org-mode-hook (lambda () (refill-mode -1)))
-
      ;; refreshes agenda file each day:
      (run-at-time "00:05" (* 24 60 60)
                   '(lambda () (org-mobile-push-with-delay 1)))

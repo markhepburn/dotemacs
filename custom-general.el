@@ -576,8 +576,8 @@ should be a list of keys that will be bound globally to
 ;; Make sure script files are executable after save:
 (add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
 
-;; Try refill over auto-fill mode for a while:
-(add-hook 'text-mode-hook (lambda () (refill-mode 1)))
+;; Always auto-fill in text:
+(add-hook 'text-mode-hook 'turn-on-auto-fill)
 ;; I use octave more than obj-c in general:
 (add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))
 
