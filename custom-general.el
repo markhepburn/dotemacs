@@ -541,7 +541,8 @@ should be a list of keys that will be bound globally to
       sp-base-key-bindings 'paredit)
 (when (require 'smartparens-config nil t)
   (smartparens-global-mode t)
-  (show-smartparens-global-mode t))
+  (show-smartparens-global-mode t)
+  (diminish 'smartparens-mode))
 
 
 ;; parse keychain-generated environment variables and set them, if
