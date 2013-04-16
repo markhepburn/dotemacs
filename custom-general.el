@@ -529,9 +529,19 @@ should be a list of keys that will be bound globally to
   (define-key escreen-map (kbd "C-f") (escreen-advise-emphasis escreen-find-file-new-screen)))
 
 ;;; Replacing a lot of cruft from my skeleton-pair add-ons!
-(when (require 'autopair nil t)
-  (autopair-global-mode)
-  (diminish 'autopair-mode))
+(setq sp-ignore-modes-list
+      '(clojure-mode
+        emacs-lisp-mode
+        inferior-emacs-lisp-mode
+        inferior-lisp-mode
+        lisp-mode
+        minibuffer-inactive-mode
+        nrepl-mode
+        slime-repl-mode)
+      sp-base-key-bindings 'paredit)
+(when (require 'smartparens-config nil t)
+  (smartparens-global-mode t)
+  (show-smartparens-global-mode t))
 
 
 ;; parse keychain-generated environment variables and set them, if

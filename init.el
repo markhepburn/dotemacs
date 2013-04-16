@@ -115,7 +115,6 @@
     ac-nrepl
     ag
     auctex
-    autopair
     browse-kill-ring
     buffer-move
     cedet
@@ -156,6 +155,7 @@
     rainbow-mode
     rst-mode
     s
+    smartparens
     smex
     sql-indent
     tags-view
