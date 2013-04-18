@@ -2,14 +2,18 @@
 ;; Javascript (and Web) stuff:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;; never mind all that, use Yegge's awesome mode:
-(autoload 'js2-mode "js2-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-(setq js2-auto-indent-flag nil)         ; must be set /before/ loading
-(setq-default js2-basic-offset 2)       ; (default has changed to
-                                        ; c-basic-offset, but I'm used
-                                        ; to 2 now)
-(setq-default js2-bounce-indent-p t)
+;; ;;; never mind all that, use Yegge's awesome mode:
+;; (autoload 'js2-mode "js2-mode" nil t)
+;; (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+;; (setq js2-auto-indent-flag nil)         ; must be set /before/ loading
+;; (setq-default js2-basic-offset 2)       ; (default has changed to
+;;                                         ; c-basic-offset, but I'm used
+;;                                         ; to 2 now)
+;; (setq-default js2-bounce-indent-p t)
+
+;;; Experiment: now that flycheck+jshint provides error checking, try
+;;; the built in js-mode for a bit (it's already in auto-mode-alist):
+(setq js-indent-level 2)
 
 ;;; highlight-vars-mode from
 ;;; http://mihai.bazon.net/projects/editing-javascript-with-emacs-js2-mode/js2-highlight-vars-mode
