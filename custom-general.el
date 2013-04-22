@@ -16,6 +16,8 @@
 
 ;; use font lock where possible:
 (global-font-lock-mode t)
+;;; I really should have been using this all along:
+(global-subword-mode 1)
 ;; don't use those irritating ~ backup files:
 (setq backup-inhibited t)
 ;; work with compressed files:
