@@ -52,7 +52,7 @@
         (:name cl-lib
 	       :type emacsmirror
 	       :pkgname "cl-lib")
-	;; override; current recipe times out:
+        ;; override; current recipe times out:
         (:name csv-mode
                :type emacswiki)
         (:name flycheck
