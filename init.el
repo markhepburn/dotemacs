@@ -121,6 +121,7 @@
     clojure-mode
     csv-mode
     dash
+    diff-hl
     diminish
     ein
     elisp-slime-nav

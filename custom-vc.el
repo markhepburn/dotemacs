@@ -22,6 +22,8 @@
 ;; use unified diffs by default in diff-mode:
 (setq diff-switches "-u")
 (setq vc-svn-diff-switches '("--diff-cmd" "diff" "-x" "-u"))
+;;; show changed regions in the fringe:
+(global-diff-hl-mode 1)
 ;;; default to unknown and unmodified files not displayed:
 (setq svn-status-hide-unknown    t
       svn-status-hide-unmodified t)
