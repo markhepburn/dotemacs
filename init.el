@@ -109,7 +109,6 @@
     ;distel
     ;eclim
 
-    atim-unscroll
     auto-complete
     auto-complete-rst
     ac-nrepl
