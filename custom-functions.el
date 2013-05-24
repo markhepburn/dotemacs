@@ -1,3 +1,13 @@
+;;; Tidy-up macro from
+;;; http://milkbox.net/note/single-file-master-emacs-configuration/
+;;; I've been meaning to write something like this for ages; this will
+;;; do as a great start!
+(defmacro after (mode &rest body)
+  "`eval-after-load' MODE evaluate BODY."
+  (declare (indent defun))
+  `(eval-after-load ,mode
+     '(progn ,@body)))
+
 ;;; mark the line at point (main use-case is probably to mark then
 ;;; comment out, since killing, copying etc are already handled -- see
 ;;; below).  Bound to C-M-; to resemble M-; for this reason.

@@ -9,24 +9,23 @@
 ;;; mozrepl integration
 ;;; (http://people.internetconnection.net/2009/02/interactive-html-development-in-emacs/):
 (autoload 'moz-minor-mode "moz" "Mozilla Minor and Inferior Mozilla Modes" t)
-(eval-after-load "moz"
-  '(progn
-     (require 'moz)
-     (require 'json)
-     (defun moz-update (&rest ignored)
-       "Update the remote mozrepl instance"
-       (interactive)
-       (comint-send-string (inferior-moz-process)
-                           (concat "content.document.body.innerHTML="
-                                   (json-encode (buffer-string)) ";")))
-     (defun moz-enable-auto-update ()
-       "Automatically update the remote mozrepl when this buffer changes"
-       (interactive)
-       (add-hook 'after-change-functions 'moz-update t t))
-     (defun moz-disable-auto-update ()
-       "Disable automatic mozrepl updates"
-       (interactive)
-       (remove-hook 'after-change-functions 'moz-update t))))
+(after "moz"
+  (require 'moz)
+  (require 'json)
+  (defun moz-update (&rest ignored)
+    "Update the remote mozrepl instance"
+    (interactive)
+    (comint-send-string (inferior-moz-process)
+                        (concat "content.document.body.innerHTML="
+                                (json-encode (buffer-string)) ";")))
+  (defun moz-enable-auto-update ()
+    "Automatically update the remote mozrepl when this buffer changes"
+    (interactive)
+    (add-hook 'after-change-functions 'moz-update t t))
+  (defun moz-disable-auto-update ()
+    "Disable automatic mozrepl updates"
+    (interactive)
+    (remove-hook 'after-change-functions 'moz-update t)))
 
 ;;; basic html (and inherited by django-html); don't auto-fill:
 (add-hook 'html-mode-hook (lambda () (auto-fill-mode -1)))
@@ -36,10 +35,9 @@
 (add-hook 'sgml-mode-hook 'zencoding-mode)
 (setq-default zencoding-indentation 2)
 ;;; reclaim C-j keybinding from zencoding!
-(eval-after-load "zencoding-mode"
-  '(progn
-     (define-key zencoding-mode-keymap (kbd "C-j") nil)
-     (define-key zencoding-mode-keymap (kbd "M-<return>") 'zencoding-expand-line)))
+(after "zencoding-mode"
+  (define-key zencoding-mode-keymap (kbd "C-j") nil)
+  (define-key zencoding-mode-keymap (kbd "M-<return>") 'zencoding-expand-line))
 
 ;;; django templates:
 (autoload 'django-html-mode "django-html-mode" nil t)

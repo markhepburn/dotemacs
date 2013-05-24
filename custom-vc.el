@@ -39,44 +39,43 @@
 ;; Git integration:
 ;;; Experimenting with magit mode, on the advice of many (well, @philjackson and @jamesvnc on twitter :))
 (autoload 'magit-status "magit" "magit interface for git" t)
-(eval-after-load "magit"
-  '(progn
-     (require 'magit-svn) ; svn integration needs to be explicitly loaded now.
-     (require 'magit-blame)
+(after "magit"
+  (require 'magit-svn) ; svn integration needs to be explicitly loaded now.
+  (require 'magit-blame)
 
-     ;; full screen magit-status; restores windows on exit.  From
-     ;; http://whattheemacsd.com/setup-magit.el-01.html#disqus_thread
-     (defadvice magit-status (around magit-fullscreen activate)
-       (window-configuration-to-register :magit-fullscreen)
-       ad-do-it
-       (delete-other-windows))
+  ;; full screen magit-status; restores windows on exit.  From
+  ;; http://whattheemacsd.com/setup-magit.el-01.html#disqus_thread
+  (defadvice magit-status (around magit-fullscreen activate)
+    (window-configuration-to-register :magit-fullscreen)
+    ad-do-it
+    (delete-other-windows))
 
-     (defun magit-quit-session ()
-       "Restores the previous window configuration and kills the magit buffer"
-       (interactive)
-       (kill-buffer)
-       (jump-to-register :magit-fullscreen))
+  (defun magit-quit-session ()
+    "Restores the previous window configuration and kills the magit buffer"
+    (interactive)
+    (kill-buffer)
+    (jump-to-register :magit-fullscreen))
 
-     ;; More magit niceties from http://whattheemacsd.com//setup-magit.el-02.html
-     (defun magit-ignore-whitespace ()
-       (interactive)
-       (add-to-list 'magit-diff-options "-w")
-       (magit-refresh))
+  ;; More magit niceties from http://whattheemacsd.com//setup-magit.el-02.html
+  (defun magit-ignore-whitespace ()
+    (interactive)
+    (add-to-list 'magit-diff-options "-w")
+    (magit-refresh))
 
-     (defun magit-dont-ignore-whitespace ()
-       (interactive)
-       (setq magit-diff-options (remove "-w" magit-diff-options))
-       (magit-refresh))
+  (defun magit-dont-ignore-whitespace ()
+    (interactive)
+    (setq magit-diff-options (remove "-w" magit-diff-options))
+    (magit-refresh))
 
-     (defun magit-toggle-whitespace ()
-       (interactive)
-       (if (member "-w" magit-diff-options)
-           (magit-dont-ignore-whitespace)
-         (magit-ignore-whitespace)))
+  (defun magit-toggle-whitespace ()
+    (interactive)
+    (if (member "-w" magit-diff-options)
+        (magit-dont-ignore-whitespace)
+      (magit-ignore-whitespace)))
 
-     (define-key magit-status-mode-map (kbd "W") 'magit-toggle-whitespace)
+  (define-key magit-status-mode-map (kbd "W") 'magit-toggle-whitespace)
 
-     (define-key magit-status-mode-map (kbd "q") 'magit-quit-session)))
+  (define-key magit-status-mode-map (kbd "q") 'magit-quit-session))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -85,17 +84,16 @@
 (require 'psvn)
 (autoload 'svn-status "psvn" "Subversion interaction mode" t)
 (setq svn-status-track-user-input t)    ; Needs this to prompt for a password!
-(eval-after-load "psvn"
-  '(progn
-     (define-key svn-status-mode-map (kbd "n") 'svn-status-next-line)
-     (define-key svn-status-mode-map (kbd "p") 'svn-status-previous-line)
-     ;; No idea why the default behaviour is as it is (or even how to
-     ;; reproduce it in cmd-line svn for that matter), but this over-rides
-     ;; it with something reasonably useful (possibly replace with '("-v")
-     ;; to get a list of all files changed) :
-     (setq svn-status-default-log-arguments '())
-     ;; using external cmd here because psvn diff doesn't work with
-     ;; colordiff, which I'm using with command-line svn:
-     (setq svn-status-default-diff-arguments '("--diff-cmd" "diff" ))))
+(after "psvn"
+  (define-key svn-status-mode-map (kbd "n") 'svn-status-next-line)
+  (define-key svn-status-mode-map (kbd "p") 'svn-status-previous-line)
+  ;; No idea why the default behaviour is as it is (or even how to
+  ;; reproduce it in cmd-line svn for that matter), but this over-rides
+  ;; it with something reasonably useful (possibly replace with '("-v")
+  ;; to get a list of all files changed) :
+  (setq svn-status-default-log-arguments '())
+  ;; using external cmd here because psvn diff doesn't work with
+  ;; colordiff, which I'm using with command-line svn:
+  (setq svn-status-default-diff-arguments '("--diff-cmd" "diff" )))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 

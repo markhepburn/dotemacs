@@ -4,7 +4,7 @@
 (autoload 'elisp-slime-nav-mode "elisp-slime-nav"
   "M-./M-, navigation for elisp" t)
 (add-hook 'emacs-lisp-mode-hook (lambda () (elisp-slime-nav-mode t)))
-(eval-after-load "elisp-slime-nav" '(diminish 'elisp-slime-nav-mode))
+(after "elisp-slime-nav" (diminish 'elisp-slime-nav-mode))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -53,8 +53,8 @@
 (when (require 'ac-nrepl nil t)
   (add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
   (add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
-  (eval-after-load "auto-complete"
-    '(add-to-list 'ac-modes 'nrepl-mode)))
+  (after "auto-complete"
+    (add-to-list 'ac-modes 'nrepl-mode)))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -70,5 +70,5 @@
                          lisp
                          nrepl
                          slime-repl))
-(eval-after-load 'paredit '(diminish 'paredit-mode))
+(after 'paredit (diminish 'paredit-mode))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

@@ -220,18 +220,17 @@
 ;;; Make dired buffer navigation a bit more friendly
 ;;; (http://whattheemacsd.com/setup-dired.el-02.html)
 ;;; Note, dired-mode-map isn't defined at load-time, so delay until dired appears:
-(eval-after-load 'dired
-  '(progn
-     (defun dired-back-to-top ()
-       (interactive)
-       (beginning-of-buffer)
-       (dired-next-line (if dired-omit-mode 2 4)))
-     (define-key dired-mode-map (vector 'remap 'beginning-of-buffer) 'dired-back-to-top)
-     (defun dired-jump-to-bottom ()
-       (interactive)
-       (end-of-buffer)
-       (dired-next-line -1))
-     (define-key dired-mode-map (vector 'remap 'end-of-buffer) 'dired-jump-to-bottom)))
+(after 'dired
+  (defun dired-back-to-top ()
+    (interactive)
+    (beginning-of-buffer)
+    (dired-next-line (if dired-omit-mode 2 4)))
+  (define-key dired-mode-map (vector 'remap 'beginning-of-buffer) 'dired-back-to-top)
+  (defun dired-jump-to-bottom ()
+    (interactive)
+    (end-of-buffer)
+    (dired-next-line -1))
+  (define-key dired-mode-map (vector 'remap 'end-of-buffer) 'dired-jump-to-bottom))
 
 ;; Scroll-bars on the right please:
 (if (fboundp 'set-scroll-bar-mode) (set-scroll-bar-mode 'right))
@@ -385,7 +384,7 @@ should be a list of keys that will be bound globally to
 
 ;; Show docs where available:
 (enable-minor-mode-for eldoc-mode '(emacs-lisp lisp inferior-lisp ielm))
-(eval-after-load 'eldoc '(diminish 'eldoc-mode))
+(after 'eldoc (diminish 'eldoc-mode))
 
 ;; view pdfs etc inline:
 (autoload 'doc-view "doc-view" "View pdfs inline" t)
@@ -404,8 +403,7 @@ should be a list of keys that will be bound globally to
 (autoload 'twittering-update-status-interactive "twittering-mode" "Twitter status update" t)
 (defalias 'twit-post 'twittering-update-status-interactive
   "Post from the minibuffer (or whatever it is set to) without invoking twit.")
-(eval-after-load "twittering-mode"
-  '(twittering-icon-mode))
+(after "twittering-mode" (twittering-icon-mode))
 (setq twittering-update-status-function 'twittering-update-status-from-minibuffer
       twittering-timer-interval 36000        ; I don't want auto-refresh
       twittering-use-master-password t
@@ -596,8 +594,8 @@ should be a list of keys that will be bound globally to
 ;;; open jar files as well:
 (add-to-list 'auto-mode-alist '("\\.jar\\'" . archive-mode))
 
-(eval-after-load "sql"
-  '(load-library "sql-indent"))
+(after "sql"
+  (load-library "sql-indent"))
 
 ;;; elscreen provides enough "frame" management for me:
 (setq woman-use-own-frame nil)
@@ -610,19 +608,19 @@ should be a list of keys that will be bound globally to
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; compression; edit compressed kml files too:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(eval-after-load "jka-compr"
-  '(unless (member "\\.kmz\\'"
-                   (mapcar (lambda (vec) (elt vec 0))
-                           jka-compr-compression-info-list))
-     (add-to-list 'jka-compr-compression-info-list
-                  ;; Basically just copying the gzip entry:
-                  ["\\.kmz\\'"
-                   "compressing" "gzip" ("-c" "-q")
-                   "uncompressing" "gzip" ("-c" "-d" "-q")
-                   nil t "PK"])
-     ;; if already enabled then toggle to get our addition recognised (note
-     ;; no `auto-compression-mode' variable in xemacs 21)
-     (when jka-compr-added-to-file-coding-system-alist
-       (auto-compression-mode 0)
-       (auto-compression-mode 1))))
+(after "jka-compr"
+  (unless (member "\\.kmz\\'"
+                  (mapcar (lambda (vec) (elt vec 0))
+                          jka-compr-compression-info-list))
+    (add-to-list 'jka-compr-compression-info-list
+                 ;; Basically just copying the gzip entry:
+                 ["\\.kmz\\'"
+                  "compressing" "gzip" ("-c" "-q")
+                  "uncompressing" "gzip" ("-c" "-d" "-q")
+                  nil t "PK"])
+    ;; if already enabled then toggle to get our addition recognised (note
+    ;; no `auto-compression-mode' variable in xemacs 21)
+    (when jka-compr-added-to-file-coding-system-alist
+      (auto-compression-mode 0)
+      (auto-compression-mode 1))))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
