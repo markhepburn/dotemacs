@@ -30,6 +30,12 @@
 ;;; basic html (and inherited by django-html); don't auto-fill:
 (add-hook 'html-mode-hook (lambda () (auto-fill-mode -1)))
 
+;;; From http://whattheemacsd.com//setup-html-mode.el-05.html
+;;; after deleting a tag, indent properly (I didn't use
+;;; sgml-delete-tag, but it's on C-c C-d)
+(defadvice sgml-delete-tag (after reindent activate)
+  (indent-region (point-min) (point-max)))
+
 ;;; zencoding shortcuts for html generation:
 (autoload 'zencoding-mode "zencoding-mode" "Zencoding HTML generation shortcuts" t)
 (add-hook 'sgml-mode-hook 'zencoding-mode)
