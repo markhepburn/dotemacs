@@ -174,6 +174,10 @@
 (el-get 'sync *mh/packages*)
 
 
+;;; loaded before anything else because of various macros
+;;; (enable-minor-mode-for, after):
+(load "custom-functions")
+
 ;;; Some settings need to be machine-specific, such as CEDET project
 ;;; definitions, while others are platform-specific (eg, I use
 ;;; maxframe on osx, but this is redundant on linux where xmonad takes
@@ -184,10 +188,6 @@
 (load (subst-char-in-string ?/ ?- (symbol-name system-type))
       t)
 (load system-name t)       ; Assume for now it is not fully-qualified.
-
-;;; loaded before custom-general because of enable-minor-mode-for
-;;; macro, which is used in -general:
-(load "custom-functions")
 
 (load "custom-general")
 
