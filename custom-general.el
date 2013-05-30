@@ -359,9 +359,13 @@ should be a list of keys that will be bound globally to
   (let ((file "buffer-move"))
     (autoload fn file "Swap buffers between windows" t)))
 (global-set-key (kbd "M-g <left>")  'buf-move-left)
+(global-set-key (kbd "M-g h")       'buf-move-left)
 (global-set-key (kbd "M-g <right>") 'buf-move-right)
+(global-set-key (kbd "M-g l")       'buf-move-right)
 (global-set-key (kbd "M-g <up>")    'buf-move-up)
+(global-set-key (kbd "M-g k")       'buf-move-up)
 (global-set-key (kbd "M-g <down>")  'buf-move-down)
+(global-set-key (kbd "M-g j")       'buf-move-down)
 
 ;; vi-like case toggle:
 (when (require 'toggle-case nil t)
