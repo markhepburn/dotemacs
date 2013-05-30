@@ -101,7 +101,11 @@
                :type github
                :pkgname "bbatsov/zenburn-emacs"
                :post-init (add-to-list 'custom-theme-load-path
-                                       default-directory))))
+                                       default-directory))
+        ;; This branch includes support for the new Emmet functionality
+        (:name zencoding-mode
+               :type github
+               :pkgname "smihica/zencoding")))
 
 ;; My installed package list:
 (setq *mh/packages*
