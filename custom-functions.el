@@ -309,6 +309,12 @@ active, in the region.  Optional prefix arg means behave similarly to
         (insert (number-to-string incnum))))))
 (global-set-key (kbd "C-x n +") 'increment-number-at-point)
 
+(defun bfn ()
+  "Display the buffer's file name.  Basically short-hand for
+  typing M-: buffer-file-name"
+  (interactive)
+  (message (or buffer-file-name "Buffer is not visiting any file")))
+
 ;;
 ;; Courtesy of Steve Yegge, http://steve.yegge.googlepages.com/my-dot-emacs-file
 ;; (with tweaks for vc integration)
