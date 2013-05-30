@@ -369,10 +369,10 @@ should be a list of keys that will be bound globally to
 
 ;; vi-like case toggle:
 (when (require 'toggle-case nil t)
-  (global-set-key (kbd "C-`")   'toggle-case)
-  (global-set-key (kbd "C-~")   'toggle-case-backwards)
-  (global-set-key (kbd "C-M-`") 'toggle-case-by-word)
-  (global-set-key (kbd "C-M-~") 'toggle-case-by-word-backwards))
+  (global-set-key (kbd "C-`")   'joc-toggle-case)
+  (global-set-key (kbd "C-~")   'joc-toggle-case-backwards)
+  (global-set-key (kbd "C-M-`") 'joc-toggle-case-by-word)
+  (global-set-key (kbd "C-M-~") 'joc-toggle-case-by-word-backwards))
 
 ;; make all buffer-names unique:
 (when (require 'uniquify nil t)
