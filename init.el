@@ -60,6 +60,10 @@
                :pkgname "lunaryorn/flycheck"
                :depends (s dash)
                :post-init (add-hook 'after-init-hook 'global-flycheck-mode))
+        (:name git-messenger
+               :type github
+               :pkgname "syohex/emacs-git-messenger"
+               :post-init (global-set-key (kbd "C-x v p") 'git-messenger:popup-message))
         (:name grep-buffers
                :type emacswiki)
         (:name http-twiddle
@@ -133,6 +137,7 @@
     expand-region
     fic-ext-mode
     flycheck
+    git-messenger
     grep-buffers
     haskell-mode
     haskell-mode-exts
