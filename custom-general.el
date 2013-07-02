@@ -441,6 +441,8 @@ should be a list of keys that will be bound globally to
 (global-set-key (kbd "C-x t p") 'hll-prev-highlight)
 (global-set-key (kbd "C-x t n") 'hll-next-highlight)
 (global-set-key (kbd "C-x t u") 'hll-unhighlight-buffer)
+;;; and highlight the current line regardless:
+(global-hl-line-mode 1)
 
 ;;; related to that, bookmarks look very useful (like tags for source
 ;;; navigation, only you don't have to pop them, for eg).  I'm using
