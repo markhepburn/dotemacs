@@ -10,7 +10,7 @@
  '(haskell-notify-p t)
  '(haskell-process-type (quote cabal-dev))
  '(haskell-tags-on-save t)
- '(safe-local-variable-values (quote ((pony-settings make-pony-project :python "/home/hep016/Projects/MARVL/webMARVL/venv/bin/python" :settings "webmarvl.settings.dev") (pony-settings make-pony-project :python "/home/hep016/Projects/connie/connie2testing/venv/bin/python")))))
+ '(safe-local-variable-values (quote ((eval ignore-errors "Write-contents-functions is a buffer-local alternative to before-save-hook" (add-hook (quote write-contents-functions) (lambda nil (delete-trailing-whitespace) nil)) (require (quote whitespace)) "Sometimes the mode needs to be toggled off and on." (whitespace-mode 0) (whitespace-mode 1)) (whitespace-line-column . 80) (whitespace-style face trailing lines-tail) (require-final-newline . t) (pony-settings make-pony-project :python "/home/hep016/Projects/MARVL/webMARVL/venv/bin/python" :settings "webmarvl.settings.dev") (pony-settings make-pony-project :python "/home/hep016/Projects/connie/connie2testing/venv/bin/python")))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
