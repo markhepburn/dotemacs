@@ -249,26 +249,6 @@ line to that many lines below top.  Absolute value of argument is used."
     (set-window-start (selected-window) (point))))
 (global-set-key (kbd "C-M-'") 'mh/current-line-to-top)
 
-;; Really can't believe this doesn't already exist; what am I missing?
-;; Update: see also M-x how-many
-(defun mh/count-words (arg)
-  "Counts number of words in the buffer or, if the region is
-active, in the region.  Optional prefix arg means behave similarly to
-`wc -l', otherwise count words as traversed by forward-word."
-  (interactive "P")
-  (let ((result 0)
-        (min (if mark-active (region-beginning) (point-min)))
-        (max (if mark-active (region-end) (point-max))))
-    (with-syntax-table (copy-syntax-table)
-      (if arg (modify-syntax-entry ?- "w"))
-      (save-excursion
-        (goto-char min)
-        (while (< (point) max)
-          (if (forward-word 1)
-              (incf result)))
-        (message "%d word%s." result (if (> result 1) "s" ""))
-        result))))
-
 (defun mh/electric-punctuation ()
   "Tidy up whitespace around punctuation: delete any preceding
   whitespace and insert one space afterwards.  Idea stolen from
