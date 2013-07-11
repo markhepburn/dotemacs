@@ -154,6 +154,9 @@ given a prefix argument."
 ;; window)
 (global-set-key (kbd "C-'")  'goto-beginnning-of-window)
 (global-set-key (kbd "C-\"") 'goto-end-of-window)
+;;; Alternative (I will probably delete the above once I'm used to
+;;; this) (and move this to custom-general probably):
+(global-set-key (kbd "C-S-l") 'move-to-window-line-top-bottom)
 ;; See also C-l, now (?) bound to recenter-top-bottom which moves the
 ;; current line to the middle/top/bottom when invoked successively.
 
