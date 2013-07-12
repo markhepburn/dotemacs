@@ -126,7 +126,8 @@
 
 ;;; project mode:
 (after 'projectile
-  (projectile-global-mode))
+  (projectile-global-mode)
+  (diminish 'projectile-mode))
 
 (when (require 'multiple-cursors nil t)
   (global-set-key (kbd "C-C C-C") 'mc/edit-lines)
