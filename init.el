@@ -66,6 +66,9 @@
                :post-init (global-set-key (kbd "C-x v p") 'git-messenger:popup-message))
         (:name grep-buffers
                :type emacswiki)
+        (:name grizzl
+               :type github
+               :pkgname "d11wtq/grizzl")
         (:name http-twiddle
                :type github
                :pkgname "hassy/http-twiddle")
@@ -139,6 +142,7 @@
     flycheck
     git-messenger
     grep-buffers
+    grizzl
     haskell-mode
     haskell-mode-exts
     http-twiddle
@@ -159,6 +163,7 @@
     paredit
     pcre2el
     pony-mode
+    projectile
     psvn
     python                              ; fgallina version
     rainbow-mode

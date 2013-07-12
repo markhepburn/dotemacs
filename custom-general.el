@@ -124,6 +124,10 @@
     (ido-ubiquitous-use-new-completing-read yas-expand 'yasnippet)
     (ido-ubiquitous-use-new-completing-read yas-visit-snippet-file 'yasnippet)))
 
+;;; project mode:
+(after 'projectile
+  (projectile-global-mode))
+
 (when (require 'multiple-cursors nil t)
   (global-set-key (kbd "C-C C-C") 'mc/edit-lines)
   (global-set-key (kbd "C->")     'mc/mark-next-like-this)
