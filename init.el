@@ -85,11 +85,11 @@
                :type github
                :pkgname "joddie/pcre2el")
         (:name projectile
-	       :description "Project navigation and management library for Emacs"
-	       :type github
-	       :pkgname "bbatsov/projectile"
-	       :depends (dash grizzl s)
-	       :features projectile)
+               :description "Project navigation and management library for Emacs"
+               :type github
+               :pkgname "bbatsov/projectile"
+               :depends (dash grizzl s)
+               :features projectile)
         (:name sql-indent
                :type emacswiki)
         (:name tags-view
