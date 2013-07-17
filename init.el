@@ -60,6 +60,12 @@
                :pkgname "lunaryorn/flycheck"
                :depends (s dash)
                :post-init (add-hook 'after-init-hook 'global-flycheck-mode))
+        (:name flx
+               :type github
+               :pkgname "lewang/flx"
+               :post-init (progn
+                            (flx-ido-mode 1)
+                            (setq ido-use-faces nil)))
         (:name git-messenger
                :type github
                :pkgname "syohex/emacs-git-messenger"
@@ -145,6 +151,7 @@
     ess
     expand-region
     fic-ext-mode
+    flx
     flycheck
     git-messenger
     grep-buffers
