@@ -218,6 +218,8 @@
 
 (load "custom-general")
 
+(load "custom-erc")
+
 (load "custom-c")
 
 (load "custom-lisp")
