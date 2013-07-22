@@ -55,6 +55,10 @@
         ;; override; current recipe times out:
         (:name csv-mode
                :type emacswiki)
+        ;; Fork of zencoding, supporting the new Emmet functionality:
+        (:name emmet-mode
+               :type github
+               :pkgname "smihica/emmet-mode")
         (:name flycheck
                :type github
                :pkgname "lunaryorn/flycheck"
@@ -120,11 +124,7 @@
                :type github
                :pkgname "bbatsov/zenburn-emacs"
                :post-init (add-to-list 'custom-theme-load-path
-                                       default-directory))
-        ;; This branch includes support for the new Emmet functionality
-        (:name zencoding-mode
-               :type github
-               :pkgname "smihica/zencoding")))
+                                       default-directory))))
 
 ;; My installed package list:
 (setq *mh/packages*
@@ -147,6 +147,7 @@
     diminish
     ein
     elisp-slime-nav
+    emmet-mode
     escreen
     ess
     expand-region
@@ -193,8 +194,7 @@
     win-switch
     yaml-mode
     yasnippet
-    zenburn-theme
-    zencoding-mode))
+    zenburn-theme))
 
 
 (el-get-cleanup *mh/packages*)

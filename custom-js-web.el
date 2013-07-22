@@ -36,15 +36,16 @@
 (defadvice sgml-delete-tag (after reindent activate)
   (indent-region (point-min) (point-max)))
 
-;;; zencoding shortcuts for html generation:
-(autoload 'zencoding-mode "zencoding-mode" "Zencoding HTML generation shortcuts" t)
-(add-hook 'sgml-mode-hook 'zencoding-mode)
-(add-hook 'css-mode-hook 'zencoding-mode)
-(setq-default zencoding-indentation 2)
-;;; reclaim C-j keybinding from zencoding!
-(after "zencoding-mode"
-  (define-key zencoding-mode-keymap (kbd "C-j") nil)
-  (define-key zencoding-mode-keymap (kbd "M-<return>") 'zencoding-expand-line))
+;;; emmet (zencoding) shortcuts for html generation:
+(autoload 'emmet-mode "emmet-mode"
+  "Emmet (Zencoding) HTML generation shortcuts" t)
+(add-hook 'sgml-mode-hook 'emmet-mode)
+(add-hook 'css-mode-hook 'emmet-mode)
+(setq-default emmet-indentation 2)
+;;; reclaim C-j keybinding from emmet!
+(after "emmet-mode"
+  (define-key emmet-mode-keymap (kbd "C-j") nil)
+  (define-key emmet-mode-keymap (kbd "M-<return>") 'emmet-expand-line))
 
 ;;; django templates:
 (autoload 'django-html-mode "django-html-mode" nil t)
