@@ -218,6 +218,8 @@
 
 (load "custom-general")
 
+(load "custom-escreen")
+
 (load "custom-erc")
 
 (load "custom-c")
