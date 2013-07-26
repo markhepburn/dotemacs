@@ -9,6 +9,12 @@
                           (confirm-nonexistent-file-or-buffer)))
     (escreen-create-screen)
     (find-file filename wildcards))
+  (defun escreen-dired-new-screen (directory)
+    (interactive
+     (list
+      (ido-read-directory-name "Dired[new screen]: ")))
+    (escreen-create-screen)
+    (dired (expand-file-name directory)))
   (defun escreen-kill-screen-and-buffers ()
     (interactive)
     (let ((current-escreen (escreen-get-current-screen-number)))
@@ -44,6 +50,7 @@
   ;; Make the keybindings a bit more familiar:
   (escreen-advise-emphasis escreen-goto-last-screen)
   (define-key escreen-map (kbd "b")   'escreen-open-buffer-new-screen)
+  (define-key escreen-map (kbd "d")   'escreen-dired-new-screen)
   (define-key escreen-map (kbd "C-l") 'escreen-get-active-screen-numbers-with-emphasis)
   (define-key escreen-map (kbd "C-c") (escreen-advise-emphasis escreen-create-screen))
   (define-key escreen-map (kbd "C-k") (escreen-advise-emphasis escreen-kill-screen))
