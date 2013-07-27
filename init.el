@@ -67,7 +67,7 @@
         (:name flx
                :type github
                :pkgname "lewang/flx"
-               :post-init (progn
+               :post-init (when (require 'flx-ido nil t)
                             (flx-ido-mode 1)
                             (setq ido-use-faces nil)))
         (:name git-messenger
