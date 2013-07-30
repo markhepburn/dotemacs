@@ -47,10 +47,6 @@
   (define-key emmet-mode-keymap (kbd "C-j") nil)
   (define-key emmet-mode-keymap (kbd "M-<return>") 'emmet-expand-line))
 
-;;; django templates:
-(autoload 'django-html-mode "django-html-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . django-html-mode))
-
 ;;; Interactive django mode (virtualenv and fabric integration, etc):
 ;; Loading now then plugs it in to the related major-modes:
 (require 'pony-mode nil t)
