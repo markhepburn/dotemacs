@@ -179,7 +179,6 @@
     pony-mode
     projectile
     psvn
-    python                              ; fgallina version
     rainbow-mode
     rst-mode
     s
