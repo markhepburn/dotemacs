@@ -253,6 +253,6 @@
 (load custom-file)
 
 (message ".emacs loaded in %ds"
-         (destructuring-bind (hi lo ms) (current-time)
+         (destructuring-bind (hi lo ms ps) (current-time)
            (- (+ hi lo) (+ (first *mh/load-start-time*)
                            (second *mh/load-start-time*)))))
