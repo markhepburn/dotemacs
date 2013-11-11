@@ -8,8 +8,6 @@
  (add-to-list 'exec-path cabal-path)
  (setenv "PATH" (concat cabal-path ":" (getenv "PATH"))))
 
-(load-library "haskell-site-file")
-
 (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
 ;; (add-hook 'haskell-mode-hook 'turn-on-haskell-decl-scan)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
