@@ -140,6 +140,7 @@
     browse-kill-ring
     buffer-move
     cedet
+    cider                               ; formerly "nrepl"
     clojure-mode
     csv-mode
     dash
@@ -171,8 +172,7 @@
     move-text
     mplayer-mode
     multiple-cursors
-    nrepl
-    nrepl-ritz
+;    nrepl-ritz
     org-mode
     paredit
     pcre2el

@@ -40,21 +40,21 @@
 (add-to-list 'auto-mode-alist '("\\.clj$" . clojure-mode))
 (add-to-list 'auto-mode-alist '("\\.cljs$" . clojure-mode))
 
-;;; ...and nrepl integration:
-(autoload 'nrepl "nrepl" "Connect to existing nrepl instance")
-(autoload 'nrepl-jack-in "nrepl" "Launch a nrepl instance")
-(add-hook 'nrepl-mode-hook (lambda ()
-                             (define-key nrepl-mode-map
-                               (kbd "<up>") 'nrepl-previous-input)
-                             (define-key nrepl-mode-map
-                               (kbd "<down>") 'nrepl-next-input)))
+;;; ...and cider (formerly nrepl) integration:
+(autoload 'cider "cider" "Connect to existing cider instance")
+(autoload 'cider-jack-in "cider" "Launch a nrepl instance")
+(add-hook 'cider-mode-hook (lambda ()
+                             (define-key cider-mode-map
+                               (kbd "<up>") 'cider-previous-input)
+                             (define-key cider-mode-map
+                               (kbd "<down>") 'cider-next-input)))
 
 ;;; auto-complete support for nrepl:
 (when (require 'ac-nrepl nil t)
-  (add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
-  (add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
+  (add-hook 'cider-mode-hook 'ac-nrepl-setup)
+  (add-hook 'cider-interaction-mode-hook 'ac-nrepl-setup)
   (after "auto-complete"
-    (add-to-list 'ac-modes 'nrepl-mode)))
+    (add-to-list 'ac-modes 'cider-mode)))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -63,12 +63,12 @@
 ;; See http://mumble.net/~campbell/emacs/paredit.html for a reference
 ;; table with examples.
 (enable-minor-mode-for paredit-mode
-                       '(clojure
+                       '(cider
+                         clojure
                          emacs-lisp
                          inferior-emacs-lisp
                          inferior-lisp
                          lisp
-                         nrepl
                          slime-repl))
 (after 'paredit (diminish 'paredit-mode))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
