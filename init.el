@@ -60,9 +60,6 @@
                :post-init (global-set-key (kbd "C-x v p") 'git-messenger:popup-message))
         (:name grep-buffers
                :type emacswiki)
-        (:name grizzl
-               :type github
-               :pkgname "d11wtq/grizzl")
         (:name http-twiddle
                :type github
                :pkgname "hassy/http-twiddle")
