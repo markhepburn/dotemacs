@@ -43,11 +43,7 @@
 
 ;; Additional custom recipes, not yet in the repository:
 (setq el-get-sources
-      '((:name ag
-               :type github
-               :pkgname "Wilfred/ag.el"
-               :features ag)
-        (:name atim-unscroll
+      '((:name atim-unscroll
                :type emacswiki)
         (:name cl-lib
 	       :type emacsmirror
