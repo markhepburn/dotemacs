@@ -48,10 +48,6 @@
         ;; override; current recipe times out:
         (:name csv-mode
                :type emacswiki)
-        ;; Fork of zencoding, supporting the new Emmet functionality:
-        (:name emmet-mode
-               :type github
-               :pkgname "smihica/emmet-mode")
         (:name flycheck
                :type github
                :pkgname "lunaryorn/flycheck"
