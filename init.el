@@ -88,12 +88,7 @@
         (:name win-switch
                :type github
                :pkgname "genovese/win-switch"
-               :compile "win-switch.el")
-        (:name zenburn-theme
-               :type github
-               :pkgname "bbatsov/zenburn-emacs"
-               :post-init (add-to-list 'custom-theme-load-path
-                                       default-directory))))
+               :compile "win-switch.el")))
 
 ;; My installed package list:
 (setq *mh/packages*
@@ -111,6 +106,7 @@
     cedet
     cider                               ; formerly "nrepl"
     clojure-mode
+    color-theme-zenburn
     csv-mode
     dash
     diff-hl
@@ -161,8 +157,7 @@
     visual-regexp
     win-switch
     yaml-mode
-    yasnippet
-    zenburn-theme))
+    yasnippet))
 
 
 (el-get-cleanup *mh/packages*)
