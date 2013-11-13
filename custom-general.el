@@ -527,6 +527,9 @@ should be a list of keys that will be bound globally to
         try-expand-dabbrev-all-buffers
         try-expand-dabbrev-from-kill))
 
+;;; Visual regexp support:
+(global-set-key (kbd "C-x r q") 'vr/query-replace)
+
 ;; make arrow keys work properly in comint buffers:
 (add-hook 'comint-mode-hook (lambda ()
                               (define-key comint-mode-map
