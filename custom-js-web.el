@@ -63,38 +63,3 @@
 ;;; Now using LessCSS, using it's own derived mode:
 (when (require 'less-css-mode nil t)
   (add-hook 'less-css-mode-hook 'rainbow-turn-on))
-
-;; (add-to-list 'load-path (expand-file-name "~/elisp/mmm-mode-0.4.8"))
-;; ;; MMM-Mode
-;; (require 'mmm-auto)
-;; (setq mmm-global-mode 'maybe)
-
-;; ;; Set up an mmm group for fancy html editing
-;; (mmm-add-group
-;;  'fancy-html
-;;  '(;; (html-php-embedded
-;; ;;     :submode php-mode
-;; ;;     :face mmm-output-submode-face
-;; ;;     :front "<[?]php"
-;; ;;     :back "[?]>")
-;; ;;    (html-css-embedded
-;; ;;     :submode css-mode
-;; ;;     :face mmm-declaration-submode-face
-;; ;;     :front "<style\[^>\]*>"
-;; ;;     :back "</style>")
-;; ;;    (html-css-attribute
-;; ;;     :submode css-mode
-;; ;;     :face mmm-declaration-submode-face
-;; ;;     :front "\\bstyle=\\s-*\""
-;; ;;     :back "\"")
-;;    (html-javascript-embedded
-;;     :submode javascript-mode
-;;     :face mmm-code-submode-face
-;;     :front "<script\[^>\]*>"
-;;     :back "</script>")
-;;    (html-javascript-attribute
-;;     :submode javascript-mode
-;;     :face mmm-code-submode-face
-;;     :front "\\bon\\w+=\\s-*\""
-;;     :back "\"")))
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
