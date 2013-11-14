@@ -48,12 +48,6 @@
         ;; override; current recipe times out:
         (:name csv-mode
                :type emacswiki)
-        (:name flx
-               :type github
-               :pkgname "lewang/flx"
-               :post-init (when (require 'flx-ido nil t)
-                            (flx-ido-mode 1)
-                            (setq ido-use-faces nil)))
         (:name grep-buffers
                :type emacswiki)
         (:name http-twiddle

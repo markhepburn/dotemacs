@@ -111,6 +111,11 @@
   ;; Finally, activate:
   (ido-mode t)
 
+  ;; Better matching:
+  (when (require 'flx-ido nil t)
+    (flx-ido-mode 1)
+    (setq ido-use-faces nil))
+
   ;; ...extend its reach (see http://whattheemacsd.com//setup-ido.el-01.html):
   (when (require 'ido-ubiquitous nil t)
     (ido-ubiquitous-mode 1)
