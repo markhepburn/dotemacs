@@ -86,7 +86,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Subversion interaction:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'psvn)
 (autoload 'svn-status "psvn" "Subversion interaction mode" t)
 (setq svn-status-track-user-input t)    ; Needs this to prompt for a password!
 (after "psvn"
