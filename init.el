@@ -45,9 +45,6 @@
 (setq el-get-sources
       '((:name atim-unscroll
                :type emacswiki)
-        ;; override; current recipe times out:
-        (:name csv-mode
-               :type emacswiki)
         (:name grep-buffers
                :type emacswiki)
         (:name http-twiddle
