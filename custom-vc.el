@@ -76,6 +76,11 @@
   (define-key magit-status-mode-map (kbd "W") 'magit-toggle-whitespace)
 
   (define-key magit-status-mode-map (kbd "q") 'magit-quit-session))
+
+;;; git-messenger binding:
+(autoload 'git-messenger:popup-message "git-messenger"
+  "pop up message for git commit at current line" t)
+(global-set-key (kbd "C-x v p") 'git-messenger:popup-message)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

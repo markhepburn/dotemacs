@@ -54,10 +54,6 @@
                :post-init (when (require 'flx-ido nil t)
                             (flx-ido-mode 1)
                             (setq ido-use-faces nil)))
-        (:name git-messenger
-               :type github
-               :pkgname "syohex/emacs-git-messenger"
-               :post-init (global-set-key (kbd "C-x v p") 'git-messenger:popup-message))
         (:name grep-buffers
                :type emacswiki)
         (:name http-twiddle
