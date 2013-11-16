@@ -60,6 +60,6 @@
 (add-hook 'css-mode-hook
           (lambda () (local-set-key "{" 'autopair-open-block)))
 
-;;; Now using LessCSS, using it's own derived mode:
+;;; Now using LessCSS, using its own derived mode:
 (when (require 'less-css-mode nil t)
   (add-hook 'less-css-mode-hook 'rainbow-turn-on))
