@@ -27,19 +27,20 @@
     (interactive)
     (remove-hook 'after-change-functions 'moz-update t)))
 
-;;; basic html (and inherited by django-html); don't auto-fill:
-(add-hook 'html-mode-hook (lambda () (auto-fill-mode -1)))
-
 ;;; From http://whattheemacsd.com//setup-html-mode.el-05.html
 ;;; after deleting a tag, indent properly (I didn't use
 ;;; sgml-delete-tag, but it's on C-c C-d)
 (defadvice sgml-delete-tag (after reindent activate)
   (indent-region (point-min) (point-max)))
 
+(autoload 'web-mode "web-mode"
+  "Advanced combined mode for html-derived files" nil t)
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+
 ;;; emmet (zencoding) shortcuts for html generation:
 (autoload 'emmet-mode "emmet-mode"
   "Emmet (Zencoding) HTML generation shortcuts" t)
-(add-hook 'sgml-mode-hook 'emmet-mode)
+(add-hook 'web-mode-hook 'emmet-mode)
 (add-hook 'css-mode-hook 'emmet-mode)
 (setq-default emmet-indentation 2)
 ;;; reclaim C-j keybinding from emmet!

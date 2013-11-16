@@ -142,6 +142,7 @@
     undo-tree
     unbound
     visual-regexp
+    web-mode
     win-switch
     yaml-mode
     yasnippet))
