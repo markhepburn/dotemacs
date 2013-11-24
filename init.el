@@ -45,6 +45,9 @@
 (setq el-get-sources
       '((:name atim-unscroll
                :type emacswiki)
+        (:name free-keys
+               :type github
+               :pkgname "Fuco1/free-keys")
         (:name grep-buffers
                :type emacswiki)
         (:name http-twiddle
@@ -107,6 +110,7 @@
     fic-ext-mode
     flx
     flycheck
+    free-keys
     git-messenger
     grep-buffers
     grizzl
