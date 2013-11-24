@@ -118,6 +118,7 @@
     haskell-mode-exts
     http-twiddle
     ido-ubiquitous
+    ido-vertical-mode
     js2-mode
     json
     less-css-mode

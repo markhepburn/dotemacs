@@ -65,6 +65,10 @@
 
   (setq ido-enable-flex-matching t)
 
+  ;; Display candidates vertically:
+  (when (require 'ido-vertical-mode nil t)
+    (ido-vertical-mode 1))
+
   ;; Smex: ido for M-x.
   (setq smex-save-file "~/.emacs.d/smex.save")
   (require 'smex)
