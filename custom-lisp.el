@@ -44,10 +44,10 @@
 (autoload 'cider "cider" "Connect to existing cider instance")
 (autoload 'cider-jack-in "cider" "Launch a nrepl instance")
 (add-hook 'cider-mode-hook (lambda ()
-                             (define-key cider-mode-map
-                               (kbd "<up>") 'cider-previous-input)
-                             (define-key cider-mode-map
-                               (kbd "<down>") 'cider-next-input)))
+                             (define-key cider-repl-mode-map
+                               (kbd "<up>") 'cider-repl-previous-input)
+                             (define-key cider-repl-mode-map
+                               (kbd "<down>") 'cider-repl-next-input)))
 
 ;;; auto-complete support for nrepl:
 (when (require 'ac-nrepl nil t)
