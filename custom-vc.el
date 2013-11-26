@@ -77,6 +77,9 @@
 
   (define-key magit-status-mode-map (kbd "q") 'magit-quit-session))
 
+;;; Query whether to --set-upstream on new push:
+(setq magit-set-upstream-on-push t)
+
 ;;; git-messenger binding:
 (autoload 'git-messenger:popup-message "git-messenger"
   "pop up message for git commit at current line" t)
