@@ -194,6 +194,8 @@
 
 (load "custom-js-web")
 
+(load "custom-eshell")
+
 (load "custom-vc")
 
 (load "custom-xml")
