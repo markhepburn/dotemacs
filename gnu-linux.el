@@ -5,11 +5,13 @@
 ;;; seem to get set correctly when the daemon starts up); relevant
 ;;; line:
 ;;; emacs.font:-microsoft-Consolas-normal-normal-normal-*-18-*-*-*-m-0-iso10646-1
+;;; or
+;;; emacs.font:Ubuntu Mono:pixelsize=16:antialias=true
 ;;; May not need this now.
-(set-default-font "Consolas-11")
-;(set-default-font "Inconsolata-11")
-;(set-default-font "Bitstream Vera Sans Mono-10")
-;(set-default-font "Monospace-10")
+;(set-frame-font "Ubuntu Mono-12")
+;(set-frame-font "Inconsolata-11")
+;(set-frame-font "Bitstream Vera Sans Mono-10")
+;(set-frame-font "Monospace-10")
 
 ;;; font-lock for apt sources:
 (add-to-list 'auto-mode-alist '("sources\\.list\\'" . conf-mode))
