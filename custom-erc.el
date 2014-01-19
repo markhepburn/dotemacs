@@ -1,12 +1,19 @@
 ;;; custom-erc.el --- ERC Customisations
 
 ;;; Commentary:
-;; 
+;; ERC Customisations
 
 ;;; Code:
 
 ;;; Ignore all the "xxx has quit: timeout" etc messages:
 (setq erc-hide-list '("JOIN" "PART" "QUIT"))
+
+(setq erc-autojoin-channels-alist
+      '(("freenode.net" "#clojure"
+                        "#clojure-au"
+                        "#emacs"
+                        "#geodjango"
+                        "#openlayers")))
 
 (after 'erc
   (defun erc-ido-switch-buffer ()
