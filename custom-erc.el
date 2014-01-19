@@ -16,6 +16,11 @@
                         "#openlayers")))
 
 (after 'erc
+  (when (require 'erc-services nil t)
+    (load "erc-creds")
+    (setq erc-prompt-for-nickserv-password nil)
+    (erc-services-mode 1))
+
   (defun erc-ido-switch-buffer ()
     "Use ido to switch between active ERC buffers.
 Replaces erc-iswitchb, which isn't working for me at the moment."
