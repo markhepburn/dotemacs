@@ -31,9 +31,8 @@
   (url-retrieve
    "https://raw.github.com/dimitri/el-get/master/el-get-install.el"
    (lambda (s)
-     (let (el-get-master-branch)
-       (goto-char (point-max))
-       (eval-print-last-sexp)))))
+     (goto-char (point-max))
+     (eval-print-last-sexp))))
 
 (unless (featurep 'cedet)
   (when (file-directory-p "~/.emacs.d/el-get/cedet")
