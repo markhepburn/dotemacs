@@ -195,7 +195,8 @@
        :isearch t)))
   (setq yas-prompt-functions '(yas-popup-isearch-prompt yas-no-prompt))
   ;; 't to jit-load snippets:
-  (yas-load-directory (concat *mh/lisp-base* "snippets") t))
+  (yas-load-directory (concat *mh/lisp-base* "snippets") t)
+  (diminish 'yas-minor-mode))
 
 ;;; Auto-complete mode: all the cool kids are using it, and it's more
 ;;; active than company mode (see
