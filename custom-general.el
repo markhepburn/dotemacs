@@ -570,14 +570,9 @@ should be a list of keys that will be bound globally to
 ;;; elscreen provides enough "frame" management for me:
 (setq woman-use-own-frame nil)
 
-;;; Programming modes: enable "FIXME/TODO/etc" highlighting.  This
-;;; gets a bit messy, because it doesn't play nicely at all with
-;;; web-mode, and we can't even just disable it in web-mode-hook so it
-;;; has to be special-cased here:
+;;; Programming modes: enable "FIXME/TODO/etc" highlighting.
 (when (require 'fic-ext-mode nil t)
-  (add-hook 'prog-mode-hook (lambda ()
-                              (unless (eq major-mode 'web-mode)
-                                (fic-ext-mode))))
+  (add-hook 'prog-mode-hook 'fic-ext-mode)
   (diminish 'fic-ext-mode))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
