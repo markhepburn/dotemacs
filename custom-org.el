@@ -16,6 +16,10 @@
 	 (setq org-special-ctrl-k t)		; behaviour of this is a bit subtle
 	 (setq org-completion-use-ido t)
 
+     ;; I'm using org for time-tracking now; just display hours, not days:
+     ;; (see http://comments.gmane.org/gmane.emacs.orgmode/77120)
+     (setq org-time-clocksum-format "%d:%02d")
+
      ;; Be consistent with spacing between headings, even if already
      ;; on a new line:
      (setq org-insert-heading-respect-content t)
