@@ -44,6 +44,14 @@
 (setq el-get-sources
       '((:name atim-unscroll
                :type emacswiki)
+        ;; over-ride, so we get a stable marmalade version:
+        (:name elnode
+               :type elpa
+               :depends (fakir web db s)
+               :repo ("marmalade" . "http://marmalade-repo.org/packages/"))
+        (:name esxml
+               :type github
+               :pkgname "tali713/esxml")
         (:name free-keys
                :type github
                :pkgname "Fuco1/free-keys")
@@ -61,6 +69,10 @@
         (:name move-text
                :type github
                :pkgname "emacsmirror/move-text")
+        (:name org-trello
+               :type github
+               :pkgname "ardumont/org-trello"
+               :depends (elnode esxml))
         (:name pcre2el
                :type github
                :pkgname "joddie/pcre2el")
@@ -130,6 +142,7 @@
     multiple-cursors
 ;    nrepl-ritz
     org-mode
+    org-trello
     paredit
     pcre2el
     pony-mode
