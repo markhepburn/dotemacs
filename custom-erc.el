@@ -15,6 +15,10 @@
                         "#geodjango"
                         "#openlayers")))
 
+(setq erc-server "irc.freenode.net"
+      erc-nick   "markhepburn"
+      erc-port   6697)                  ; 6697 for TLS
+
 (after 'erc
   (when (require 'erc-services nil t)
     (load "erc-creds")
