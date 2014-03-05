@@ -53,3 +53,17 @@
 
 (add-hook 'eshell-mode-hook #'(lambda () (setq ac-sources '(ac-source-pcomplete))))
 (add-to-list 'ac-modes 'eshell-mode)
+
+(defun eshell-completing-history ()
+  (interactive)
+  (insert
+   (ido-completing-read "Eshell history: "
+                        (delete-dups
+                         (ring-elements eshell-history-ring)))))
+
+(add-hook 'eshell-mode-hook
+          (lambda () (local-set-key (kbd "C-c h") 'eshell-completing-history)))
+
+(provide 'custom-eshell)
+
+;;; custom-eshell.el ends here
