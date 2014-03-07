@@ -1,7 +1,14 @@
+;;; custom-functions.el --- Miscellaneous useful functions / commands
 ;;; Tidy-up macro from
 ;;; http://milkbox.net/note/single-file-master-emacs-configuration/
 ;;; I've been meaning to write something like this for ages; this will
 ;;; do as a great start!
+
+;;; Commentary:
+;; 
+
+;;; Code:
+
 (defmacro after (mode &rest body)
   "`eval-after-load' MODE evaluate BODY."
   (declare (indent defun))
@@ -13,7 +20,7 @@
 ;;; below).  Bound to C-M-; to resemble M-; for this reason.
 (defun mh/mark-line (&optional arg)
   "Mark the line under point.  Optional prefix arg marks arg
-  following lines including the current line, or arg preceding
+following lines including the current line, or arg preceding
   lines including the current line if negative."
   (interactive "p")
   (if (< arg 0)
@@ -169,7 +176,7 @@ given a prefix argument."
 ;;; with a few tweaks:
 (defun mh/duplicate-line (comment-first)
   "Duplicate the current line below; optional prefix arg comments
-  the original line."
+the original line."
   (interactive "P")
   (beginning-of-line)
   (let ((beg (point)))
@@ -188,15 +195,15 @@ given a prefix argument."
 ;;; not exactly tricky to write:
 (defun open-next-line (arg)
   "Move to the next line and then opens a line.
-    See also `newline-and-indent'."
+See also `newline-and-indent'."
   (interactive "p")
   (end-of-line)
   (open-line arg)
   (next-line 1)
   (indent-according-to-mode))
 (defun open-previous-line (arg)
-  "Open a new line before the current one. 
-     See also `newline-and-indent'."
+  "Open a new line before the current one.
+See also `newline-and-indent'."
   (interactive "p")
   (beginning-of-line)
   (open-line arg)
@@ -254,7 +261,7 @@ line to that many lines below top.  Absolute value of argument is used."
 
 (defun mh/electric-punctuation ()
   "Tidy up whitespace around punctuation: delete any preceding
-  whitespace and insert one space afterwards.  Idea stolen from
+whitespace and insert one space afterwards.  Idea stolen from
   the SwiftKey android keyboard."
   (interactive)
   (when (looking-back "\s+" nil t)
@@ -268,7 +275,7 @@ line to that many lines below top.  Absolute value of argument is used."
 ;;; http://www.emacswiki.org/emacs/IntegerAtPoint
 (defun integer-bounds-of-integer-at-point ()
   "Return the start and end points of an integer at the current point.
-   The result is a paired list of character positions for an integer
+The result is a paired list of character positions for an integer
    located at the current point in the current buffer.  An integer is any
    decimal digit 0 through 9 with an optional starting minus symbol
    \(\"-\")."
@@ -294,7 +301,7 @@ line to that many lines below top.  Absolute value of argument is used."
 
 (defun bfn ()
   "Display the buffer's file name.  Basically short-hand for
-  typing M-: buffer-file-name"
+typing M-: buffer-file-name"
   (interactive)
   (message (or buffer-file-name "Buffer is not visiting any file")))
 
@@ -341,7 +348,7 @@ the right thing if the file is under version control."
 
 ;;; Similarly, http://whattheemacsd.com/file-defuns.el-02.html
 (defun delete-current-buffer-file ()
-  "Removes file connected to current buffer and kills buffer."
+  "Remove file connected to current buffer and kill buffer."
   (interactive)
   (let ((filename (buffer-file-name))
         (buffer (current-buffer)))
@@ -393,3 +400,7 @@ at the beginning."
                     (save-buffer))))
       (mapcar #'do-tags (dired-get-marked-files)))))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(provide 'custom-functions)
+
+;;; custom-functions.el ends here

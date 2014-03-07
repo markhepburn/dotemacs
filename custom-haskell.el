@@ -1,9 +1,16 @@
+;;; custom-haskell.el --- Haskell development customisation
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; haskell stuff:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;; Set up some path stuff first:
+
+;;; Commentary:
+;; 
+
+;;; Code:
+
 (let ((cabal-path  (expand-file-name "~/.cabal/bin")))
  (add-to-list 'exec-path cabal-path)
  (setenv "PATH" (concat cabal-path ":" (getenv "PATH"))))
@@ -95,3 +102,7 @@
   (define-key haskell-cabal-mode-map (kbd "C-c C-z") 'haskell-interactive-switch))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(provide 'custom-haskell)
+
+;;; custom-haskell.el ends here

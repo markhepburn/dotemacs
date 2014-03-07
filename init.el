@@ -1,3 +1,4 @@
+;;; init.el --- My Emacs Initialisation Load File
 ;;; Overview: This file is the root of customisations; it should be
 ;;; kept under version control and just referred to by symlinking
 ;;; ~/.emacs to it.  It mostly just loads individual groups of
@@ -12,13 +13,19 @@
 
 ;; http://a-nickels-worth.blogspot.com/2007/11/effective-emacs.html
 ;; Measure load-time for .emacs:
+;;; Code:
+
 (defvar *mh/load-start-time* (current-time))
+
+
+;;; Commentary:
+;; 
 
 (require 'cl)
 
 (defvar *mh/lisp-base* (file-name-directory (file-truename user-init-file))
   "Base code directory; contains free-standing code and
-  subdirectories of other projects.  Defaults to the directory
+subdirectories of other projects.  Defaults to the directory
   containing the user's initialisation file (including following
   symlinks).")
 (add-to-list 'load-path *mh/lisp-base*)
@@ -226,3 +233,7 @@
          (destructuring-bind (hi lo ms ps) (current-time)
            (- (+ hi lo) (+ (first *mh/load-start-time*)
                            (second *mh/load-start-time*)))))
+
+(provide 'init)
+
+;;; init.el ends here

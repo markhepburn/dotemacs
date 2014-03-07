@@ -1,6 +1,13 @@
+;;; custom-lisp.el --- Lisp Development
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Elisp:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;; Commentary:
+;; 
+
+;;; Code:
+
 (autoload 'elisp-slime-nav-mode "elisp-slime-nav"
   "M-./M-, navigation for elisp" t)
 (add-hook 'emacs-lisp-mode-hook (lambda () (elisp-slime-nav-mode t)))
@@ -72,3 +79,7 @@
                          slime-repl))
 (after 'paredit (diminish 'paredit-mode))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(provide 'custom-lisp)
+
+;;; custom-lisp.el ends here

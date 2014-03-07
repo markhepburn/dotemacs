@@ -1,7 +1,14 @@
+;;; custom-erlang.el --- Customations for Erlang
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Erlang stuff
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;; Commentary:
+;; 
+
+;;; Code:
+
 (add-to-list 'auto-mode-alist '("\\.[eh]rl\\'" . erlang-mode))
 (autoload 'erlang-mode "erlang-start" "Major mode for editing erlang." t)
 (after "erlang-start"
@@ -33,3 +40,7 @@
 
   (add-hook 'find-file-hook 'flymake-find-file-hook))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(provide 'custom-erlang)
+
+;;; custom-erlang.el ends here

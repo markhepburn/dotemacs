@@ -1,8 +1,15 @@
+;;; custom-python.el --- Python Development Customisation
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Python stuff
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; set up for ipython:
+
+;;; Commentary:
+;; 
+
+;;; Code:
+
 (setq
  python-shell-interpreter "ipython"
  python-shell-interpreter-args ""
@@ -42,3 +49,7 @@
   (setq ein:use-auto-complete t))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(provide 'custom-python)
+
+;;; custom-python.el ends here

@@ -1,5 +1,12 @@
+;;; gnu-linux.el --- Linux-specific Customisations
 
 ;;; See: https://bugs.launchpad.net/ubuntu/+source/emacs-snapshot/+bug/291399 for the need for this:
+
+;;; Commentary:
+;; 
+
+;;; Code:
+
 (set-frame-parameter nil 'font-backend '(xft x))
 ;;; this is now actually set in ~/.Xresources (otherwise, it doesn't
 ;;; seem to get set correctly when the daemon starts up); relevant
@@ -65,3 +72,7 @@
             (local-set-key ">" 'semantic-complete-self-insert)
 
             (ede-minor-mode 1)))
+
+(provide 'gnu-linux)
+
+;;; gnu-linux.el ends here

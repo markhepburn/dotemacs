@@ -1,4 +1,11 @@
+;;; custom-stats.el --- ESS Customisation
 ;;; Set-up and configuration for stats stuff, mainly ESS (for R)
+
+
+;;; Commentary:
+;; 
+
+;;; Code:
 
 (setq ess-eval-visibly-p nil) ; otherwise C-c C-r (eval-region) takes
                               ; forever
@@ -46,3 +53,7 @@
                       (tooltip-show-at-point bs 0 30)))))))))
 
   (define-key ess-mode-map (kbd "C-c .") 'ess-R-object-tooltip))
+
+(provide 'custom-stats)
+
+;;; custom-stats.el ends here

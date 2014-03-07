@@ -1,4 +1,11 @@
+;;; custom-escreen.el --- Customisations for escreen
 ;;; escreen; gnu-screen for emacs:
+
+;;; Commentary:
+;; 
+
+;;; Code:
+
 (setq escreen-prefix-char (kbd "C-z"))  ;; must be done before loading!
 (when (require 'escreen nil t)
   (setq escreen-one-screen-p nil)
@@ -19,7 +26,7 @@
     (interactive)
     (let ((current-escreen (escreen-get-current-screen-number)))
       (if (escreen-configuration-one-screen-p)
-          (error "[escreen] Only one active screen; can't kill it.")
+          (error "[escreen] Only one active screen; can't kill it")
         (dolist (data-map (escreen-configuration-data-map
                            (escreen-configuration-escreen current-escreen)))
           (kill-buffer (escreen-configuration-data-map-critical-buffer
@@ -58,3 +65,7 @@
   (define-key escreen-map (kbd "C-n") (escreen-advise-emphasis escreen-goto-next-screen))
   (define-key escreen-map (kbd "C-p") (escreen-advise-emphasis escreen-goto-prev-screen))
   (define-key escreen-map (kbd "C-f") (escreen-advise-emphasis escreen-find-file-new-screen)))
+
+(provide 'custom-escreen)
+
+;;; custom-escreen.el ends here

@@ -1,8 +1,15 @@
+;;; custom-xml.el --- XML Editing
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; xml:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; nxml-mode should be auto-loaded automatically I think:
+
+;;; Commentary:
+;; 
+
+;;; Code:
+
 (add-to-list 'auto-mode-alist
              (cons (concat "\\." (regexp-opt '("xml" "xsd" "sch" "rng" "xslt" "svg" "rss" "kml" "kmz") t) "\\'")
                    'nxml-mode))
@@ -30,3 +37,7 @@
 (setq nxhtml-global-validation-header-mode t)
 (setq nxhtml-skip-welcome t)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(provide 'custom-xml)
+
+;;; custom-xml.el ends here

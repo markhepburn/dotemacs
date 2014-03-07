@@ -1,7 +1,10 @@
+;;; custom-c.el --- Customisations for c-mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; C mode:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Use the same basic indent as the default tab-width:
+;;; Code:
+
 (add-hook 'c-mode-hook
           (lambda ()
             (c-set-style "k&r")
@@ -27,11 +30,11 @@
 ;;; doesn't it already do this??)
 (defadvice c-beginning-of-defun (before c-push-mark-before-bod activate)
   "Save point before jumping to the beginning of the defun, so
-  you can easily jump back."
+you can easily jump back."
   (push-mark))
 (defadvice c-end-of-defun (before c-push-mark-before-eod activate)
   "Save point before jumping to the end of the defun, so you can
-  easily jump back."
+easily jump back."
   (push-mark))
 
 ;;; let's experiment with cedet:
@@ -53,6 +56,10 @@
 (semantic-mode 1)
 
 ;; load contrib library
+
+;;; Commentary:
+;; 
+
 (require 'eassist)
 
 ;; customisation of modes
@@ -120,3 +127,7 @@
               (lambda () (add-to-list 'ac-sources 'ac-source-emacs-eclim))))
   (global-eclim-mode))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(provide 'custom-c)
+
+;;; custom-c.el ends here

@@ -1,8 +1,11 @@
+;;; custom-general.el --- Miscellaneous customisations; mostly simple tweaks
 ;;; Miscellaneous customisations; mostly one-liner tweaks of
 ;;; appearance and functionality.
 
 ;; Save point position between sessions (hat tip, http://whattheemacsd.com/init.el-03.html)
 (require 'saveplace)
+;;; Code:
+
 (setq-default save-place t)
 (setq save-place-file (expand-file-name "saved.places" user-emacs-directory))
 
@@ -176,6 +179,10 @@
 (setq grep-find-command
   "find . -type f '!' -wholename '*/.svn/*' -print0 | xargs -0 -e grep -nH -e ")
 
+
+;;; Commentary:
+;; 
+
 ;;; Code templating:
 (when (require 'yasnippet nil t)
   (yas-global-mode 1)
@@ -286,7 +293,7 @@
 ;;; Temporarily enable fringe line-numbers during goto-line.
 ;;; Via http://whattheemacsd.com/key-bindings.el-01.html
 (defun goto-line-with-feedback ()
-  "Show line numbers temporarily, while prompting for the line number input"
+  "Show line numbers temporarily, while prompting for the line number input."
   (interactive)
   (unwind-protect
       (progn
@@ -346,7 +353,7 @@
     "Restore default key commands and bind global dispatch keys.
 Under this setup, keys i, j, k, and l will switch windows,
 respectively, up, left, down, and right, with other functionality
-bound to nearby keys. The arguments DISPATCH-KEYS, if non-nil,
+bound to nearby keys.  The arguments DISPATCH-KEYS, if non-nil,
 should be a list of keys that will be bound globally to
 `win-switch-dispatch'."
     (interactive)
@@ -475,7 +482,7 @@ should be a list of keys that will be bound globally to
 (global-set-key (kbd "C-x m a") 'bm-bookmark-annotate) ; don't autload this; needs an existing bookmark to work.
 (defadvice bm-toggle (around bm-toggle-create-annotation (arg) activate)
   "If given a prefix arg when creating, ask for an annotation as
-  well."
+well."
   (interactive "P")
   (if arg
       (let ((bm-annotate-on-create t))
@@ -483,7 +490,7 @@ should be a list of keys that will be bound globally to
     ad-do-it))
 (defadvice bm-show (around bm-show-optionally-show-all (arg) activate)
   "With a prefix arg, show all (global) bookmarks, otherwise just
-  the current buffer as normal."
+the current buffer as normal."
   (interactive "P")
   (if arg
       (bm-show-all)
@@ -594,3 +601,7 @@ should be a list of keys that will be bound globally to
       (auto-compression-mode 0)
       (auto-compression-mode 1))))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(provide 'custom-general)
+
+;;; custom-general.el ends here

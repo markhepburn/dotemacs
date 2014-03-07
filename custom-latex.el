@@ -1,7 +1,14 @@
+;;; custom-latex.el --- LaTeX usage
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; LaTeX stuff:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Load AucTeX:
+
+;;; Commentary:
+;; 
+
+;;; Code:
+
 (load "tex-site" nil t)
 ;; (load "preview-latex.el" nil t t)
 
@@ -71,3 +78,7 @@ otherwise behave as normal."
           (insert TeX-grcl))
       ad-do-it)))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(provide 'custom-latex)
+
+;;; custom-latex.el ends here

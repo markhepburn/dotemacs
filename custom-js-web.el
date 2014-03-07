@@ -1,9 +1,12 @@
+;;; custom-js-web.el --- Javascript and Web development customisation
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Javascript (and Web) stuff:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;; Experiment: now that flycheck+jshint provides error checking, try
 ;;; the built in js-mode for a bit (it's already in auto-mode-alist):
+;;; Code:
+
 (setq js-indent-level 2)
 
 ;;; mozrepl integration
@@ -50,6 +53,10 @@
 
 ;;; Interactive django mode (virtualenv and fabric integration, etc):
 ;; Loading now then plugs it in to the related major-modes:
+
+;;; Commentary:
+;; 
+
 (require 'pony-mode nil t)
 
 ;;; Make css colour definitions the colour they represent:
@@ -64,3 +71,7 @@
 ;;; Now using LessCSS, using its own derived mode:
 (when (require 'less-css-mode nil t)
   (add-hook 'less-css-mode-hook 'rainbow-turn-on))
+
+(provide 'custom-js-web)
+
+;;; custom-js-web.el ends here

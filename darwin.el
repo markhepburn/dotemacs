@@ -1,7 +1,14 @@
+;;; darwin.el --- Darwin (OS X)-Specific Customisation
 ;; I hate the (current, perhaps) look of the anti-aliased fonts used:
 ;;; update: nope, all good now.  Also note that
 ;;; mac-allow-anti-aliasing is an alias for ns-antialias-text
 ;(setq mac-allow-anti-aliasing nil)
+
+;;; Commentary:
+;; Effectively legacy code these days, since I don't use OSX any more.
+
+;;; Code:
+
 (setq ns-antialias-text t)
 ;; use option as meta key:
 ;; (setq mac-command-key-is-meta nil)
@@ -19,7 +26,7 @@
   ;; pick a random var to test.  Note that because we use autoload,
   ;; mf-restore-width may not be bound yet, so check that first.
   (if (and (boundp 'mf-restore-width)
-		   mf-restore-width) 
+		   mf-restore-width)
 	  (restore-frame)
 	(maximize-frame)))
 (global-set-key (kbd "A-<return>") 'mh/toggle-fullscreen)
@@ -41,3 +48,7 @@
       `("/Applications/Emacs.app/Contents/Resources/info"
         ,(concat *mh/lisp-base* "info")
         "/sw/share/info" "/usr/share/info" "/usr/local/info"))
+
+(provide 'darwin)
+
+;;; darwin.el ends here

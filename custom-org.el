@@ -1,7 +1,14 @@
+;;; custom-org.el --- Org-mode Customisation
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; org-mode stuff:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;; Commentary:
+;; 
+
+;;; Code:
+
 (autoload 'org-mode "org" "Org-mode; outline on steroids" t)
 (autoload 'org-agenda "org" "Org-mode; top-level agenda dispatch command" t)
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
@@ -68,8 +75,8 @@
       (let ((template
              "* %s %s
 ** Workout:
-** Time taken = 
-** Heart-rate avg/max = 
+** Time taken =
+** Heart-rate avg/max =
 ** Notes:"))
         (end-of-buffer)
         (unless (bolp) (newline))
@@ -82,3 +89,7 @@
         (end-of-line 2))
     (message "Aborted (no type specified)")))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(provide 'custom-org)
+
+;;; custom-org.el ends here

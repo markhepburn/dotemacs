@@ -1,6 +1,13 @@
+;;; custom-eshell.el --- Customisations for eshell
 ;;; Don't know how much I'll use eshell, but try setting it up anyway.
 
 ;;; Taken from http://www.emacswiki.org/emacs/EshellCompletion
+
+;;; Commentary:
+;; 
+
+;;; Code:
+
 (defun ac-pcomplete ()
   ;; eshell uses `insert-and-inherit' to insert a \t if no completion
   ;; can be found, but this must not happen as auto-complete source

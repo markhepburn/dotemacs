@@ -1,3 +1,4 @@
+;;; custom-vc.el --- Version Control Interaction
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; VC stuff
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -6,6 +7,12 @@
 ;; the source for diff-mode for why, but basically it adds
 ;; extra-keybindings if the buffer is read-only, using the shared-map
 ;; -- which then over-writes the values set in this hook):
+
+;;; Commentary:
+;; 
+
+;;; Code:
+
 (setq diff-default-read-only t)
 (add-hook 'diff-mode-hook
 		  (lambda ()
@@ -104,3 +111,7 @@
   (setq svn-status-default-diff-arguments '("--diff-cmd" "diff" )))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+
+(provide 'custom-vc)
+
+;;; custom-vc.el ends here
