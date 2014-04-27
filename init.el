@@ -153,6 +153,7 @@ subdirectories of other projects.  Defaults to the directory
     paredit
     pcre2el
     pony-mode
+    powerline
     projectile
     psvn
     rainbow-mode
@@ -220,6 +221,9 @@ subdirectories of other projects.  Defaults to the directory
 (load "custom-xml")
 
 ;; (load "custom-stats")
+
+(when (require 'powerline nil t)
+  (powerline-default-theme))
 
 ;;; I'm a convert:
 (when (require 'zenburn-theme nil t)
