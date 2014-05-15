@@ -49,8 +49,7 @@ subdirectories of other projects.  Defaults to the directory
 
 ;; Additional custom recipes, not yet in the repository:
 (setq el-get-sources
-      '((:name atim-unscroll
-               :type emacswiki)
+      '(
         ;; over-ride, so we get a stable marmalade version:
         (:name elnode
                :type elpa
@@ -91,8 +90,6 @@ subdirectories of other projects.  Defaults to the directory
         (:name toggle-case
                :type http
                :url "http://www.cs.virginia.edu/~wh5a/personal/Emacs/toggle-case.el")
-        (:name unbound
-               :type emacswiki)
         (:name win-switch
                :type github
                :pkgname "genovese/win-switch"
@@ -165,7 +162,6 @@ subdirectories of other projects.  Defaults to the directory
     tags-view
     toggle-case
     undo-tree
-    unbound
     visual-regexp
     web-mode
     win-switch
