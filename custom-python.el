@@ -22,7 +22,20 @@
  python-shell-completion-string-code
    "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")
 
+(defun mh/python-mode-jedi-setup ()
+  (hack-local-variables)
+  (when (boundp 'jedi/venv-name)
+    (venv-workon jedi/venv-name))
+
+  (setq jedi:setup-keys      t
+        jedi:use-shortcuts   t
+        jedi:complete-on-dot t)
+  (jedi:setup))
+
 (after "python"
+  (when (require 'jedi nil t)
+    (add-hook 'python-mode-hook 'mh/python-mode-jedi-setup))
+
   (add-hook 'python-mode-hook
             (lambda () (imenu-add-to-menubar "Declarations")))
   (add-hook 'python-mode-hook

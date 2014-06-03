@@ -134,6 +134,7 @@ subdirectories of other projects.  Defaults to the directory
     http-twiddle
     ido-ubiquitous
     ido-vertical-mode
+    jedi
     js2-mode
     json
     less-css-mode
@@ -162,6 +163,7 @@ subdirectories of other projects.  Defaults to the directory
     tags-view
     toggle-case
     undo-tree
+    virtualenvwrapper
     visual-regexp
     web-mode
     win-switch
