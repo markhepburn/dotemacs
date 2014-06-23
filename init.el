@@ -154,6 +154,7 @@ subdirectories of other projects.  Defaults to the directory
     powerline
     projectile
     psvn
+    python-django
     rainbow-mode
     rst-mode
     s
