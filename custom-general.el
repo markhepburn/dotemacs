@@ -61,80 +61,80 @@
 (icomplete-mode t)
 ;; use ido-mode for a while (see how it gels with firefox3 location
 ;; bar behaviour!) (was keeping icomplete-mode for command completion; trying to use ido for both for a while..)
-(when (require 'ido nil t)
-  ;; This makes normal read-buffer use ido-read-buffer, etc.  I.e.,
-  ;; can use ido functions with elscreen etc.
-  (ido-everywhere 1)
+;; (when (require 'ido nil t)
+;;   ;; This makes normal read-buffer use ido-read-buffer, etc.  I.e.,
+;;   ;; can use ido functions with elscreen etc.
+;;   (ido-everywhere 1)
 
-  (setq ido-enable-flex-matching t)
+;;   (setq ido-enable-flex-matching t)
 
-  ;; Display candidates vertically:
-  (when (require 'ido-vertical-mode nil t)
-    (ido-vertical-mode 1))
+;;   ;; Display candidates vertically:
+;;   (when (require 'ido-vertical-mode nil t)
+;;     (ido-vertical-mode 1))
 
-  ;; Smex: ido for M-x.
-  (setq smex-save-file "~/.emacs.d/smex.save")
-  (require 'smex)
-  (smex-initialize)
-  (global-set-key (kbd "M-x") 'smex)
-  (global-set-key (kbd "M-X") 'smex-major-mode-commands)
+;;   ;; Smex: ido for M-x.
+;;   (setq smex-save-file "~/.emacs.d/smex.save")
+;;   (require 'smex)
+;;   (smex-initialize)
+;;   (global-set-key (kbd "M-x") 'smex)
+;;   (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 
-  (when (require 'imenu nil t)
-    ;; http://chopmo.blogspot.com/2008/09/quickly-jumping-to-symbols.html
-    (defun ido-goto-symbol ()
-      "Will update the imenu index and then use ido to select a
-   symbol to navigate to"
-      (interactive)
-      (imenu--make-index-alist)
-      (let ((name-and-pos '())
-            (symbol-names '()))
-        (flet ((addsymbols (symbol-list)
-                           (when (listp symbol-list)
-                             (dolist (symbol symbol-list)
-                               (let ((name nil) (position nil))
-                                 (cond
-                                  ((and (listp symbol) (imenu--subalist-p symbol))
-                                   (addsymbols symbol))
+;;   (when (require 'imenu nil t)
+;;     ;; http://chopmo.blogspot.com/2008/09/quickly-jumping-to-symbols.html
+;;     (defun ido-goto-symbol ()
+;;       "Will update the imenu index and then use ido to select a
+;;    symbol to navigate to"
+;;       (interactive)
+;;       (imenu--make-index-alist)
+;;       (let ((name-and-pos '())
+;;             (symbol-names '()))
+;;         (flet ((addsymbols (symbol-list)
+;;                            (when (listp symbol-list)
+;;                              (dolist (symbol symbol-list)
+;;                                (let ((name nil) (position nil))
+;;                                  (cond
+;;                                   ((and (listp symbol) (imenu--subalist-p symbol))
+;;                                    (addsymbols symbol))
 
-                                  ((listp symbol)
-                                   (setq name (car symbol))
-                                   (setq position (cdr symbol)))
+;;                                   ((listp symbol)
+;;                                    (setq name (car symbol))
+;;                                    (setq position (cdr symbol)))
 
-                                  ((stringp symbol)
-                                   (setq name symbol)
-                                   (setq position (get-text-property 1 'org-imenu-marker symbol))))
+;;                                   ((stringp symbol)
+;;                                    (setq name symbol)
+;;                                    (setq position (get-text-property 1 'org-imenu-marker symbol))))
 
-                                 (unless (or (null position) (null name))
-                                   (add-to-list 'symbol-names name)
-                                   (add-to-list 'name-and-pos (cons name position))))))))
-          (addsymbols imenu--index-alist))
-        (let* ((selected-symbol (ido-completing-read "Symbol? " symbol-names))
-               (position (cdr (assoc selected-symbol name-and-pos))))
-          (goto-char position))))
+;;                                  (unless (or (null position) (null name))
+;;                                    (add-to-list 'symbol-names name)
+;;                                    (add-to-list 'name-and-pos (cons name position))))))))
+;;           (addsymbols imenu--index-alist))
+;;         (let* ((selected-symbol (ido-completing-read "Symbol? " symbol-names))
+;;                (position (cdr (assoc selected-symbol name-and-pos))))
+;;           (goto-char position))))
 
-    ;; Note: over-rides default binding of abbrev-prefix-mark
-    (global-set-key (kbd "M-'") 'ido-goto-symbol))
+;;     ;; Note: over-rides default binding of abbrev-prefix-mark
+;;     (global-set-key (kbd "M-'") 'ido-goto-symbol))
 
-  ;; Finally, activate:
-  (ido-mode t)
+;;   ;; Finally, activate:
+;;   (ido-mode t)
 
-  ;; Better matching:
-  (when (require 'flx-ido nil t)
-    (flx-ido-mode 1)
-    (setq ido-use-faces nil))
+;;   ;; Better matching:
+;;   (when (require 'flx-ido nil t)
+;;     (flx-ido-mode 1)
+;;     (setq ido-use-faces nil))
 
-  ;; ...extend its reach (see http://whattheemacsd.com//setup-ido.el-01.html):
-  (when (require 'ido-ubiquitous nil t)
-    (ido-ubiquitous-mode 1)
+;;   ;; ...extend its reach (see http://whattheemacsd.com//setup-ido.el-01.html):
+;;   (when (require 'ido-ubiquitous nil t)
+;;     (ido-ubiquitous-mode 1)
 
-    ;; Fix ido-ubiquitous for newer packages
-    (defmacro ido-ubiquitous-use-new-completing-read (cmd package)
-      `(eval-after-load ,package
-         '(defadvice ,cmd (around ido-ubiquitous-new activate)
-            (let ((ido-ubiquitous-enable-compatibility nil))
-              ad-do-it))))
-    (ido-ubiquitous-use-new-completing-read yas-expand 'yasnippet)
-    (ido-ubiquitous-use-new-completing-read yas-visit-snippet-file 'yasnippet)))
+;;     ;; Fix ido-ubiquitous for newer packages
+;;     (defmacro ido-ubiquitous-use-new-completing-read (cmd package)
+;;       `(eval-after-load ,package
+;;          '(defadvice ,cmd (around ido-ubiquitous-new activate)
+;;             (let ((ido-ubiquitous-enable-compatibility nil))
+;;               ad-do-it))))
+;;     (ido-ubiquitous-use-new-completing-read yas-expand 'yasnippet)
+;;     (ido-ubiquitous-use-new-completing-read yas-visit-snippet-file 'yasnippet)))
 
 ;;; project mode:
 (after 'projectile
@@ -159,8 +159,9 @@
 ;;; experiment with find-file-at-point a bit (don't use their
 ;;; pre-configured bindings, as they will presumably over-write the
 ;;; ido ones!)
-(autoload 'ffap "ffap" "Find file at point functionality" t)
-(global-set-key (kbd "C-x M-f") 'ffap)
+;;; UPDATE: disabling to use helm for now
+;; (autoload 'ffap "ffap" "Find file at point functionality" t)
+;; (global-set-key (kbd "C-x M-f") 'ffap)
 
 ;;; Move text up and down:
 (autoload 'move-text-up   "move-text" "Shuffle text around" t)
@@ -169,7 +170,8 @@
 (global-set-key (kbd "C-S-n") 'move-text-down)
 
 ;;; shortcut for browse url at point:
-(global-set-key (kbd "C-x M-b") 'browse-url-at-point)
+;;; UPDATE: helm handles this too
+;; (global-set-key (kbd "C-x M-b") 'browse-url-at-point)
 
 ;;; more specialised "opening" commands; mplayer control:
 (autoload 'mplayer-find-file "mplayer-mode" "Control mplayer from emacs while editing a file" t)
@@ -303,17 +305,18 @@
 (global-set-key [remap goto-line] 'goto-line-with-feedback)
 
 ;; kill-ring selection:
-(when (require 'browse-kill-ring nil t)
-  (browse-kill-ring-default-keybindings)
-  (setq browse-kill-ring-no-duplicates t) ;...and don't clog it up with duplicates
-  (defadvice browse-kill-ring-insert-and-quit (after indent-region activate)
-    (if (member major-mode '(emacs-lisp-mode
-                             lisp-mode
-                             erlang-mode
-                             c-mode c++-mode objc-mode
-                             latex-mode plain-tex-mode))
-        (let ((mark-even-if-inactive t))
-          (indent-region (region-beginning) (region-end) nil)))))
+;;; UPDATE: helm handles this too
+;; (when (require 'browse-kill-ring nil t)
+;;   (browse-kill-ring-default-keybindings)
+;;   (setq browse-kill-ring-no-duplicates t) ;...and don't clog it up with duplicates
+;;   (defadvice browse-kill-ring-insert-and-quit (after indent-region activate)
+;;     (if (member major-mode '(emacs-lisp-mode
+;;                              lisp-mode
+;;                              erlang-mode
+;;                              c-mode c++-mode objc-mode
+;;                              latex-mode plain-tex-mode))
+;;         (let ((mark-even-if-inactive t))
+;;           (indent-region (region-beginning) (region-end) nil)))))
 
 ;;; similar advice for 'yank and 'yank-pop:
 (defadvice yank (after indent-region-for-yank activate)

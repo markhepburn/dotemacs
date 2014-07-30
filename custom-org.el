@@ -21,7 +21,7 @@
 	 ;; Some great tips from http://orgmode.org/worg/org-customization-guide.php
 	 (setq org-special-ctrl-a/e t)
 	 (setq org-special-ctrl-k t)		; behaviour of this is a bit subtle
-	 (setq org-completion-use-ido t)
+	 ;; (setq org-completion-use-ido t)
 
      ;; I'm using org for time-tracking now; just display hours, not days:
      ;; (see http://comments.gmane.org/gmane.emacs.orgmode/77120)

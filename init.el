@@ -106,7 +106,7 @@ subdirectories of other projects.  Defaults to the directory
     ac-nrepl
     ag
     auctex
-    browse-kill-ring
+    ;; browse-kill-ring
     buffer-move
     cedet
     cider                               ; formerly "nrepl"
@@ -123,17 +123,18 @@ subdirectories of other projects.  Defaults to the directory
     ess
     expand-region
     fic-ext-mode
-    flx
+    ;; flx
     flycheck
     free-keys
+    helm
     git-messenger
     grep-buffers
-    grizzl
+    ;; grizzl
     haskell-mode
     haskell-mode-exts
     http-twiddle
-    ido-ubiquitous
-    ido-vertical-mode
+    ;; ido-ubiquitous
+    ;; ido-vertical-mode
     jedi
     js2-mode
     json
@@ -218,6 +219,8 @@ subdirectories of other projects.  Defaults to the directory
 (load "custom-vc")
 
 (load "custom-xml")
+
+(load "custom-helm")
 
 ;; (load "custom-stats")
 
