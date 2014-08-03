@@ -17,6 +17,10 @@
 ;;; Quit emacs (??) easier:
 (defalias 'sbke 'save-buffers-kill-emacs)
 
+;;; http://irreal.org/blog/?p=2832
+(set-fontset-font "fontset-default" nil
+                  (font-spec :size 20 :name "Symbola"))
+
 ;; use font lock where possible:
 (global-font-lock-mode t)
 ;;; I really should have been using this all along:
