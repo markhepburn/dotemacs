@@ -9,50 +9,42 @@
 
 ;;; Code:
 
-(autoload 'org-mode "org" "Org-mode; outline on steroids" t)
-(autoload 'org-agenda "org" "Org-mode; top-level agenda dispatch command" t)
-(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
-(eval-after-load "org"
-  '(progn
-     (setq org-directory (expand-file-name (file-name-as-directory "~/Dropbox/org")))
+;;; don't bother eval-after-loading, because org is already included.
+;;; We do however have to reload, so the local copy takes precedence
+;;; over the distributed version:
+(org-reload)
+(setq org-directory (expand-file-name (file-name-as-directory "~/Dropbox/org"))
 
-     (setq org-log-done t)
+      org-log-done t
 
-	 ;; Some great tips from http://orgmode.org/worg/org-customization-guide.php
-	 (setq org-special-ctrl-a/e t)
-	 (setq org-special-ctrl-k t)		; behaviour of this is a bit subtle
-	 ;; (setq org-completion-use-ido t)
+      ;; Some great tips from http://orgmode.org/worg/org-customization-guide.php
+      org-special-ctrl-a/e t
+      org-special-ctrl-k t		; behaviour of this is a bit subtle
+      ;; (setq org-completion-use-ido t)
 
-     ;; I'm using org for time-tracking now; just display hours, not days:
-     ;; (see http://comments.gmane.org/gmane.emacs.orgmode/77120)
-     (setq org-time-clocksum-format "%d:%02d")
+      ;; I'm using org for time-tracking now; just display hours, not days:
+      ;; (see http://comments.gmane.org/gmane.emacs.orgmode/77120)
+      org-time-clocksum-format "%d:%02d"
 
-     ;; Be consistent with spacing between headings, even if already
-     ;; on a new line:
-     (setq org-insert-heading-respect-content t)
+      ;; Be consistent with spacing between headings, even if already
+      ;; on a new line:
+      org-insert-heading-respect-content t
 
-     ;; restore default value of the tags alignment column:
-     (setq org-tags-column -80)
+      ;; restore default value of the tags alignment column:
+      org-tags-column -80
 
-     ;; speed navigation commands:
-     (setq org-use-speed-commands t)
+      ;; speed navigation commands:
+      org-use-speed-commands t
 
-     ;; automatically use symbols for \alpha, etc (toggle with C-c C-x \
-     ;; if necessary):
-     (setq org-pretty-entities t)
+      ;; automatically use symbols for \alpha, etc (toggle with C-c C-x \
+      ;; if necessary):
+      org-pretty-entities t)
 
-     ;; Agenda and mobile usage:
-     (setq org-agenda-files (list (expand-file-name "csiro-projects.org" org-directory)))
-     (setq org-mobile-directory (expand-file-name "MobileOrg" org-directory))
-     (setq org-mobile-files (cons (expand-file-name "notes.org" org-directory)
-                                  org-agenda-files))
-     (setq org-mobile-inbox-for-pull (expand-file-name "from-mobile.org" org-directory))
-
-     ;; Don't use agenda-cycle at the moment, so rebind C-, to my
-     ;; scrolling commands:
-     (add-hook 'org-mode-hook
-               (lambda ()
-                 (local-set-key (kbd "C-,") 'scroll-up-one-line)))))
+;; Don't use agenda-cycle at the moment, so rebind C-, to my
+;; scrolling commands:
+(add-hook 'org-mode-hook
+          (lambda ()
+            (local-set-key (kbd "C-,") 'scroll-up-one-line)))
 
 ;;; Bit of a hack to work around htmlize-buffer (as called by
 ;;; org-write-agenda for eg) not working.  See
