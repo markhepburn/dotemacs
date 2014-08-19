@@ -159,6 +159,7 @@ subdirectories of other projects.  Defaults to the directory
     rainbow-mode
     rst-mode
     s
+    session
     smartparens
     smex
     sql-indent
@@ -234,6 +235,9 @@ subdirectories of other projects.  Defaults to the directory
 ;;; Load in customize stuff:
 (setq custom-file (concat *mh/lisp-base* system-name "-variables.el"))
 (load custom-file)
+
+;;; Set up session-saving:
+(add-hook 'after-init-hook 'session-initialize)
 
 (message ".emacs loaded in %ds"
          (destructuring-bind (hi lo ms ps) (current-time)
