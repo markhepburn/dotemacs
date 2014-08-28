@@ -247,3 +247,4 @@ subdirectories of other projects.  Defaults to the directory
 (provide 'init)
 
 ;;; init.el ends here
+(put 'set-goal-column 'disabled nil)
