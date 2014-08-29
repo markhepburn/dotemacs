@@ -17,6 +17,8 @@
 (require 'helm-eshell)
 (require 'helm-files)
 (require 'helm-grep)
+(require 'helm-ag)
+(require 'helm-swoop)
 
 (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebihnd tab to do persistent action
 (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
@@ -67,6 +69,18 @@
 
 (define-key 'help-command (kbd "C-f") 'helm-apropos)
 (define-key 'help-command (kbd "r") 'helm-info-emacs)
+
+;;; Helm-ag:
+(setq helm-ag-base-command "ag --nocolor --nogroup --ignore-case"
+      helm-ag-command-option "--all-text"
+      helm-ag-thing-at-point 'symbol)
+(global-set-key (kbd "M-g .") 'helm-ag)
+(global-set-key (kbd "M-g ,") 'helm-ag-pop-stack)
+
+;;; helm-swoop:
+(global-set-key (kbd "M-i") 'helm-swoop)
+(global-set-key (kbd "M-I") 'helm-swoop-back-to-last-point)
+(define-key isearch-mode-map (kbd "M-i") 'helm-swoop-from-isearch)
 
 ;; use helm to list eshell history
 (add-hook 'eshell-mode-hook

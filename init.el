@@ -127,6 +127,8 @@ subdirectories of other projects.  Defaults to the directory
     flycheck
     free-keys
     helm
+    helm-ag
+    helm-swoop
     git-messenger
     grep-buffers
     ;; grizzl
