@@ -56,12 +56,6 @@
                              (define-key cider-repl-mode-map
                                (kbd "<down>") 'cider-repl-next-input)))
 
-;;; auto-complete support for nrepl:
-(when (require 'ac-nrepl nil t)
-  (add-hook 'cider-mode-hook 'ac-nrepl-setup)
-  (add-hook 'cider-interaction-mode-hook 'ac-nrepl-setup)
-  (after "auto-complete"
-    (add-to-list 'ac-modes 'cider-mode)))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

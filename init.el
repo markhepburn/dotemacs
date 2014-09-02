@@ -103,7 +103,6 @@ subdirectories of other projects.  Defaults to the directory
 
     auto-complete
     auto-complete-rst
-    ac-nrepl
     ag
     auctex
     ;; browse-kill-ring
@@ -112,6 +111,7 @@ subdirectories of other projects.  Defaults to the directory
     cider                               ; formerly "nrepl"
     clojure-mode
     color-theme-zenburn
+    company-mode
     csv-mode
     dash
     diff-hl
@@ -240,6 +240,9 @@ subdirectories of other projects.  Defaults to the directory
 
 ;;; Set up session-saving:
 (add-hook 'after-init-hook 'session-initialize)
+
+;;; company-mode completion:
+(add-hook 'after-init-hook 'global-company-mode)
 
 (message ".emacs loaded in %ds"
          (destructuring-bind (hi lo ms ps) (current-time)
