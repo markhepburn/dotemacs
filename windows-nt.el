@@ -8,3 +8,12 @@
       (goto-char 0)
       (re-search-forward (concat varname "=\\([^;]+\\)"))
       (setenv varname (match-string 1)))))
+
+;;; Get shell stuff working properly (such as find-name-dired, etc):
+(setq mh/git-bash-bin "C:/Program Files (x86)/Git/bin")
+
+(push mh/git-bash-bin exec-path)
+(setenv "PATH" (concat mh/git-bash-bin ";" (getenv "PATH")))
+
+(setq shell-file-name (concat mh/git-bash-bin "/" "bash.exe")
+      explicit-shell-file-name shell-file-name)
