@@ -91,6 +91,9 @@
 (autoload 'git-messenger:popup-message "git-messenger"
   "pop up message for git commit at current line" t)
 (global-set-key (kbd "C-x v p") 'git-messenger:popup-message)
+
+;;; Don't add commit-message buffers to recentf list:
+(add-to-list 'recentf-exclude "COMMIT_EDITMSG")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
