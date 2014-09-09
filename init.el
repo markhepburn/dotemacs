@@ -63,9 +63,6 @@ subdirectories of other projects.  Defaults to the directory
         (:name http-twiddle
                :type github
                :pkgname "hassy/http-twiddle")
-        (:name less-css-mode
-               :type github
-               :pkgname "purcell/less-css-mode")
         (:name mplayer-mode
                :type github
                :pkgname "markhepburn/mplayer-mode")
