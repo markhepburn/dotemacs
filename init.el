@@ -89,11 +89,7 @@ subdirectories of other projects.  Defaults to the directory
                :pkgname "markhepburn/tags-view")
         (:name toggle-case
                :type http
-               :url "http://www.cs.virginia.edu/~wh5a/personal/Emacs/toggle-case.el")
-        (:name win-switch
-               :type github
-               :pkgname "genovese/win-switch"
-               :compile "win-switch.el")))
+               :url "http://www.cs.virginia.edu/~wh5a/personal/Emacs/toggle-case.el")))
 
 ;; My installed package list:
 (setq *mh/packages*
