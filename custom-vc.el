@@ -94,6 +94,11 @@
 
 ;;; Don't add commit-message buffers to recentf list:
 (add-to-list 'recentf-exclude "COMMIT_EDITMSG")
+;;; Don't save position in commit-message buffers either:
+(after 'session
+  (setq session-name-disable-regexp (concat "COMMIT_EDITMSG"
+                                            "\\|"
+                                            session-name-disable-regexp)))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
