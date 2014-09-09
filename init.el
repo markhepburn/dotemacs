@@ -238,6 +238,9 @@ subdirectories of other projects.  Defaults to the directory
 (setq custom-file (concat *mh/lisp-base* system-name "-variables.el"))
 (load custom-file)
 
+;;; Don't worry about disabled-command warnings:
+(setq disabled-command-function nil)
+
 ;;; Set up session-saving:
 (add-hook 'after-init-hook 'session-initialize)
 
