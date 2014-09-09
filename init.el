@@ -58,9 +58,6 @@ subdirectories of other projects.  Defaults to the directory
         (:name esxml
                :type github
                :pkgname "tali713/esxml")
-        (:name free-keys
-               :type github
-               :pkgname "Fuco1/free-keys")
         (:name grep-buffers
                :type emacswiki)
         (:name http-twiddle
