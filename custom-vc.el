@@ -50,6 +50,8 @@
   (require 'magit-svn) ; svn integration needs to be explicitly loaded now.
   (require 'magit-blame)
 
+  (diminish 'magit-auto-revert-mode)
+
   ;; full screen magit-status; restores windows on exit.  From
   ;; http://whattheemacsd.com/setup-magit.el-01.html#disqus_thread
   (defadvice magit-status (around magit-fullscreen activate)
