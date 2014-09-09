@@ -73,9 +73,6 @@ subdirectories of other projects.  Defaults to the directory
                :type github
                :pkgname "ardumont/org-trello"
                :depends (elnode esxml))
-        (:name pcre2el
-               :type github
-               :pkgname "joddie/pcre2el")
         (:name sql-indent
                :type emacswiki)
         (:name tags-view
