@@ -120,11 +120,7 @@ easily jump back."
 (when (require 'eclim nil t)
   (setq eclim-executable "/opt/eclipse/eclipse-java-indigo/eclim")
   (setq eclim-auto-save t)
-  ;; completion too, assuming it's available:
-  (when (require 'auto-complete-config nil t)
-    (require 'ac-emacs-eclim-source)
-    (add-hook 'eclim-mode-hook
-              (lambda () (add-to-list 'ac-sources 'ac-source-emacs-eclim))))
+
   (global-eclim-mode))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 

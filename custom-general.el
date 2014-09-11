@@ -211,18 +211,12 @@
   (yas-load-directory (concat *mh/lisp-base* "snippets") t)
   (diminish 'yas-minor-mode))
 
-;;; Auto-complete mode: all the cool kids are using it, and it's more
-;;; active than company mode (see
-;;; http://stackoverflow.com/questions/4704748/emacs-completion-autocomplete-or-company).
-;;; Also, eclim can use it, and that looks quite handy.
-(when (require 'auto-complete-config nil t)
-  ;; no forced arrow keys, thank you:
-  (define-key ac-completing-map (kbd "C-n") 'ac-next)
-  (define-key ac-completing-map (kbd "C-p") 'ac-previous)
-
-  (ac-config-default)
-
-  (diminish 'auto-complete-mode))
+;;; Company now seems more active, and in particular clojure-mode
+;;; works best with company:
+(after "company"
+  (define-key company-active-map (kbd "C-n") 'company-select-next)
+  (define-key company-active-map (kbd "C-p") 'company-select-previous)
+  (diminish 'company-mode))
 
 ;;; paren-matching:
 (setq show-paren-delay 0)

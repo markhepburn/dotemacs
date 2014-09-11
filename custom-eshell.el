@@ -58,8 +58,8 @@
 (defvar ac-source-pcomplete
   '((candidates . ac-pcomplete)))
 
-(add-hook 'eshell-mode-hook #'(lambda () (setq ac-sources '(ac-source-pcomplete))))
-(add-to-list 'ac-modes 'eshell-mode)
+;; (add-hook 'eshell-mode-hook #'(lambda () (setq ac-sources '(ac-source-pcomplete))))
+;; (add-to-list 'ac-modes 'eshell-mode)
 
 (defun eshell-completing-history ()
   (interactive)

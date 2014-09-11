@@ -88,8 +88,6 @@ subdirectories of other projects.  Defaults to the directory
     ;distel
     ;eclim
 
-    auto-complete
-    auto-complete-rst
     ag
     auctex
     ;; browse-kill-ring
