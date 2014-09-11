@@ -90,7 +90,6 @@ subdirectories of other projects.  Defaults to the directory
 
     ag
     auctex
-    ;; browse-kill-ring
     buffer-move
     cedet
     cider                               ; formerly "nrepl"
@@ -108,7 +107,6 @@ subdirectories of other projects.  Defaults to the directory
     ess
     expand-region
     fic-ext-mode
-    ;; flx
     flycheck
     free-keys
     helm
@@ -116,12 +114,9 @@ subdirectories of other projects.  Defaults to the directory
     helm-swoop
     git-messenger
     grep-buffers
-    ;; grizzl
     haskell-mode
     haskell-mode-exts
     http-twiddle
-    ;; ido-ubiquitous
-    ;; ido-vertical-mode
     jedi
     js2-mode
     json
@@ -133,7 +128,6 @@ subdirectories of other projects.  Defaults to the directory
     move-text
     mplayer-mode
     multiple-cursors
-;    nrepl-ritz
     org-mode
     org-trello
     paredit
