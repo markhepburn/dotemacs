@@ -50,6 +50,14 @@ subdirectories of other projects.  Defaults to the directory
 ;; Additional custom recipes, not yet in the repository:
 (setq el-get-sources
       '(
+        ;; Over-ride, because I want to use company now, and
+        ;; auto-complete gets installed as a dependency (ess, ein,
+        ;; jedi) and the el-get recipe for it turns on
+        ;; global-auto-complete.  Don't do that:
+        (:name auto-complete
+               :type github
+               :pkgname "auto-complete/auto-complete"
+               :depends (popup fuzzy))
         ;; over-ride, so we get a stable marmalade version:
         (:name elnode
                :type elpa
