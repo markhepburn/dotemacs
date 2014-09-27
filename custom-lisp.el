@@ -47,6 +47,12 @@
 (add-to-list 'auto-mode-alist '("\\.clj$" . clojure-mode))
 (add-to-list 'auto-mode-alist '("\\.cljs$" . clojure-mode))
 
+;;; refactoring:
+(autoload 'clj-refactor-mode "clj-refactor" "Refactoring support for Clojure" t)
+(add-hook 'clojure-mode-hook (lambda ()
+                               (clj-refactor-mode 1)
+                               (cljr-add-keybindings-with-prefix "C-c C-r")))
+
 ;;; ...and cider (formerly nrepl) integration:
 (autoload 'cider "cider" "Connect to existing cider instance")
 (autoload 'cider-jack-in "cider" "Launch a nrepl instance")

@@ -101,6 +101,7 @@ subdirectories of other projects.  Defaults to the directory
     buffer-move
     cedet
     cider                               ; formerly "nrepl"
+    clj-refactor
     clojure-mode
     color-theme-zenburn
     company-mode
