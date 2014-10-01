@@ -102,6 +102,7 @@ subdirectories of other projects.  Defaults to the directory
     cedet
     cider                               ; formerly "nrepl"
     clj-refactor
+    cljsbuild-mode
     clojure-mode
     color-theme-zenburn
     company-mode

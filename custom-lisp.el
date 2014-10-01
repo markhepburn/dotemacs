@@ -53,6 +53,12 @@
                                (clj-refactor-mode 1)
                                (cljr-add-keybindings-with-prefix "C-c C-r")))
 
+;;; clojurescript (build from emacs, and pop up stacktrack when
+;;; there's a error):
+(autoload 'cljsbuild-start "cljsbuild-mode" "Build cljs from emacs" t)
+(after "cljsbuild-mode"
+  (diminish 'cljsbuild-mode))
+
 ;;; ...and cider (formerly nrepl) integration:
 (autoload 'cider "cider" "Connect to existing cider instance")
 (autoload 'cider-jack-in "cider" "Launch a nrepl instance")
