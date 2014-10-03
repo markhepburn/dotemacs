@@ -72,6 +72,11 @@
 (when (require 'less-css-mode nil t)
   (add-hook 'less-css-mode-hook 'rainbow-turn-on))
 
+;;; JSX (React):
+(add-to-list 'auto-mode-alist '("\\.jsx\\'" . jsx-mode))
+(autoload 'jsx-mode "jsx-mode" "JSX mode" t)
+
+
 (provide 'custom-js-web)
 
 ;;; custom-js-web.el ends here

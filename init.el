@@ -71,6 +71,10 @@ subdirectories of other projects.  Defaults to the directory
         (:name http-twiddle
                :type github
                :pkgname "hassy/http-twiddle")
+        (:name jsx-mode
+               :type github
+               :pkgname "jsx/jsx-mode.el"
+               :load-path "src")
         (:name mplayer-mode
                :type github
                :pkgname "markhepburn/mplayer-mode")
@@ -130,6 +134,7 @@ subdirectories of other projects.  Defaults to the directory
     jedi
     js2-mode
     json
+    jsx-mode
     less-css-mode
     lively
     lorem-ipsum
