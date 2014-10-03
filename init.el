@@ -119,11 +119,11 @@ subdirectories of other projects.  Defaults to the directory
     fic-ext-mode
     flycheck
     free-keys
+    git-messenger
+    grep-buffers
     helm
     helm-ag
     helm-swoop
-    git-messenger
-    grep-buffers
     haskell-mode
     haskell-mode-exts
     http-twiddle
