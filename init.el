@@ -235,7 +235,8 @@ subdirectories of other projects.  Defaults to the directory
 ;;; Don't worry about disabled-command warnings:
 (setq disabled-command-function nil)
 
-;;; Set up session-saving:
+;;; Set up session-saving (see https://github.com/emacs-helm/helm/issues/204):
+(setq session-save-print-spec '(t nil 40000))
 (add-hook 'after-init-hook 'session-initialize)
 
 ;;; company-mode completion:
