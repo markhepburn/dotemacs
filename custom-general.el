@@ -141,8 +141,10 @@
 ;;     (ido-ubiquitous-use-new-completing-read yas-visit-snippet-file 'yasnippet)))
 
 ;;; project mode:
+(projectile-global-mode 1)
 (after 'projectile
-  (projectile-global-mode)
+  (setq projectile-completion-system 'helm
+        projectile-switch-project-action 'helm-projectile)
   (diminish 'projectile-mode))
 
 (when (require 'multiple-cursors nil t)
