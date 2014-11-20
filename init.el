@@ -162,6 +162,8 @@ subdirectories of other projects.  Defaults to the directory
     tags-view
     toggle-case
     undo-tree
+    vagrant
+    vagrant-tramp
     virtualenvwrapper
     visual-regexp
     web-mode
