@@ -157,7 +157,6 @@ subdirectories of other projects.  Defaults to the directory
     s
     session
     smartparens
-    smex
     sql-indent
     tags-view
     toggle-case
