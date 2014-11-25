@@ -61,8 +61,6 @@
 ;;; Single-frame ediff usage (mainly because floating windows seemed
 ;;; to interact badly with xmonad, even when explicitly floated):
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
-;; Cool-looking completion package:
-(icomplete-mode t)
 
 ;;; project mode:
 (projectile-global-mode 1)
