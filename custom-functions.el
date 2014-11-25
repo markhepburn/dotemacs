@@ -353,7 +353,7 @@ the right thing if the file is under version control."
   (let ((filename (buffer-file-name))
         (buffer (current-buffer)))
     (if (not (and filename (file-exists-p filename)))
-        (ido-kill-buffer)
+        (kill-buffer)
       (when (yes-or-no-p "Are you sure you want to remove this file? ")
         (if (vc-backend filename)
             (vc-delete-file filename)

@@ -64,9 +64,9 @@
 (defun eshell-completing-history ()
   (interactive)
   (insert
-   (ido-completing-read "Eshell history: "
-                        (delete-dups
-                         (ring-elements eshell-history-ring)))))
+   (completing-read "Eshell history: "
+                    (delete-dups
+                     (ring-elements eshell-history-ring)))))
 
 (add-hook 'eshell-mode-hook
           (lambda () (local-set-key (kbd "C-c h") 'eshell-completing-history)))

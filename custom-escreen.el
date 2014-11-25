@@ -19,7 +19,7 @@
   (defun escreen-dired-new-screen (directory)
     (interactive
      (list
-      (ido-read-directory-name "Dired[new screen]: ")))
+      (read-directory-name "Dired[new screen]: ")))
     (escreen-create-screen)
     (dired (expand-file-name directory)))
   (defun escreen-kill-screen-and-buffers ()
