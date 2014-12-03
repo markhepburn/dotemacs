@@ -25,17 +25,26 @@
     (setq erc-prompt-for-nickserv-password nil)
     (erc-services-mode 1))
 
-  ;; (defun erc-ido-switch-buffer ()
-;;     "Use ido to switch between active ERC buffers.
-;; Replaces erc-iswitchb, which isn't working for me at the moment."
-;;     (interactive)
-;;     (switch-to-buffer
-;;      (ido-completing-read "Channel: "
-;;                           (mapcar 'buffer-name (erc-buffer-list))
-;;                           nil t)))
+  (when (featurep 'helm)
 
-  ;; (define-key erc-mode-map (kbd "C-c C-b") 'erc-ido-switch-buffer)
-  )
+    (defun erc-helm-buffer-list ()
+      (mapcar 'buffer-name (erc-buffer-list)))
+
+    (defvar helm-source-erc-channel-list
+      '((name . "ERC Channels")
+        (volatile)
+        (delayed)
+        (candidates-process . helm-erc-buffer-list)
+        (action . helm-switch-to-buffer)))
+
+   (defun erc-helm-switch-buffer ()
+     "Use helm to select an active ERC buffer.
+Replaces erc-iswitchb, which doesn't work for me."
+     (interactive)
+     (helm :sources '(helm-source-erc-channel-list)
+           :buffer "*helm-erc-channels*"))
+
+   (define-key erc-mode-map (kbd "C-c C-b") 'erc-helm-switch-buffer)))
 
 (provide 'custom-erc)
 
