@@ -66,8 +66,6 @@ subdirectories of other projects.  Defaults to the directory
         (:name esxml
                :type github
                :pkgname "tali713/esxml")
-        (:name grep-buffers
-               :type emacswiki)
         (:name http-twiddle
                :type github
                :pkgname "hassy/http-twiddle")
@@ -126,7 +124,6 @@ subdirectories of other projects.  Defaults to the directory
     free-keys
     git-messenger
     ghc-mod
-    grep-buffers
     helm
     helm-ag
     helm-swoop
