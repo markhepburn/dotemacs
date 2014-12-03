@@ -61,7 +61,8 @@
 (add-hook 'haskell-mode-hook 'haskell-hook)
 (add-hook 'haskell-cabal-mode-hook 'haskell-cabal-hook)
 
-(add-to-list 'company-backends 'company-ghc)
+(eval-after-load 'company
+    '(add-to-list 'company-backends 'company-ghc))
 
 ;;; interact with a running ghc process:
 (autoload 'ghc-init "ghc" nil t)
