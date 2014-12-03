@@ -110,6 +110,7 @@ subdirectories of other projects.  Defaults to the directory
     clojure-mode
     color-theme-zenburn
     company-mode
+    company-ghc
     csv-mode
     dash
     diff-hl
@@ -124,6 +125,7 @@ subdirectories of other projects.  Defaults to the directory
     flycheck
     free-keys
     git-messenger
+    ghc-mod
     grep-buffers
     helm
     helm-ag
