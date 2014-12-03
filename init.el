@@ -136,6 +136,7 @@ subdirectories of other projects.  Defaults to the directory
     jsx-mode
     less-css-mode
     lively
+    linkd				; needed by win-switch
     lorem-ipsum
     magit
     markdown-mode
