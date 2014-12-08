@@ -124,10 +124,10 @@ subdirectories of other projects.  Defaults to the directory
     free-keys
     git-messenger
     ghc-mod
+    haskell-mode
     helm
     helm-ag
     helm-swoop
-    haskell-mode
     http-twiddle
     jedi
     json
