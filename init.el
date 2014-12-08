@@ -128,10 +128,8 @@ subdirectories of other projects.  Defaults to the directory
     helm-ag
     helm-swoop
     haskell-mode
-    haskell-mode-exts
     http-twiddle
     jedi
-    js2-mode
     json
     jsx-mode
     less-css-mode
