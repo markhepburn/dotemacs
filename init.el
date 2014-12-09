@@ -30,75 +30,15 @@ subdirectories of other projects.  Defaults to the directory
   symlinks).")
 (add-to-list 'load-path *mh/lisp-base*)
 
-(setq el-get-dir (concat *mh/lisp-base* "el-get/"))
-(setq el-get-emacswiki-base-url "http://www.emacswiki.org/emacs/download/")
-(add-to-list 'load-path (concat el-get-dir "el-get"))
-
-(unless (require 'el-get nil t)
-  (url-retrieve
-   "https://raw.github.com/dimitri/el-get/master/el-get-install.el"
-   (lambda (s)
-     (goto-char (point-max))
-     (eval-print-last-sexp))))
-
-(unless (featurep 'cedet)
-  (when (file-directory-p "~/.emacs.d/el-get/cedet")
-    (progn
-      (add-to-list 'load-path  "~/.emacs.d/el-get/cedet")
-      (load-file "~/.emacs.d/el-get/cedet/cedet-devel-load.el"))))
-
-;; Additional custom recipes, not yet in the repository:
-(setq el-get-sources
-      '(
-        ;; Over-ride, because I want to use company now, and
-        ;; auto-complete gets installed as a dependency (ess, ein,
-        ;; jedi) and the el-get recipe for it turns on
-        ;; global-auto-complete.  Don't do that:
-        (:name auto-complete
-               :type github
-               :pkgname "auto-complete/auto-complete"
-               :depends (popup fuzzy))
-        ;; over-ride, so we get a stable marmalade version:
-        (:name elnode
-               :type elpa
-               :depends (fakir web db s)
-               :repo ("marmalade" . "http://marmalade-repo.org/packages/"))
-        (:name esxml
-               :type github
-               :pkgname "tali713/esxml")
-        (:name http-twiddle
-               :type github
-               :pkgname "hassy/http-twiddle")
-        (:name jsx-mode
-               :type github
-               :pkgname "jsx/jsx-mode.el"
-               :load-path "src")
-        (:name mplayer-mode
-               :type github
-               :pkgname "markhepburn/mplayer-mode")
-        (:name move-text
-               :type github
-               :pkgname "emacsmirror/move-text")
-        (:name org-trello
-               :type github
-               :pkgname "ardumont/org-trello"
-               :depends (elnode esxml))
-        (:name sql-indent
-               :type emacswiki)
-        (:name tags-view
-               :type github
-               :pkgname "markhepburn/tags-view")
-        (:name toggle-case
-               :type http
-               :url "http://www.northbound-train.com/emacs/toggle-case.el")))
+(setq package-archives
+      '(("gnu" . "http://elpa.gnu.org/packages/")
+        ("ELPA" . "http://tromey.com/elpa/")
+        ("melpa" . "http://melpa.org/packages/")
+        ("marmalade" . "http://marmalade-repo.org/packages/")))
 
 ;; My installed package list:
 (setq *mh/packages*
-  '(el-get
-    ;distel
-    ;eclim
-
-    ag
+  '(ag
     auctex
     buffer-move
     cedet
@@ -107,12 +47,14 @@ subdirectories of other projects.  Defaults to the directory
     cljsbuild-mode
     clojure-mode
     color-theme-zenburn
-    company-mode
     company-ghc
+    company-mode
     csv-mode
     dash
     diff-hl
     diminish
+    distel
+    eclim
     ein
     elisp-slime-nav
     emmet-mode
@@ -122,8 +64,8 @@ subdirectories of other projects.  Defaults to the directory
     fic-ext-mode
     flycheck
     free-keys
-    git-messenger
     ghc-mod
+    git-messenger
     haskell-mode
     helm
     helm-ag
@@ -133,8 +75,8 @@ subdirectories of other projects.  Defaults to the directory
     json
     jsx-mode
     less-css-mode
-    lively
     linkd				; needed by win-switch
+    lively
     lorem-ipsum
     magit
     markdown-mode
@@ -169,8 +111,17 @@ subdirectories of other projects.  Defaults to the directory
     yasnippet))
 
 
-(el-get-cleanup *mh/packages*)
-(el-get 'sync *mh/packages*)
+(defun mh/all-packages-installed-p ()
+  (cl-every (lambda (p) (package-installed-p p))
+            *mh/packages*))
+
+(unless (mh/all-packages-installed-p)
+  (message "Refreshing package database...")
+  (package-refresh-contents)
+  (message "Done.")
+  (dolist (package *mh/packages*)
+   (unless (package-installed-p package)
+     (package-install package))))
 
 
 ;;; loaded before anything else because of various macros
