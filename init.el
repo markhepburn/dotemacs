@@ -46,7 +46,6 @@ subdirectories of other projects.  Defaults to the directory
     clj-refactor
     cljsbuild-mode
     clojure-mode
-    color-theme-zenburn
     company-ghc
     company
     csv-mode
@@ -109,7 +108,8 @@ subdirectories of other projects.  Defaults to the directory
     web-mode
     win-switch
     yaml-mode
-    yasnippet))
+    yasnippet
+    zenburn-theme))
 
 (require 'package)
 
