@@ -42,7 +42,7 @@ easily jump back."
 ;;; Note that we need to load this early in init.el, or the built-in
 ;;; cedet is loaded first and we get a conflict.  This config taken
 ;;; from Alex Ott's sample at https://gist.github.com/3930120
-(add-to-list 'load-path (concat el-get-dir "cedet/contrib/"))
+
 ;; select which submodes we want to activate
 (add-to-list 'semantic-default-submodes 'global-semantic-mru-bookmark-mode)
 (add-to-list 'semantic-default-submodes 'global-semanticdb-minor-mode)
