@@ -48,13 +48,13 @@ subdirectories of other projects.  Defaults to the directory
     clojure-mode
     color-theme-zenburn
     company-ghc
-    company-mode
+    company
     csv-mode
     dash
     diff-hl
     diminish
-    distel
-    eclim
+    ;distel
+    emacs-eclim
     ein
     elisp-slime-nav
     emmet-mode
@@ -64,7 +64,7 @@ subdirectories of other projects.  Defaults to the directory
     fic-ext-mode
     flycheck
     free-keys
-    ghc-mod
+    ghc
     git-messenger
     haskell-mode
     helm
@@ -75,15 +75,14 @@ subdirectories of other projects.  Defaults to the directory
     json
     jsx-mode
     less-css-mode
-    linkd				; needed by win-switch
     lively
     lorem-ipsum
     magit
     markdown-mode
     move-text
-    mplayer-mode
+    ;mplayer-mode
     multiple-cursors
-    org-mode
+    org
     org-trello
     paredit
     pcre2el
@@ -93,13 +92,13 @@ subdirectories of other projects.  Defaults to the directory
     psvn
     python-django
     rainbow-mode
-    rst-mode
+    rst
     s
     session
     smartparens
     sql-indent
-    tags-view
-    toggle-case
+    ;tags-view
+    ;toggle-case
     undo-tree
     vagrant
     vagrant-tramp
@@ -110,6 +109,7 @@ subdirectories of other projects.  Defaults to the directory
     yaml-mode
     yasnippet))
 
+(require 'package)
 
 (defun mh/all-packages-installed-p ()
   (cl-every (lambda (p) (package-installed-p p))
