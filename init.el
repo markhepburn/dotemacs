@@ -112,6 +112,7 @@ subdirectories of other projects.  Defaults to the directory
     zenburn-theme))
 
 (require 'package)
+(package-initialize)
 
 (defun mh/all-packages-installed-p ()
   (cl-every (lambda (p) (package-installed-p p))
