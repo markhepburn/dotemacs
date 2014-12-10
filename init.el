@@ -148,7 +148,7 @@ subdirectories of other projects.  Defaults to the directory
 
 (load "custom-erc")
 
-(load "custom-c")
+;(load "custom-c")
 
 (load "custom-lisp")
 
