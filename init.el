@@ -93,6 +93,7 @@ subdirectories of other projects.  Defaults to the directory
     psvn
     python-django
     rainbow-mode
+    restclient
     rst
     s
     session
