@@ -69,7 +69,6 @@ subdirectories of other projects.  Defaults to the directory
     helm
     helm-ag
     helm-swoop
-    http-twiddle
     jedi
     json
     jsx-mode
