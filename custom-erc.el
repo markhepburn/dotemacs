@@ -3,6 +3,11 @@
 ;;; Commentary:
 ;; ERC Customisations
 
+;;; File `erc-creds.el' should not be checked in to version control.
+;;; It should contain code to set `erc-nickserv-passwords', eg
+;; (setq erc-nickserv-passwords
+;;       '((freenode (("markhepburn" . "my-password")))))
+
 ;;; Code:
 
 ;;; Ignore all the "xxx has quit: timeout" etc messages:
