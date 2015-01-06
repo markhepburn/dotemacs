@@ -39,7 +39,7 @@
       '((name . "ERC Channels")
         (volatile)
         (delayed)
-        (candidates-process . helm-erc-buffer-list)
+        (candidates . erc-helm-buffer-list)
         (action . helm-switch-to-buffer)))
 
    (defun erc-helm-switch-buffer ()
