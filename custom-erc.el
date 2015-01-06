@@ -35,7 +35,7 @@
     (defun erc-helm-buffer-list ()
       (mapcar 'buffer-name (erc-buffer-list)))
 
-    (defvar helm-source-erc-channel-list
+    (setq helm-source-erc-channel-list
       '((name . "ERC Channels")
         (volatile)
         (delayed)
