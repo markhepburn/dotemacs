@@ -42,14 +42,14 @@
         (candidates . erc-helm-buffer-list)
         (action . helm-switch-to-buffer)))
 
-   (defun erc-helm-switch-buffer ()
-     "Use helm to select an active ERC buffer.
+    (defun erc-helm-switch-buffer ()
+      "Use helm to select an active ERC buffer.
 Replaces erc-iswitchb, which doesn't work for me."
-     (interactive)
-     (helm :sources '(helm-source-erc-channel-list)
-           :buffer "*helm-erc-channels*"))
+      (interactive)
+      (helm :sources '(helm-source-erc-channel-list)
+            :buffer "*helm-erc-channels*"))
 
-   (define-key erc-mode-map (kbd "C-c C-b") 'erc-helm-switch-buffer)))
+    (define-key erc-mode-map (kbd "C-c C-b") 'erc-helm-switch-buffer)))
 
 (provide 'custom-erc)
 
