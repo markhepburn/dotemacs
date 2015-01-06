@@ -37,8 +37,6 @@
 
     (setq helm-source-erc-channel-list
       '((name . "ERC Channels")
-        (volatile)
-        (delayed)
         (candidates . erc-helm-buffer-list)
         (action . helm-switch-to-buffer)))
 
