@@ -183,6 +183,10 @@
     (end-of-buffer)
     (dired-next-line -1))
   (define-key dired-mode-map (vector 'remap 'end-of-buffer) 'dired-jump-to-bottom))
+;;; Bizarrely, zip files aren't handled out-of-the-box by dired:
+(after 'dired-aux
+  (add-to-list 'dired-compress-file-suffixes
+               '("\\.zip\\'" "" "unzip")))
 
 ;; Scroll-bars on the right please:
 (if (fboundp 'set-scroll-bar-mode) (set-scroll-bar-mode 'right))

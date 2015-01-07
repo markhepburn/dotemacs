@@ -3,6 +3,11 @@
 ;;; Commentary:
 ;; ERC Customisations
 
+;;; File `erc-creds.el' should not be checked in to version control.
+;;; It should contain code to set `erc-nickserv-passwords', eg
+;; (setq erc-nickserv-passwords
+;;       '((freenode (("markhepburn" . "my-password")))))
+
 ;;; Code:
 
 ;;; Ignore all the "xxx has quit: timeout" etc messages:
@@ -30,21 +35,19 @@
     (defun erc-helm-buffer-list ()
       (mapcar 'buffer-name (erc-buffer-list)))
 
-    (defvar helm-source-erc-channel-list
+    (setq helm-source-erc-channel-list
       '((name . "ERC Channels")
-        (volatile)
-        (delayed)
-        (candidates-process . helm-erc-buffer-list)
+        (candidates . erc-helm-buffer-list)
         (action . helm-switch-to-buffer)))
 
-   (defun erc-helm-switch-buffer ()
-     "Use helm to select an active ERC buffer.
+    (defun erc-helm-switch-buffer ()
+      "Use helm to select an active ERC buffer.
 Replaces erc-iswitchb, which doesn't work for me."
-     (interactive)
-     (helm :sources '(helm-source-erc-channel-list)
-           :buffer "*helm-erc-channels*"))
+      (interactive)
+      (helm :sources '(helm-source-erc-channel-list)
+            :buffer "*helm-erc-channels*"))
 
-   (define-key erc-mode-map (kbd "C-c C-b") 'erc-helm-switch-buffer)))
+    (define-key erc-mode-map (kbd "C-c C-b") 'erc-helm-switch-buffer)))
 
 (provide 'custom-erc)
 
