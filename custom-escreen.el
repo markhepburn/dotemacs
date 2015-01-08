@@ -46,7 +46,7 @@
         (setq emphasised
               (concat emphasised (if (= escreen-current-screen-number s)
                                      (propertize (number-to-string s)
-                                                 'face 'highlight)
+                                                 'face 'success)
                                    (number-to-string s))
                       " ")))
       (message "[escreen] active screens: %s" emphasised)))
