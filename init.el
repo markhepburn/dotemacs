@@ -71,7 +71,7 @@ subdirectories of other projects.  Defaults to the directory
     helm-ag
     helm-swoop
     jedi
-    json
+    json-reformat
     jsx-mode
     less-css-mode
     lively

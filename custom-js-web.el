@@ -9,6 +9,14 @@
 
 (setq js-indent-level 2)
 
+;;; Work-around: the emacs version I'm using doesn't bundle
+;;; json-pretty-print-buffer, used by restclient-mode.  So, implement
+;;; it using json-reformat:
+(after "restclient"
+  (require 'json-reformat)
+  (defun json-pretty-print-buffer ()
+    (json-reformat-region (point-min) (point-max))))
+
 ;;; mozrepl integration
 ;;; (http://people.internetconnection.net/2009/02/interactive-html-development-in-emacs/):
 (autoload 'moz-minor-mode "moz" "Mozilla Minor and Inferior Mozilla Modes" t)
