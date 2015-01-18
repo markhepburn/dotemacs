@@ -30,6 +30,9 @@
     (setq erc-prompt-for-nickserv-password nil)
     (erc-services-mode 1))
 
+  (add-to-list 'erc-modules 'notifications)
+  (erc-update-modules)
+
   (when (featurep 'helm)
 
     (defun erc-helm-buffer-list ()
