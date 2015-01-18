@@ -60,7 +60,8 @@
 ;; (setq view-read-only t)
 ;;; Single-frame ediff usage (mainly because floating windows seemed
 ;;; to interact badly with xmonad, even when explicitly floated):
-(setq ediff-window-setup-function 'ediff-setup-windows-plain)
+(setq ediff-window-setup-function 'ediff-setup-windows-plain
+      ediff-split-window-function 'split-window-horizontally)
 
 ;;; project mode:
 (projectile-global-mode 1)
