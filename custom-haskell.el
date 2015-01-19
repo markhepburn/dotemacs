@@ -17,6 +17,7 @@
 
 (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+(add-hook 'haskell-mode-hook 'haskell-indent-mode)
 
 ;;; Most of this is taken/tweaked from https://github.com/serras/emacs-haskell-tutorial/:
 
