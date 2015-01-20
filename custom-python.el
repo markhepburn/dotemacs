@@ -40,13 +40,9 @@
             (lambda () (imenu-add-to-menubar "Declarations")))
   (add-hook 'python-mode-hook
             (lambda () (semantic-decoration-mode -1)))
-  ;; restore python's backspace binding after it is clobbered by my autopairs stuff:
-  (add-hook 'python-mode-hook
-            (lambda () (local-set-key (kbd "<backspace>") 'python-indent-dedent-line-backspace)))
 
   ;; Advice ':' so typing ':)' results in in '):', eg for function
-  ;; definitions.  Useful in conjunction with autopair
-  ;; functionality:
+  ;; definitions:
   (defadvice python-indent-electric-colon (around python-electric-colon-autoplace (arg)
                                                   activate)
     (if (and (looking-at ")")

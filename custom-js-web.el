@@ -73,8 +73,6 @@
 
 ;;; use c-style indentation in css:
 (setq cssm-indent-function 'cssm-c-style-indenter)
-(add-hook 'css-mode-hook
-          (lambda () (local-set-key "{" 'autopair-open-block)))
 
 ;;; Now using LessCSS, using its own derived mode:
 (when (require 'less-css-mode nil t)

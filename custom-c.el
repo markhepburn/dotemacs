@@ -13,19 +13,6 @@
 ;;; use the new IDE-like gdb multi-window interface:
 (setq gdb-many-windows t)
 
-;;; support for skeleton-pair like functionality (note that keys need
-;;; to be bound especially, because c-mode and friends bind ?\( etc to
-;;; electric-...)  autopair-* are defined in custom-general.el
-(when (and (fboundp 'autopair-insert)
-           (fboundp 'autopair-open-block)
-           (fboundp 'autopair-close-block))
-  (add-hook 'c-mode-common-hook
-            '(lambda ()
-               (local-set-key "(" 'autopair-insert)
-               (local-set-key ")" 'autopair-insert)
-               (local-set-key "{" 'autopair-open-block)
-               (local-set-key "}" 'autopair-close-block))))
-
 ;;; advise c-beginning-of-defun so it sets mark before jumping (why
 ;;; doesn't it already do this??)
 (defadvice c-beginning-of-defun (before c-push-mark-before-bod activate)
