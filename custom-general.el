@@ -97,22 +97,11 @@
 (autoload 'er/expand-region "expand-region" t)
 (global-set-key (kbd "C-=") 'er/expand-region)
 
-;;; experiment with find-file-at-point a bit (don't use their
-;;; pre-configured bindings, as they will presumably over-write the
-;;; ido ones!)
-;;; UPDATE: disabling to use helm for now
-;; (autoload 'ffap "ffap" "Find file at point functionality" t)
-;; (global-set-key (kbd "C-x M-f") 'ffap)
-
 ;;; Move text up and down:
 (autoload 'move-text-up   "move-text" "Shuffle text around" t)
 (autoload 'move-text-down "move-text" "Shuffle text around" t)
 (global-set-key (kbd "C-S-p") 'move-text-up)
 (global-set-key (kbd "C-S-n") 'move-text-down)
-
-;;; shortcut for browse url at point:
-;;; UPDATE: helm handles this too
-;; (global-set-key (kbd "C-x M-b") 'browse-url-at-point)
 
 ;;; more specialised "opening" commands; mplayer control:
 (autoload 'mplayer-find-file "mplayer-mode" "Control mplayer from emacs while editing a file" t)
@@ -165,7 +154,6 @@
 (add-hook 'dired-mode-hook
           (lambda ()
             ;; already available on C-xC-q (usually toggles read-only, so that works)
-            ;(local-set-key (kbd "C-c C-r") 'wdired-change-to-wdired-mode)
             (when (require 'dired-x nil t)
               (setq dired-omit-files      "\\(^\\..*\\)\\|\\(CVS\\)"
                     dired-omit-verbose    nil
@@ -210,11 +198,6 @@
 ;;; Alternative direction for `delete-indentation'
 ;;; (http://whattheemacsd.com/key-bindings.el-03.html):
 (global-set-key (kbd "M-j") (lambda () (interactive) (join-line -1)))
-
-;;; I don't know why this seemed to suddenly change; make backspace
-;;; work again in isearch-mode anyway (see also C-M-w which does the
-;;; same thing, and C-M-y and C-y as well):
-(define-key isearch-mode-map (kbd "<backspace>") 'isearch-del-char)
 
 ;;; Can't believe I never went looking for this; great choice of
 ;;; keybinding too.  Hat-tip to http://irreal.org/blog/?p=1536
@@ -340,27 +323,6 @@ should be a list of keys that will be bound globally to
 ;;; use ack (note that I have two versions of this command installed):
 (autoload 'ack-grep "ack" "Intelligent form of grep-find" t)
 
-;;; Try ag (the silver-searcher) as well:
-(setq ag-highlight-search t)
-
-;; Twitter (Used to use twit.el, but that doesn't support OAuth):
-(autoload 'twit "twittering-mode" "Twittering mode" t)
-(autoload 'twittering-update-status-interactive "twittering-mode" "Twitter status update" t)
-(defalias 'twit-post 'twittering-update-status-interactive
-  "Post from the minibuffer (or whatever it is set to) without invoking twit.")
-(after "twittering-mode" (twittering-icon-mode))
-(setq twittering-update-status-function 'twittering-update-status-from-minibuffer
-      twittering-timer-interval 36000        ; I don't want auto-refresh
-      twittering-use-master-password t
-      twittering-url-show-status nil)
-;;; By default, it assumes you have already authorised credentials by
-;;; the time you try and update your status; because I'm auto-loading
-;;; the update function and don't necessarily think I'll be using the
-;;; main interface much, this won't be the case the first time:
-(defadvice twittering-update-status-interactive (before twittering-verify-before-update activate)
-  (unless (twittering-account-authorized-p)
-    (twittering-verify-credentials)))
-
 ;; bind C-h a to 'apropos like in xemacs (not apropos-command as it is
 ;; in emacs by default)
 (global-set-key (kbd "C-h a") 'apropos)
@@ -436,23 +398,6 @@ the current buffer as normal."
   (smartparens-global-mode t)
   (show-smartparens-global-mode t)
   (diminish 'smartparens-mode))
-
-
-;; parse keychain-generated environment variables and set them, if
-;; they exist:
-;; (require 'cl)                           ; elisp has no flet by default
-;; (with-temp-buffer
-;;   (let ((envfile (expand-file-name (concat "~/.keychain/"
-;;                                            (system-name) "-sh"))))
-;;     (if (file-readable-p envfile)
-;;         (flet ((get-value-by-line (lineno)
-;;                   (progn
-;;                     (goto-line lineno)  ; no error handling here:
-;;                     (re-search-forward "=\\([[:ascii:][:digit:]_/]*?\\);")
-;;                     (buffer-substring (match-beginning 1) (match-end 1)))))
-;;           (insert-file-contents envfile)
-;;           (setenv "SSH_AUTH_SOCK" (get-value-by-line 1))
-;;           (setenv "SSH_AGENT_PID" (get-value-by-line 2))))))
 
 ;; use hippie-expand (mainly abbrev expand and dabbrev):
 (global-set-key (kbd "M-/") 'hippie-expand)
