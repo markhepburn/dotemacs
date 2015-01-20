@@ -39,8 +39,7 @@ subdirectories of other projects.  Defaults to the directory
 
 ;; My installed package list:
 (setq *mh/packages*
-  '(ag
-    auctex
+  '(auctex
     buffer-move
     cedet
     cider                               ; formerly "nrepl"
