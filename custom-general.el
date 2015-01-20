@@ -2,6 +2,10 @@
 ;;; Miscellaneous customisations; mostly one-liner tweaks of
 ;;; appearance and functionality.
 
+;;; Commentary:
+;; 
+
+
 ;; Save point position between sessions (hat tip, http://whattheemacsd.com/init.el-03.html)
 (require 'saveplace)
 ;;; Code:
@@ -117,10 +121,6 @@
 ;;; http://benjisimon.blogspot.com/2009/01/emacs-tip-slightly-better-find-grep.html
 (setq grep-find-command
   "find . -type f '!' -wholename '*/.svn/*' -print0 | xargs -0 -e grep -nH -e ")
-
-
-;;; Commentary:
-;; 
 
 ;;; Code templating:
 (when (require 'yasnippet nil t)
