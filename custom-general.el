@@ -232,20 +232,6 @@
     (linum-mode -1)))
 (global-set-key [remap goto-line] 'goto-line-with-feedback)
 
-;; kill-ring selection:
-;;; UPDATE: helm handles this too
-;; (when (require 'browse-kill-ring nil t)
-;;   (browse-kill-ring-default-keybindings)
-;;   (setq browse-kill-ring-no-duplicates t) ;...and don't clog it up with duplicates
-;;   (defadvice browse-kill-ring-insert-and-quit (after indent-region activate)
-;;     (if (member major-mode '(emacs-lisp-mode
-;;                              lisp-mode
-;;                              erlang-mode
-;;                              c-mode c++-mode objc-mode
-;;                              latex-mode plain-tex-mode))
-;;         (let ((mark-even-if-inactive t))
-;;           (indent-region (region-beginning) (region-end) nil)))))
-
 ;;; similar advice for 'yank and 'yank-pop:
 (defadvice yank (after indent-region-for-yank activate)
   "If in a programming mode, reindent the region after yanking."
