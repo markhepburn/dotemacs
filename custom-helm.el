@@ -82,6 +82,11 @@
 (global-set-key (kbd "M-I") 'helm-swoop-back-to-last-point)
 (define-key isearch-mode-map (kbd "M-i") 'helm-swoop-from-isearch)
 
+;;; Not sure this belongs in with helm, but this combined interface to
+;;; ace-jump/isearch/swoop is great:
+(when (require 'ace-isearch nil t)
+  (global-ace-isearch-mode 1))
+
 ;; use helm to list eshell history
 (add-hook 'eshell-mode-hook
           #'(lambda ()
