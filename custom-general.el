@@ -418,6 +418,14 @@ the current buffer as normal."
 (add-hook 'comint-mode-hook (lambda ()
                               (define-key comint-mode-map
                                 (kbd "<down>") 'comint-next-input)))
+;;; http://emacsredux.com/blog/2015/01/18/clear-comint-buffers/
+(defun comint-clear-buffer ()
+  (interactive)
+  (let ((comint-buffer-maximum-size 0))
+    (comint-truncate-buffer)))
+;;; Binding echos that of cider-nrepl:
+(define-key comint-mode-map (kbd "C-c M-o") #'comint-clear-buffer)
+
 
 ;; Make sure script files are executable after save:
 (add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
