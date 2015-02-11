@@ -59,6 +59,8 @@
 (after "cljsbuild-mode"
   (diminish 'cljsbuild-mode))
 
+(add-hook 'clojure-mode-hook #'turn-on-eldoc-mode)
+
 ;;; ...and cider (formerly nrepl) integration:
 (autoload 'cider "cider" "Connect to existing cider instance")
 (autoload 'cider-jack-in "cider" "Launch a nrepl instance")
