@@ -62,6 +62,7 @@
 ;;; ...and cider (formerly nrepl) integration:
 (autoload 'cider "cider" "Connect to existing cider instance")
 (autoload 'cider-jack-in "cider" "Launch a nrepl instance")
+(setq cider-repl-use-pretty-printing t)
 (add-hook 'cider-mode-hook (lambda ()
                              (define-key cider-repl-mode-map
                                (kbd "<up>") 'cider-repl-previous-input)
