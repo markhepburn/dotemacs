@@ -61,7 +61,7 @@ subdirectories of other projects.  Defaults to the directory
     escreen
     ess
     expand-region
-    fic-ext-mode
+    fic-mode
     flycheck
     free-keys
     ghc
