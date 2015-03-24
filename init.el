@@ -53,6 +53,7 @@ subdirectories of other projects.  Defaults to the directory
     buffer-move
     cedet
     cider                               ; formerly "nrepl"
+    cider-eval-sexp-fu
     clj-refactor
     cljsbuild-mode
     clojure-mode
