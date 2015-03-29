@@ -13,9 +13,12 @@
 /erc-creds.el
 /eshell/
 /projectile-bookmarks.eld
+/projectile.cache
+/server/*
 /request
 /saved.places
 /session.*
+/recentf
 /smex.save
 /srecode-map.el
 /tramp
