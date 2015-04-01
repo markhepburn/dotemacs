@@ -56,8 +56,9 @@ subdirectories of other projects.  Defaults to the directory
     clj-refactor
     cljsbuild-mode
     clojure-mode
-    company-ghc
     company
+    company-ghc
+    company-jedi
     csv-mode
     dash
     diff-hl

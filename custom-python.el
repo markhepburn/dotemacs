@@ -30,7 +30,9 @@
   (setq jedi:setup-keys      t
         jedi:use-shortcuts   t
         jedi:complete-on-dot t)
-  (jedi:setup))
+  (jedi:setup)
+  (require 'company-jedi nil t)
+  (jedi-mode 1))
 
 (after "python"
   (when (require 'jedi nil t)
