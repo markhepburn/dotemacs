@@ -23,6 +23,10 @@
    "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")
 
 (defun mh/python-mode-jedi-setup ()
+  "Include a .dir-locals.el file with
+    ((nil . ((jedi/venv-name . \"venv-name\"))))
+  in it.  Including one in the virtualenv itself
+  enables navigating through lib source as well."
   (hack-local-variables)
   (when (boundp 'jedi/venv-name)
     (venv-workon jedi/venv-name))
