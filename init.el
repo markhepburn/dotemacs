@@ -76,6 +76,7 @@ subdirectories of other projects.  Defaults to the directory
     free-keys
     ghc
     git-messenger
+    git-timemachine
     haskell-mode
     helm
     helm-ag
