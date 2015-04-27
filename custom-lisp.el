@@ -56,6 +56,7 @@
   (diminish 'cljsbuild-mode))
 
 (add-hook 'clojure-mode-hook #'turn-on-eldoc-mode)
+(require 'cider-eval-sexp-fu nil t)
 
 ;;; ...and cider (formerly nrepl) integration:
 (autoload 'cider "cider" "Connect to existing cider instance")
