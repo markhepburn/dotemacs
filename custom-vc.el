@@ -89,6 +89,9 @@
 ;;; Query whether to --set-upstream on new push:
 (setq magit-set-upstream-on-push t)
 
+;;; Shut upgrade-messages up:
+(setq magit-last-seen-setup-instructions "1.4.0")
+
 ;;; git-messenger binding:
 (autoload 'git-messenger:popup-message "git-messenger"
   "pop up message for git commit at current line" t)
