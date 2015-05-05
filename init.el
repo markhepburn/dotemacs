@@ -98,6 +98,7 @@ subdirectories of other projects.  Defaults to the directory
     org-trello
     paredit
     pcre2el
+    peep-dired
     pony-mode
     powerline
     projectile
