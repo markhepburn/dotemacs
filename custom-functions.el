@@ -66,6 +66,19 @@ previous."
         (next-line direction))))
 (global-set-key (kbd "C-x M-;") 'mh/exchange-commenting-with-other-line)
 
+;;; https://gist.github.com/tonini/31e349195f1a6d6d11e5
+(defun mh/delete-process-at-point ()
+  (interactive)
+  (let ((process (get-text-property (point) 'tabulated-list-id)))
+    (cond ((and process
+                (processp process))
+           (delete-process process)
+           (revert-buffer))
+          (t
+           (error "No process at point!")))))
+(define-key process-menu-mode-map (kbd "C-k") 'mh/delete-process-at-point)
+
+
 ;;; From http://www.emacswiki.org/emacs/SlickCopy
 ;;; When kill/copy region commands are used with no region selected,
 ;;; operate on line instead:
