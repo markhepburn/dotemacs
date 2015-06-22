@@ -178,6 +178,8 @@
 (after 'dired-aux
   (add-to-list 'dired-compress-file-suffixes
                '("\\.zip\\'" "" "unzip")))
+(after 'peep-dired
+  (define-key dired-mode-map (kbd "o") 'peep-dired))
 
 ;; Scroll-bars on the right please:
 (if (fboundp 'set-scroll-bar-mode) (set-scroll-bar-mode 'right))
