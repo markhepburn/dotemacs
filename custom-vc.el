@@ -47,10 +47,7 @@
 ;;; Experimenting with magit mode, on the advice of many (well, @philjackson and @jamesvnc on twitter :))
 (autoload 'magit-status "magit" "magit interface for git" t)
 (after "magit"
-  (require 'magit-svn) ; svn integration needs to be explicitly loaded now.
   (require 'magit-blame)
-
-  (diminish 'magit-auto-revert-mode)
 
   ;; full screen magit-status; restores windows on exit.  From
   ;; http://whattheemacsd.com/setup-magit.el-01.html#disqus_thread
@@ -91,6 +88,9 @@
 
 ;;; Shut upgrade-messages up:
 (setq magit-last-seen-setup-instructions "1.4.0")
+
+;;; replaces magit-auto-revert-mode:
+(setq magit-revert-buffers t)
 
 ;;; git-messenger binding:
 (autoload 'git-messenger:popup-message "git-messenger"

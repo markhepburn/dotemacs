@@ -75,11 +75,12 @@
   (setq projectile-completion-system 'helm
         projectile-switch-project-action 'helm-projectile
         ;; http://iqbalansari.github.io/blog/2014/02/22/switching-repositories-with-magit/
-        magit-repo-dirs (mapcar (lambda (dir)
-                                  (substring dir 0 -1))
-                                (remove-if-not (lambda (project)
-                                                 (file-directory-p (concat project "/.git/")))
-                                               (projectile-relevant-known-projects))))
+        ;; http://irreal.org/blog/?p=4177
+        magit-repository-directories (mapcar (lambda (dir)
+                                               (substring dir 0 -1))
+                                             (remove-if-not (lambda (project)
+                                                              (file-directory-p (concat project "/.git/")))
+                                                            (projectile-relevant-known-projects))))
   (diminish 'projectile-mode))
 
 (when (require 'multiple-cursors nil t)

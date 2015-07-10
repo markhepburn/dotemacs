@@ -89,7 +89,6 @@ subdirectories of other projects.  Defaults to the directory
     lorem-ipsum
     magit
     magit-gitflow
-    magit-svn
     markdown-mode
     move-text
     ;mplayer-mode
