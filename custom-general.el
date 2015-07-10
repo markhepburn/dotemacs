@@ -25,6 +25,16 @@
 (set-fontset-font "fontset-default" nil
                   (font-spec :size 20 :name "Symbola"))
 
+;;; Default to UTF-8 (mostly useful for windows, but let's make it
+;;; general); https://www.masteringemacs.org/article/working-coding-systems-unicode-emacs:
+(prefer-coding-system 'utf-8)
+(set-default-coding-systems 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(setq-default buffer-file-coding-system 'utf-8)
+;; Treat clipboard input as UTF-8 string first; compound text next, etc.
+(setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING))
+
 ;; use font lock where possible:
 (global-font-lock-mode t)
 ;;; I really should have been using this all along:
