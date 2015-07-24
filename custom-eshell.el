@@ -71,6 +71,14 @@
 (add-hook 'eshell-mode-hook
           (lambda () (local-set-key (kbd "C-c h") 'eshell-completing-history)))
 
+;;; smart display (allow easier editing of command lines
+;;; https://www.masteringemacs.org/article/complete-guide-mastering-eshell
+(require 'eshell)
+(require 'em-smart)
+(setq eshell-where-to-jump 'begin)
+(setq eshell-review-quick-commands nil)
+(setq eshell-smart-space-goes-to-end t)
+
 (provide 'custom-eshell)
 
 ;;; custom-eshell.el ends here
