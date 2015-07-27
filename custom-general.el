@@ -88,9 +88,10 @@
         ;; http://irreal.org/blog/?p=4177
         magit-repository-directories (mapcar (lambda (dir)
                                                (substring dir 0 -1))
-                                             (remove-if-not (lambda (project)
-                                                              (file-directory-p (concat project "/.git/")))
-                                                            (projectile-relevant-known-projects))))
+                                             (nreverse
+                                              (remove-if-not (lambda (project)
+                                                               (file-directory-p (concat project "/.git/")))
+                                                             (projectile-relevant-known-projects)))))
   (diminish 'projectile-mode))
 
 (when (require 'multiple-cursors nil t)
