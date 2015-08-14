@@ -25,3 +25,6 @@
 
 (setq shell-file-name (concat mh/git-bash-bin "/" "bash.exe")
       explicit-shell-file-name shell-file-name)
+
+(setq projectile-indexing-method 'alien
+      projectile-enable-caching t)
