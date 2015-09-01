@@ -76,6 +76,7 @@
       helm-ag-thing-at-point 'symbol)
 (global-set-key (kbd "M-g .") 'helm-ag)
 (global-set-key (kbd "M-g ,") 'helm-ag-pop-stack)
+(global-set-key (kbd "M-g s") 'helm-ag-project-root)
 
 ;;; helm-swoop:
 (global-set-key (kbd "M-i") 'helm-swoop)

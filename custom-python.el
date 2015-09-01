@@ -24,27 +24,20 @@
 
 (defun mh/python-mode-jedi-setup ()
   "Include a .dir-locals.el file with
-
-    ((nil . ((jedi/venv-name . \"venv-name\"))))
-
-in it.  Including one in the virtualenv itself enables navigating
-through lib source as well.
-
-Will need to run `jedi:install-server` the first time."
-  (hack-local-variables)
-  (when (boundp 'jedi/venv-name)
-    (venv-workon jedi/venv-name))
+    ((nil . ((python-shell-virtualenv-path . \"/path/to/venv\"))))
+  in it.  Including one in the virtualenv itself
+  enables navigating through lib source as well."
 
   (setq jedi:setup-keys      t
         jedi:use-shortcuts   t
         jedi:complete-on-dot t)
-  (jedi:setup)
-  (require 'company-jedi nil t)
-  (jedi-mode 1))
+  (when (require 'jedi nil t)
+   (jedi:setup)
+   (require 'company-jedi nil t)
+   (jedi-mode 1)))
 
 (after "python"
-  (when (require 'jedi nil t)
-    (add-hook 'python-mode-hook 'mh/python-mode-jedi-setup))
+  (add-hook 'python-mode-hook 'mh/python-mode-jedi-setup)
 
   (add-hook 'python-mode-hook
             (lambda () (imenu-add-to-menubar "Declarations")))
