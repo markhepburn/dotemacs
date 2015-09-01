@@ -38,7 +38,7 @@
 ;; use font lock where possible:
 (global-font-lock-mode t)
 ;;; I really should have been using this all along:
-(global-subword-mode 1)
+(add-hook 'prog-mode-hook 'subword-mode)
 ;; don't use those irritating ~ backup files:
 (setq backup-inhibited t)
 ;; work with compressed files:
