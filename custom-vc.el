@@ -44,7 +44,6 @@
 	(if diff-window (select-window diff-window))))
 
 ;; Git integration:
-;;; Experimenting with magit mode, on the advice of many (well, @philjackson and @jamesvnc on twitter :))
 (autoload 'magit-status "magit" "magit interface for git" t)
 (after "magit"
   (require 'magit-blame)
