@@ -85,6 +85,9 @@
 ;;; Query whether to --set-upstream on new push:
 (setq magit-set-upstream-on-push t)
 
+;;; Trust that I'm pushing to the correct remote/branch:
+(setq magit-push-always-verify nil)
+
 ;;; Shut upgrade-messages up:
 (setq magit-last-seen-setup-instructions "1.4.0")
 
