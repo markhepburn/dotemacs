@@ -41,7 +41,6 @@ subdirectories of other projects.  Defaults to the directory
 
 (setq package-archives
       '(("gnu" . "http://elpa.gnu.org/packages/")
-        ("ELPA" . "http://tromey.com/elpa/")
         ("melpa" . "http://melpa.org/packages/")
         ("marmalade" . "http://marmalade-repo.org/packages/")
         ("org" . "http://orgmode.org/elpa/")))
