@@ -69,6 +69,7 @@ subdirectories of other projects.  Defaults to the directory
     elisp-slime-nav
     emmet-mode
     escreen
+    eshell-git-prompt
     ess
     expand-region
     fic-mode
