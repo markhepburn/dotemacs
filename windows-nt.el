@@ -1,27 +1,7 @@
-;;; Set variables for ssh interaction, assuming they exist in a file ~/.ssh/agent.env.
-;;; See https://help.github.com/articles/working-with-ssh-key-passphrases
-(defun mh/parse-sshagent-env (&rest _ignored)
-  (interactive)
-  (with-temp-buffer
-    (insert-file-contents (expand-file-name "~/.ssh/agent.env"))
-    (dolist (varname '("SSH_AUTH_SOCK" "SSH_AGENT_PID"))
-      (goto-char 0)
-      (re-search-forward (concat varname "=\\([^;]+\\)"))
-      (setenv varname (match-string 1)))))
-
-(defvar ssh-file-watcher nil)
-(when (require 'filenotify nil t)
-  ;; We're loading up, slurp SSH envs in case in they're already
-  ;; correct:
-  (mh/parse-sshagent-env)
-  ;; Clear any existing watcher:
-  (if ssh-file-watcher
-      (file-notify-rm-watch ssh-file-watcher))
-  ;; Create the new watcher:
-  (setq ssh-file-watcher
-        (file-notify-add-watch (expand-file-name "~/.ssh/agent.env")
-                               '(change attribute-change)
-                               'mh/parse-sshagent-env)))
+;;; Automatically handle ssh-agent interaction (hooks into magit):
+(unless (package-installed-p 'ssh-agency)
+  (package-refresh-contents)
+  (package-install 'ssh-agency))
 
 ;;; Don't display ^M in mixed-line-endings buffers
 ;;; Via http://stackoverflow.com/questions/730751/hiding-m-in-emacs
