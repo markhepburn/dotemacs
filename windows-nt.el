@@ -1,4 +1,6 @@
 ;;; Automatically handle ssh-agent interaction (hooks into magit):
+;;; (warning: might need to disable the "start" script in the git-bin
+;;; path; haven't come across issues arising from doing that yet)
 (unless (package-installed-p 'ssh-agency)
   (package-refresh-contents)
   (package-install 'ssh-agency))
@@ -14,11 +16,12 @@
 ;;; Get shell stuff working properly (such as find-name-dired, etc):
 (setq mh/git-bash-bin "C:/Program Files (x86)/Git/bin")
 
-(push mh/git-bash-bin exec-path)
-(setenv "PATH" (concat mh/git-bash-bin ";" (getenv "PATH")))
+(add-to-list 'exec-path mh/git-bash-bin)
+(setenv "PATH" (concat mh/git-bash-bin path-separator (getenv "PATH")))
 
-(setq shell-file-name (concat mh/git-bash-bin "/" "bash.exe")
-      explicit-shell-file-name shell-file-name)
+;;; We'll use regular cmd for now, with a proper path (above)
+;; (setq shell-file-name (concat mh/git-bash-bin "/" "bash.exe")
+;;       explicit-shell-file-name shell-file-name)
 
 (setq projectile-indexing-method 'alien
       projectile-enable-caching t)
