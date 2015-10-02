@@ -80,6 +80,9 @@
 (setq eshell-smart-space-goes-to-end t)
 (add-hook 'eshell-mode-hook 'eshell-smart-initialize)
 
+(when (require 'eshell-git-prompt nil t)
+  (eshell-git-prompt-use-theme 'powerline))
+
 (provide 'custom-eshell)
 
 ;;; custom-eshell.el ends here
