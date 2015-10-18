@@ -71,6 +71,13 @@
 (add-hook 'eshell-mode-hook
           (lambda () (local-set-key (kbd "C-c h") 'eshell-completing-history)))
 
+;;; Apparently in a development version; lets add it now:
+(defun eshell/clear ()
+  "Clear the eshell buffer."
+  (let ((inhibit-read-only t))
+    (erase-buffer)
+    (eshell-send-input)))
+
 ;;; smart display (allow easier editing of command lines
 ;;; https://www.masteringemacs.org/article/complete-guide-mastering-eshell
 (require 'eshell)

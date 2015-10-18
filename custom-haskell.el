@@ -13,7 +13,7 @@
 
 (let ((cabal-path  (expand-file-name "~/.cabal/bin")))
  (add-to-list 'exec-path cabal-path)
- (setenv "PATH" (concat cabal-path ":" (getenv "PATH"))))
+ (setenv "PATH" (concat cabal-path path-separator (getenv "PATH"))))
 
 (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
