@@ -144,7 +144,7 @@ subdirectories of other projects.  Defaults to the directory
 (load "custom-functions")
 
 ;;; Some settings need to be machine-specific, such as CEDET project
-;;; definitions, while others are platform-specific (eg, I use
+;;; definitions, while others are platform-specific (eg, I used to use
 ;;; maxframe on osx, but this is redundant on linux where xmonad takes
 ;;; care of that).  To do this, load files (if they exist)
 ;;; corresponding to the reported 'system-type and 'system-name
