@@ -189,7 +189,7 @@ subdirectories of other projects.  Defaults to the directory
 (when (require 'powerline nil t)
   (powerline-default-theme))
 
-;;; I'm a convert:
+;;; Zenburn is life:
 (when (require 'zenburn-theme nil t)
   (load-theme 'zenburn t))
 
