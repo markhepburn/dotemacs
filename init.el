@@ -80,6 +80,7 @@ subdirectories of other projects.  Defaults to the directory
     haskell-mode
     helm
     helm-ag
+    helm-projectile
     helm-swoop
     jedi
     json-reformat
