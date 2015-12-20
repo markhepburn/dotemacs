@@ -50,3 +50,9 @@ followed by configuration, I tend to use `(when (require 'foo nil t)
 `nil` but not signal an error in the event that a feature cannot be
 loaded.  Yes, this all could and possibly should be wrapped as a
 macro.
+
+TODO:
+-----
+
+Look at
+[https support for package.el](https://glyph.twistedmatrix.com/2015/11/editor-malware.html)
