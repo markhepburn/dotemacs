@@ -200,6 +200,9 @@
 (if (fboundp 'set-scroll-bar-mode) (set-scroll-bar-mode 'right))
 ;; No startup message please:
 (setq inhibit-startup-message t)
+;;; Ugh http://yann.hodique.info/blog/rant-obfuscation-in-emacs/
+(put 'inhibit-startup-echo-area-message 'saved-value
+     (setq inhibit-startup-echo-area-message (user-login-name)))
 ;; save a few key strokes from typing 'yes':
 (fset 'yes-or-no-p 'y-or-n-p)
 ;; M-y to browse kill-ring:
