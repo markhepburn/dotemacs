@@ -94,6 +94,7 @@ subdirectories of other projects.  Defaults to the directory
     move-text
     ;mplayer-mode
     multiple-cursors
+    nlinum
     org-plus-contrib
     org-trello
     paredit
