@@ -82,6 +82,10 @@
 
   (define-key magit-status-mode-map (kbd "q") 'magit-quit-session))
 
+;;; git-flow integration:
+(autoload 'turn-on-magit-gitflow "magit-gitflow")
+(add-hook 'magit-mode-hook 'turn-on-magit-gitflow)
+
 ;;; Query whether to --set-upstream on new push:
 (setq magit-set-upstream-on-push t)
 
