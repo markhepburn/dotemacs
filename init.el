@@ -77,6 +77,7 @@ subdirectories of other projects.  Defaults to the directory
     ghc
     git-messenger
     git-timemachine
+    github-clone
     haskell-mode
     helm
     helm-ag
