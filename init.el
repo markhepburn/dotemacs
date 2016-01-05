@@ -40,10 +40,13 @@ subdirectories of other projects.  Defaults to the directory
     ad-do-it))
 
 (setq package-archives
-      '(("gnu" . "http://elpa.gnu.org/packages/")
-        ("melpa" . "http://melpa.org/packages/")
-        ("marmalade" . "http://marmalade-repo.org/packages/")
-        ("org" . "http://orgmode.org/elpa/")))
+      '(("gnu" . "https://elpa.gnu.org/packages/")
+        ("melpa" . "https://melpa.org/packages/")
+        ("melpa-stable" . "https://stable.melpa.org/packages/")
+        ("marmalade" . "https://marmalade-repo.org/packages/")))
+
+(setq package-pinned-packages
+      '((cider . "melpa-stable")))
 
 ;; My installed package list:
 (setq *mh/packages*
