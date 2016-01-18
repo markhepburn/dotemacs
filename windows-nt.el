@@ -14,7 +14,7 @@
   (aset buffer-display-table ?\^M []))
 
 ;;; Get shell stuff working properly (such as find-name-dired, etc):
-(setq mh/git-bash-bin "C:/Program Files (x86)/Git/bin")
+(setq mh/git-bash-bin "C:/Program Files/Git/bin")
 
 (add-to-list 'exec-path mh/git-bash-bin)
 (setenv "PATH" (concat mh/git-bash-bin path-separator (getenv "PATH")))
