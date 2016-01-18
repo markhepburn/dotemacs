@@ -46,7 +46,9 @@ subdirectories of other projects.  Defaults to the directory
         ("marmalade" . "https://marmalade-repo.org/packages/")))
 
 (setq package-pinned-packages
-      '((cider . "melpa-stable")))
+      '((cider . "melpa-stable")
+        (magit . "melpa-stable")
+        (magit-gitflow . "melpa-stable")))
 
 ;; My installed package list:
 (setq *mh/packages*
