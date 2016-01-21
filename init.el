@@ -83,6 +83,7 @@ subdirectories of other projects.  Defaults to the directory
     git-messenger
     git-timemachine
     github-clone
+    god-mode
     haskell-mode
     helm
     helm-ag
@@ -163,6 +164,8 @@ subdirectories of other projects.  Defaults to the directory
 (load system-name t)       ; Assume for now it is not fully-qualified.
 
 (load "custom-general")
+
+(load "custom-god-mode")
 
 (load "custom-escreen")
 
