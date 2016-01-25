@@ -58,6 +58,7 @@ subdirectories of other projects.  Defaults to the directory
     cider                               ; formerly "nrepl"
     cider-eval-sexp-fu
     clj-refactor
+    cljr-helm
     cljsbuild-mode
     clojure-mode
     company
