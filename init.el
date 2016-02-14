@@ -88,6 +88,7 @@ subdirectories of other projects.  Defaults to the directory
     haskell-mode
     helm
     helm-ag
+    helm-descbinds
     helm-projectile
     helm-swoop
     jedi

@@ -19,6 +19,9 @@
 (require 'helm-grep)
 (require 'helm-ag)
 (require 'helm-swoop)
+(require 'helm-descbinds)
+
+(helm-descbinds-mode)
 
 (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebihnd tab to do persistent action
 (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
