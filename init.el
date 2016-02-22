@@ -47,6 +47,7 @@ subdirectories of other projects.  Defaults to the directory
 
 (setq package-pinned-packages
       '((cider . "melpa-stable")
+        (clj-refactor . "melpa-stable")
         (magit . "melpa-stable")
         (magit-gitflow . "melpa-stable")))
 
