@@ -56,7 +56,7 @@ subdirectories of other projects.  Defaults to the directory
   '(auctex
     buffer-move
     cedet
-    cider                               ; formerly "nrepl"
+    cider
     cider-eval-sexp-fu
     clj-refactor
     cljr-helm
