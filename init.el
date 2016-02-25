@@ -51,6 +51,16 @@ subdirectories of other projects.  Defaults to the directory
         (magit . "melpa-stable")
         (magit-gitflow . "melpa-stable")))
 
+
+(unless (package-installed-p 'use-package)
+  (progn
+    (unless package-archive-contents
+      (package-refresh-contents))
+    (package-install 'use-package)))
+
+(require 'use-package)
+(setq use-package-always-ensure t)
+
 ;; My installed package list:
 (setq *mh/packages*
   '(auctex
