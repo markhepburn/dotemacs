@@ -81,7 +81,6 @@ subdirectories of other projects.  Defaults to the directory
     csv-mode
     dash
     diff-hl
-    diminish
     ;distel
     emacs-eclim
     ein
