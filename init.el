@@ -52,6 +52,9 @@ subdirectories of other projects.  Defaults to the directory
         (magit-gitflow . "melpa-stable")))
 
 
+(require 'package)
+(package-initialize)
+
 (unless (package-installed-p 'use-package)
   (progn
     (unless package-archive-contents
@@ -144,9 +147,6 @@ subdirectories of other projects.  Defaults to the directory
     yaml-mode
     yasnippet
     zenburn-theme))
-
-(require 'package)
-(package-initialize)
 
 (defun mh/all-packages-installed-p ()
   (cl-every (lambda (p) (package-installed-p p))
