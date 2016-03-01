@@ -97,11 +97,11 @@
                                                              (projectile-relevant-known-projects)))))
   (diminish 'projectile-mode))
 
-(when (require 'multiple-cursors nil t)
-  (global-set-key (kbd "C-!") 'mc/edit-lines)
-  (global-set-key (kbd "C->")     'mc/mark-more-like-this-extended)
-  (global-set-key (kbd "C-<")     'mc/mark-previous-like-this)
-  (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this))
+(use-package multiple-cursors
+  :bind (("C-!" . mc/edit-lines)
+         ("C->" . mc/mark-more-like-this-extended)
+         ("C-<" . mc/mark-previous-like-this)
+         ("C-c C-<" . mc/mark-all-like-this)))
 
 ;;; Visual rectangle editing: /why/ the hell is this buried in a
 ;;; package that makes emacs act more like windows??  Anyway:
