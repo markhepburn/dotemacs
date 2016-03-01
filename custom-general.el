@@ -195,6 +195,9 @@
                '("\\.zip\\'" "" "unzip")))
 (after 'peep-dired
   (define-key dired-mode-map (kbd "o") 'peep-dired))
+(use-package dired-narrow
+  :bind (:map dired-mode-map
+              ("/" . dired-narrow)))
 
 ;; Scroll-bars on the right please:
 (if (fboundp 'set-scroll-bar-mode) (set-scroll-bar-mode 'right))
