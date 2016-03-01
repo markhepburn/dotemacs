@@ -193,8 +193,10 @@
 (after 'dired-aux
   (add-to-list 'dired-compress-file-suffixes
                '("\\.zip\\'" "" "unzip")))
-(after 'peep-dired
-  (define-key dired-mode-map (kbd "o") 'peep-dired))
+(use-package peep-dired
+  :init (require 'dired)
+  :bind (:map dired-mode-map
+              ("o" . peep-dired)))
 (use-package dired-narrow
   :bind (:map dired-mode-map
               ("/" . dired-narrow)))
