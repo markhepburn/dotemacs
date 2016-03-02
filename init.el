@@ -91,9 +91,6 @@ subdirectories of other projects.  Defaults to the directory
     flycheck
     free-keys
     ghc
-    git-messenger
-    git-timemachine
-    github-clone
     god-mode
     haskell-mode
     helm
@@ -107,8 +104,6 @@ subdirectories of other projects.  Defaults to the directory
     less-css-mode
     lively
     lorem-ipsum
-    magit
-    magit-gitflow
     markdown-mode
     move-text
     ;mplayer-mode

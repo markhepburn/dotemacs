@@ -43,65 +43,71 @@
   (let ((diff-window (get-buffer-window "*svn-diff*" nil)))
 	(if diff-window (select-window diff-window))))
 
-;; Git integration:
-(autoload 'magit-status "magit" "magit interface for git" t)
-(after "magit"
-  (require 'magit-blame)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Git integration:
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-  ;; full screen magit-status; restores windows on exit.  From
-  ;; http://whattheemacsd.com/setup-magit.el-01.html#disqus_thread
-  (defadvice magit-status (around magit-fullscreen activate)
-    (window-configuration-to-register :magit-fullscreen)
-    ad-do-it
-    (delete-other-windows))
+(use-package magit
+  :init (setq
+         magit-set-upstream-on-push t
 
-  (defun magit-quit-session ()
-    "Restores the previous window configuration and kills the magit buffer"
-    (interactive)
-    (kill-buffer)
-    (jump-to-register :magit-fullscreen))
+         ;;Trust that I'm pushing to the correct remote/branch:
+         magit-push-always-verify nil
 
-  ;; More magit niceties from http://whattheemacsd.com//setup-magit.el-02.html
-  (defun magit-ignore-whitespace ()
-    (interactive)
-    (add-to-list 'magit-diff-options "-w")
-    (magit-refresh))
+         ;; Shut upgrade-messages up:
+         magit-last-seen-setup-instructions "1.4.0"
 
-  (defun magit-dont-ignore-whitespace ()
-    (interactive)
-    (setq magit-diff-options (remove "-w" magit-diff-options))
-    (magit-refresh))
+         ;; replaces magit-auto-revert-mode:
+         magit-revert-buffers t)
 
-  (defun magit-toggle-whitespace ()
-    (interactive)
-    (if (member "-w" magit-diff-options)
-        (magit-dont-ignore-whitespace)
-      (magit-ignore-whitespace)))
+  :config (progn
+            (require 'magit-blame)
 
-  (define-key magit-status-mode-map (kbd "W") 'magit-toggle-whitespace)
+            ;; full screen magit-status; restores windows on exit.  From
+            ;; http://whattheemacsd.com/setup-magit.el-01.html#disqus_thread
+            (defadvice magit-status (around magit-fullscreen activate)
+              (window-configuration-to-register :magit-fullscreen)
+              ad-do-it
+              (delete-other-windows))
 
-  (define-key magit-status-mode-map (kbd "q") 'magit-quit-session))
+            (defun magit-quit-session ()
+              "Restores the previous window configuration and kills the magit buffer"
+              (interactive)
+              (kill-buffer)
+              (jump-to-register :magit-fullscreen))
+
+            ;; More magit niceties from http://whattheemacsd.com//setup-magit.el-02.html
+            (defun magit-ignore-whitespace ()
+              (interactive)
+              (add-to-list 'magit-diff-options "-w")
+              (magit-refresh))
+
+            (defun magit-dont-ignore-whitespace ()
+              (interactive)
+              (setq magit-diff-options (remove "-w" magit-diff-options))
+              (magit-refresh))
+
+            (defun magit-toggle-whitespace ()
+              (interactive)
+              (if (member "-w" magit-diff-options)
+                  (magit-dont-ignore-whitespace)
+                (magit-ignore-whitespace))))
+
+  :bind (:map magit-status-mode-map
+         ("W" . magit-toggle-whitespace)
+         ("q" . magit-quit-session)))
 
 ;;; git-flow integration:
-(autoload 'turn-on-magit-gitflow "magit-gitflow")
-(add-hook 'magit-mode-hook 'turn-on-magit-gitflow)
+(use-package magit-gitflow
+  :after (magit)
+  :config (add-hook 'magit-mode-hook 'turn-on-magit-gitflow))
 
-;;; Query whether to --set-upstream on new push:
-(setq magit-set-upstream-on-push t)
+(use-package git-messenger
+  :bind (("C-x v p" . git-messenger:popup-message)))
 
-;;; Trust that I'm pushing to the correct remote/branch:
-(setq magit-push-always-verify nil)
+(use-package git-timemachine)
 
-;;; Shut upgrade-messages up:
-(setq magit-last-seen-setup-instructions "1.4.0")
-
-;;; replaces magit-auto-revert-mode:
-(setq magit-revert-buffers t)
-
-;;; git-messenger binding:
-(autoload 'git-messenger:popup-message "git-messenger"
-  "pop up message for git commit at current line" t)
-(global-set-key (kbd "C-x v p") 'git-messenger:popup-message)
+(use-package github-clone)
 
 ;;; Don't add commit-message buffers to recentf list:
 (after 'recentf
