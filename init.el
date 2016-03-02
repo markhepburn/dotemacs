@@ -65,6 +65,7 @@ subdirectories of other projects.  Defaults to the directory
 (setq use-package-always-ensure t)
 
 ;; My installed package list:
+;;; TODO: quelpa-use-package for my own repos
 (setq *mh/packages*
   '(auctex
     cedet
@@ -118,7 +119,6 @@ subdirectories of other projects.  Defaults to the directory
     paredit
     pcre2el
     pony-mode
-    powerline
     projectile
     psvn
     python-django
@@ -201,8 +201,8 @@ subdirectories of other projects.  Defaults to the directory
 
 ;; (load "custom-stats")
 
-(when (require 'powerline nil t)
-  (powerline-default-theme))
+(use-package powerline
+  :config (powerline-default-theme))
 
 ;;; Zenburn is life:
 (use-package zenburn-theme)
