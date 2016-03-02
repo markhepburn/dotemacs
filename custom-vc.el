@@ -9,7 +9,7 @@
 ;; -- which then over-writes the values set in this hook):
 
 ;;; Commentary:
-;; 
+;;
 
 ;;; Code:
 
@@ -17,10 +17,7 @@
 (add-hook 'diff-mode-hook
 		  (lambda ()
 			(define-key diff-mode-shared-map "q" 'delete-window)))
-;;; same for svn-diff-mode:
-(add-hook 'svn-status-diff-mode-hook
-		  (lambda ()
-			(define-key svn-status-diff-mode-map "q" 'delete-window)))
+
 ;; Same for log-view:
 (add-hook 'log-view-mode-hook
           (lambda () (define-key log-view-mode-map "q" 'delete-window)))
@@ -31,17 +28,7 @@
 (setq vc-svn-diff-switches '("--diff-cmd" "diff" "-x" "-u"))
 ;;; show changed regions in the fringe:
 (global-diff-hl-mode 1)
-;;; default to unknown and unmodified files not displayed:
-(setq svn-status-hide-unknown    t
-      svn-status-hide-unmodified t)
-(defadvice svn-status-show-svn-diff (after mh/jump-to-diff-window activate)
-  "Jump to the diff window, so it can be easily navigated then closed."
-  (let ((diff-window (get-buffer-window "*svn-diff*" nil)))
-	(if diff-window (select-window diff-window))))
-(defadvice svn-status-show-svn-diff-for-marked-files (after mh/jump-to-diff-window activate)
-  "Jump to the diff window, so it can be easily navigated then closed."
-  (let ((diff-window (get-buffer-window "*svn-diff*" nil)))
-	(if diff-window (select-window diff-window))))
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Git integration:
@@ -122,19 +109,38 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Subversion interaction:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(autoload 'svn-status "psvn" "Subversion interaction mode" t)
-(setq svn-status-track-user-input t)    ; Needs this to prompt for a password!
-(after "psvn"
-  (define-key svn-status-mode-map (kbd "n") 'svn-status-next-line)
-  (define-key svn-status-mode-map (kbd "p") 'svn-status-previous-line)
-  ;; No idea why the default behaviour is as it is (or even how to
-  ;; reproduce it in cmd-line svn for that matter), but this over-rides
-  ;; it with something reasonably useful (possibly replace with '("-v")
-  ;; to get a list of all files changed) :
-  (setq svn-status-default-log-arguments '())
-  ;; using external cmd here because psvn diff doesn't work with
-  ;; colordiff, which I'm using with command-line svn:
-  (setq svn-status-default-diff-arguments '("--diff-cmd" "diff" )))
+(use-package psvn
+  :init (setq
+         svn-status-track-user-input t    ; Needs this to prompt for a password!
+         ;; No idea why the default behaviour is as it is (or even how to
+         ;; reproduce it in cmd-line svn for that matter), but this over-rides
+         ;; it with something reasonably useful (possibly replace with '("-v")
+         ;; to get a list of all files changed) :
+         svn-status-default-log-arguments '()
+         ;; using external cmd here because psvn diff doesn't work with
+         ;; colordiff, which I'm using with command-line svn:
+         svn-status-default-diff-arguments '("--diff-cmd" "diff" )
+         ;;; default to unknown and unmodified files not displayed:
+         svn-status-hide-unknown    t
+         svn-status-hide-unmodified t)
+
+  :config (progn
+
+            (defadvice svn-status-show-svn-diff (after mh/jump-to-diff-window activate)
+              "Jump to the diff window, so it can be easily navigated then closed."
+              (let ((diff-window (get-buffer-window "*svn-diff*" nil)))
+                (if diff-window (select-window diff-window))))
+            (defadvice svn-status-show-svn-diff-for-marked-files (after mh/jump-to-diff-window activate)
+              "Jump to the diff window, so it can be easily navigated then closed."
+              (let ((diff-window (get-buffer-window "*svn-diff*" nil)))
+                (if diff-window (select-window diff-window)))))
+
+  :bind (:map svn-status-mode-map
+         ("n" . svn-status-next-line)
+         ("p" . svn-status-previous-line)
+         :map svn-status-diff-mode-map
+         ("q" . delete-window)))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 

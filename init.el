@@ -115,7 +115,6 @@ subdirectories of other projects.  Defaults to the directory
     pcre2el
     pony-mode
     projectile
-    psvn
     python-django
     rainbow-mode
     restclient
