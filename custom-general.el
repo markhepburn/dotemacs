@@ -304,17 +304,15 @@ should be a list of keys that will be bound globally to
       (global-set-key key 'win-switch-dispatch)))
   (mh/win-switch-setup-keys-vistyle (kbd "C-x o")))
 ;;; and rotate windows too:
-(dolist (fn '(buf-move-up buf-move-down buf-move-left buf-move-right))
-  (let ((file "buffer-move"))
-    (autoload fn file "Swap buffers between windows" t)))
-(global-set-key (kbd "M-g <left>")  'buf-move-left)
-(global-set-key (kbd "M-g h")       'buf-move-left)
-(global-set-key (kbd "M-g <right>") 'buf-move-right)
-(global-set-key (kbd "M-g l")       'buf-move-right)
-(global-set-key (kbd "M-g <up>")    'buf-move-up)
-(global-set-key (kbd "M-g k")       'buf-move-up)
-(global-set-key (kbd "M-g <down>")  'buf-move-down)
-(global-set-key (kbd "M-g j")       'buf-move-down)
+(use-package buffer-move
+  :bind (("M-g <left>"  . buf-move-left)
+         ("M-g h"       . buf-move-left)
+         ("M-g <right>" . buf-move-right)
+         ("M-g l"       . buf-move-right)
+         ("M-g <up>"    . buf-move-up)
+         ("M-g k"       . buf-move-up)
+         ("M-g <down>"  . buf-move-down)
+         ("M-g j"       . buf-move-down)))
 
 ;; vi-like case toggle:
 (when (require 'toggle-case nil t)
