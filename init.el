@@ -79,7 +79,6 @@ subdirectories of other projects.  Defaults to the directory
     company-ghc
     company-jedi
     dash
-    diff-hl
     ;distel
     ein
     elisp-slime-nav

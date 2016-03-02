@@ -13,6 +13,7 @@
 
 ;;; Code:
 
+;;; diff setup:
 (setq diff-default-read-only t)
 (add-hook 'diff-mode-hook
 		  (lambda ()
@@ -23,11 +24,14 @@
           (lambda () (define-key log-view-mode-map "q" 'delete-window)))
 (add-hook 'svn-log-view-mode-hook
           (lambda () (define-key svn-log-view-mode-map "q" 'delete-window)))
+
 ;; use unified diffs by default in diff-mode:
 (setq diff-switches "-u")
 (setq vc-svn-diff-switches '("--diff-cmd" "diff" "-x" "-u"))
+
 ;;; show changed regions in the fringe:
-(global-diff-hl-mode 1)
+(use-package diff-hl
+  :config (global-diff-hl-mode 1))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
