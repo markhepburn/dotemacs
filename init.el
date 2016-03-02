@@ -138,8 +138,7 @@ subdirectories of other projects.  Defaults to the directory
     web-mode
     win-switch
     yaml-mode
-    yasnippet
-    zenburn-theme))
+    yasnippet))
 
 (defun mh/all-packages-installed-p ()
   (cl-every (lambda (p) (package-installed-p p))
@@ -207,8 +206,7 @@ subdirectories of other projects.  Defaults to the directory
   (powerline-default-theme))
 
 ;;; Zenburn is life:
-(when (require 'zenburn-theme nil t)
-  (load-theme 'zenburn t))
+(use-package zenburn-theme)
 
 ;;; Load in customize stuff:
 (setq custom-file (concat *mh/lisp-base* system-name "-variables.el"))
