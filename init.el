@@ -84,7 +84,6 @@ subdirectories of other projects.  Defaults to the directory
     ein
     elisp-slime-nav
     emmet-mode
-    escreen
     eshell-git-prompt
     ess
     expand-region
