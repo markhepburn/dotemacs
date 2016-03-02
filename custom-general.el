@@ -330,9 +330,10 @@ should be a list of keys that will be bound globally to
 
 ;;; csv-mode; smartparens mode interfers with sexp-command based
 ;;; navigation:
-(add-hook 'csv-mode-hook (lambda ()
-                           (smartparens-mode -1)
-                           (auto-fill-mode -1)))
+(use-package csv-mode
+  :config (progn
+            (smartparens-mode -1)
+            (auto-fill-mode -1)))
 
 ;; Show docs where available:
 (enable-minor-mode-for eldoc-mode '(emacs-lisp lisp inferior-lisp ielm))

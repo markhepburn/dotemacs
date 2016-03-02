@@ -77,7 +77,6 @@ subdirectories of other projects.  Defaults to the directory
     company
     company-ghc
     company-jedi
-    csv-mode
     dash
     diff-hl
     ;distel
