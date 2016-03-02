@@ -80,7 +80,6 @@ subdirectories of other projects.  Defaults to the directory
     dash
     diff-hl
     ;distel
-    emacs-eclim
     ein
     elisp-slime-nav
     emmet-mode
