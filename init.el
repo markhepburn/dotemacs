@@ -112,7 +112,6 @@ subdirectories of other projects.  Defaults to the directory
     sql-indent
     ;tags-view
     ;toggle-case
-    undo-tree
     virtualenvwrapper
     visual-regexp
     yaml-mode))

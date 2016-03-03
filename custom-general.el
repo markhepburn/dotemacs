@@ -221,9 +221,9 @@
   (atim-unscroll-global-mode)
   (diminish 'atim-unscroll-mode))
 
-(when (require 'undo-tree nil t)
-  (global-undo-tree-mode)
-  (diminish 'undo-tree-mode))
+(use-package undo-tree
+  :config (global-undo-tree-mode)
+  :diminish undo-tree-mode)
 
 ;;; Alternative direction for `delete-indentation'
 ;;; (http://whattheemacsd.com/key-bindings.el-03.html):
