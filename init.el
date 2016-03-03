@@ -98,7 +98,6 @@ subdirectories of other projects.  Defaults to the directory
     lively
     lorem-ipsum
     markdown-mode
-    move-text
     ;mplayer-mode
     multiple-cursors
     nlinum

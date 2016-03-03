@@ -117,10 +117,9 @@
 (global-set-key (kbd "C-=") 'er/expand-region)
 
 ;;; Move text up and down:
-(autoload 'move-text-up   "move-text" "Shuffle text around" t)
-(autoload 'move-text-down "move-text" "Shuffle text around" t)
-(global-set-key (kbd "C-S-p") 'move-text-up)
-(global-set-key (kbd "C-S-n") 'move-text-down)
+(use-package move-text
+  :bind (("C-S-p" . move-text-up)
+         ("C-S-n" . move-text-down)))
 
 ;;; more specialised "opening" commands; mplayer control:
 (autoload 'mplayer-find-file "mplayer-mode" "Control mplayer from emacs while editing a file" t)
