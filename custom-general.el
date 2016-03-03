@@ -10,6 +10,13 @@
 (require 'saveplace)
 ;;; Code:
 
+;;; Some miscellaneous packages, no bindings or anything yet:
+(use-package free-keys)
+(use-package lively)
+(use-package lorem-ipsum)
+(use-package rst)
+(use-package yaml-mode)
+
 (setq-default save-place t)
 (setq save-place-file (expand-file-name "saved.places" user-emacs-directory))
 

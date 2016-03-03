@@ -85,7 +85,6 @@ subdirectories of other projects.  Defaults to the directory
     ess
     fic-mode
     flycheck
-    free-keys
     ghc
     haskell-mode
     helm
@@ -93,8 +92,6 @@ subdirectories of other projects.  Defaults to the directory
     helm-descbinds
     helm-swoop
     jedi
-    lively
-    lorem-ipsum
     markdown-mode
     ;mplayer-mode
     multiple-cursors
@@ -103,7 +100,6 @@ subdirectories of other projects.  Defaults to the directory
     paredit
     pcre2el
     python-django
-    rst
     s
     session
     smartparens
@@ -111,8 +107,7 @@ subdirectories of other projects.  Defaults to the directory
     ;tags-view
     ;toggle-case
     virtualenvwrapper
-    visual-regexp
-    yaml-mode))
+    visual-regexp))
 
 (defun mh/all-packages-installed-p ()
   (cl-every (lambda (p) (package-installed-p p))
