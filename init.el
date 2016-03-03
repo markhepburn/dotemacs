@@ -87,7 +87,6 @@ subdirectories of other projects.  Defaults to the directory
     flycheck
     free-keys
     ghc
-    god-mode
     haskell-mode
     helm
     helm-ag
