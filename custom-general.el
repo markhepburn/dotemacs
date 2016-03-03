@@ -11,6 +11,7 @@
 ;;; Code:
 
 ;;; Some miscellaneous packages, no bindings or anything yet:
+(use-package flycheck)
 (use-package free-keys)
 (use-package lively)
 (use-package lorem-ipsum)
