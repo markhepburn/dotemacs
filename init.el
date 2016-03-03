@@ -69,14 +69,11 @@ subdirectories of other projects.  Defaults to the directory
 (setq *mh/packages*
   '(auctex
     cedet
-    company-ghc
     company-jedi
     dash
     ;distel
     ein
     ess
-    ghc
-    haskell-mode
     helm
     helm-ag
     helm-descbinds

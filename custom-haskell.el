@@ -7,7 +7,7 @@
 ;;; Set up some path stuff first:
 
 ;;; Commentary:
-;; 
+;;
 
 ;;; Code:
 
@@ -15,60 +15,57 @@
  (add-to-list 'exec-path cabal-path)
  (setenv "PATH" (concat cabal-path path-separator (getenv "PATH"))))
 
-(add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
-(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
-(add-hook 'haskell-mode-hook 'haskell-indent-mode)
-
 ;;; Most of this is taken/tweaked from https://github.com/serras/emacs-haskell-tutorial/:
+(use-package haskell-mode
+  :bind (:map haskell-mode-map
+         ("<f8>"        . haskell-navigate-imports)
+         ("C-c C-l"     . haskell-process-load-or-reload)
+         ("C-c C-z"     . haskell-interactive-switch)
+         ("C-c C-n C-t" . haskell-process-do-type)
+         ("C-c C-n C-i" . haskell-process-do-info)
+         ("C-c C-n C-c" . haskell-process-cabal-build)
+         ("C-c C-n c"   . haskell-process-cabal)
+         ("SPC"         . haskell-mode-contextual-space)
+         ("C-c C-o"     . haskell-compile))
+  :init
+  (custom-set-variables
+   ;; Use cabal-dev for the GHCi session. Ensures our dependencies are in scope.
+   '(haskell-process-type 'cabal-repl)
+   ;; or 'ghci
 
-(eval-after-load 'haskell-mode
-  '(define-key haskell-mode-map [f8] 'haskell-navigate-imports))
+   ;; To enable tags generation on save.
+   '(haskell-tags-on-save t)
 
-(custom-set-variables
- ;; Use cabal-dev for the GHCi session. Ensures our dependencies are in scope.
- '(haskell-process-type 'cabal-repl)
- ;; or 'ghci
+   '(company-ghc-show-info t)
 
- ;; To enable tags generation on save.
- '(haskell-tags-on-save t)
+   ;; To enable stylish on save.
+   ;; '(haskell-stylish-on-save t)
+   '(haskell-process-suggest-remove-import-lines t)
+   '(haskell-process-auto-import-loaded-modules t)
+   '(haskell-process-log t))
+  :config
+  (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
+  (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+  (add-hook 'haskell-mode-hook 'haskell-indent-mode))
 
- '(company-ghc-show-info t)
+(use-package haskell-cabal
+  :ensure nil
+  :after (haskell)
+  :bind (:map haskell-cabal-mode-map
+         ("C-c C-z" . haskell-interactive-switch)
+         ("C-c C-k" . haskell-interactive-mode-clear)
+         ("C-c C-c" . haskell-process-cabal-build)
+         ("C-c c"   . haskell-process-cabal)
+         ("C-c C-o" . haskell-compile)))
 
- ;; To enable stylish on save.
- ;; '(haskell-stylish-on-save t)
- '(haskell-process-suggest-remove-import-lines t)
- '(haskell-process-auto-import-loaded-modules t)
- '(haskell-process-log t)
- )
-
-(eval-after-load 'haskell-mode
-  '(progn
-     (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
-     (define-key haskell-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)
-     (define-key haskell-mode-map (kbd "C-c C-n C-t") 'haskell-process-do-type)
-     (define-key haskell-mode-map (kbd "C-c C-n C-i") 'haskell-process-do-info)
-     (define-key haskell-mode-map (kbd "C-c C-n C-c") 'haskell-process-cabal-build)
-     (define-key haskell-mode-map (kbd "C-c C-n c") 'haskell-process-cabal)
-     (define-key haskell-mode-map (kbd "SPC") 'haskell-mode-contextual-space)
-     (define-key haskell-mode-map (kbd "C-c C-o") 'haskell-compile)))
-(eval-after-load 'haskell-cabal
-  '(progn
-     (define-key haskell-cabal-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)
-     (define-key haskell-cabal-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
-     (define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
-     (define-key haskell-cabal-mode-map (kbd "C-c c") 'haskell-process-cabal)
-     (define-key haskell-mode-map (kbd "C-c C-o") 'haskell-compile)))
-
-(add-hook 'haskell-mode-hook 'haskell-hook)
-(add-hook 'haskell-cabal-mode-hook 'haskell-cabal-hook)
-
-(eval-after-load 'company
-    '(add-to-list 'company-backends 'company-ghc))
+(use-package company-ghc
+  :after (company)
+  :config (add-to-list 'company-backends 'company-ghc))
 
 ;;; interact with a running ghc process:
-(autoload 'ghc-init "ghc" nil t)
-(autoload 'ghc-debug "ghc" nil t)
-(add-hook 'haskell-mode-hook (lambda () (ghc-init)))
+(use-package ghc
+  :after (haskell-mode)
+  :config (add-hook 'haskell-mode-hook 'ghc-init))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (provide 'custom-haskell)
