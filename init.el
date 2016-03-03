@@ -74,7 +74,6 @@ subdirectories of other projects.  Defaults to the directory
     dash
     ;distel
     ein
-    eshell-git-prompt
     ess
     ghc
     haskell-mode
