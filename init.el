@@ -69,12 +69,6 @@ subdirectories of other projects.  Defaults to the directory
 (setq *mh/packages*
   '(auctex
     cedet
-    cider
-    cider-eval-sexp-fu
-    clj-refactor
-    cljr-helm
-    cljsbuild-mode
-    clojure-mode
     company-ghc
     company-jedi
     dash
@@ -96,7 +90,6 @@ subdirectories of other projects.  Defaults to the directory
     multiple-cursors
     org-plus-contrib
     org-trello
-    paredit
     pcre2el
     python-django
     s

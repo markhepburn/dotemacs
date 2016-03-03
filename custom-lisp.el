@@ -15,7 +15,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; Slime:
+;;; Slime (not installed for now):
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Note: slime is now included with and loaded by clojure-mode,
 ;;; typically invoked from clojure-jack-in (and this conflicts with
@@ -31,11 +31,11 @@
 ;;                             (cond ((not (featurep 'slime))
 ;;                                    (require 'slime)
 ;;                                    (normal-mode)))))
-(add-hook 'slime-repl-mode-hook (lambda ()
-                                  (define-key slime-repl-mode-map
-                                    (kbd "<up>") 'slime-repl-previous-input)
-                                  (define-key slime-repl-mode-map
-                                    (kbd "<down>") 'slime-repl-next-input)))
+;; (add-hook 'slime-repl-mode-hook (lambda ()
+;;                                   (define-key slime-repl-mode-map
+;;                                     (kbd "<up>") 'slime-repl-previous-input)
+;;                                   (define-key slime-repl-mode-map
+;;                                     (kbd "<down>") 'slime-repl-next-input)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -43,33 +43,39 @@
 ;;; Clojure:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(use-package clojure-mode
+  :config (add-hook 'clojure-mode-hook #'turn-on-eldoc-mode))
+
 ;;; refactoring:
-(autoload 'clj-refactor-mode "clj-refactor" "Refactoring support for Clojure" t)
-(add-hook 'clojure-mode-hook (lambda ()
-                               (clj-refactor-mode 1)
-                               (cljr-add-keybindings-with-prefix "C-c C-r")))
+(use-package clj-refactor
+  :after (clojure-mode)
+  :init
+  (add-hook 'clojure-mode-hook (lambda ()
+                                 (clj-refactor-mode 1)
+                                 (cljr-add-keybindings-with-prefix "C-c C-r"))))
 ;;; helm interface to refactoring:
-(add-hook 'clojure-mode-hook (lambda ()
-                               (define-key clojure-mode-map (kbd "C-c r") 'cljr-helm)))
+(use-package cljr-helm
+  :after (clojure-mode)
+  :init
+  (add-hook 'clojure-mode-hook (lambda ()
+                                 (define-key clojure-mode-map (kbd "C-c r") 'cljr-helm))))
 
 ;;; clojurescript (build from emacs, and pop up stacktrack when
 ;;; there's a error):
-(autoload 'cljsbuild-start "cljsbuild-mode" "Build cljs from emacs" t)
-(after "cljsbuild-mode"
-  (diminish 'cljsbuild-mode))
+(use-package cljsbuild-mode
+  :diminish cljsbuild-mode)
 
-(add-hook 'clojure-mode-hook #'turn-on-eldoc-mode)
-(require 'cider-eval-sexp-fu nil t)
+(use-package cider-eval-sexp-fu)
 
 ;;; ...and cider (formerly nrepl) integration:
-(autoload 'cider "cider" "Connect to existing cider instance")
-(autoload 'cider-jack-in "cider" "Launch a nrepl instance")
-(setq cider-repl-use-pretty-printing t)
-(add-hook 'cider-mode-hook (lambda ()
-                             (define-key cider-repl-mode-map
-                               (kbd "<up>") 'cider-repl-previous-input)
-                             (define-key cider-repl-mode-map
-                               (kbd "<down>") 'cider-repl-next-input)))
+(use-package cider
+  :init (setq cider-repl-use-pretty-printing t)
+  :config
+  (add-hook 'cider-mode-hook (lambda ()
+                               (define-key cider-repl-mode-map
+                                 (kbd "<up>") 'cider-repl-previous-input)
+                               (define-key cider-repl-mode-map
+                                 (kbd "<down>") 'cider-repl-next-input))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -78,6 +84,8 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; See http://mumble.net/~campbell/emacs/paredit.html for a reference
 ;; table with examples.
+(use-package paredit
+  :diminish paredit-mode)
 (enable-minor-mode-for paredit-mode
                        '(cider
                          clojure
@@ -86,7 +94,6 @@
                          inferior-lisp
                          lisp
                          slime-repl))
-(after 'paredit (diminish 'paredit-mode))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (provide 'custom-lisp)
