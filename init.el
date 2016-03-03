@@ -92,7 +92,6 @@ subdirectories of other projects.  Defaults to the directory
     python-django
     s
     smartparens
-    sql-indent
     ;tags-view
     ;toggle-case
     virtualenvwrapper))

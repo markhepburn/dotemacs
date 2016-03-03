@@ -495,8 +495,8 @@ the current buffer as normal."
 ;;; open jar files as well:
 (add-to-list 'auto-mode-alist '("\\.jar\\'" . archive-mode))
 
-(after "sql"
-  (load-library "sql-indent"))
+(use-package sql-indent
+  :after (sql))
 
 ;;; elscreen provides enough "frame" management for me:
 (setq woman-use-own-frame nil)
