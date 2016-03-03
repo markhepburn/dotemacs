@@ -75,7 +75,6 @@ subdirectories of other projects.  Defaults to the directory
     cljr-helm
     cljsbuild-mode
     clojure-mode
-    company
     company-ghc
     company-jedi
     dash

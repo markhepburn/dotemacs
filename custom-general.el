@@ -154,10 +154,11 @@
 
 ;;; Company now seems more active, and in particular clojure-mode
 ;;; works best with company:
-(after "company"
-  (define-key company-active-map (kbd "C-n") 'company-select-next)
-  (define-key company-active-map (kbd "C-p") 'company-select-previous)
-  (diminish 'company-mode))
+(use-package company
+  :bind (:map company-active-map
+         ("C-n" . company-select-next)
+         ("C-p" . company-select-previous))
+  :diminish company-mode)
 
 ;;; paren-matching:
 (setq show-paren-delay 0)
