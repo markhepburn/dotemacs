@@ -113,8 +113,8 @@
 (setq cua-auto-tabify-rectangles nil) ;; Don't tabify after rectangle commands
 
 ;;; expand-region; see http://emacsrocks.com/e09.html
-(autoload 'er/expand-region "expand-region" t)
-(global-set-key (kbd "C-=") 'er/expand-region)
+(use-package expand-region
+  :bind ("C-=" . er/expand-region))
 
 ;;; Move text up and down:
 (use-package move-text

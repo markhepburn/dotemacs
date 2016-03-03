@@ -83,7 +83,6 @@ subdirectories of other projects.  Defaults to the directory
     elisp-slime-nav
     eshell-git-prompt
     ess
-    expand-region
     fic-mode
     flycheck
     free-keys
