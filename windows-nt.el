@@ -1,9 +1,7 @@
 ;;; Automatically handle ssh-agent interaction (hooks into magit):
 ;;; (warning: might need to disable the "start" script in the git-bin
 ;;; path; haven't come across issues arising from doing that yet)
-(unless (package-installed-p 'ssh-agency)
-  (package-refresh-contents)
-  (package-install 'ssh-agency))
+(use-package ssh-agency)
 
 ;;; Don't display ^M in mixed-line-endings buffers
 ;;; Via http://stackoverflow.com/questions/730751/hiding-m-in-emacs
