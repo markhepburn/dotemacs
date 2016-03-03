@@ -93,7 +93,6 @@ subdirectories of other projects.  Defaults to the directory
     pcre2el
     python-django
     s
-    session
     smartparens
     sql-indent
     ;tags-view
@@ -176,8 +175,9 @@ subdirectories of other projects.  Defaults to the directory
 (setq disabled-command-function nil)
 
 ;;; Set up session-saving (see https://github.com/emacs-helm/helm/issues/204):
-(setq session-save-print-spec '(t nil 40000))
-(add-hook 'after-init-hook 'session-initialize)
+(use-package session
+  :init (setq session-save-print-spec '(t nil 40000))
+  :config (add-hook 'after-init-hook 'session-initialize))
 
 (message ".emacs loaded in %ds"
          (destructuring-bind (hi lo ms ps) (current-time)
