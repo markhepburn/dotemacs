@@ -83,7 +83,6 @@ subdirectories of other projects.  Defaults to the directory
     helm-swoop
     jedi
     ;mplayer-mode
-    multiple-cursors
     org-plus-contrib
     org-trello
     pcre2el
