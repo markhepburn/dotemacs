@@ -179,9 +179,6 @@ subdirectories of other projects.  Defaults to the directory
 (setq session-save-print-spec '(t nil 40000))
 (add-hook 'after-init-hook 'session-initialize)
 
-;;; company-mode completion:
-(add-hook 'after-init-hook 'global-company-mode)
-
 (message ".emacs loaded in %ds"
          (destructuring-bind (hi lo ms ps) (current-time)
            (- (+ hi lo) (+ (first *mh/load-start-time*)
