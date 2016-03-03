@@ -504,8 +504,8 @@ the current buffer as normal."
 
 ;;; Programming modes: enable "FIXME/TODO/etc" highlighting.
 (use-package fic-mode
-  :init (add-hook 'prog-mode-hook 'fic-ext-mode)
-  :diminish fic-ext-mode)
+  :config (add-hook 'prog-mode-hook 'fic-mode)
+  :diminish fic-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; compression; edit compressed kml files too:
