@@ -9,34 +9,14 @@
 
 (setq js-indent-level 2)
 
-;;; Work-around: the emacs version I'm using doesn't bundle
-;;; json-pretty-print-buffer, used by restclient-mode.  So, implement
-;;; it using json-reformat:
-(after "restclient"
-  (require 'json-reformat)
-  (defun json-pretty-print-buffer ()
-    (json-reformat-region (point-min) (point-max))))
-
-;;; mozrepl integration
-;;; (http://people.internetconnection.net/2009/02/interactive-html-development-in-emacs/):
-(autoload 'moz-minor-mode "moz" "Mozilla Minor and Inferior Mozilla Modes" t)
-(after "moz"
-  (require 'moz)
-  (require 'json)
-  (defun moz-update (&rest ignored)
-    "Update the remote mozrepl instance"
-    (interactive)
-    (comint-send-string (inferior-moz-process)
-                        (concat "content.document.body.innerHTML="
-                                (json-encode (buffer-string)) ";")))
-  (defun moz-enable-auto-update ()
-    "Automatically update the remote mozrepl when this buffer changes"
-    (interactive)
-    (add-hook 'after-change-functions 'moz-update t t))
-  (defun moz-disable-auto-update ()
-    "Disable automatic mozrepl updates"
-    (interactive)
-    (remove-hook 'after-change-functions 'moz-update t)))
+(use-package json-reformat)
+(use-package restclient
+  ;; Work-around: the emacs version I'm using doesn't bundle
+  ;; json-pretty-print-buffer, used by restclient-mode.  So, implement
+  ;; it using json-reformat:
+  :config (when (require 'json-reformat nil t)
+            (defun json-pretty-print-buffer ()
+              (json-reformat-region (point-min) (point-max)))))
 
 ;;; From http://whattheemacsd.com//setup-html-mode.el-05.html
 ;;; after deleting a tag, indent properly (I didn't use
@@ -44,43 +24,40 @@
 (defadvice sgml-delete-tag (after reindent activate)
   (indent-region (point-min) (point-max)))
 
-(autoload 'web-mode "web-mode"
-  "Advanced combined mode for html-derived files" nil t)
-(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+(use-package web-mode
+  :mode "\\.html?\\'")
 
 ;;; emmet (zencoding) shortcuts for html generation:
-(autoload 'emmet-mode "emmet-mode"
-  "Emmet (Zencoding) HTML generation shortcuts" t)
-(add-hook 'web-mode-hook 'emmet-mode)
-(add-hook 'css-mode-hook 'emmet-mode)
-(setq-default emmet-indentation 2)
-;;; reclaim C-j keybinding from emmet!
-(after "emmet-mode"
-  (define-key emmet-mode-keymap (kbd "C-j") nil)
-  (define-key emmet-mode-keymap (kbd "M-<return>") 'emmet-expand-line))
+(use-package emmet-mode
+  :after (web-mode)
+  :init (setq-default emmet-indentation 2)
+  :config (progn
+            (add-hook 'web-mode-hook 'emmet-mode)
+            (add-hook 'css-mode-hook 'emmet-mode))
+  :bind (:map emmet-mode-keymap
+         ("C-j" . nil) ;; reclaim C-j keybinding from emmet!
+         ("M-<return>" . emmet-expand-line)))
 
 ;;; Interactive django mode (virtualenv and fabric integration, etc):
 ;; Loading now then plugs it in to the related major-modes:
 
-;;; Commentary:
-;; 
-
-(require 'pony-mode nil t)
+(use-package pony-mode)
 
 ;;; Make css colour definitions the colour they represent:
-(autoload 'rainbow-turn-on "rainbow-mode" nil t)
-(add-hook 'css-mode-hook 'rainbow-turn-on)
+(use-package rainbow-mode
+  :after (css-mode)
+  :config (add-hook 'css-mode-hook 'rainbow-turn-on))
 
 ;;; use c-style indentation in css:
 (setq cssm-indent-function 'cssm-c-style-indenter)
 
 ;;; Now using LessCSS, using its own derived mode:
-(when (require 'less-css-mode nil t)
-  (add-hook 'less-css-mode-hook 'rainbow-turn-on))
+(use-package less-css-mode
+  :after (less-css-mode)
+  :config (add-hook 'less-css-mode-hook 'rainbow-turn-on))
 
 ;;; JSX (React):
-(add-to-list 'auto-mode-alist '("\\.jsx\\'" . jsx-mode))
-(autoload 'jsx-mode "jsx-mode" "JSX mode" t)
+(use-package jsx-mode)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

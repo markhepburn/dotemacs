@@ -82,7 +82,6 @@ subdirectories of other projects.  Defaults to the directory
     ;distel
     ein
     elisp-slime-nav
-    emmet-mode
     eshell-git-prompt
     ess
     expand-region
@@ -98,9 +97,6 @@ subdirectories of other projects.  Defaults to the directory
     helm-projectile
     helm-swoop
     jedi
-    json-reformat
-    jsx-mode
-    less-css-mode
     lively
     lorem-ipsum
     markdown-mode
@@ -112,11 +108,8 @@ subdirectories of other projects.  Defaults to the directory
     org-trello
     paredit
     pcre2el
-    pony-mode
     projectile
     python-django
-    rainbow-mode
-    restclient
     rst
     s
     session
@@ -127,7 +120,6 @@ subdirectories of other projects.  Defaults to the directory
     undo-tree
     virtualenvwrapper
     visual-regexp
-    web-mode
     win-switch
     yaml-mode
     yasnippet))
