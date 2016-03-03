@@ -237,15 +237,17 @@
 
 ;;; Temporarily enable fringe line-numbers during goto-line.
 ;;; Via http://whattheemacsd.com/key-bindings.el-01.html
-(defun goto-line-with-feedback ()
-  "Show line numbers temporarily, while prompting for the line number input."
-  (interactive)
-  (unwind-protect
-      (progn
-        (nlinum-mode 1)
-        (call-interactively 'goto-line))
-    (nlinum-mode -1)))
-(global-set-key [remap goto-line] 'goto-line-with-feedback)
+(use-package nlinum
+  :config (progn
+            (defun goto-line-with-feedback ()
+              "Show line numbers temporarily, while prompting for the line number input."
+              (interactive)
+              (unwind-protect
+                  (progn
+                    (nlinum-mode 1)
+                    (call-interactively 'goto-line))
+                (nlinum-mode -1)))
+            (global-set-key [remap goto-line] 'goto-line-with-feedback)))
 
 ;;; similar advice for 'yank and 'yank-pop:
 (defadvice yank (after indent-region-for-yank activate)

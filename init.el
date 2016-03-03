@@ -99,7 +99,6 @@ subdirectories of other projects.  Defaults to the directory
     markdown-mode
     ;mplayer-mode
     multiple-cursors
-    nlinum
     org-plus-contrib
     org-trello
     paredit
