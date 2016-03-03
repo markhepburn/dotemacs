@@ -115,7 +115,6 @@ subdirectories of other projects.  Defaults to the directory
     undo-tree
     virtualenvwrapper
     visual-regexp
-    win-switch
     yaml-mode))
 
 (defun mh/all-packages-installed-p ()

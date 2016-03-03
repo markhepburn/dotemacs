@@ -278,36 +278,37 @@
 (windmove-default-keybindings)
 ;;; Let's experiment with winswitch too (makes C-xo a prefix key for
 ;;; hjkl switching -- less movement from the home row!)
-(when (require 'win-switch nil t)
-  (setq win-switch-idle-time 1)            ; Can always hit <return> to exit sooner.
-  (setq win-switch-other-window-first nil) ; Rationale: either in the mode or not, no mix of functionality.
-  (defun mh/win-switch-setup-keys-vistyle (&rest dispatch-keys)
-    "Restore default key commands and bind global dispatch keys.
+(use-package win-switch
+  :init (setq win-switch-idle-time 1 ; Can always hit <return> to exit sooner.
+              win-switch-other-window-first nil)
+  :config (progn
+            (defun mh/win-switch-setup-keys-vistyle (&rest dispatch-keys)
+              "Restore default key commands and bind global dispatch keys.
 Under this setup, keys i, j, k, and l will switch windows,
 respectively, up, left, down, and right, with other functionality
 bound to nearby keys.  The arguments DISPATCH-KEYS, if non-nil,
 should be a list of keys that will be bound globally to
 `win-switch-dispatch'."
-    (interactive)
-    (win-switch-set-keys '("h") 'left)
-    (win-switch-set-keys '("k") 'up)
-    (win-switch-set-keys '("j") 'down)
-    (win-switch-set-keys '("l") 'right)
-    (win-switch-set-keys '("n") 'next-window)
-    (win-switch-set-keys '("p") 'previous-window)
-    (win-switch-set-keys '("K") 'enlarge-vertically)
-    (win-switch-set-keys '("J") 'shrink-vertically)
-    (win-switch-set-keys '("H") 'enlarge-horizontally)
-    (win-switch-set-keys '("L") 'shrink-horizontally)
-    (win-switch-set-keys '("O") 'other-frame)
-    (win-switch-set-keys '(" " [return]) 'exit)
-    (win-switch-set-keys '("i") 'split-horizontally)
-    (win-switch-set-keys '("u") 'split-vertically)
-    (win-switch-set-keys '("0") 'delete-window)
-    (win-switch-set-keys '("\M-\C-g") 'emergency-exit)
-    (dolist (key dispatch-keys)
-      (global-set-key key 'win-switch-dispatch)))
-  (mh/win-switch-setup-keys-vistyle (kbd "C-x o")))
+              (interactive)
+              (win-switch-set-keys '("h") 'left)
+              (win-switch-set-keys '("k") 'up)
+              (win-switch-set-keys '("j") 'down)
+              (win-switch-set-keys '("l") 'right)
+              (win-switch-set-keys '("n") 'next-window)
+              (win-switch-set-keys '("p") 'previous-window)
+              (win-switch-set-keys '("K") 'enlarge-vertically)
+              (win-switch-set-keys '("J") 'shrink-vertically)
+              (win-switch-set-keys '("H") 'enlarge-horizontally)
+              (win-switch-set-keys '("L") 'shrink-horizontally)
+              (win-switch-set-keys '("O") 'other-frame)
+              (win-switch-set-keys '(" " [return]) 'exit)
+              (win-switch-set-keys '("i") 'split-horizontally)
+              (win-switch-set-keys '("u") 'split-vertically)
+              (win-switch-set-keys '("0") 'delete-window)
+              (win-switch-set-keys '("\M-\C-g") 'emergency-exit)
+              (dolist (key dispatch-keys)
+                (global-set-key key 'win-switch-dispatch)))
+            (mh/win-switch-setup-keys-vistyle (kbd "C-x o"))))
 ;;; and rotate windows too:
 (use-package buffer-move
   :bind (("M-g <left>"  . buf-move-left)
