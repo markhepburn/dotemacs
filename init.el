@@ -80,7 +80,6 @@ subdirectories of other projects.  Defaults to the directory
     dash
     ;distel
     ein
-    elisp-slime-nav
     eshell-git-prompt
     ess
     fic-mode

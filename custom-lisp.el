@@ -8,10 +8,10 @@
 
 ;;; Code:
 
-(autoload 'elisp-slime-nav-mode "elisp-slime-nav"
-  "M-./M-, navigation for elisp" t)
-(add-hook 'emacs-lisp-mode-hook (lambda () (elisp-slime-nav-mode t)))
-(after "elisp-slime-nav" (diminish 'elisp-slime-nav-mode))
+(use-package elisp-slime-nav
+  :init (add-hook 'emacs-lisp-mode-hook
+                  (lambda () (elisp-slime-nav-mode t)))
+  :diminish elisp-slime-nav-mode)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
