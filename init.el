@@ -118,8 +118,7 @@ subdirectories of other projects.  Defaults to the directory
     virtualenvwrapper
     visual-regexp
     win-switch
-    yaml-mode
-    yasnippet))
+    yaml-mode))
 
 (defun mh/all-packages-installed-p ()
   (cl-every (lambda (p) (package-installed-p p))
