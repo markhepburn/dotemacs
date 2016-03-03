@@ -500,9 +500,9 @@ the current buffer as normal."
 (setq woman-use-own-frame nil)
 
 ;;; Programming modes: enable "FIXME/TODO/etc" highlighting.
-(when (require 'fic-ext-mode nil t)
-  (add-hook 'prog-mode-hook 'fic-ext-mode)
-  (diminish 'fic-ext-mode))
+(use-package fic-mode
+  :init (add-hook 'prog-mode-hook 'fic-ext-mode)
+  :diminish fic-ext-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; compression; edit compressed kml files too:

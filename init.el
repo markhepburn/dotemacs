@@ -76,7 +76,6 @@ subdirectories of other projects.  Defaults to the directory
     ein
     eshell-git-prompt
     ess
-    fic-mode
     flycheck
     ghc
     haskell-mode
