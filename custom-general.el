@@ -479,16 +479,18 @@ the current buffer as normal."
 (add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))
 
 ;;; markdown mode:
-(when (require 'markdown-mode nil t)
-  (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-;;; Custom fill-break predicate to consider Liquid tags as well (since
-;;; I mostly use markdown in conjunction with Jekyll):
-  (defun mh/liquid-nobreak-p ()
-    (looking-back "({%[^%]*"))
+(use-package markdown-mode
+  :mode "\\.md\\'"
+  :config
+  (progn
+    ;; Custom fill-break predicate to consider Liquid tags as well (since
+    ;; I mostly use markdown in conjunction with Jekyll):
+    (defun mh/liquid-nobreak-p ()
+      (looking-back "({%[^%]*"))
 
-  (add-hook 'markdown-mode-hook
-            (lambda ()
-              (add-hook 'fill-nobreak-predicate 'mh/liquid-nobreak-p))))
+    (add-hook 'markdown-mode-hook
+              (lambda ()
+                (add-hook 'fill-nobreak-predicate 'mh/liquid-nobreak-p)))))
 
 ;;; open jar files as well:
 (add-to-list 'auto-mode-alist '("\\.jar\\'" . archive-mode))

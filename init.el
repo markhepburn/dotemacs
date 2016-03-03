@@ -84,7 +84,6 @@ subdirectories of other projects.  Defaults to the directory
     helm-descbinds
     helm-swoop
     jedi
-    markdown-mode
     ;mplayer-mode
     multiple-cursors
     org-plus-contrib
