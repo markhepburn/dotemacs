@@ -449,7 +449,8 @@ the current buffer as normal."
         try-expand-dabbrev-from-kill))
 
 ;;; Visual regexp support:
-(global-set-key (kbd "C-x r q") 'vr/query-replace)
+(use-package visual-regexp
+  :bind ("C-x r q" . vr/query-replace))
 
 ;; make arrow keys work properly in comint buffers:
 (after 'comint

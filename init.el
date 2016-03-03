@@ -106,8 +106,7 @@ subdirectories of other projects.  Defaults to the directory
     sql-indent
     ;tags-view
     ;toggle-case
-    virtualenvwrapper
-    visual-regexp))
+    virtualenvwrapper))
 
 (defun mh/all-packages-installed-p ()
   (cl-every (lambda (p) (package-installed-p p))
