@@ -83,19 +83,23 @@
       ediff-split-window-function 'split-window-horizontally)
 
 ;;; project mode:
-(projectile-global-mode 1)
-(after 'projectile
-  (setq projectile-completion-system 'helm
-        projectile-switch-project-action 'helm-projectile
-        ;; http://iqbalansari.github.io/blog/2014/02/22/switching-repositories-with-magit/
-        ;; http://irreal.org/blog/?p=4177
-        magit-repository-directories (mapcar (lambda (dir)
-                                               (substring dir 0 -1))
-                                             (nreverse
-                                              (remove-if-not (lambda (project)
-                                                               (file-directory-p (concat project "/.git/")))
-                                                             (projectile-relevant-known-projects)))))
-  (diminish 'projectile-mode))
+(use-package helm-projectile)
+(use-package projectile
+  :config
+  (progn
+    (projectile-global-mode 1)
+    (setq projectile-completion-system 'helm
+          projectile-switch-project-action 'helm-projectile
+          ;; http://iqbalansari.github.io/blog/2014/02/22/switching-repositories-with-magit/
+          ;; http://irreal.org/blog/?p=4177
+          magit-repository-directories
+          (mapcar (lambda (dir)
+                    (substring dir 0 -1))
+                  (nreverse
+                   (remove-if-not (lambda (project)
+                                    (file-directory-p (concat project "/.git/")))
+                                  (projectile-relevant-known-projects))))))
+  :diminish projectile-mode)
 
 (use-package multiple-cursors
   :bind (("C-!" . mc/edit-lines)

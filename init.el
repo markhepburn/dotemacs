@@ -94,7 +94,6 @@ subdirectories of other projects.  Defaults to the directory
     helm
     helm-ag
     helm-descbinds
-    helm-projectile
     helm-swoop
     jedi
     lively
@@ -108,7 +107,6 @@ subdirectories of other projects.  Defaults to the directory
     org-trello
     paredit
     pcre2el
-    projectile
     python-django
     rst
     s
