@@ -74,7 +74,6 @@ subdirectories of other projects.  Defaults to the directory
     ;distel
     ein
     ess
-    helm
     jedi
     ;mplayer-mode
     org-plus-contrib
