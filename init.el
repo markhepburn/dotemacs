@@ -75,9 +75,6 @@ subdirectories of other projects.  Defaults to the directory
     ein
     ess
     helm
-    helm-ag
-    helm-descbinds
-    helm-swoop
     jedi
     ;mplayer-mode
     org-plus-contrib
