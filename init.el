@@ -67,8 +67,7 @@ subdirectories of other projects.  Defaults to the directory
 ;; My installed package list:
 ;;; TODO: quelpa-use-package for my own repos
 (setq *mh/packages*
-  '(auctex
-    cedet
+  '(cedet
     company-jedi
     dash
     ;distel
