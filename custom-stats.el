@@ -3,30 +3,32 @@
 
 
 ;;; Commentary:
-;; 
+;;
 
 ;;; Code:
 
-(setq ess-eval-visibly-p nil) ; otherwise C-c C-r (eval-region) takes
-                              ; forever
-(setq ess-ask-for-ess-directory nil) ; otherwise you are prompted each
-                                     ; time you start an interactive R
-                                     ; session
-;(require 'ess-eldoc) ; to show function arguments while you are typing
-                     ; them
+(use-package ess
+  :disabled t
+  :init
+  (setq ess-eval-visibly-p nil ; otherwise C-c C-r (eval-region) takes forever
+        ess-ask-for-ess-directory nil; otherwise you are prompted each
+                                        ; time you start an interactive R
+                                        ; session
+        ;; http://www.sigmafield.org/2009/10/01/r-object-tooltips-in-ess/
+        ;; Tidied up a fair bit (redunant progns removed, using with-temp-buffer)
+        ess-R-object-tooltip-alist '((numeric    . "summary")
+                                     (factor     . "table")
+                                     (integer    . "summary")
+                                     (lm         . "summary")
+                                     (other      . "str")))
 
-(after "ess-mode"
+  :bind (:map ess-mode-map
+         ("C-c" . ess-R-object-tooltip))
+
+  :config
   ;; R-specific utilities and keybindings:
   (require 'ess-rutils)
-
-  ;; http://www.sigmafield.org/2009/10/01/r-object-tooltips-in-ess/
-  ;; Tidied up a fair bit (redunant progns removed, using with-temp-buffer)
-  (setq ess-R-object-tooltip-alist
-        '((numeric    . "summary")
-          (factor     . "table")
-          (integer    . "summary")
-          (lm         . "summary")
-          (other      . "str")))
+  (require 'ess-eldoc) ; to show function arguments while you are typing them
 
   (defun ess-R-object-tooltip ()
     "Get info for object at point, and display it in a tooltip."
@@ -50,9 +52,8 @@
                     (ess-command (concat myfun "(" objname ")\n") (current-buffer))
                     (let ((bs (buffer-string)))
                       (set-buffer curbuf)
-                      (tooltip-show-at-point bs 0 30)))))))))
+                      (tooltip-show-at-point bs 0 30))))))))))
 
-  (define-key ess-mode-map (kbd "C-c .") 'ess-R-object-tooltip))
 
 (provide 'custom-stats)
 

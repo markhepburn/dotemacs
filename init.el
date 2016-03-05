@@ -72,7 +72,6 @@ subdirectories of other projects.  Defaults to the directory
     dash
     ;distel
     ein
-    ess
     jedi
     ;mplayer-mode
     pcre2el
@@ -143,7 +142,7 @@ subdirectories of other projects.  Defaults to the directory
 
 (load "custom-helm")
 
-;; (load "custom-stats")
+(load "custom-stats")
 
 (use-package powerline
   :config (powerline-default-theme))
