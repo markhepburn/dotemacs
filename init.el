@@ -68,11 +68,8 @@ subdirectories of other projects.  Defaults to the directory
 ;;; TODO: quelpa-use-package for my own repos
 (setq *mh/packages*
   '(cedet
-    company-jedi
     dash
     ;distel
-    ein
-    jedi
     ;mplayer-mode
     pcre2el
     python-django

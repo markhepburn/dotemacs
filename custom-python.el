@@ -10,33 +10,22 @@
 
 ;;; Code:
 
-(setq
- python-shell-interpreter "ipython"
- python-shell-interpreter-args ""
- python-shell-prompt-regexp "In \\[[0-9]+\\]: "
- python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
- python-shell-completion-setup-code
-   "from IPython.core.completerlib import module_completion"
- python-shell-completion-module-string-code
-   "';'.join(module_completion('''%s'''))\n"
- python-shell-completion-string-code
-   "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")
 
-(defun mh/python-mode-jedi-setup ()
-  "Include a .dir-locals.el file with
-    ((nil . ((python-shell-virtualenv-path . \"/path/to/venv\"))))
-  in it.  Including one in the virtualenv itself
-  enables navigating through lib source as well."
 
-  (setq jedi:setup-keys      t
-        jedi:use-shortcuts   t
-        jedi:complete-on-dot t)
-  (when (require 'jedi nil t)
-   (jedi:setup)
-   (require 'company-jedi nil t)
-   (jedi-mode 1)))
+(use-package python
+  :init (setq
+         python-shell-interpreter "ipython"
+         python-shell-interpreter-args ""
+         python-shell-prompt-regexp "In \\[[0-9]+\\]: "
+         python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
+         python-shell-completion-setup-code
+         "from IPython.core.completerlib import module_completion"
+         python-shell-completion-module-string-code
+         "';'.join(module_completion('''%s'''))\n"
+         python-shell-completion-string-code
+         "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")
 
-(after "python"
+  :config
   (add-hook 'python-mode-hook 'mh/python-mode-jedi-setup)
 
   (add-hook 'python-mode-hook
@@ -56,9 +45,28 @@
           (newline-and-indent))
       ad-do-it)))
 
+(use-package jedi
+  :config
+  (defun mh/python-mode-jedi-setup ()
+    "Include a .dir-locals.el file with
+    ((nil . ((python-shell-virtualenv-path . \"/path/to/venv\"))))
+  in it.  Including one in the virtualenv itself
+  enables navigating through lib source as well."
+
+    (setq jedi:setup-keys      t
+          jedi:use-shortcuts   t
+          jedi:complete-on-dot t)
+    (when (require 'jedi nil t)
+      (jedi:setup)
+      (require 'company-jedi nil t)
+      (jedi-mode 1))))
+
+(use-package company-jedi
+  :after (jedi))
+
 ;;; ipython-notebook integration:
-(after "ein"
-  (setq ein:use-auto-complete t))
+(use-package ein
+  :init (setq ein:use-auto-complete t))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
