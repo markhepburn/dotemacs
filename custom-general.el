@@ -236,9 +236,9 @@
 
 ;;; Can't believe I never went looking for this; great choice of
 ;;; keybinding too.  Hat-tip to http://irreal.org/blog/?p=1536
-(autoload 'zap-up-to-char "misc"
-  "Kill up to, but not including ARGth occurrence of CHAR.")
-(global-set-key (kbd "M-Z") 'zap-up-to-char)
+(use-package misc
+  :ensure nil
+  :bind ("M-Z" . zap-up-to-char))
 
 ;;; Temporarily enable fringe line-numbers during goto-line.
 ;;; Via http://whattheemacsd.com/key-bindings.el-01.html
