@@ -11,6 +11,7 @@
 ;;; Code:
 
 ;;; Some miscellaneous packages, no bindings or anything yet:
+(use-package diminish)
 (use-package flycheck)
 (use-package free-keys)
 (use-package lively)
@@ -20,11 +21,6 @@
 
 (setq-default save-place t)
 (setq save-place-file (expand-file-name "saved.places" user-emacs-directory))
-
-;;; Trim the modeline (http://whattheemacsd.com/init.el-04.html).  We
-;;; require this early, and don't ignore errors either, because it
-;;; will wind up sprinkled all through the config.
-(require 'diminish)
 
 ;;; Quit emacs (??) easier:
 (defalias 'sbke 'save-buffers-kill-emacs)
