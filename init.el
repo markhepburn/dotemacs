@@ -75,8 +75,6 @@ subdirectories of other projects.  Defaults to the directory
     ess
     jedi
     ;mplayer-mode
-    org-plus-contrib
-    org-trello
     pcre2el
     python-django
     s
