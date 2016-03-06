@@ -24,8 +24,7 @@
 
      helm-split-window-default-side 'other ;; open helm buffer in another window
      helm-split-window-in-side-p t ;; open helm buffer inside current window, not occupy whole other window
-     helm-buffers-favorite-modes (append helm-buffers-favorite-modes
-                                         '(picture-mode artist-mode))
+
      helm-candidate-number-limit 200 ; limit the number of displayed canidates
      helm-M-x-requires-pattern 0   ; show all candidates when set to 0
      helm-boring-file-regexp-list
@@ -67,6 +66,9 @@
     (require 'helm-eshell)
     (require 'helm-files)
     (require 'helm-grep)
+
+    (setq helm-buffers-favorite-modes (append helm-buffers-favorite-modes
+                                              '(picture-mode artist-mode)))
 
     ;; Something funky going on, but can't :bind to help-command (it's
     ;; either a sparse keymap or a function; weird)
