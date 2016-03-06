@@ -71,6 +71,9 @@ subdirectories of other projects.  Defaults to the directory
 ;;; mplayer-mode
 ;;; tags-view
 ;;; toggle-case
+(use-package quelpa-use-package
+  :init (setq quelpa-update-melpa-p nil))
+
 
 ;;; loaded before anything else because of various macros
 ;;; (enable-minor-mode-for, after):
