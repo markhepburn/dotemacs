@@ -57,9 +57,11 @@ subdirectories of other projects.  Defaults to the directory
 
 (unless (package-installed-p 'use-package)
   (progn
+    (message "Installing use-package first...")
     (unless package-archive-contents
       (package-refresh-contents))
-    (package-install 'use-package)))
+    (package-install 'use-package)
+    (message "Installing use-package first... Done.")))
 
 (require 'use-package)
 (setq use-package-always-ensure t)
@@ -69,21 +71,6 @@ subdirectories of other projects.  Defaults to the directory
 ;;; mplayer-mode
 ;;; tags-view
 ;;; toggle-case
-(setq *mh/packages*
-  '())
-
-(defun mh/all-packages-installed-p ()
-  (cl-every (lambda (p) (package-installed-p p))
-            *mh/packages*))
-
-(unless (mh/all-packages-installed-p)
-  (message "Refreshing package database...")
-  (package-refresh-contents)
-  (message "Done.")
-  (dolist (package *mh/packages*)
-   (unless (package-installed-p package)
-     (package-install package))))
-
 
 ;;; loaded before anything else because of various macros
 ;;; (enable-minor-mode-for, after):
