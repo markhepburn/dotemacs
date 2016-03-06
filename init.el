@@ -65,16 +65,15 @@ subdirectories of other projects.  Defaults to the directory
 (setq use-package-always-ensure t)
 
 ;; My installed package list:
-;;; TODO: quelpa-use-package for my own repos
+;;; TODO: quelpa-use-package for my own/non-elpa repos
+;;; mplayer-mode
+;;; tags-view
+;;; toggle-case
 (setq *mh/packages*
   '(dash
-    ;mplayer-mode
     pcre2el
     s
-    smartparens
-    ;tags-view
-    ;toggle-case
-    virtualenvwrapper))
+    smartparens))
 
 (defun mh/all-packages-installed-p ()
   (cl-every (lambda (p) (package-installed-p p))
