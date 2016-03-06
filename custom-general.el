@@ -450,6 +450,12 @@ the current buffer as normal."
   (show-smartparens-global-mode t)
   (diminish 'smartparens-mode))
 
+(use-package tags-view
+  :ensure nil
+  :quelpa (tags-view
+           :fetcher github
+           :repo "markhepburn/tags-view"))
+
 ;; use hippie-expand (mainly abbrev expand and dabbrev):
 (global-set-key (kbd "M-/") 'hippie-expand)
 (setq hippie-expand-try-functions-list
