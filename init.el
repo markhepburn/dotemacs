@@ -87,39 +87,10 @@ subdirectories of other projects.  Defaults to the directory
       t)
 (load system-name t)       ; Assume for now it is not fully-qualified.
 
-(load "custom-general")
-
-(load "custom-god-mode")
-
-(load "custom-escreen")
-
-(load "custom-erc")
-
-(load "custom-c")
-
-(load "custom-lisp")
-
-(load "custom-org")
-
-(load "custom-haskell")
-
-(load "custom-erlang")
-
-(load "custom-python")
-
-(load "custom-latex")
-
-(load "custom-js-web")
-
-(load "custom-eshell")
-
-(load "custom-vc")
-
-(load "custom-xml")
-
-(load "custom-helm")
-
-(load "custom-stats")
+;;; Load all custom-* files (except for -functions, already loaded above):
+(dolist (custom-file (directory-files *mh/lisp-base* nil "custom-.*" t))
+  (unless (string= "custom-functions" custom-file)
+    (load custom-file)))
 
 (use-package powerline
   :config (powerline-default-theme))
