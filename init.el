@@ -67,8 +67,7 @@ subdirectories of other projects.  Defaults to the directory
 ;; My installed package list:
 ;;; TODO: quelpa-use-package for my own repos
 (setq *mh/packages*
-  '(cedet
-    dash
+  '(dash
     ;distel
     ;mplayer-mode
     pcre2el
@@ -115,7 +114,7 @@ subdirectories of other projects.  Defaults to the directory
 
 (load "custom-erc")
 
-;(load "custom-c")
+(load "custom-c")
 
 (load "custom-lisp")
 
