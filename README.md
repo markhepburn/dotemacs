@@ -20,11 +20,12 @@ This should be as simple as cloning from github.  If you check out to
 where-ever you feel like and just symlink `init.el` to `~/.emacs`; it
 is designed to be portable like this.
 
-I now use [el-get](https://github.com/dimitri/el-get) for managing
-dependencies, which made a huge difference after years of
-hand-managing git submodules.  This should bootstrap itself already on
-first load, but if for some reason an install fails (a host is down,
-etc) you might need to disable entries in `*mh/packages*` for example.
+I use [use-package](https://github.com/jwiegley/use-package) now,
+after years with [el-get](https://github.com/dimitri/el-get).  Most
+packages are on melpa (and alternatives) now, and for those that
+aren't, the
+[quelpa plugin for use-package](https://github.com/quelpa/quelpa-use-package)
+smooths over the cracks.
 
 General Notes
 -------------
