@@ -25,6 +25,14 @@
   (indent-region (point-min) (point-max)))
 
 (use-package web-mode
+  :init (setq
+         web-mode-markup-indent-offset 2
+         ;; CSS offset indentation
+         web-mode-code-indent-offset 2
+         ;; Script offset indentation (for JavaScript, Java, PHP, etc.)
+         web-mode-css-indent-offset 2
+         ;; HTML content indentation
+         web-mode-indent-style 2)
   :mode "\\.html?\\'")
 
 ;;; emmet (zencoding) shortcuts for html generation:
