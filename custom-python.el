@@ -68,6 +68,8 @@
 (use-package ein
   :init (setq ein:use-auto-complete t))
 
+(use-package virtualenvwrapper)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (provide 'custom-python)
