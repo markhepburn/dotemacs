@@ -130,7 +130,11 @@
          ("C-S-n" . move-text-down)))
 
 ;;; more specialised "opening" commands; mplayer control:
-(autoload 'mplayer-find-file "mplayer-mode" "Control mplayer from emacs while editing a file" t)
+(use-package mplayer-mode
+  :ensure nil
+  :quelpa (mplayer-mode
+           :fetcher github
+           :repo "markhepburn/mplayer-mode"))
 
 ;;; Ignore .svn/ contents in find-grep:
 ;;; http://benjisimon.blogspot.com/2009/01/emacs-tip-slightly-better-find-grep.html
