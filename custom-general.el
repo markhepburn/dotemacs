@@ -423,17 +423,22 @@ the current buffer as normal."
 (global-set-key (kbd "C-x <right>") 'winner-redo)
 
 ;;; Replacing a lot of cruft from my skeleton-pair add-ons!
-(setq sp-ignore-modes-list
-      '(clojure-mode
-        emacs-lisp-mode
-        inferior-emacs-lisp-mode
-        inferior-lisp-mode
-        lisp-mode
-        minibuffer-inactive-mode
-        nrepl-mode
-        slime-repl-mode)
-      sp-base-key-bindings 'paredit)
-(when (require 'smartparens-config nil t)
+;;; Smartparens: awesome, but for some reason I forget I still use paredit in lisp modes
+(use-package smartparens-mode
+  :ensure smartparens
+  :init
+  (setq sp-ignore-modes-list
+        '(clojure-mode
+          emacs-lisp-mode
+          inferior-emacs-lisp-mode
+          inferior-lisp-mode
+          lisp-mode
+          minibuffer-inactive-mode
+          nrepl-mode
+          slime-repl-mode)
+        sp-base-key-bindings 'paredit)
+  :diminish smartparens-mode
+  :config
   (smartparens-global-mode t)
   (show-smartparens-global-mode t)
   (diminish 'smartparens-mode))

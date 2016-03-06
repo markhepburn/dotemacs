@@ -71,8 +71,7 @@ subdirectories of other projects.  Defaults to the directory
 ;;; toggle-case
 (setq *mh/packages*
   '(dash
-    s
-    smartparens))
+    s))
 
 (defun mh/all-packages-installed-p ()
   (cl-every (lambda (p) (package-installed-p p))
