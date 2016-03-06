@@ -9,7 +9,8 @@
 
 ;;; Code:
 
-(use-package org-plus-contrib
+(use-package org
+  :ensure org-plus-contrib
   :config
   (progn
     ;; don't bother eval-after-loading, because org is already included.
