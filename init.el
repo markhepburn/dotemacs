@@ -66,10 +66,6 @@ subdirectories of other projects.  Defaults to the directory
 (require 'use-package)
 (setq use-package-always-ensure t)
 
-;; My installed package list:
-;;; TODO: quelpa-use-package for my own/non-elpa repos
-;;; mplayer-mode
-;;; tags-view
 ;;; toggle-case
 (use-package quelpa-use-package
   :init (setq quelpa-update-melpa-p nil))
