@@ -14,6 +14,7 @@
 (use-package diminish)
 (use-package flycheck)
 (use-package free-keys)
+(use-package pcre2el)
 (use-package lively)
 (use-package lorem-ipsum)
 (use-package rst)

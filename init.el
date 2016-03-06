@@ -71,7 +71,6 @@ subdirectories of other projects.  Defaults to the directory
 ;;; toggle-case
 (setq *mh/packages*
   '(dash
-    pcre2el
     s
     smartparens))
 
