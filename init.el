@@ -70,7 +70,6 @@ subdirectories of other projects.  Defaults to the directory
   '(dash
     ;mplayer-mode
     pcre2el
-    python-django
     s
     smartparens
     ;tags-view
