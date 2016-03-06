@@ -336,16 +336,16 @@ should be a list of keys that will be bound globally to
          ("M-g j"       . buf-move-down)))
 
 ;; vi-like case toggle:
-;; (use-package toggle-case
-;;   :disabled t
-;;   :ensure nil
-;;   :quelpa (joc-toggle-case
-;;            :url "https://raw.githubusercontent.com/emacsmirror/emacswiki.org/master/joc-toggle-case.el"
-;;            :fetcher url)
-;;   :bind ((("C-`"   . joc-toggle-case)
-;;           ("C-~"   . joc-toggle-case-backwards)
-;;           ("C-M-`" . joc-toggle-case-by-word)
-;;           ("C-M-~" . joc-toggle-case-by-word-backwards))))
+(use-package toggle-case
+  :ensure nil
+  :quelpa (joc-toggle-case
+           ;; Use a gist file; needed some minor formatting for package.el to be happy:
+           :url "https://gist.githubusercontent.com/markhepburn/13bc70c6bdcb3a1b7951/raw/aed52d1999e030db822f8c490bee4bc0c865432d/toggle-case.el"
+           :fetcher url)
+  :bind (("C-`"   . toggle-case)
+         ("C-~"   . toggle-case-backwards)
+         ("C-M-`" . toggle-case-by-word)
+         ("C-M-~" . toggle-case-by-word-backwards)))
 
 ;; make all buffer-names unique:
 (when (require 'uniquify nil t)
