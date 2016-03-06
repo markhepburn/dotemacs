@@ -338,7 +338,7 @@ should be a list of keys that will be bound globally to
 ;; vi-like case toggle:
 (use-package toggle-case
   :ensure nil
-  :quelpa (joc-toggle-case
+  :quelpa (toggle-case
            ;; Use a gist file; needed some minor formatting for package.el to be happy:
            :url "https://gist.githubusercontent.com/markhepburn/13bc70c6bdcb3a1b7951/raw/aed52d1999e030db822f8c490bee4bc0c865432d/toggle-case.el"
            :fetcher url)
