@@ -68,7 +68,6 @@ subdirectories of other projects.  Defaults to the directory
 ;;; TODO: quelpa-use-package for my own repos
 (setq *mh/packages*
   '(dash
-    ;distel
     ;mplayer-mode
     pcre2el
     python-django
@@ -122,7 +121,7 @@ subdirectories of other projects.  Defaults to the directory
 
 (load "custom-haskell")
 
-;(load "custom-erlang")
+(load "custom-erlang")
 
 (load "custom-python")
 
