@@ -70,8 +70,7 @@ subdirectories of other projects.  Defaults to the directory
 ;;; tags-view
 ;;; toggle-case
 (setq *mh/packages*
-  '(dash
-    s))
+  '())
 
 (defun mh/all-packages-installed-p ()
   (cl-every (lambda (p) (package-installed-p p))

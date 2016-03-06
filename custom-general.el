@@ -19,6 +19,9 @@
 (use-package lorem-ipsum)
 (use-package rst)
 (use-package yaml-mode)
+;;; Utility packages; installed as dependences anyway, mentioned as a reminder:
+(use-package dash)
+(use-package s)
 
 (setq-default save-place t)
 (setq save-place-file (expand-file-name "saved.places" user-emacs-directory))
