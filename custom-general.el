@@ -452,8 +452,7 @@ the current buffer as normal."
   :diminish smartparens-mode
   :config
   (smartparens-global-mode t)
-  (show-smartparens-global-mode t)
-  (diminish 'smartparens-mode))
+  (show-smartparens-global-mode t))
 
 (use-package tags-view
   :ensure nil
