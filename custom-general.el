@@ -436,22 +436,20 @@ the current buffer as normal."
 
 ;;; Replacing a lot of cruft from my skeleton-pair add-ons!
 ;;; Smartparens: awesome, but for some reason I forget I still use paredit in lisp modes
-(use-package smartparens-mode
-  :ensure smartparens
-  :init
-  (setq sp-ignore-modes-list
-        '(clojure-mode
-          emacs-lisp-mode
-          inferior-emacs-lisp-mode
-          inferior-lisp-mode
-          lisp-mode
-          minibuffer-inactive-mode
-          nrepl-mode
-          slime-repl-mode)
-        sp-base-key-bindings 'paredit)
+(use-package smartparens
+  :init (setq sp-ignore-modes-list
+              '(clojure-mode
+                emacs-lisp-mode
+                inferior-emacs-lisp-mode
+                inferior-lisp-mode
+                lisp-mode
+                minibuffer-inactive-mode
+                nrepl-mode
+                slime-repl-mode)
+              sp-base-key-bindings 'paredit)
   :diminish smartparens-mode
   :config
-  (smartparens-global-mode t)
+  (smartparens-global-mode 1)
   (show-smartparens-global-mode t))
 
 (use-package tags-view
