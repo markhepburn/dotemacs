@@ -162,7 +162,7 @@
             (setq yas-prompt-functions '(yas-popup-isearch-prompt yas-no-prompt))
             ;; 't to jit-load snippets:
             (yas-load-directory (concat *mh/lisp-base* "snippets") t))
-  :diminish yas/minor-mode)
+  :diminish (yas-minor-mode yas/minor-mode))
 
 ;;; Company now seems more active, and in particular clojure-mode
 ;;; works best with company:
