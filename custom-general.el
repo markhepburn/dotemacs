@@ -439,12 +439,13 @@ the current buffer as normal."
 (use-package smartparens
   :init (setq sp-ignore-modes-list
               '(clojure-mode
+                clojurescript-mode
                 emacs-lisp-mode
                 inferior-emacs-lisp-mode
                 inferior-lisp-mode
                 lisp-mode
                 minibuffer-inactive-mode
-                nrepl-mode
+                cider-repl-mode
                 slime-repl-mode)
               sp-base-key-bindings 'paredit)
   :diminish smartparens-mode
