@@ -4,7 +4,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;; Commentary:
-;; 
+;;
 
 ;;; Code:
 
@@ -48,6 +48,7 @@
 
 ;;; refactoring:
 (use-package clj-refactor
+  ;; :pin melpa-stable
   :after (clojure-mode)
   :init
   (add-hook 'clojure-mode-hook (lambda ()
@@ -69,6 +70,7 @@
 
 ;;; ...and cider (formerly nrepl) integration:
 (use-package cider
+  :pin melpa-stable
   :init (setq cider-repl-use-pretty-printing t)
   :config
   (add-hook 'cider-mode-hook (lambda ()

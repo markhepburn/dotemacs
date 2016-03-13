@@ -39,6 +39,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package magit
+  :pin melpa-stable
   :init (setq
          magit-set-upstream-on-push t
 
@@ -90,6 +91,7 @@
 
 ;;; git-flow integration:
 (use-package magit-gitflow
+  :pin melpa-stable
   :after (magit)
   :config (add-hook 'magit-mode-hook 'turn-on-magit-gitflow))
 

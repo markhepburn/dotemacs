@@ -46,13 +46,6 @@ subdirectories of other projects.  Defaults to the directory
         ("marmalade" . "https://marmalade-repo.org/packages/")
         ("org" . "http://orgmode.org/elpa/")))
 
-(setq package-pinned-packages
-      '((cider . "melpa-stable")
-        (clj-refactor . "melpa-stable")
-        (magit . "melpa-stable")
-        (magit-gitflow . "melpa-stable")))
-
-
 (require 'package)
 (package-initialize)
 
