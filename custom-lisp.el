@@ -90,6 +90,7 @@
   :diminish paredit-mode)
 (enable-minor-mode-for paredit-mode
                        '(cider
+                         cider-repl
                          clojure
                          emacs-lisp
                          inferior-emacs-lisp
