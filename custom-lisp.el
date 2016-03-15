@@ -72,7 +72,8 @@
 ;;; ...and cider (formerly nrepl) integration:
 (use-package cider
   :pin melpa-stable
-  :init (setq cider-repl-use-pretty-printing t)
+  :init (setq cider-repl-use-pretty-printing t
+              cider-prompt-for-symbol nil)
   :config
   (add-hook 'cider-mode-hook (lambda ()
                                (define-key cider-repl-mode-map
