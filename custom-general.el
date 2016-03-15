@@ -122,7 +122,8 @@
 
 ;;; expand-region; see http://emacsrocks.com/e09.html
 (use-package expand-region
-  :bind ("C-=" . er/expand-region))
+  :bind (("C-=" . er/expand-region)
+         ("C-+" . er/contract-region)))
 
 ;;; Move text up and down:
 (use-package move-text
