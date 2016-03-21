@@ -42,6 +42,8 @@
 (setq-default buffer-file-coding-system 'utf-8)
 ;; Treat clipboard input as UTF-8 string first; compound text next, etc.
 (setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING))
+;;; Default to text-mode (in part, because smartparens behaves better there):
+(setq-default major-mode 'text-mode)
 
 ;; use font lock where possible:
 (global-font-lock-mode t)
