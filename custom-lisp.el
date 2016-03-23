@@ -50,6 +50,7 @@
 (use-package clj-refactor
   :pin melpa-stable
   :after (clojure-mode)
+  :diminish clj-refactor-mode
   :init
   (setq cljr-warn-on-eval nil)
   (add-hook 'clojure-mode-hook (lambda ()
