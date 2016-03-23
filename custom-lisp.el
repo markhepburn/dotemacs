@@ -48,7 +48,7 @@
 
 ;;; refactoring:
 (use-package clj-refactor
-  ;; :pin melpa-stable
+  :pin melpa-stable
   :after (clojure-mode)
   :init
   (setq cljr-warn-on-eval nil)
