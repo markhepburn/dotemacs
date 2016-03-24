@@ -55,6 +55,7 @@
 (auto-compression-mode 1)
 ;; update files changed on disk (mainly for use with dropbox):
 (global-auto-revert-mode 1)
+(diminish 'auto-revert-mode)
 ;;; ...and dired buffers too, and don't be chatty:
 (setq global-auto-revert-non-file-buffers t
       auto-revert-verbose nil)
