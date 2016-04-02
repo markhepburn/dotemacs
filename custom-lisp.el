@@ -12,6 +12,36 @@
   :init (add-hook 'emacs-lisp-mode-hook
                   (lambda () (elisp-slime-nav-mode t)))
   :diminish elisp-slime-nav-mode)
+
+;;; From http://endlessparentheses.com/eval-result-overlays-in-emacs-lisp.html
+;;; (changed prefix to my own mh/, but not claiming ownership!)
+(after "cider"
+  (autoload 'cider--make-result-overlay "cider-overlays")
+
+  (defun mh/eval-overlay (value point)
+    (cider--make-result-overlay (format "%S" value)
+      :where point
+      :duration 'command)
+    ;; Preserve the return value.
+    value)
+
+  (advice-add 'eval-region :around
+              (lambda (f beg end &rest r)
+                (mh/eval-overlay
+                 (apply f beg end r)
+                 end)))
+
+  (advice-add 'eval-last-sexp :filter-return
+              (lambda (r)
+                (mh/eval-overlay r (point))))
+
+  (advice-add 'eval-defun :filter-return
+              (lambda (r)
+                (mh/eval-overlay
+                 r
+                 (save-excursion
+                   (end-of-defun)
+                   (point))))))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
