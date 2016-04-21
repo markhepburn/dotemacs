@@ -105,12 +105,12 @@
   :pin melpa-stable
   :init (setq cider-repl-use-pretty-printing t
               cider-prompt-for-symbol nil)
-  :config
-  (add-hook 'cider-mode-hook (lambda ()
-                               (define-key cider-repl-mode-map
-                                 (kbd "<up>") 'cider-repl-previous-input)
-                               (define-key cider-repl-mode-map
-                                 (kbd "<down>") 'cider-repl-next-input))))
+  :bind (:map cider-repl-mode-map
+              ;; Swap these around a bit; next/previous use search history (also on M-p/n)
+              ("<up>"     . cider-repl-backward-input)
+              ("<down>"   . cider-repl-forward-input)
+              ("C-<up>"   . cider-repl-previous-input)
+              ("C-<down>" . cider-repl-next-input)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
