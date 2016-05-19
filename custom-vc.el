@@ -89,6 +89,9 @@
          ("W" . magit-toggle-whitespace)
          ("q" . magit-quit-session)))
 
+;; Enable globally:
+(global-magit-file-mode 1)
+
 ;;; git-flow integration:
 (use-package magit-gitflow
   :pin melpa-stable
