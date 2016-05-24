@@ -17,6 +17,9 @@
 (add-to-list 'exec-path mh/git-bash-bin)
 (setenv "PATH" (concat mh/git-bash-bin path-separator (getenv "PATH")))
 
+;;; Now we can M-x pyvenv-workon (in conjunction with mkvirtualenv)
+(setenv "WORKON_HOME" "C:/Users/mark_2/Envs")
+
 ;;; We'll use regular cmd for now, with a proper path (above)
 ;; (setq shell-file-name (concat mh/git-bash-bin "/" "bash.exe")
 ;;       explicit-shell-file-name shell-file-name)
