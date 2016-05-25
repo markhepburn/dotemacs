@@ -47,9 +47,7 @@
          ("M-<return>" . emmet-expand-line)))
 
 ;;; Interactive django mode (virtualenv and fabric integration, etc):
-;;; (can't remember the relative merits of either; work it out later):
 (use-package pony-mode)
-(use-package python-django)
 
 ;;; Make css colour definitions the colour they represent:
 (use-package rainbow-mode
