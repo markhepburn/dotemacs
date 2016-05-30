@@ -25,7 +25,7 @@
 ;;       explicit-shell-file-name shell-file-name)
 
 (setq projectile-indexing-method 'alien
-      projectile-enable-caching t)
+      projectile-enable-caching nil)
 
 ;;; See http://חנוך.se/diary/how_to_enable_GnuTLS_for_Emacs_24_on_Windows/index.en.html
 ;;; Essentially, need to provide the gnutls dlls, and drop the cert bundle in ~/.emacs.d
