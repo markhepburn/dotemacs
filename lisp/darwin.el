@@ -46,7 +46,7 @@
 ;; Set info path correctly:
 (setq Info-directory-list
       `("/Applications/Emacs.app/Contents/Resources/info"
-        ,(concat *mh/lisp-base* "info")
+        ,(concat *mh/init-base* "info")
         "/sw/share/info" "/usr/share/info" "/usr/local/info"))
 
 (provide 'darwin)

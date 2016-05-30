@@ -23,11 +23,12 @@
 
 (require 'cl)
 
-(defvar *mh/lisp-base* (file-name-directory (file-truename user-init-file))
+(defvar *mh/init-base*  (file-name-directory (file-truename user-init-file)))
+(defvar *mh/lisp-base* (concat *mh/init-base* "lisp/")
   "Base code directory; contains free-standing code and
-subdirectories of other projects.  Defaults to the directory
-  containing the user's initialisation file (including following
-  symlinks).")
+subdirectories of other projects.  Defaults to the lisp
+subdirectory of the location containing the user's initialisation
+file (including following symlinks).")
 (add-to-list 'load-path *mh/lisp-base*)
 
 ;;; http://stackoverflow.com/questions/24779041/disable-warning-about-emacs-d-in-load-path
