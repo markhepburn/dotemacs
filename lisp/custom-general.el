@@ -496,8 +496,11 @@ the current buffer as normal."
 ;; Make sure script files are executable after save:
 (add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
 
-;; Always auto-fill in text:
-(add-hook 'text-mode-hook 'turn-on-auto-fill)
+;; Visual-line-mode in text:
+(use-package visual-fill-column
+  :init (add-hook 'visual-line-mode-hook 'turn-on-visual-fill-column-mode))
+(add-hook 'text-mode-hook 'turn-on-visual-line-mode)
+
 ;; I use octave more than obj-c in general:
 (add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))
 
