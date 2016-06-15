@@ -55,6 +55,9 @@
   :config (progn
             (require 'magit-blame)
 
+            (after 'diff-hl
+              (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh))
+
             ;; full screen magit-status; restores windows on exit.  From
             ;; http://whattheemacsd.com/setup-magit.el-01.html#disqus_thread
             (defadvice magit-status (around magit-fullscreen activate)
