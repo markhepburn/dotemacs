@@ -497,8 +497,6 @@ the current buffer as normal."
 (add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
 
 ;; Visual-line-mode in text:
-(use-package visual-fill-column
-  :init (add-hook 'visual-line-mode-hook 'turn-on-visual-fill-column-mode))
 (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
 
 ;; I use octave more than obj-c in general:
