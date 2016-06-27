@@ -496,10 +496,12 @@ the current buffer as normal."
 ;; Make sure script files are executable after save:
 (add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
 
-;; Visual-line-mode in text:
-;; (use-package visual-fill-column
-;;   :init (add-hook 'visual-line-mode-hook 'turn-on-visual-fill-column-mode))
-(add-hook 'text-mode-hook 'turn-on-visual-line-mode)
+;;; Text auto-wrap:
+;;; This is a bit old-school, but I'm ok with that, and it's what I'm
+;;; used to.  Visual-line-mode seems cool but is as wide as your
+;;; window, and the hacks to fix it involve change the margin which
+;;; then breaks all kinds of other modes (including magit)
+(add-hook 'text-mode-hook 'turn-on-auto-fill)
 
 ;; I use octave more than obj-c in general:
 (add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))
