@@ -128,12 +128,17 @@ running the new process."
 
 
 
-;;; Stefan Monnier <foo at acm.org>. It is the opposite of fill-paragraph.
-;;; Takes a multi-line paragraph and makes it into a single line of text.
-(defun mh/unfill-paragraph ()
+;;; http://endlessparentheses.com/fill-and-unfill-paragraphs-with-a-single-key.html?source=rss
+(defun endless/fill-or-unfill ()
+  "Like `fill-paragraph', but unfill if used twice."
   (interactive)
-  (let ((fill-column (point-max)))
-    (fill-paragraph nil)))
+  (let ((fill-column
+         (if (eq last-command 'endless/fill-or-unfill)
+             (progn (setq this-command nil)
+                    (point-max))
+           fill-column)))
+    (call-interactively #'fill-paragraph)))
+(global-set-key [remap fill-paragraph] #'endless/fill-or-unfill)
 
 ;; As taken from "Writing GNU Emacs Extensions" (Glickstein)
 (defadvice switch-to-buffer (before existing-buffer
