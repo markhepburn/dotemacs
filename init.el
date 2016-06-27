@@ -51,12 +51,11 @@ file (including following symlinks).")
 (package-initialize)
 
 (unless (package-installed-p 'use-package)
-  (progn
-    (message "Installing use-package first...")
-    (unless package-archive-contents
-      (package-refresh-contents))
-    (package-install 'use-package)
-    (message "Installing use-package first... Done.")))
+  (message "Installing use-package first...")
+  (unless package-archive-contents
+    (package-refresh-contents))
+  (package-install 'use-package)
+  (message "Installing use-package first... Done."))
 
 (require 'use-package)
 (setq use-package-always-ensure t)
