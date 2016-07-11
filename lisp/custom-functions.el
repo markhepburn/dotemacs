@@ -66,6 +66,21 @@ previous."
         (next-line direction))))
 (global-set-key (kbd "C-x M-;") 'mh/exchange-commenting-with-other-line)
 
+;;; http://stackoverflow.com/a/30697761
+(defun sort-lines-by-length (reverse beg end)
+  "Sort lines by length."
+  (interactive "P\nr")
+  (save-excursion
+    (save-restriction
+      (narrow-to-region beg end)
+      (goto-char (point-min))
+      (let ;; To make `end-of-line' and etc. to ignore fields.
+          ((inhibit-field-text-motion t))
+        (sort-subr reverse 'forward-line 'end-of-line nil nil
+                   (lambda (l1 l2)
+                     (apply #'< (mapcar (lambda (range) (- (cdr range) (car range)))
+                                        (list l1 l2)))))))))
+
 ;;; https://gist.github.com/tonini/31e349195f1a6d6d11e5
 (defun mh/delete-process-at-point ()
   (interactive)
