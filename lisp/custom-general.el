@@ -92,6 +92,7 @@
 ;;; to interact badly with xmonad, even when explicitly floated):
 (setq ediff-window-setup-function 'ediff-setup-windows-plain
       ediff-split-window-function 'split-window-horizontally)
+(setq split-height-threshold nil)       ; Always split side-by-side if possible
 
 ;;; project mode:
 (use-package helm-projectile)
