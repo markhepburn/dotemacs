@@ -93,7 +93,7 @@ file (including following symlinks).")
 
 ;;; Load in customize stuff:
 (setq custom-file (concat *mh/lisp-base* system-name "-variables.el"))
-(load custom-file)
+(load custom-file nil)
 
 ;;; Don't worry about disabled-command warnings:
 (setq disabled-command-function nil)
