@@ -94,6 +94,11 @@
       ediff-split-window-function 'split-window-horizontally)
 (setq split-height-threshold nil)       ; Always split side-by-side if possible
 
+;;; Code folding:
+(use-package origami
+  :bind (("M-o" . origami-recursively-toggle-node)
+         ("M-O" . origami-show-only-node)))
+
 ;;; project mode:
 (use-package helm-projectile)
 (use-package projectile
