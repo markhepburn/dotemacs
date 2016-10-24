@@ -100,7 +100,8 @@
          ("M-O" . origami-show-only-node)))
 
 ;;; project mode:
-(use-package helm-projectile)
+(use-package helm-projectile
+  :config (helm-projectile-on))
 (use-package projectile
   :config
   (progn
