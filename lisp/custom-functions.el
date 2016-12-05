@@ -217,7 +217,7 @@ the original line."
     (let ((str (buffer-substring beg (point))))
       (when comment-first
         (comment-region beg (point)))
-      (insert-string
+      (insert
        (concat (if (= 0 (forward-line 1)) "" "\n") str "\n"))
       (forward-line -1))))
 (global-set-key (kbd "C-x y") 'mh/duplicate-line)
