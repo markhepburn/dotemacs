@@ -94,6 +94,9 @@
       ediff-split-window-function 'split-window-horizontally)
 (setq split-height-threshold nil)       ; Always split side-by-side if possible
 
+(use-package unfill
+  :bind (([remap fill-paragraph] . unfill-toggle)))
+
 ;;; Code folding:
 (use-package origami
   :bind (("M-o" . origami-recursively-toggle-node)
