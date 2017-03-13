@@ -109,4 +109,8 @@
 (use-package helm-descbinds
   :config (helm-descbinds-mode))
 
-
+;;; A few enhancements:
+(use-package helm-ext
+  :config
+  (helm-ext-ff-enable-skipping-dots t)
+  (helm-ext-minibuffer-enable-header-line-maybe t))
