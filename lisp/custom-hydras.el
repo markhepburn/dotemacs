@@ -17,8 +17,8 @@
   "
   ^Move^   ^Size^          ^Add/Delete^
 --------------------------------------------
-[_h_] ←   [_H_] Wider     [_-_] Split Vert.
-[_j_] ↓   [_J_] Shorter   [_|_] Split Horiz.
+[_h_] ←   [_H_] Wider     [_-_] Split Horiz.
+[_j_] ↓   [_J_] Shorter   [_|_] Split Vert.
 [_k_] ↑   [_K_] Taller    [_0_] Delete
 [_l_] →   [_L_] Narrower  [_1_] Delete Others
          [_+_] Balance
