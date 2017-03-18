@@ -15,10 +15,10 @@
 ;;; it.  Pip-install jedi, possibly also importmagic.  Flake8 doesn't
 ;;; work on windows.
 (use-package elpy
-  :pin melpa-stable
   :init
   (elpy-enable)
-  (setq elpy-rpc-backend "jedi")
+  (setq elpy-rpc-backend "jedi"
+        elpy-django-server-command "runserver_plus")
   ;; May need to setenv WORKON_HOME:
   (defalias 'workon 'pyvenv-workon)
   :config
