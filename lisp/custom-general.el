@@ -233,6 +233,8 @@
 (use-package dired-narrow
   :bind (:map dired-mode-map
               ("/" . dired-narrow)))
+(use-package dired-quick-sort
+  :config (dired-quick-sort-setup))
 
 ;; Scroll-bars on the right please:
 (if (fboundp 'set-scroll-bar-mode) (set-scroll-bar-mode 'right))
