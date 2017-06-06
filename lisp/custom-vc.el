@@ -2,11 +2,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; VC stuff
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; When using diff (C-x v =); make 'q' quit buffer and close window
-;; (note that this uses diff-mode-shared-map, not diff-mode-map; check
-;; the source for diff-mode for why, but basically it adds
-;; extra-keybindings if the buffer is read-only, using the shared-map
-;; -- which then over-writes the values set in this hook):
 
 ;;; Commentary:
 ;;
@@ -15,15 +10,6 @@
 
 ;;; diff setup:
 (setq diff-default-read-only t)
-(add-hook 'diff-mode-hook
-		  (lambda ()
-			(define-key diff-mode-shared-map "q" 'delete-window)))
-
-;; Same for log-view:
-(add-hook 'log-view-mode-hook
-          (lambda () (define-key log-view-mode-map "q" 'delete-window)))
-(add-hook 'svn-log-view-mode-hook
-          (lambda () (define-key svn-log-view-mode-map "q" 'delete-window)))
 
 ;; use unified diffs by default in diff-mode:
 (setq diff-switches "-u")
