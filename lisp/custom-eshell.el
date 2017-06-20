@@ -80,12 +80,8 @@
 
 ;;; smart display (allow easier editing of command lines
 ;;; https://www.masteringemacs.org/article/complete-guide-mastering-eshell
+;;; (Removed for now; didn't like it that much)
 (require 'eshell)
-(require 'em-smart)
-(setq eshell-where-to-jump 'begin)
-(setq eshell-review-quick-commands nil)
-(setq eshell-smart-space-goes-to-end t)
-(add-hook 'eshell-mode-hook 'eshell-smart-initialize)
 
 (use-package eshell-git-prompt
   :config (eshell-git-prompt-use-theme 'powerline))
