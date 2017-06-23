@@ -187,6 +187,9 @@
          ("C-n" . company-select-next)
          ("C-p" . company-select-previous))
   :diminish company-mode)
+(use-package company-quickhelp
+  :after (company)
+  :config (add-hook 'after-init-hook 'company-quickhelp-mod))
 
 ;;; paren-matching:
 (setq show-paren-delay 0)
