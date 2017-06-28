@@ -45,7 +45,7 @@
                   (emphasised ""))
               (dolist (s escreens)
                 (setq emphasised
-                      (concat emphasised (if (= escreen-current-screen-number s)
+                      (concat emphasised (if (= (escreen-current-screen-number) s)
                                              (propertize (number-to-string s)
                                                          'face 'success)
                                            (number-to-string s))
