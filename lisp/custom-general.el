@@ -189,7 +189,7 @@
   :diminish company-mode)
 (use-package company-quickhelp
   :after (company)
-  :config (add-hook 'after-init-hook 'company-quickhelp-mod))
+  :config (add-hook 'after-init-hook 'company-quickhelp-mode))
 
 ;;; paren-matching:
 (setq show-paren-delay 0)
