@@ -35,6 +35,9 @@
          ;; Shut upgrade-messages up:
          magit-last-seen-setup-instructions "1.4.0"
 
+         ;; Always fullscreen:
+         magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1
+
          ;; replaces magit-auto-revert-mode:
          magit-revert-buffers t)
 
@@ -43,19 +46,6 @@
 
             (after 'diff-hl
               (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh))
-
-            ;; full screen magit-status; restores windows on exit.  From
-            ;; http://whattheemacsd.com/setup-magit.el-01.html#disqus_thread
-            (defadvice magit-status (around magit-fullscreen activate)
-              (window-configuration-to-register :magit-fullscreen)
-              ad-do-it
-              (delete-other-windows))
-
-            (defun magit-quit-session ()
-              "Restores the previous window configuration and kills the magit buffer"
-              (interactive)
-              (kill-buffer)
-              (jump-to-register :magit-fullscreen))
 
             ;; More magit niceties from http://whattheemacsd.com//setup-magit.el-02.html
             (defun magit-ignore-whitespace ()
@@ -76,8 +66,7 @@
 
   :bind (("C-x g" . magit-status)
          :map magit-status-mode-map
-         ("W" . magit-toggle-whitespace)
-         ("q" . magit-quit-session)))
+         ("W" . magit-toggle-whitespace)))
 
 ;; Enable globally:
 (global-magit-file-mode 1)
