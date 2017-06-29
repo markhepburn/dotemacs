@@ -248,20 +248,6 @@ See also `newline-and-indent'."
 ;; bind to C-M-l, just like in xemacs:
 (global-set-key (kbd "C-M-l") 'switch-to-other-buffer)
 
-;; Scroll up/down with C-./C-,
-(defun scroll-down-one-line (arg)
-  (interactive "p")
-  (if (eq arg 0) (setq arg 1))
-  (scroll-down arg))
-(defun scroll-up-one-line (arg)
-  (interactive "p")
-  (if (eq arg 0) (setq arg 1))
-  (scroll-up arg))
-(global-set-key (kbd "C-,") 'scroll-up-one-line) ; C-,
-(global-set-key (kbd "C-.") 'scroll-down-one-line) ; C-.
-;; also use C-(/) because flyspell-mode steals C-,/.
-(global-set-key (kbd "C-(") 'scroll-up-one-line) ; C-(
-(global-set-key (kbd "C-)") 'scroll-down-one-line) ;C-)
 ;; Move line cursor is on to top of screen:
 ;; Update: see also repeated use of C-l (`recenter-top-bottom`)
 (defun mh/current-line-to-top (&optional distance)
