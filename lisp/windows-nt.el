@@ -17,6 +17,14 @@
 (add-to-list 'exec-path mh/git-bash-bin)
 (setenv "PATH" (concat mh/git-bash-bin path-separator (getenv "PATH")))
 
+;;; Use eshell in preference most of the time, and shell runs cmd.exe,
+;;; but if bash is needed for something
+;;; (http://caiorss.github.io/Emacs-Elisp-Programming/Emacs_On_Windows.html):
+(defun run-bash ()
+  (interactive)
+  (let ((shell-file-name "C:\\Program Files\\Git\\bin\\bash.exe"))
+    (shell "*bash*")))
+
 ;;; Now we can M-x pyvenv-workon (in conjunction with mkvirtualenv)
 (setenv "WORKON_HOME" "C:/Users/mark_2/Envs")
 
