@@ -378,6 +378,13 @@
   (global-set-key (kbd "C-x C-b") 'ibuffer-bs-show))
 (setq-default ibuffer-default-sorting-mode 'major-mode)
 (add-hook 'ibuffer-mode-hook (lambda () (hl-line-mode 1)))
+(use-package ibuffer-vc
+  :config
+  (add-hook 'ibuffer-hook
+            (lambda ()
+              (ibuffer-vc-set-filter-groups-by-vc-root)
+              (unless (eq ibuffer-sorting-mode 'alphabetic)
+                (ibuffer-do-sort-by-alphabetic)))))
 
 ;; let's play with using C-w to delete words backwards:
 (global-set-key (kbd "C-w")     'backward-kill-word)
