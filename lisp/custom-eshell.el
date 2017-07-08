@@ -128,25 +128,34 @@
       (--each codes
         (set-fontset-font t `(,it . ,it) font)))))
 
-;; The icons you see are not the correct icons until this is evaluated!
-(set-icon-fonts
- '(("fontawesome"
-    ;;                         
-    #xf07c #xf0c9 #xf0c4 #xf0cb #xf017 #xf101)
+(defun initialise-icon-fonts ()
+  (when window-system
+    (set-icon-fonts
+     '(("fontawesome"
+        ;;                         
+        #xf07c #xf0c9 #xf0c4 #xf0cb #xf017 #xf101)
 
-   ("all-the-icons"
-    ;;    
-    #xe907 #xe928)
+       ("all-the-icons"
+        ;;    
+        #xe907 #xe928)
 
-   ("github-octicons"
-    ;;                          
-    #xf091 #xf059 #xf076 #xf075 #xe192  #xf016)
+       ("github-octicons"
+        ;;                          
+        #xf091 #xf059 #xf076 #xf075 #xe192  #xf016)
 
-   ("symbol regular"
-    ;; 𝕊    ⨂      ∅      ⟻    ⟼     ⊙      𝕋       𝔽  ; 
-    #x1d54a #x2a02 #x2205 #x27fb #x27fc #x2299 #x1d54b #x1d53d #xe100
-    ;; 𝔹    𝔇       𝔗
-    #x1d539 #x1d507 #x1d517)))
+       ("symbol regular"
+        ;; 𝕊    ⨂      ∅      ⟻    ⟼     ⊙      𝕋       𝔽  ; 
+        #x1d54a #x2a02 #x2205 #x27fb #x27fc #x2299 #x1d54b #x1d53d #xe100
+        ;; 𝔹    𝔇       𝔗
+        #x1d539 #x1d507 #x1d517)))
+    (remove-hook 'focus-in-hook #'initialise-icon-fonts)))
+;;; on linux, we start emacs as a daemon... meaning initialisation
+;;; code runs before X is present.  So to initalise our fonts, we need
+;;; to wait until we have a window-system, but obvious-looking
+;;; candidates such as `before-make-frame-hook' don't get called on
+;;; the first frame.  The new-ish focus hooks are our only option, so
+;;; we also use remove-hook to ensure we only run it once.
+(add-hook 'focus-in-hook #'initialise-icon-fonts)
 
 (require 'dash)
 (require 's)
