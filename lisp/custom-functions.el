@@ -93,24 +93,6 @@ previous."
            (error "No process at point!")))))
 (define-key process-menu-mode-map (kbd "C-k") 'mh/delete-process-at-point)
 
-
-;;; From http://www.emacswiki.org/emacs/SlickCopy
-;;; When kill/copy region commands are used with no region selected,
-;;; operate on line instead:
-(defadvice kill-ring-save (before slick-copy activate compile)
-  "When called interactively with no active region, copy a single line instead."
-  (interactive
-   (if mark-active (list (region-beginning) (region-end))
-     (message "Copied line")
-     (list (line-beginning-position)
-           (line-beginning-position 2)))))
-(defadvice kill-region (before slick-cut activate compile)
-  "When called interactively with no active region, kill a single line instead."
-  (interactive
-   (if mark-active (list (region-beginning) (region-end))
-     (list (line-beginning-position)
-           (line-beginning-position 2)))))
-
 (defadvice rgrep (around rgrep-rename-previous-buffer activate compile)
   "If a previous *grep* buffer exists, offer to rename it before
 running the new process."

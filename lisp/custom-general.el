@@ -290,6 +290,9 @@
                 (nlinum-mode -1)))
             (global-set-key [remap goto-line] 'goto-line-with-feedback)))
 
+(use-package whole-line-or-region
+  :config (whole-line-or-region-mode 1))
+
 ;;; similar advice for 'yank and 'yank-pop:
 (defadvice yank (after indent-region-for-yank activate)
   "If in a programming mode, reindent the region after yanking."
