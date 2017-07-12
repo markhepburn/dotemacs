@@ -367,15 +367,6 @@ the right thing if the file is under version control."
             (kill-buffer buffer)
             (message "File '%s' successfully removed" filename)))))))
 
-;; stupidity :)
-(defun mh/scrum-p ()
-  (interactive)
-  (let* ((now (decode-time))
-         (scrum-time (+ (* 60 (nth 2 now)) (nth 1 now))))
-    (cond ((< scrum-time 630) (message "Scrum"))
-          ((< scrum-time 900) (message "Scrum++"))
-          (t (message "No more scrum today :(")))))
-
 (defun mh/tag-posts (tags)
   "Apply tags (specified interactively) to the files marked in
 dired, merging with existing tags.  Assumes the use of
