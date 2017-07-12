@@ -141,32 +141,6 @@ running the new process."
              (add-hook hook (lambda () (,minor-mode 1)))))
          ,major-mode-list))
 
-;; As taken from "Writing GNU Emacs Extensions" (Glickstein)
-(defadvice switch-to-buffer (before existing-buffer
-                                    activate compile)
-  "When interactive, switch to existing buffers only, unless
-given a prefix argument."
-  (interactive
-   (list (read-buffer "Switch to buffer: "
-                      (other-buffer)
-                      (null current-prefix-arg)))))
-(defadvice switch-to-buffer-other-window (before existing-buffer
-                                                 activate compile)
-  "When interactive, switch to existing buffers only, unless
-given a prefix argument."
-  (interactive
-   (list (read-buffer "Switch to buffer: "
-                      (other-buffer)
-                      (null current-prefix-arg)))))
-(defadvice switch-to-buffer-other-frame (before existing-buffer
-                                                activate compile)
-  "When interactive, switch to existing buffers only, unless
-given a prefix argument."
-  (interactive
-   (list (read-buffer "Switch to buffer: "
-                      (other-buffer)
-                      (null current-prefix-arg)))))
-
 ;; functions to move point to beginning and end of window, respectively:
 (defun goto-beginnning-of-window ()
   (interactive)
