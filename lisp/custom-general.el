@@ -291,6 +291,7 @@
             (global-set-key [remap goto-line] 'goto-line-with-feedback)))
 
 (use-package whole-line-or-region
+  :diminish whole-line-or-region-mode
   :config (whole-line-or-region-mode 1))
 
 ;;; similar advice for 'yank and 'yank-pop:
