@@ -300,10 +300,6 @@
           (nlinum-mode -1)))))
 (global-set-key [remap goto-line] 'goto-line-with-feedback)
 
-(use-package whole-line-or-region
-  :diminish whole-line-or-region-mode
-  :config (whole-line-or-region-mode 1))
-
 ;;; similar advice for 'yank and 'yank-pop:
 (defadvice yank (after indent-region-for-yank activate)
   "If in a programming mode, reindent the region after yanking."
@@ -396,6 +392,10 @@
 ;; let's play with using C-w to delete words backwards:
 (global-set-key (kbd "C-w")     'backward-kill-word)
 (global-set-key (kbd "C-x C-k") 'kill-region)
+
+(use-package whole-line-or-region
+  :diminish whole-line-or-region-mode
+  :config (whole-line-or-region-mode 1))
 
 ;; high-light line mode is occasionally useful:
 (autoload 'hll-toggle-line "hll"
