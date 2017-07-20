@@ -402,14 +402,7 @@
   :diminish whole-line-or-region-mode
   :config (whole-line-or-region-mode 1))
 
-;; high-light line mode is occasionally useful:
-(autoload 'hll-toggle-line "hll"
-  "High-light lines in buffer for clearer browsing" t)
-(global-set-key (kbd "C-x t h") 'hll-toggle-line)
-(global-set-key (kbd "C-x t p") 'hll-prev-highlight)
-(global-set-key (kbd "C-x t n") 'hll-next-highlight)
-(global-set-key (kbd "C-x t u") 'hll-unhighlight-buffer)
-;;; and highlight the current line regardless:
+;;; Always highlight the current line:
 (global-hl-line-mode 1)
 
 ;;; Winner-mode; undo for window configurations (key bindings clobber
