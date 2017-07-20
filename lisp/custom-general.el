@@ -412,36 +412,6 @@
 ;;; and highlight the current line regardless:
 (global-hl-line-mode 1)
 
-;;; related to that, bookmarks look very useful (like tags for source
-;;; navigation, only you don't have to pop them, for eg).  I'm using
-;;; C-xm as my prefix map, which defaults to send-mail which I never
-;;; use.
-(autoload 'bm-toggle   "bm" "Toggle bookmark in current buffer." t)
-(autoload 'bm-next     "bm" "Goto next bookmark."                t)
-(autoload 'bm-previous "bm" "Goto previous bookmark."            t)
-(autoload 'bm-previous "bm" "List all bookmarks."                t)
-(global-set-key (kbd "C-x m") (make-sparse-keymap))
-(global-set-key (kbd "C-x m m") 'bm-toggle)
-(global-set-key (kbd "C-x m n") 'bm-next)
-(global-set-key (kbd "C-x m p") 'bm-previous)
-(global-set-key (kbd "C-x m l") 'bm-show) ; l for list
-(global-set-key (kbd "C-x m a") 'bm-bookmark-annotate) ; don't autload this; needs an existing bookmark to work.
-(defadvice bm-toggle (around bm-toggle-create-annotation (arg) activate)
-  "If given a prefix arg when creating, ask for an annotation as
-well."
-  (interactive "P")
-  (if arg
-      (let ((bm-annotate-on-create t))
-        ad-do-it)
-    ad-do-it))
-(defadvice bm-show (around bm-show-optionally-show-all (arg) activate)
-  "With a prefix arg, show all (global) bookmarks, otherwise just
-the current buffer as normal."
-  (interactive "P")
-  (if arg
-      (bm-show-all)
-    ad-do-it))
-
 ;;; Winner-mode; undo for window configurations (key bindings clobber
 ;;; next and previous-buffer, which I never use):
 (winner-mode 1)
