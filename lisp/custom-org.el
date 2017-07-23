@@ -48,7 +48,7 @@
     ;; scrolling commands:
     (add-hook 'org-mode-hook
               (lambda ()
-                (local-set-key (kbd "C-,") 'scroll-up-one-line)))
+                (local-set-key (kbd "C-,") 'scroll-up-line)))
 
     ;; Bit of a hack to work around htmlize-buffer (as called by
     ;; org-write-agenda for eg) not working.  See
