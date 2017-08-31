@@ -69,7 +69,7 @@
                      (ring-elements eshell-history-ring)))))
 
 (add-hook 'eshell-mode-hook
-          (lambda () (local-set-key (kbd "C-c h") 'eshell-completing-history)))
+          (lambda () (local-set-key (kbd "M-r") 'eshell-completing-history)))
 
 ;;; Apparently in a development version; lets add it now:
 (defun eshell/clear ()
