@@ -25,7 +25,6 @@
          ("C-c C-n C-i" . haskell-process-do-info)
          ("C-c C-n C-c" . haskell-process-cabal-build)
          ("C-c C-n c"   . haskell-process-cabal)
-         ("SPC"         . haskell-mode-contextual-space)
          ("C-c C-o"     . haskell-compile))
   :init
   (custom-set-variables
