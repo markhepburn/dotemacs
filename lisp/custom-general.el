@@ -399,7 +399,7 @@
 (global-set-key (kbd "C-x C-k") 'kill-region)
 
 (use-package whole-line-or-region
-  :diminish whole-line-or-region-mode
+  :diminish whole-line-or-region-local-mode
   :config (whole-line-or-region-mode 1))
 
 ;;; Always highlight the current line:
