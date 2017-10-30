@@ -99,9 +99,17 @@
   :bind (([remap fill-paragraph] . unfill-toggle)))
 
 ;;; Code folding:
-(use-package origami
-  :bind (("M-o" . origami-recursively-toggle-node)
-         ("M-O" . origami-show-only-node)))
+
+(use-package hideshow
+  :init
+  (defun toggle-fold ()
+    (interactive)
+    (save-excursion
+      (end-of-line)
+      (hs-toggle-hiding)))
+  (enable-minor-mode-for hs-minor-mode '(prog))
+  :bind (:map prog-mode-map
+         ("M-o" . toggle-fold)))
 
 ;;; project mode:
 (use-package helm-projectile
