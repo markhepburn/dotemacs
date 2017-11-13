@@ -107,9 +107,17 @@
     (save-excursion
       (end-of-line)
       (hs-toggle-hiding)))
+  ;; https://emacs.stackexchange.com/a/20925
+  (defun toggle-fold-all ()
+    (interactive)
+    (let ((starting-ov-count (length (overlays-in (point-min) (point-max)))))
+      (hs-hide-all)
+      (when (equal (length (overlays-in (point-min) (point-max))) starting-ov-count)
+        (hs-show-all))))
   (enable-minor-mode-for hs-minor-mode '(prog))
   :bind (:map prog-mode-map
-         ("M-o" . toggle-fold)))
+         ("M-o" . toggle-fold)
+         ("M-o" . toggle-fold-all)))
 
 ;;; project mode:
 (use-package helm-projectile
