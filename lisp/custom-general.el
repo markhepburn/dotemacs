@@ -117,7 +117,7 @@
   (enable-minor-mode-for hs-minor-mode '(prog))
   :bind (:map prog-mode-map
          ("M-o" . toggle-fold)
-         ("M-o" . toggle-fold-all)))
+         ("M-O" . toggle-fold-all)))
 
 ;;; project mode:
 (use-package helm-projectile
