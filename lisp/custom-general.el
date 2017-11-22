@@ -115,6 +115,7 @@
       (when (equal (length (overlays-in (point-min) (point-max))) starting-ov-count)
         (hs-show-all))))
   (enable-minor-mode-for hs-minor-mode '(prog))
+  :diminish hs-minor-mode
   :bind (:map prog-mode-map
          ("M-o" . toggle-fold)
          ("M-O" . toggle-fold-all)))
@@ -415,7 +416,7 @@
 (global-set-key (kbd "C-x C-k") 'kill-region)
 
 (use-package whole-line-or-region
-  :diminish whole-line-or-region-local-mode
+  :diminish (whole-line-or-region-mode whole-line-or-region-local-mode)
   :config (whole-line-or-region-mode 1))
 
 ;;; Always highlight the current line:

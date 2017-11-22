@@ -86,7 +86,7 @@
    (helm-mode 1))
 
   :demand t
-  :diminish helm-mode)
+  :diminish (helm--minor-mode helm-mode))
 
 
 
