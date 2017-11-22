@@ -33,7 +33,12 @@
          web-mode-css-indent-offset 2
          ;; HTML content indentation
          web-mode-indent-style 2)
-  :mode "\\.html?\\'")
+  :mode ("\\.html?\\'" "\\.tsx\\'")
+  :config
+  (defun setup-tide-tsx ()
+    (when (string-equal "tsx" (file-name-extension buffer-file-name))
+      (tide-setup)))
+  (add-hook 'web-mode-hook 'setup-tide-tsx))
 
 ;;; emmet (zencoding) shortcuts for html generation:
 (use-package emmet-mode
@@ -63,7 +68,10 @@
   :config (add-hook 'less-css-mode-hook 'rainbow-turn-on))
 
 ;;; JSX (React):
-(use-package jsx-mode)
+(use-package tide)
+(use-package jsx-mode
+  :config
+  (add-hook 'jsx-mode-hook 'tide-setup))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
