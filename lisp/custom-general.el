@@ -514,7 +514,10 @@
 (add-to-list 'auto-mode-alist '("\\.jar\\'" . archive-mode))
 
 (use-package sql-indent
-  :after (sql))
+  :pin gnu
+  :after (sql)
+  :hook (sql-mode . sqlind-minor-mode)
+  :diminish sqlind-minor-mode)
 
 ;;; elscreen provides enough "frame" management for me:
 (setq woman-use-own-frame nil)
