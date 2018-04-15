@@ -85,6 +85,36 @@ easily jump back."
   (add-hook 'c-mode-common-hook (lambda () (gtags-mode 1))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; C-sharp stuff
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(use-package omnisharp
+  ;; :hook csharp
+  :config
+  (add-to-list 'company-backends #'company-omnisharp))
+
+(defun mh/csharp-setup ()
+  (omnisharp-mode)
+  (company-mode)
+  (flycheck-mode)
+
+  (setq indent-tabs-mode nil)
+  (setq c-syntactic-indentation t)
+  (c-set-style "ellemtel")
+  (setq c-basic-offset 4)
+  (setq truncate-lines t)
+  (setq tab-width 4)
+  (setq evil-shift-width 4)
+
+  (local-set-key (kbd "C-c r r") 'omnisharp-run-code-action-refactoring)
+  (local-set-key (kbd "C-c C-c") 'recompile))
+
+(use-package csharp-mode
+  :after omnisharp
+  :init (add-hook 'csharp-mode-hook #'mh/csharp-setup))
+
+;; This emacs package requires the omnisharp-roslyn server program. Emacs will manage connection to the server as a subprocess.
+;; The easiest/default way to install the server is to invoke M-x omnisharp-install-server and follow instructions on minibufer.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (provide 'custom-c)
 
