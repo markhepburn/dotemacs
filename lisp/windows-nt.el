@@ -38,3 +38,6 @@
 ;;; See http://חנוך.se/diary/how_to_enable_GnuTLS_for_Emacs_24_on_Windows/index.en.html
 ;;; Essentially, need to provide the gnutls dlls, and drop the cert bundle in ~/.emacs.d
 (setq-default gnutls-trustfiles (list (concat *mh/init-base* "ca-bundle.crt")))
+
+(use-package powershell
+  :pin melpa)
