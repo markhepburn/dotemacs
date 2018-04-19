@@ -42,6 +42,7 @@
   ("u" winner-undo)
   ;; Quit:
   ("<return>" nil)
+  ("<space>" nil)
   ("q" nil))
 
 (defun mh/maybe-hydra-windows (arg)
