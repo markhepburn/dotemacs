@@ -260,6 +260,10 @@
               ("/" . dired-narrow)))
 (use-package dired-quick-sort
   :config (dired-quick-sort-setup))
+;;; Tree-based file browser, to see if I use it.
+;;; See also the direx-project: functions
+(use-package direx
+  :bind ("C-x C-j" . direx:find-directory))
 
 ;; Scroll-bars on the right please:
 (if (fboundp 'set-scroll-bar-mode) (set-scroll-bar-mode 'right))
