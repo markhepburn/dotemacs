@@ -93,24 +93,27 @@ easily jump back."
   (add-to-list 'company-backends #'company-omnisharp))
 
 (defun mh/csharp-setup ()
-  (omnisharp-mode)
   (company-mode)
+  (omnisharp-mode)
   (flycheck-mode)
 
-  (setq indent-tabs-mode nil)
-  (setq c-syntactic-indentation t)
   (c-set-style "ellemtel")
-  (setq c-basic-offset 4)
-  (setq truncate-lines t)
-  (setq tab-width 4)
-  (setq evil-shift-width 4)
-
-  (local-set-key (kbd "C-c r r") 'omnisharp-run-code-action-refactoring)
-  (local-set-key (kbd "C-c C-c") 'recompile))
+  (setq indent-tabs-mode nil
+        c-syntactic-indentation t
+        c-basic-offset 4
+        truncate-lines t
+        tab-width 4
+        evil-shift-width 4))
 
 (use-package csharp-mode
   :after omnisharp
-  :init (add-hook 'csharp-mode-hook #'mh/csharp-setup))
+  :config (add-hook 'csharp-mode-hook #'mh/csharp-setup)
+  :bind (:map csharp-mode-map
+              ("M-." . omnisharp-find-implementations)
+              ("." . omnisharp-add-dot-and-auto-complete)
+              ("C-S-<space>" . omnisharp-auto-complete)
+              ("C-c r r" . omnisharp-run-code-action-refactoring)
+              ("C-c C-c" . recompile)))
 
 ;; This emacs package requires the omnisharp-roslyn server program. Emacs will manage connection to the server as a subprocess.
 ;; The easiest/default way to install the server is to invoke M-x omnisharp-install-server and follow instructions on minibufer.
