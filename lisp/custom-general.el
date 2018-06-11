@@ -304,26 +304,15 @@
 
 ;;; Temporarily enable fringe line-numbers during goto-line.
 ;;; Via http://whattheemacsd.com/key-bindings.el-01.html
-;;; This is now native, so eventually we won't need nlinum, but for now handle both:
-(if (boundp 'display-line-numbers)
-    (defun goto-line-with-feedback ()
-      "Show line numbers temporarily, while prompting for the line number input."
-      (interactive)
-      (unwind-protect
-          (progn
-            (setq display-line-numbers t)
-            (call-interactively 'goto-line))
-        (setq display-line-numbers nil)))
-    (use-package nlinum
-      :config
-      (defun goto-line-with-feedback ()
-        "Show line numbers temporarily, while prompting for the line number input."
-        (interactive)
-        (unwind-protect
-            (progn
-              (nlinum-mode 1)
-              (call-interactively 'goto-line))
-          (nlinum-mode -1)))))
+;;; This is now native, so we don't need nlinum though:
+(defun goto-line-with-feedback ()
+  "Show line numbers temporarily, while prompting for the line number input."
+  (interactive)
+  (unwind-protect
+      (progn
+        (setq display-line-numbers t)
+        (call-interactively 'goto-line))
+    (setq display-line-numbers nil)))
 (global-set-key [remap goto-line] 'goto-line-with-feedback)
 
 ;;; similar advice for 'yank and 'yank-pop:
