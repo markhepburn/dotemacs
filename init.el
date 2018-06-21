@@ -89,7 +89,8 @@ file (including following symlinks).")
   :config (powerline-default-theme))
 
 ;;; Zenburn is life:
-(use-package zenburn-theme)
+(use-package zenburn-theme
+  :config (load-theme 'zenburn t))
 
 ;;; Load in customize stuff:
 (setq custom-file (concat *mh/lisp-base* system-name "-variables.el"))
