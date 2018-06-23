@@ -390,6 +390,11 @@
 ;; bind C-h a to 'apropos like in xemacs (not apropos-command as it is
 ;; in emacs by default)
 (global-set-key (kbd "C-h a") 'apropos)
+;;; More helpful help:
+(use-package helpful
+  :bind (("C-h k" . helpful-key)
+         ("C-h f" . helpful-callable)
+         ("C-h v" . helpful-variable)))
 
 ;; Used to use bs-show, but the ibuffer emulation does it all and more:
 (when (require 'ibuf-ext nil t)
