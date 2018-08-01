@@ -92,8 +92,8 @@
 
 ;;; Helm-ag:
 (use-package helm-ag
-  :init (setq helm-ag-base-command "ag --nocolor --nogroup --ignore-case"
-              helm-ag-command-option "--all-text"
+  :init (setq helm-ag-base-command "rg --no-heading --vimgrep --smart-case"; "ag --nocolor --nogroup --ignore-case"
+              ;; helm-ag-command-option "--all-text"
               helm-ag-thing-at-point 'symbol)
   :bind (("M-g ." . helm-ag)
          ("M-g ," . helm-ag-pop-stack)
