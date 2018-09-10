@@ -17,6 +17,10 @@
 (add-to-list 'exec-path mh/git-bash-bin)
 (setenv "PATH" (concat mh/git-bash-bin path-separator (getenv "PATH")))
 
+;;; Try and speed up git; see https://lists.gnu.org/archive/html/emacs-devel/2018-06/msg00667.html
+(setq w32-pipe-read-delay 0
+      w32-pipe-buffer-size 16384)
+
 ;;; Use eshell in preference most of the time, and shell runs cmd.exe,
 ;;; but if bash is needed for something
 ;;; (http://caiorss.github.io/Emacs-Elisp-Programming/Emacs_On_Windows.html):
