@@ -8,6 +8,9 @@
 
 (use-package escreen
   :demand t                            ; otherwise loading is deferred
+  :quelpa (escreen
+           :fetcher url
+           :url "http://www.splode.com/~friedman/software/emacs-lisp/src/escreen.el")
   :init (progn
           (setq escreen-prefix-char (kbd "C-z"))
 
