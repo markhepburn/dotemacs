@@ -3,6 +3,8 @@
 ;;; path; haven't come across issues arising from doing that yet)
 (use-package ssh-agency)
 
+(set-face-font 'default "Consolas-10")
+
 ;;; Don't display ^M in mixed-line-endings buffers
 ;;; Via http://stackoverflow.com/questions/730751/hiding-m-in-emacs
 (defun remove-dos-eol ()
