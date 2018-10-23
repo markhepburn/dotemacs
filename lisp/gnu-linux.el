@@ -27,6 +27,9 @@
 (setq browse-url-browser-function 'browse-url-generic
       browse-url-generic-program "x-www-browser")
 
+;;; Projectile: on linux, we can use fd (https://github.com/sharkdp/fd)
+(setq projectile-generic-command "fd . -0")
+
 ;;; only use org-agenda mode in Linux:
 ;; (eval-after-load "org"
 ;;   '(progn
