@@ -27,3 +27,4 @@
 /ca-bundle.crt
 /quelpa
 /*-variables.el
+/.cache
