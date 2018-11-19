@@ -5,6 +5,9 @@
 
 (set-face-font 'default "Consolas-10")
 
+;;; https://github.com/sabof/org-bullets/issues/11#issuecomment-439228372
+(setq inhibit-compacting-font-caches t)
+
 ;;; Don't display ^M in mixed-line-endings buffers
 ;;; Via http://stackoverflow.com/questions/730751/hiding-m-in-emacs
 (defun remove-dos-eol ()
