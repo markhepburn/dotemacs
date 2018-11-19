@@ -133,7 +133,7 @@
           ;; http://irreal.org/blog/?p=4177
           magit-repository-directories
           (mapcar (lambda (dir)
-                    (substring dir 0 -1))
+                    (cons (substring dir 0 -1) 0))
                   (nreverse
                    (remove-if-not (lambda (project)
                                     (file-directory-p (concat project "/.git/")))
