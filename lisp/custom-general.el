@@ -153,6 +153,9 @@
 (cua-selection-mode t)                ;; Also disables the CUA keys
 (setq cua-auto-tabify-rectangles nil) ;; Don't tabify after rectangle commands
 
+(use-package default-text-scale
+  :config (default-text-scale-mode))
+
 ;;; expand-region; see http://emacsrocks.com/e09.html
 (use-package expand-region
   :bind (("C-=" . er/expand-region)
