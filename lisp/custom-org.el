@@ -62,6 +62,9 @@
 
 (use-package org-trello)
 
+(use-package htmlize)          ; belongs here as much as anywhere
+(use-package ox-reveal)        ; For exporting reveal.js presentations
+
 ;;; function to insert my workout template in workouts.org:
 (defvar mh/workout-type-history-list nil)
 (defun mh/org-new-workout (type)
