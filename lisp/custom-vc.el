@@ -151,7 +151,7 @@ _p_rev       _u_pper              _=_: upper/lower       _r_esolve
          ;; using external cmd here because psvn diff doesn't work with
          ;; colordiff, which I'm using with command-line svn:
          svn-status-default-diff-arguments '("--diff-cmd" "diff" )
-         ;;; default to unknown and unmodified files not displayed:
+         ;; default to unknown and unmodified files not displayed:
          svn-status-hide-unknown    t
          svn-status-hide-unmodified t)
 
