@@ -86,7 +86,7 @@
                         type))
         ;; use org to do the tags, rather than trying to read them myself:
         (outline-up-heading 1)
-        (org-set-tags)
+        (call-interactively 'org-set-tags-command)
         (end-of-line 2))
     (message "Aborted (no type specified)")))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
