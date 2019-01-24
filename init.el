@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t -*-
 ;;; init.el --- My Emacs Initialisation Load File
 ;;; Overview: This file is the root of customisations; it should be
 ;;; kept under version control and just referred to by symlinking
@@ -22,6 +23,7 @@
 ;;
 
 (require 'cl)
+(require 'cl-macs)
 
 (defvar *mh/init-base*  (file-name-directory (file-truename user-init-file)))
 (defvar *mh/lisp-base* (concat *mh/init-base* "lisp/")
@@ -90,7 +92,13 @@ file (including following symlinks).")
 
 ;;; Zenburn is life:
 (use-package zenburn-theme
-  :config (load-theme 'zenburn t))
+  :config (if (daemonp)
+              (cl-labels ((load-zenburn (frame)
+                                     (with-selected-frame frame
+                                       (load-theme 'zenburn t))
+                                     (remove-hook 'after-make-frame-functions #'load-zenburn)))
+                (add-hook 'after-make-frame-functions #'load-zenburn))
+            (load-theme 'zenburn t)))
 
 ;;; Load in customize stuff:
 (setq custom-file (concat *mh/lisp-base* system-name "-variables.el"))
