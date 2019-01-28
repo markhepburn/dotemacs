@@ -64,7 +64,8 @@ file (including following symlinks).")
 
 ;;; toggle-case
 (use-package quelpa-use-package
-  :init (setq quelpa-update-melpa-p nil))
+  :init (setq quelpa-update-melpa-p nil)
+  :config (quelpa-use-package-activate-advice))
 
 
 ;;; loaded before anything else because of various macros
