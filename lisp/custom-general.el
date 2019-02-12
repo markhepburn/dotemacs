@@ -269,6 +269,12 @@
 ;;; See also the direx-project: functions
 (use-package direx
   :bind ("C-x C-j" . direx:find-directory))
+(use-package dired-git-info
+  :quelpa (dired-git-info
+           :fetcher github
+           :repo "clemera/dired-git-info")
+  :bind (:map dired-mode-map
+              (")" . dired-git-info-mode)))
 
 ;; Scroll-bars on the right please:
 (if (fboundp 'set-scroll-bar-mode) (set-scroll-bar-mode 'right))
