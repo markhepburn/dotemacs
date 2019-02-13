@@ -264,6 +264,7 @@
   :bind (:map dired-mode-map
               ("/" . dired-narrow)))
 (use-package dired-quick-sort
+  :if (not (memq window-system '(w32)))
   :config (dired-quick-sort-setup))
 ;;; Tree-based file browser, to see if I use it.
 ;;; See also the direx-project: functions
