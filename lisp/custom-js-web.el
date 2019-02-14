@@ -67,11 +67,8 @@
   :after (less-css-mode)
   :config (add-hook 'less-css-mode-hook 'rainbow-turn-on))
 
-;;; JSX (React):
+;;; JS (note, jsx-mode is for typed-js, use js-jsx-mode for React):
 (use-package tide)
-(use-package jsx-mode
-  :config
-  (add-hook 'jsx-mode-hook 'tide-setup))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
