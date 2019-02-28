@@ -89,6 +89,7 @@ easily jump back."
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (use-package omnisharp
   ;; :hook csharp
+  :after company
   :config
   (add-to-list 'company-backends #'company-omnisharp))
 

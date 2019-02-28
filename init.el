@@ -25,6 +25,9 @@
 (require 'cl)
 (require 'cl-macs)
 
+(use-package dash)
+(use-package s)
+
 (defvar *mh/init-base*  (file-name-directory (file-truename user-init-file)))
 (defvar *mh/lisp-base* (concat *mh/init-base* "lisp/")
   "Base code directory; contains free-standing code and
