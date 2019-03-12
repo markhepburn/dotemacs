@@ -18,8 +18,6 @@
 
 (setq gc-cons-threshold 100000000)
 
-(defvar *mh/load-start-time* (current-time))
-
 
 ;;; Commentary:
 ;;
@@ -118,10 +116,7 @@ file (including following symlinks).")
   :init (setq session-save-print-spec '(t nil 40000))
   :config (add-hook 'after-init-hook 'session-initialize))
 
-(message ".emacs loaded in %ds"
-         (destructuring-bind (hi lo ms ps) (current-time)
-           (- (+ hi lo) (+ (first *mh/load-start-time*)
-                           (second *mh/load-start-time*)))))
+(message ".emacs loaded in %s" (emacs-init-time))
 
 (provide 'init)
 
