@@ -11,9 +11,9 @@
 ;;; platform-specific customisations, which for simplicity is just the
 ;;; platform name as reported by 'system-type).
 
-
-;; http://a-nickels-worth.blogspot.com/2007/11/effective-emacs.html
-;; Measure load-time for .emacs:
+;;; Once upon a time this was inspired by the following post, but now
+;;; use-package does most of the efficiency heavy-lifting:
+;;; http://a-nickels-worth.blogspot.com/2007/11/effective-emacs.html
 ;;; Code:
 
 (setq gc-cons-threshold 100000000)
