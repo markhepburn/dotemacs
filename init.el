@@ -16,6 +16,8 @@
 ;; Measure load-time for .emacs:
 ;;; Code:
 
+(setq gc-cons-threshold 100000000)
+
 (defvar *mh/load-start-time* (current-time))
 
 
