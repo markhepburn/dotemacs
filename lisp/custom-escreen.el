@@ -6,6 +6,13 @@
 
 ;;; Code:
 
+(use-package rotate
+  :init
+  (setq rotate-functions
+        '(rotate:even-horizontal
+          rotate:even-vertical
+          rotate:tiled)))
+
 (use-package escreen
   :demand t                            ; otherwise loading is deferred
   :quelpa (escreen
@@ -78,7 +85,9 @@
          ("M-k" . escreen-kill-screen-and-buffers)
          ("C-n" . escreen-goto-next-screen)
          ("C-p" . escreen-goto-prev-screen)
-         ("C-f" . escreen-find-file-new-screen)))
+         ("C-f" . escreen-find-file-new-screen)
+         ;; Hijack this one; it fits in the general usage of the binding prefix:
+         ("SPC" . rotate-layout)))
 
 (provide 'custom-escreen)
 ;;; custom-escreen.el ends here
