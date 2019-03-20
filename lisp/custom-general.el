@@ -22,6 +22,7 @@
 ;;; Utility packages; installed as dependences anyway, mentioned as a reminder:
 (use-package dash)
 (use-package s)
+(use-package f)
 (use-package seq :pin gnu)
 
 (setq-default save-place t)
