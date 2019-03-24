@@ -157,9 +157,6 @@
 ;;; we also use remove-hook to ensure we only run it once.
 (add-hook 'focus-in-hook #'initialise-icon-fonts)
 
-(require 'dash)
-(require 's)
-
 (defmacro with-face (STR &rest PROPS)
   "Return STR propertized with PROPS."
   `(propertize ,STR 'face (list ,@PROPS)))
