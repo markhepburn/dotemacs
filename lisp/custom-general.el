@@ -147,7 +147,8 @@
   :bind (("C-!" . mc/edit-lines)
          ("C->" . mc/mark-more-like-this-extended)
          ("C-<" . mc/mark-previous-like-this)
-         ("C-c C-<" . mc/mark-all-like-this)))
+         ("C-c C-<" . mc/mark-all-like-this)
+         ("C-S-<mouse-1>" . mc/toggle-cursor-on-click)))
 
 ;;; Visual rectangle editing: /why/ the hell is this buried in a
 ;;; package that makes emacs act more like windows??  Anyway:
