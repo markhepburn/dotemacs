@@ -10,48 +10,35 @@
 
 ;;; Code:
 
-;;; Ignore all the "xxx has quit: timeout" etc messages:
-(setq erc-hide-list '("JOIN" "PART" "QUIT"))
+(use-package erc
+  :init
+  (setq erc-server "irc.freenode.net"
+        erc-nick   "markhepburn"
+        erc-port   6697                 ; 6697 for TLS
 
-(setq erc-autojoin-channels-alist
-      '(("freenode.net" "#clojure"
-                        "#clojure-au"
-                        "#emacs"
-                        "#geodjango"
-                        "#openlayers")))
+        erc-autojoin-channels-alist
+        '(("freenode.net" "#clojure"
+                          "#clojure-au"
+                          "#emacs"
+                          "#geodjango"
+                          "#openlayers"))
 
-(setq erc-server "irc.freenode.net"
-      erc-nick   "markhepburn"
-      erc-port   6697)                  ; 6697 for TLS
+        ;; Ignore all the "xxx has quit: timeout" etc messages:
+        erc-hide-list '("JOIN" "PART" "QUIT")))
 
-(after 'erc
-  (when (require 'erc-services nil t)
-    (load "erc-creds")
-    (setq erc-prompt-for-nickserv-password nil)
-    (erc-services-mode 1))
+(use-package erc-services
+  :ensure nil
+  :after erc
+  :config
+  (load "erc-creds" t nil)
+  (setq erc-prompt-for-nickserv-password nil)
 
   (when (boundp 'dbus-compiled-version)
     (add-to-list 'erc-modules 'notifications)
     (erc-update-modules))
 
-  (when (featurep 'helm)
+  (erc-services-mode 1))
 
-    (defun erc-helm-buffer-list ()
-      (mapcar 'buffer-name (erc-buffer-list)))
-
-    (setq helm-source-erc-channel-list
-      '((name . "ERC Channels")
-        (candidates . erc-helm-buffer-list)
-        (action . helm-switch-to-buffer)))
-
-    (defun erc-helm-switch-buffer ()
-      "Use helm to select an active ERC buffer.
-Replaces erc-iswitchb, which doesn't work for me."
-      (interactive)
-      (helm :sources '(helm-source-erc-channel-list)
-            :buffer "*helm-erc-channels*"))
-
-    (define-key erc-mode-map (kbd "C-c C-b") 'erc-helm-switch-buffer)))
 
 (provide 'custom-erc)
 
