@@ -20,6 +20,7 @@
 (setq mh/git-bash-bin "C:/Program Files/Git/bin")
 
 (add-to-list 'exec-path mh/git-bash-bin)
+(add-to-list 'exec-path (f-join (getenv "userprofile") "bin"))
 (setenv "PATH" (concat mh/git-bash-bin path-separator (getenv "PATH")))
 
 ;;; Try and speed up git; see https://lists.gnu.org/archive/html/emacs-devel/2018-06/msg00667.html
@@ -35,7 +36,7 @@
     (shell "*bash*")))
 
 ;;; Now we can M-x pyvenv-workon (in conjunction with mkvirtualenv)
-(setenv "WORKON_HOME" "C:/Users/mark_2/Envs")
+(setenv "WORKON_HOME" (f-join (getenv "userprofile") "Envs"))
 
 ;;; We'll use regular cmd for now, with a proper path (above)
 ;; (setq shell-file-name (concat mh/git-bash-bin "/" "bash.exe")
