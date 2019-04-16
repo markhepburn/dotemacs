@@ -67,9 +67,11 @@ file (including following symlinks).")
   :init (setq quelpa-update-melpa-p nil)
   :config (quelpa-use-package-activate-advice))
 
-
+;;; Utility packages; load here before other customisations that may use them
 (use-package dash)
 (use-package s)
+(use-package f)
+(use-package seq :pin gnu)
 
 ;;; loaded before anything else because of various macros
 ;;; (enable-minor-mode-for, after):
