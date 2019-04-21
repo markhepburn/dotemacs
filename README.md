@@ -7,10 +7,10 @@ years, so please feel free to point out where it can be improved.
 
 These days I have a fairly homogenous environment across my different
 installations, so there's not a lot of effort put in to making things
-backwards-compatible.  Currently that means Emacs24, on a Linux
-(Ubuntu) host, although the only thing I'm aware of that breaks on
-Emacs23 is the colour-theme stuff.  See also the platform and
-host-specific loading files if things start to deviate much.
+backwards-compatible.  I mostly run a snapshot build on a Linux
+(Ubuntu) host, and the latest stable build on windows.  Most
+configuration should be portable, but there are facilities to load
+platform-specific (and host-specific) code when necessary.
 
 Installation
 ------------
