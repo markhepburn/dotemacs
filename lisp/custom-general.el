@@ -223,22 +223,14 @@
 (setq ps-paper-type 'a4)
 
 ;; Dired should recursively delete directories after asking:
-(setq dired-recursive-deletes 'top
-      dired-recursive-copies 'top
-      dired-dwim-target t)
-(add-hook 'dired-mode-hook
-          (lambda ()
-            ;; already available on C-xC-q (usually toggles read-only, so that works)
-            (when (require 'dired-x nil t)
-              (setq dired-omit-files      "\\(^\\..*\\)\\|\\(CVS\\)"
-                    dired-omit-verbose    nil
-                    dired-omit-extensions '("~" ".bak" ".pyc" ".elc"))
-              (dired-omit-mode 1))))
-(add-hook 'dired-mode-hook (lambda () (hl-line-mode 1)))
-;;; Make dired buffer navigation a bit more friendly
-;;; (http://whattheemacsd.com/setup-dired.el-02.html)
-;;; Note, dired-mode-map isn't defined at load-time, so delay until dired appears:
-(after 'dired
+(use-package dired
+  :ensure nil
+  :init
+  (setq dired-recursive-deletes 'top
+        dired-recursive-copies 'top
+        dired-dwim-target t)
+  :config
+  ;; (http://whattheemacsd.com/setup-dired.el-02.html)
   (defun dired-back-to-top ()
     (interactive)
     (beginning-of-buffer)
@@ -249,6 +241,14 @@
     (end-of-buffer)
     (dired-next-line -1))
   (define-key dired-mode-map (vector 'remap 'end-of-buffer) 'dired-jump-to-bottom))
+(use-package dired-x
+  :ensure nil
+  :init
+  (setq dired-omit-files      "\\(^\\..*\\)\\|\\(CVS\\)"
+        dired-omit-verbose    nil
+        dired-omit-extensions '("~" ".bak" ".pyc" ".elc"))
+  :hook (dired . dired-omit-mode))
+
 ;;; Bizarrely, zip files aren't handled out-of-the-box by dired:
 (after 'dired-aux
   (add-to-list 'dired-compress-file-suffixes
