@@ -292,11 +292,6 @@
 (global-set-key (kbd "C-,") 'scroll-up-line)
 (global-set-key (kbd "C-.") 'scroll-down-line)
 
-
-(when (require 'atim-unscroll nil t)
-  (atim-unscroll-global-mode)
-  (diminish 'atim-unscroll-mode))
-
 (use-package undo-tree
   :config (global-undo-tree-mode)
   :diminish undo-tree-mode)
