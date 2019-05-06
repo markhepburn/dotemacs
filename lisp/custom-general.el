@@ -247,6 +247,7 @@
   (setq dired-omit-files      "\\(^\\..*\\)\\|\\(CVS\\)"
         dired-omit-verbose    nil
         dired-omit-extensions '("~" ".bak" ".pyc" ".elc"))
+  :bind ([remap list-directory] . dired-jump)
   :hook (dired . dired-omit-mode))
 
 ;;; Bizarrely, zip files aren't handled out-of-the-box by dired:
