@@ -92,7 +92,11 @@
 
 ;;; Helm-ag:
 (use-package helm-ag
-  :init (setq helm-ag-base-command "rg --no-heading --smart-case --line-number"; "ag --nocolor --nogroup --ignore-case"
+  :ensure nil
+  :quelpa (helm-ag
+           :fetcher github
+           :repo "markhepburn/emacs-helm-ag")
+  :init (setq helm-ag-base-command "rg --no-messages --no-heading --smart-case --line-number"; "ag --nocolor --nogroup --ignore-case"
               ;; helm-ag-command-option "--all-text"
               helm-ag-thing-at-point 'symbol)
   :bind (("M-g ." . helm-ag)
