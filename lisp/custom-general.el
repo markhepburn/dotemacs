@@ -18,7 +18,7 @@
 (use-package lively)
 (use-package lorem-ipsum)
 (use-package rst)
-(use-package yaml-mode)
+(use-package yaml-mode :init (add-hook 'yaml-mode-hook #'turn-off-auto-fill))
 
 (setq-default save-place t)
 (setq save-place-file (expand-file-name "saved.places" user-emacs-directory))
