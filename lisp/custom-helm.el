@@ -22,6 +22,8 @@
      helm-input-idle-delay 0.01 ; be idle for this many seconds, before updating candidate buffer
      helm-ff-search-library-in-sexp t ; search for library in `require' and `declare-function' sexp.
 
+     helm-buffer-max-length nil         ; don't truncate buffer names. See also "C-]" to toggle display of other info
+
      helm-split-window-default-side 'other ;; open helm buffer in another window
      helm-split-window-in-side-p t ;; open helm buffer inside current window, not occupy whole other window
 
