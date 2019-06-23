@@ -20,6 +20,11 @@
 (use-package rst)
 (use-package yaml-mode :init (add-hook 'yaml-mode-hook #'turn-off-auto-fill))
 
+(use-package vlf)
+(use-package vlf-setup
+  :ensure nil
+  :after vlf)
+
 (setq-default save-place t)
 (setq save-place-file (expand-file-name "saved.places" user-emacs-directory))
 
