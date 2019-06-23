@@ -18,6 +18,10 @@
             (defun json-pretty-print-buffer ()
               (json-reformat-region (point-min) (point-max)))))
 
+;;; Via https://writequit.org/articles/working-with-logs-in-emacs.html,
+;;; which has lots of tips:
+(use-package json-navigator)
+
 ;;; From http://whattheemacsd.com//setup-html-mode.el-05.html
 ;;; after deleting a tag, indent properly (I didn't use
 ;;; sgml-delete-tag, but it's on C-c C-d)
