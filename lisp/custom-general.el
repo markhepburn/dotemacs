@@ -19,6 +19,8 @@
 (use-package lorem-ipsum)
 (use-package rst)
 (use-package yaml-mode :init (add-hook 'yaml-mode-hook #'turn-off-auto-fill))
+(use-package poly-ansible) ; poly-mode that combines jinja + yml mode for ansible
+
 
 (use-package vlf)
 (use-package vlf-setup
