@@ -150,6 +150,9 @@
          ("C-c C-<" . mc/mark-all-like-this)
          ("C-S-<mouse-1>" . mc/toggle-cursor-on-click)))
 
+(use-package smartscan
+  :init (add-hook 'prog-mode-hook #'smartscan-mode-turn-on))
+
 ;;; Visual rectangle editing: /why/ the hell is this buried in a
 ;;; package that makes emacs act more like windows??  Anyway:
 (cua-selection-mode t)                ;; Also disables the CUA keys
