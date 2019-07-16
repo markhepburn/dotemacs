@@ -317,6 +317,9 @@
   :ensure nil
   :bind ("M-Z" . zap-up-to-char))
 
+;;; There isn't a default binding for this:
+(global-set-key (kbd "M-K") #'kill-paragraph)
+
 ;;; Temporarily enable fringe line-numbers during goto-line.
 ;;; Via http://whattheemacsd.com/key-bindings.el-01.html
 ;;; This is now native, so we don't need nlinum though:
