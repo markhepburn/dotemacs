@@ -2,6 +2,12 @@
 ;;; (warning: might need to disable the "start" script in the git-bin
 ;;; path; haven't come across issues arising from doing that yet)
 (use-package ssh-agency)
+;;; Hack!  Powershell module posh-sshagent's Start-SshAgent sets
+;;; gitconfig's core.sshCommand, to a C:\Program Files... path, which
+;;; promptly breaks git-bash.  So, set this environment variable
+;;; everywhere git-bash's git is used, which will override the
+;;; core.sshCommand settings, and they should all be able to co-exist.
+(setenv "GIT_SSH_COMMAND" "ssh")
 
 (set-face-font 'default "Consolas-10")
 
