@@ -525,6 +525,10 @@
     (add-hook 'markdown-mode-hook
               (lambda ()
                 (add-hook 'fill-nobreak-predicate 'mh/liquid-nobreak-p)))))
+(use-package grip-mode
+  :after markdown-mode
+  :bind (:map markdown-mode-command-map
+              ("g" . grip-mode)))
 
 ;;; open jar files as well:
 (add-to-list 'auto-mode-alist '("\\.jar\\'" . archive-mode))
