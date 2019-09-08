@@ -252,7 +252,7 @@ The result is a paired list of character positions for an integer
   (interactive "p")
   (let ((numstr (thing-at-point 'integer)))
     (unless (null numstr)
-      (let* ((num (string-to-int numstr))
+      (let* ((num (string-to-number numstr))
              (incnum (+ num increment))
              (beg (beginning-of-thing 'integer))
              (end (end-of-thing 'integer)))
