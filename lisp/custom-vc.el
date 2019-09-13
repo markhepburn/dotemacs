@@ -35,6 +35,8 @@
          ;; Shut upgrade-messages up:
          magit-last-seen-setup-instructions "1.4.0"
 
+         magit-log-margin '(t "%Y-%m-%d %H:%M " magit-log-margin-width t 18)
+
          ;; Always fullscreen:
          magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1
 
