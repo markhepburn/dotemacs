@@ -23,11 +23,12 @@
   (aset buffer-display-table ?\^M []))
 
 ;;; Get shell stuff working properly (such as find-name-dired, etc):
-(setq mh/git-bash-bin "C:/Program Files/Git/bin")
+(setq mh/git-bash-dir "C:/Program Files/Git")
 
-(add-to-list 'exec-path mh/git-bash-bin)
+(add-to-list 'exec-path (f-join mh/git-bash-dir "bin"))
 (add-to-list 'exec-path (f-join (getenv "userprofile") "bin"))
-(setenv "PATH" (concat mh/git-bash-bin path-separator (getenv "PATH")))
+(add-to-list 'exec-path (f-join mh/git-bash-dir "usr" "bin"))
+(setenv "PATH" (concat (f-join mh/git-bash-dir "bin") path-separator (getenv "PATH")))
 
 ;;; Try and speed up git; see https://lists.gnu.org/archive/html/emacs-devel/2018-06/msg00667.html
 (setq w32-pipe-read-delay 0
