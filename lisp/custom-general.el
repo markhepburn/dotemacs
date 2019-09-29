@@ -5,6 +5,8 @@
 ;;; Commentary:
 ;; 
 
+;;; Keep keys up to date:
+(use-package gnu-elpa-keyring-update)
 
 ;; Save point position between sessions (hat tip, http://whattheemacsd.com/init.el-03.html)
 (require 'saveplace)
