@@ -36,6 +36,11 @@
                  '("\\.erl\\'" flymake-erlang-init))
     (add-hook 'find-file-hook 'flymake-find-file-hook)))
 
+;;; Elixir section
+
+(use-package elixir-mode
+  :init (add-hook 'elixir-mode-hook #'eglot-ensure))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (provide 'custom-erlang)
