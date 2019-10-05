@@ -73,6 +73,8 @@ file (including following symlinks).")
 (use-package f)
 (use-package seq :pin gnu)
 
+(load "secure-settings.el.gpg" t)
+
 ;;; loaded before anything else because of various macros
 ;;; (enable-minor-mode-for, after):
 (load "custom-functions")
