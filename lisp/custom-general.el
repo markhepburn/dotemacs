@@ -533,6 +533,7 @@
                 (add-hook 'fill-nobreak-predicate 'mh/liquid-nobreak-p)))))
 (use-package grip-mode
   :after markdown-mode
+  :init (setq grip-github-user "markhepburn")
   :bind (:map markdown-mode-command-map
               ("g" . grip-mode)))
 
