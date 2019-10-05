@@ -52,6 +52,8 @@
 
             (ede-minor-mode 1)))
 
+(add-to-list 'exec-path (expand-file-name "~/.local/bin"))
+
 (add-to-list 'exec-path (expand-file-name "~/Projects/elixir-ls"))
 
 (provide 'gnu-linux)
