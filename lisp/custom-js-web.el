@@ -17,6 +17,8 @@
   :config (when (require 'json-reformat nil t)
             (defun json-pretty-print-buffer ()
               (json-reformat-region (point-min) (point-max)))))
+(use-package restclient-helm
+  :after (restclient-mode))
 
 ;;; Via https://writequit.org/articles/working-with-logs-in-emacs.html,
 ;;; which has lots of tips:
