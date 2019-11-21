@@ -15,6 +15,14 @@
   `(eval-after-load ,mode
      '(progn ,@body)))
 
+;;; Originally via https://web.archive.org/web/20150713053259/http://www.archivum.info/comp.emacs/2007-06/00348/Re-Ignore-%5EM-in-mixed-(LF-and-CR+LF)-line-ended-textfiles.html
+;;; For interactive use, but also useful as a mode hook.
+(defun ignore-dos-eol ()
+  "Do not show ^M in files containing mixed UNIX and DOS line endings."
+  (interactive)
+  (setq buffer-display-table (make-display-table))
+  (aset buffer-display-table ?\^M []))
+
 ;;; mark the line at point (main use-case is probably to mark then
 ;;; comment out, since killing, copying etc are already handled -- see
 ;;; below).  Bound to C-M-; to resemble M-; for this reason.
