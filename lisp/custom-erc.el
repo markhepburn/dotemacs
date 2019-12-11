@@ -3,7 +3,7 @@
 ;;; Commentary:
 ;; ERC Customisations
 
-;;; File `erc-creds.el' should not be checked in to version control.
+;;; Credentials are contained in secure-settings.el.gpg
 ;;; It should contain code to set `erc-nickserv-passwords', eg
 ;; (setq erc-nickserv-passwords
 ;;       '((freenode (("markhepburn" . "my-password")))))
