@@ -54,7 +54,7 @@
 
 (add-to-list 'exec-path (expand-file-name "~/.local/bin"))
 
-(add-to-list 'exec-path (expand-file-name "~/Projects/elixir-ls"))
+(add-to-list 'exec-path (expand-file-name "~/Projects/elixir-ls-git/release-1.9.4"))
 
 (provide 'gnu-linux)
 

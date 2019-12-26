@@ -23,9 +23,25 @@
 (use-package yaml-mode :init (add-hook 'yaml-mode-hook #'turn-off-auto-fill))
 (use-package poly-ansible) ; poly-mode that combines jinja + yml mode for ansible
 
-;;; Language-server integration.  lsp-mode is the other choice:
+;;; Language-server integration.  eglot is the other choice:
 ;;; Needs path to elixir_ls installation added to `exec-path'
-(use-package eglot)
+(use-package lsp-mode
+  :hook (prog-mode . lsp)
+  :commands lsp)
+(use-package lsp-ui
+  :after lsp-mode
+  :commands lsp-ui-mode)
+(use-package company-lsp
+  :after lsp-mode
+  :commands company-lsp)
+(use-package helm-lsp
+  :after lsp-mode
+  :commands helm-lsp-workspace-symbol)
+;;; debugger support:
+(use-package dap-mode
+  :after lsp-mode)
+(use-package dap-elixir
+  :after dap-mode)
 
 
 (use-package vlf)
