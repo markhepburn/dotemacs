@@ -41,6 +41,7 @@
 (use-package dap-mode
   :after lsp-mode)
 (use-package dap-elixir
+  :ensure nil
   :after dap-mode)
 
 
