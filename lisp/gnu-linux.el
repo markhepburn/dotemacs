@@ -36,10 +36,6 @@
 ;;      (add-to-list 'org-agenda-files (expand-file-name "~/todo-apa.org"))
 ;;      (define-key org-mode-map  "\C-ca" 'org-agenda)))
 
-;; In X-windows, play nicely with the clipboard:
-(setq x-select-enable-clipboard t)
-(global-set-key (kbd "C-y") 'x-clipboard-yank)
-
 (add-hook 'c-mode-common-hook
           (lambda ()
             (local-set-key [(control return)] 'semantic-ia-complete-symbol)
