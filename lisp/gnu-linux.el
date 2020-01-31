@@ -7,7 +7,7 @@
 
 ;;; Code:
 
-(set-frame-parameter nil 'font-backend '(xft x))
+;; (set-frame-parameter nil 'font-backend '(xft))
 ;;; this is now actually set in ~/.Xresources (otherwise, it doesn't
 ;;; seem to get set correctly when the daemon starts up); relevant
 ;;; line:
