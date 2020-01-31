@@ -26,7 +26,8 @@
 ;;; Language-server integration.  eglot is the other choice:
 ;;; Needs path to elixir_ls installation added to `exec-path'
 (use-package lsp-mode
-  :hook (prog-mode . lsp)
+  ;; Add to this list as necessary; using prog-mode was too annoying:
+  :hook ((elixir-mode) . lsp)
   :commands lsp)
 (use-package lsp-ui
   :after lsp-mode
