@@ -38,8 +38,7 @@
 
 ;;; Elixir section
 
-(use-package elixir-mode
-  :init (add-hook 'elixir-mode-hook #'eglot-ensure))
+(use-package elixir-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
