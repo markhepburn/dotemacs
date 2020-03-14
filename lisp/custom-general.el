@@ -28,10 +28,8 @@
 (use-package lsp-mode
   ;; Add to this list as necessary; using prog-mode was too annoying:
   :hook ((elixir-mode) . lsp)
-  :commands lsp)
-(use-package lsp-ui
-  :after lsp-mode
-  :commands lsp-ui-mode)
+  :commands lsp
+  :bind ("C-c C-d" . lsp-describe-thing-at-point))
 (use-package company-lsp
   :after lsp-mode
   :commands company-lsp)
