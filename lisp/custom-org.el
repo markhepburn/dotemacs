@@ -17,7 +17,7 @@
   :pin org
   :config
   (progn
-    (setq org-directory (expand-file-name (file-name-as-directory "~/Dropbox/org"))
+    (setq org-directory (expand-file-name (file-name-as-directory "~/Nextcloud/org"))
 
           org-log-done t
 
