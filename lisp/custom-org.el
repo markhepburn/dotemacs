@@ -11,12 +11,12 @@
 
 (use-package org
   :ensure org-plus-contrib
+  ;; This prefers the manually-installed version over the existing
+  ;; one, removing the need to reload for example:
+  ;; https://www.reddit.com/r/emacs/comments/dv02lk/how_to_force_emacs_to_prefer_manually_installed/f7huwfy/
+  :pin org
   :config
   (progn
-    ;; don't bother eval-after-loading, because org is already included.
-    ;; We do however have to reload, so the local copy takes precedence
-    ;; over the distributed version:
-    (org-reload)
     (setq org-directory (expand-file-name (file-name-as-directory "~/Dropbox/org"))
 
           org-log-done t
