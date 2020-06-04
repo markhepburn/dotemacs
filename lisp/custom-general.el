@@ -23,6 +23,17 @@
 (use-package yaml-mode :init (add-hook 'yaml-mode-hook #'turn-off-auto-fill))
 (use-package poly-ansible) ; poly-mode that combines jinja + yml mode for ansible
 
+;;; Create dir-locals file with
+;;; ((yaml-mode
+;;;   (ansible-vault-password-file . "/home/notroot/.ansible-vault/custom_vault_pass")))
+(defun ansible-vault-mode-maybe ()
+  (when (and (derived-mode-p 'yaml-mode)
+             (ansible-vault--is-vault-file))
+    (ansible-vault-mode 1)))
+(add-hook 'hack-local-variables-hook #'ansible-vault-mode-maybe)
+(use-package ansible-vault
+  :after yaml-mode)
+
 ;;; Language-server integration.  eglot is the other choice:
 ;;; Needs path to elixir_ls installation added to `exec-path'
 (use-package lsp-mode
