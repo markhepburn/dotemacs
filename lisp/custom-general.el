@@ -252,6 +252,9 @@
             ;; 't to jit-load snippets:
             (yas-load-directory (concat *mh/init-base* "snippets") t))
   :diminish (yas-minor-mode yas/minor-mode))
+(use-package yasnippet-snippets
+  :after yasnippet
+  :config (yasnippet-snippets-initialize))
 
 ;;; Company now seems more active, and in particular clojure-mode
 ;;; works best with company:
