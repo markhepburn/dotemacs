@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: handle_event
+# key: hevent
+# --
+def handle_event("${1:event}", ${2:_}, ${3:socket}) do
+  $3 = assign($3, ${0:values})
+  {:noreply, $3}
+end

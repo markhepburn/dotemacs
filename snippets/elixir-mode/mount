@@ -3,6 +3,6 @@
 # key: mount
 # --
 def mount(${1:params}, ${2:session}, ${3:socket}) do
-  socket = assign(socket, ${0:values})
-  {:ok, socket}
+  $3 = assign($3, ${0:values})
+  {:ok, $3}
 end
