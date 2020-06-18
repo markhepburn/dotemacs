@@ -114,10 +114,10 @@
 ;;; originally, but things seem to have changed slightly since then):
 (setq line-move-visual nil)
 ;;; trailing whitespace (see also M-x delete-trailing-whitespace):
-(setq-default show-trailing-whitespace t)
-(defun mh/disable-show-ws () (setq show-trailing-whitespace nil))
-(dolist (hook '(eshell-mode-hook))
-  (add-hook hook 'mh/disable-show-ws))
+(defun mh/turn-on-show-trailing-whitespace ()
+  (setq show-trailing-whitespace t))
+(dolist (hook '(prog-mode-hook text-mode-hook))
+  (add-hook hook #'mh/turn-on-show-trailing-whitespace))
 ;;; Make sure we always include a trailing newline:
 (setq require-final-newline t)
 ;;; high-light selections:
