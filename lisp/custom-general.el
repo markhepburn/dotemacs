@@ -34,11 +34,14 @@
 (use-package ansible-vault
   :after yaml-mode)
 
+(use-package which-key)
 ;;; Language-server integration.  eglot is the other choice:
 ;;; Needs path to elixir_ls installation added to `exec-path'
 (use-package lsp-mode
   ;; Add to this list as necessary; using prog-mode was too annoying:
   :hook ((elixir-mode) . lsp)
+  :init (setq lsp-keymap-prefix "C-c C-l")
+  :config (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
   :commands lsp
   :bind ("C-c C-d" . lsp-describe-thing-at-point))
 (use-package company-lsp
