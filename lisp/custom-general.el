@@ -34,7 +34,8 @@
 (use-package ansible-vault
   :after yaml-mode)
 
-(use-package which-key)
+(use-package which-key
+  :diminish which-key-mode)
 ;;; Language-server integration.  eglot is the other choice:
 ;;; Needs path to elixir_ls installation added to `exec-path'
 (use-package lsp-mode
