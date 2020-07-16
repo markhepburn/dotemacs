@@ -50,9 +50,7 @@
 (use-package emmet-mode
   :after (web-mode)
   :init (setq-default emmet-indentation 2)
-  :config (progn
-            (add-hook 'web-mode-hook 'emmet-mode)
-            (add-hook 'css-mode-hook 'emmet-mode))
+  :hook (web-mode css-mode)
   :bind (:map emmet-mode-keymap
          ("C-j" . nil) ;; reclaim C-j keybinding from emmet!
          ("M-<return>" . emmet-expand-line)))
