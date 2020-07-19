@@ -23,6 +23,11 @@
 (use-package yaml-mode :init (add-hook 'yaml-mode-hook #'turn-off-auto-fill))
 (use-package poly-ansible) ; poly-mode that combines jinja + yml mode for ansible
 
+;;; Filename in frame title:
+(setq frame-title-format
+      '(buffer-file-name "%f"
+                         (dired-directory dired-directory "%b")))
+
 ;;; Create dir-locals file with
 ;;; ((yaml-mode
 ;;;   (ansible-vault-password-file . "/home/notroot/.ansible-vault/custom_vault_pass")))
