@@ -55,9 +55,6 @@
          ("C-j" . nil) ;; reclaim C-j keybinding from emmet!
          ("M-<return>" . emmet-expand-line)))
 
-;;; Interactive django mode (virtualenv and fabric integration, etc):
-(use-package pony-mode)
-
 ;;; Make css colour definitions the colour they represent:
 (use-package rainbow-mode
   :after (css-mode)
