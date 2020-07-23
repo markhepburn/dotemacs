@@ -1,6 +1,0 @@
-# -*- coding: utf-8; mode: snippet -*-
-# name: from IPython import embed; embed()
-# key: embed
-# contributor: Mark Hepburn <mark.hepburn@gmail.com>
-# --
-from IPython import embed; embed()
