@@ -116,6 +116,10 @@ easily jump back."
               ("C-c r r" . omnisharp-run-code-action-refactoring)
               ("C-c C-c" . recompile)))
 
+;;; Default prefix C-c C-n:
+(use-package dotnet
+  :hook (csharp-mode . dotnet-mode))
+
 ;; This emacs package requires the omnisharp-roslyn server program. Emacs will manage connection to the server as a subprocess.
 ;; The easiest/default way to install the server is to invoke M-x omnisharp-install-server and follow instructions on minibufer.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
