@@ -40,7 +40,9 @@
   :after yaml-mode)
 
 (use-package which-key
-  :diminish which-key-mode)
+  :demand t
+  :diminish which-key-mode
+  :config (which-key-mode 1))
 ;;; Language-server integration.  eglot is the other choice:
 ;;; Needs path to elixir_ls installation added to `exec-path'
 (use-package lsp-mode
