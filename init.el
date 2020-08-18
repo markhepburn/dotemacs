@@ -49,9 +49,6 @@ file (including following symlinks).")
         ("marmalade" . "https://marmalade-repo.org/packages/")
         ("org" . "https://orgmode.org/elpa/")))
 
-(require 'package)
-(package-initialize)
-
 (unless (package-installed-p 'use-package)
   (message "Installing use-package first...")
   (unless package-archive-contents
