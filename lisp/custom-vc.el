@@ -9,7 +9,8 @@
 ;;; Code:
 
 ;;; diff setup:
-(setq diff-default-read-only t)
+(setq diff-default-read-only t
+      diff-font-lock-prettify t)
 
 ;; use unified diffs by default in diff-mode:
 (setq diff-switches "-u")

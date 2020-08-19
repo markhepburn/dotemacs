@@ -74,6 +74,9 @@
 (setq-default save-place t)
 (setq save-place-file (expand-file-name "saved.places" user-emacs-directory))
 
+;;; isearch,show counts:
+(setq isearch-lazy-count t)
+
 ;;; Quit emacs (??) easier:
 (defalias 'sbke 'save-buffers-kill-emacs)
 
