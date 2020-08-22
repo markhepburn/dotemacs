@@ -14,5 +14,7 @@
   :config
   ;; use C-x t T to toggle actually displaying the tab-bar:
   (define-key tab-prefix-map (kbd "T") #'tab-bar-mode)
+  ;; C-z C-z to emulate "toggle between most recent tab" (not circulate in order)
+  (define-key tab-prefix-map (kbd "C-z") #'tab-recent)
   :bind-keymap ("C-z" . tab-prefix-map))
 
