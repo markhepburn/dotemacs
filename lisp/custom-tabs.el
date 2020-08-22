@@ -13,5 +13,6 @@
         tab-bar-new-tab-to 'rightmost)
   :config
   ;; use C-x t T to toggle actually displaying the tab-bar:
-  (define-key tab-prefix-map (kbd "T") #'tab-bar-mode))
+  (define-key tab-prefix-map (kbd "T") #'tab-bar-mode)
+  :bind-keymap ("C-z" . tab-prefix-map))
 
