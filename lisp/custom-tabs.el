@@ -16,5 +16,7 @@
   (define-key tab-prefix-map (kbd "T") #'tab-bar-mode)
   ;; C-z C-z to emulate "toggle between most recent tab" (not circulate in order)
   (define-key tab-prefix-map (kbd "C-z") #'tab-recent)
+  ;; View (/select) list of tabs. See also C-zRET tab-bar-select-tab-by-name
+  (define-key tab-prefix-map (kbd "C-l") #'tab-list)
   :bind-keymap ("C-z" . tab-prefix-map))
 
