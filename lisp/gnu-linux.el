@@ -19,6 +19,8 @@
 ;(set-frame-font "Inconsolata-11")
 ;(set-frame-font "Bitstream Vera Sans Mono-10")
 ;(set-frame-font "Monospace-10")
+;(set-frame-font "Cascadia Code-7")
+(set-frame-font "JetBrains Mono-6")
 
 ;;; font-lock for apt sources:
 (add-to-list 'auto-mode-alist '("sources\\.list\\'" . conf-mode))
@@ -26,6 +28,46 @@
 ;;; Make sure that the default browser is used by browse-url*:
 (setq browse-url-browser-function 'browse-url-generic
       browse-url-generic-program "x-www-browser")
+
+(use-package ligature
+  :quelpa (ligature
+           :fetcher github
+           :repo "mickeynp/ligature.el")
+  :config
+  ;; Enable the "www" ligature in every possible major mode
+  ;(ligature-set-ligatures 't '("www"))
+  ;; Enable all Jetbrains Mono ligatures in programming modes
+  (ligature-set-ligatures 'prog-mode '("-->" "//" "/**" "/*" "*/" "//" "<!--" ":="
+                                       "->>" "<<-" "->" "<-" "<=>" "==" "!=" "<=" ">=" "=:=" "!=="
+                                       "&&" "&&&" "||" "..." ".." "///" "===" "++" "--"
+                                       "=>" "|>" "<|" "||>" "<||" "|||>" "<|||::="
+                                       "|]" "[|" "|}" "{|" "[<" ">]" ":?>" ":?" "/=" "[||]"
+                                       "!!" "?:" "?." "::" "+++" "??" "##" "###" "####" ":::"
+                                       ".?" "?=" "=!=" "<|>" "<:" ":<" ":>" ">:" "<>" "***"
+                                       ";;" "/==" ".=" ".-" "__" "=/="
+                                       "<-<" "<<<" ">>>" "<=<" "<<=" "<==" "<==>" "==>"
+                                       "=>>" ">=>" ">>=" ">>-" ">-" "<~>" "-<" "-<<" "<<" "---"
+                                       "<-|" "<=|" "\\" "\\/" "|=>" "|->" "<~~" "<~" "~~" "~~>" "~>"
+                                       "<$>" "<$" "$>" "<+>" "<+" "+>" "<*>" "<*" "*>" "</" "</>" "/>" "<->"
+                                       "..<" "~=" "~-" "-~" "~@" "^=" "-|" "_|_" "|-" "||-" "|=" "||="
+                                       "#{" "#[" "]#" "#(" "#?" "#_" "#_(" "#:" "#!" "#="))
+  ;; Enable all Cascadia Code ligatures in programming modes
+  ;; (ligature-set-ligatures 'prog-mode '("|||>" "<|||" "<==>" "<!--" "####" "~~>" "***" "||=" "||>"
+  ;;                                      ":::" "::=" "=:=" "===" "==>" "=!=" "=>>" "=<<" "=/=" "!=="
+  ;;                                      "!!." ">=>" ">>=" ">>>" ">>-" ">->" "->>" "-->" "---" "-<<"
+  ;;                                      "<~~" "<~>" "<*>" "<||" "<|>" "<$>" "<==" "<=>" "<=<" "<->"
+  ;;                                      "<--" "<-<" "<<=" "<<-" "<<<" "<+>" "</>" "###" "#_(" "..<"
+  ;;                                      "..." "+++" "/==" "///" "_|_" "www" "&&" "^=" "~~" "~@" "~="
+  ;;                                      "~>" "~-" "**" "*>" "*/" "||" "|}" "|]" "|=" "|>" "|-" "{|"
+  ;;                                      "[|" "]#" "::" ":=" ":>" ":<" "$>" "==" "=>" "!=" "!!" ">:"
+  ;;                                      ">=" ">>" ">-" "-~" "-|" "->" "--" "-<" "<~" "<*" "<|" "<:"
+  ;;                                      "<$" "<=" "<>" "<-" "<<" "<+" "</" "#{" "#[" "#:" "#=" "#!"
+  ;;                                      "##" "#(" "#?" "#_" "%%" ".=" ".-" ".." ".?" "+>" "++" "?:"
+  ;;                                      "?=" "?." "??" ";;" "/*" "/=" "/>" "//" "__" "~~" "(*" "*)"
+  ;;                                      "\\" "://"))
+  ;; Enables ligature checks globally in all buffers. You can also do it
+  ;; per mode with `ligature-mode'.
+  (global-ligature-mode t))
 
 ;;; Projectile: on linux, we can use fd (https://github.com/sharkdp/fd)
 (setq projectile-generic-command "fd . -0")
