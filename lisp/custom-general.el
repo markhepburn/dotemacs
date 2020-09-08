@@ -214,7 +214,7 @@
          ("C-S-<mouse-1>" . mc/toggle-cursor-on-click)))
 
 (use-package smartscan
-  :hook (prog-mode . #'smartscan-mode-turn-on))
+  :hook (prog-mode . smartscan-mode-turn-on))
 
 ;;; Visual rectangle editing: /why/ the hell is this buried in a
 ;;; package that makes emacs act more like windows??  Anyway:
