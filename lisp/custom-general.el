@@ -252,6 +252,7 @@
   "find . -type f '!' -wholename '*/.svn/*' -print0 | xargs -0 -e grep -nH -e ")
 
 ;;; Code templating:
+(add-hook 'yas-minor-mode-hook (lambda () (yas-activate-extra-mode 'fundamental-mode)))
 (use-package yasnippet
   :config (progn
             (yas-global-mode 1)
