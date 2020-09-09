@@ -39,6 +39,8 @@
 ;;; Elixir section
 
 (use-package elixir-mode)
+(use-package mix
+  :hook (elixir-mode . mix-minor-mode))
 
 ;;; https://blog.evalcode.com/phoenix-liveview-inline-syntax-highlighting-for-emacs/
 (use-package polymode
