@@ -38,7 +38,9 @@
 
 ;;; Elixir section
 
-(use-package elixir-mode)
+(use-package elixir-mode
+  :bind (:map elixir-mode-map
+         ("C-c C-f" . elixir-format)))
 (use-package mix
   :hook (elixir-mode . mix-minor-mode))
 
