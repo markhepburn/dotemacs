@@ -10,7 +10,7 @@
 (setenv "GIT_SSH_COMMAND" "ssh")
 
 ;; (set-face-font 'default "Consolas-10")
-(set-frame-font "Cascadia Code-9")
+(set-frame-font "Cascadia Code PL-9")
 (use-package ligature
   :quelpa (ligature
            :fetcher github
@@ -21,6 +21,8 @@
   ;; Enable traditional ligature support in eww-mode, if the
   ;; `variable-pitch' face supports it
   (ligature-set-ligatures 'eww-mode '("ff" "fi" "ffi"))
+  ;; nxml doesn't derive from prog-mode:
+  (ligature-set-ligatures 'nxml-mode '("<!--" "-->" "</"))
   ;; Enable all Cascadia Code ligatures in programming modes
   (ligature-set-ligatures 'prog-mode '("|||>" "<|||" "<==>" "<!--" "####" "~~>" "***" "||=" "||>"
                                        ":::" "::=" "=:=" "===" "==>" "=!=" "=>>" "=<<" "=/=" "!=="
