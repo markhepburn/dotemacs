@@ -159,11 +159,6 @@
 (use-package unfill
   :bind (([remap fill-paragraph] . unfill-toggle)))
 
-;;; Run M-x helm-tramp to easily access docker containers and vagrant boxes:
-(use-package docker-tramp)
-(use-package vagrant-tramp)
-(use-package helm-tramp)
-
 ;;; Code folding:
 
 (use-package hideshow

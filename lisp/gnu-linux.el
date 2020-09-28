@@ -71,6 +71,13 @@
   ;; per mode with `ligature-mode'.
   (global-ligature-mode t))
 
+;;; Run M-x helm-tramp to easily access docker containers and vagrant boxes:
+;;; (These cause issues on windows, so make linux-only for now):
+(use-package docker-tramp)
+(use-package vagrant-tramp)
+(use-package helm-tramp)
+
+
 ;;; Projectile: on linux, we can use fd (https://github.com/sharkdp/fd)
 (setq projectile-generic-command "fd . -0")
 
