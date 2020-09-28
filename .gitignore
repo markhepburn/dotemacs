@@ -33,3 +33,5 @@
 /elpy
 /.lsp-session-v1
 /nix-buffer
+/projects
+/var
