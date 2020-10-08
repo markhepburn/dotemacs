@@ -48,7 +48,8 @@
 (use-package lsp-mode
   ;; Add to this list as necessary; using prog-mode was too annoying:
   :hook ((elixir-mode) . lsp)
-  :init (setq lsp-keymap-prefix "C-c C-l")
+  :init (setq lsp-keymap-prefix "C-c C-l"
+              lsp-file-watch-threshold 10000)
   :config (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
   :commands lsp
   :bind ("C-c C-d" . lsp-describe-thing-at-point))
