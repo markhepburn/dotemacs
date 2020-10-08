@@ -53,6 +53,9 @@
               (lambda ()
                 (local-set-key (kbd "C-,") 'scroll-up-line)))
 
+    (add-hook 'org-mode-hook
+              (lambda () (electric-indent-local-mode -1)))
+
     ;; Bit of a hack to work around htmlize-buffer (as called by
     ;; org-write-agenda for eg) not working.  See
     ;; http://www.mail-archive.com/emacs-orgmode@gnu.org/msg04365.html
