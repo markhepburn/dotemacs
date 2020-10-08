@@ -37,6 +37,9 @@
           ;; restore default value of the tags alignment column:
           org-tags-column -80
 
+          ;; This used to be the default I think:
+          org-startup-folded t
+
           ;; speed navigation commands:
           org-use-speed-commands t
 
