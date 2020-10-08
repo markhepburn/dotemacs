@@ -495,7 +495,9 @@
 
 (use-package whole-line-or-region
   :diminish (whole-line-or-region-global-mode whole-line-or-region-local-mode)
-  :config (whole-line-or-region-global-mode 1))
+  :config
+  (whole-line-or-region-global-mode 1)
+  (define-key whole-line-or-region-local-mode-map [remap comment-dwim] nil))
 
 ;;; Always highlight the current line:
 (global-hl-line-mode 1)
