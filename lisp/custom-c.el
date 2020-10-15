@@ -120,6 +120,11 @@ easily jump back."
 (use-package dotnet
   :hook (csharp-mode . dotnet-mode))
 
+;;; Transient interface; C-c n:
+(use-package sharper
+  :bind
+  ("C-c n" . sharper-main-transient))
+
 ;; This emacs package requires the omnisharp-roslyn server program. Emacs will manage connection to the server as a subprocess.
 ;; The easiest/default way to install the server is to invoke M-x omnisharp-install-server and follow instructions on minibufer.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
