@@ -103,6 +103,9 @@
 
 (add-to-list 'exec-path (expand-file-name "~/Projects/elixir-ls-git/release-1.10.2"))
 
+;;; Flutter support for dart-lsp
+(setq lsp-dart-flutter-sdk-dir (expand-file-name "~/Vendor/flutter/"))
+
 (provide 'gnu-linux)
 
 ;;; gnu-linux.el ends here
