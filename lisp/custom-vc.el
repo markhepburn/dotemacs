@@ -28,6 +28,8 @@
 (use-package magit
   :pin melpa-stable
   :init (setq
+         global-magit-file-mode t
+
          magit-set-upstream-on-push t
 
          ;;Trust that I'm pushing to the correct remote/branch:
@@ -50,12 +52,8 @@
   (after 'diff-hl
     (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh))
 
-  :bind (("C-x g" . magit-status)
-         :map magit-status-mode-map
-         ("W" . magit-toggle-whitespace)))
-
-;; Enable globally:
-(global-magit-file-mode 1)
+  ;; Make this a global command, not just inside a repo:
+  :bind (("C-x g" . magit-status)))
 
 ;;; git-flow integration:
 (use-package magit-gitflow
