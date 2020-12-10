@@ -28,8 +28,6 @@
 (use-package magit
   :pin melpa-stable
   :init (setq
-         global-magit-file-mode t
-
          magit-set-upstream-on-push t
 
          ;;Trust that I'm pushing to the correct remote/branch:
