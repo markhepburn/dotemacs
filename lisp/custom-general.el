@@ -53,14 +53,6 @@
   :config (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
   :commands lsp
   :bind ("C-c C-d" . lsp-describe-thing-at-point))
-(use-package lsp-dart
-  :hook (dart-mode . lsp)
-  ;; :init
-  ;; (dap-register-debug-template "Flutter :: Custom debug"
-  ;;                              (list :flutterPlatform "x86_64"
-  ;;                                    :program "lib/main_debug.dart"
-  ;;                                    :args '("--flavor" "customer_a")))
-)
 (use-package company-lsp
   :after lsp-mode
   :commands company-lsp)
