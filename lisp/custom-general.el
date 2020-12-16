@@ -81,10 +81,11 @@
 ;;; Quit emacs (??) easier:
 (defalias 'sbke 'save-buffers-kill-emacs)
 
-;;; http://irreal.org/blog/?p=2832
-(set-fontset-font "fontset-default" nil
-                  (font-spec :size 20 :name "Symbola"))
-(set-fontset-font t 'symbol "Noto Color Emoji" nil)
+;; ;;; http://irreal.org/blog/?p=2832
+;; (set-fontset-font "fontset-default" nil
+;;                   (font-spec :size 20 :name "Symbola"))
+(set-fontset-font t 'symbol "Emoji One" nil)
+(set-fontset-font t 'symbol "Noto Color Emoji" nil 'append)
 (set-fontset-font t 'symbol "Symbola" nil 'append)
 
 ;;; Default to UTF-8 (mostly useful for windows, but let's make it
@@ -98,11 +99,6 @@
 (setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING))
 ;;; Default to text-mode (in part, because smartparens behaves better there):
 (setq-default major-mode 'text-mode)
-
-(use-package unicode-fonts
-  :ensure t
-  :config
-  (unicode-fonts-setup))
 
 ;; use font lock where possible:
 (global-font-lock-mode t)
