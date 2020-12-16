@@ -376,9 +376,10 @@
 
 ;;; Can't believe I never went looking for this; great choice of
 ;;; keybinding too.  Hat-tip to http://irreal.org/blog/?p=1536
-(use-package misc
-  :ensure nil
-  :bind ("M-Z" . zap-up-to-char))
+;;; Update: trialling zop instead:
+(use-package zop-to-char
+  :bind (([remap zap-to-char] . zop-to-char)
+         ("M-Z" . zop-up-to-char)))
 
 ;;; There isn't a default binding for this:
 (global-set-key (kbd "M-K") #'kill-paragraph)
