@@ -85,7 +85,7 @@ file (including following symlinks).")
 ;;; argument 't to 'load means no error if the file doesn't exist.
 (load (subst-char-in-string ?/ ?- (symbol-name system-type))
       t)
-(load system-name t)       ; Assume for now it is not fully-qualified.
+(load (system-name) t)       ; Assume for now it is not fully-qualified.
 
 ;;; Load all custom-* files (except for -functions, already loaded above):
 (dolist (custom-file (directory-files *mh/lisp-base* nil "custom-.*" t))
@@ -106,7 +106,7 @@ file (including following symlinks).")
             (load-theme 'zenburn t)))
 
 ;;; Load in customize stuff:
-(setq custom-file (concat *mh/lisp-base* system-name "-variables.el"))
+(setq custom-file (concat *mh/lisp-base* (system-name) "-variables.el"))
 (load custom-file t)
 
 ;;; Don't worry about disabled-command warnings:
