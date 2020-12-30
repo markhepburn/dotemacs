@@ -28,21 +28,11 @@
 (use-package magit
   :pin melpa-stable
   :init (setq
-         magit-set-upstream-on-push t
-
-         ;;Trust that I'm pushing to the correct remote/branch:
-         magit-push-always-verify nil
-
-         ;; Shut upgrade-messages up:
-         magit-last-seen-setup-instructions "1.4.0"
-
          magit-log-margin '(t "%Y-%m-%d %H:%M " magit-log-margin-width t 18)
 
          ;; Always fullscreen:
          magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1
-
-         ;; replaces magit-auto-revert-mode:
-         magit-revert-buffers t)
+         )
 
   :config
   (require 'magit-blame)
