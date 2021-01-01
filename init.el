@@ -89,7 +89,7 @@ file (including following symlinks).")
 
 ;;; Load all custom-* files (except for -functions, already loaded above):
 (dolist (custom-file (directory-files *mh/lisp-base* nil "custom-.*" t))
-  (unless (string= "custom-functions" custom-file)
+  (unless (string= "custom-functions.el" custom-file)
     (load custom-file)))
 
 (use-package powerline
