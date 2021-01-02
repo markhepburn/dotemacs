@@ -16,7 +16,7 @@
 ;;; work on windows.
 (use-package elpy
   :init
-  (elpy-enable)
+  (advice-add 'python-mode :before #'elpy-enable)
   (setq elpy-rpc-backend "jedi"
         elpy-django-server-command "runserver_plus")
   ;; May need to setenv WORKON_HOME:
