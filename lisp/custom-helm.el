@@ -55,24 +55,10 @@
          ("C-z" . helm-select-action) ; list actions using C-z
          ("C-x 2" . helm-select-2nd-action)
          ("C-x 3" . helm-select-3rd-action)
-         ("C-x 4" . helm-select-4rd-action)
-
-         ;; Grep integration:
-         :map helm-grep-mode-map
-         ("<return>" . helm-grep-mode-jump-other-window)
-         ("n" . helm-grep-mode-jump-other-window-forward)
-         ("p" . helm-grep-mode-jump-other-window-backward))
+         ("C-x 4" . helm-select-4rd-action))
 
   :config
   (progn
-    (require 'helm-config)
-    (require 'helm-eshell)
-    (require 'helm-files)
-    (require 'helm-grep)
-
-    (setq helm-buffers-favorite-modes (append helm-buffers-favorite-modes
-                                              '(picture-mode artist-mode)))
-
     ;; Something funky going on, but can't :bind to help-command (it's
     ;; either a sparse keymap or a function; weird)
     (define-key 'help-command (kbd "C-f") 'helm-apropos)
@@ -88,14 +74,23 @@
 
     (helm-mode 1))
 
-  :demand t
+  :demand 1
   :diminish (helm--minor-mode helm-mode))
+(use-package helm-config :ensure nil :after helm)
+(use-package helm-eshell :ensure nil :after helm)
+(use-package helm-files  :ensure nil :after helm)
+(use-package helm-grep   :ensure nil :after helm
+  :bind (:map helm-grep-mode-map
+              ("<return>" . helm-grep-mode-jump-other-window)
+              ("n" . helm-grep-mode-jump-other-window-forward)
+              ("p" . helm-grep-mode-jump-other-window-backward)))
 
 
 
 ;;; Helm-ag:
 (use-package helm-ag
-  :init (setq helm-ag-base-command "rg --no-messages --no-heading --smart-case --line-number"; "ag --nocolor --nogroup --ignore-case"
+  :after helm
+  :init (setq helm-ag-base-command "rg --no-messages --no-heading --smart-case --line-number" ; "ag --nocolor --nogroup --ignore-case"
               ;; helm-ag-command-option "--all-text"
               helm-ag-thing-at-point 'symbol)
   :bind (("M-g ." . helm-ag)
@@ -104,16 +99,19 @@
 
 ;;; helm-swoop:
 (use-package helm-swoop
+  :after helm
   :bind (("M-i" . helm-swoop)
          ("M-I" . helm-swoop-back-to-last-point)
          :map isearch-mode-map
          ("M-i" . helm-swoop-from-isearch)))
 
 (use-package helm-descbinds
+  :after helm
   :config (helm-descbinds-mode))
 
 ;;; A few enhancements:
 (use-package helm-ext
+  :after helm
   :config
   (helm-ext-ff-enable-skipping-dots t)
   (helm-ext-minibuffer-enable-header-line-maybe t))
