@@ -57,10 +57,12 @@ file (including following symlinks).")
   (message "Installing use-package first... Done."))
 
 (require 'use-package)
-(setq use-package-always-ensure t)
+(setq use-package-always-ensure t
+      use-package-always-defer t)
 
 ;;; toggle-case
 (use-package quelpa-use-package
+  :demand t
   :init (setq quelpa-update-melpa-p nil)
   :config (quelpa-use-package-activate-advice))
 
@@ -93,10 +95,12 @@ file (including following symlinks).")
     (load custom-file)))
 
 (use-package powerline
+  :demand t
   :config (powerline-default-theme))
 
 ;;; Zenburn is life:
 (use-package zenburn-theme
+  :demand t
   :config (if (daemonp)
               (cl-labels ((load-zenburn (frame)
                                      (with-selected-frame frame
@@ -114,6 +118,7 @@ file (including following symlinks).")
 
 ;;; Set up session-saving (see https://github.com/emacs-helm/helm/issues/204):
 (use-package session
+  :demand t
   :init (setq session-save-print-spec '(t nil 40000))
   :config (add-hook 'after-init-hook 'session-initialize))
 
