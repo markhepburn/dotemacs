@@ -589,7 +589,8 @@
                 (add-hook 'fill-nobreak-predicate 'mh/liquid-nobreak-p)))))
 (use-package grip-mode
   :after markdown-mode
-  :init (setq grip-github-user "markhepburn")
+  :init (setq grip-github-user "markhepburn"
+              grip-update-after-change nil)
   :bind (:map markdown-mode-command-map
               ("g" . grip-mode)))
 
