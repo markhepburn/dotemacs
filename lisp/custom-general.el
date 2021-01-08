@@ -180,8 +180,7 @@
 
 ;;; project mode:
 (use-package projectile
-  ;; https://github.com/bbatsov/projectile/commit/b90b950eead64b171d528098d186c19804739aa0
-  :init (setq projectile-keymap-prefix (kbd "C-c p"))
+  :bind-keymap ("C-c p" . projectile-command-map)
   :config
   (progn
     (projectile-global-mode 1)
