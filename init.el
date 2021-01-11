@@ -66,11 +66,12 @@ file (including following symlinks).")
   :init (setq quelpa-update-melpa-p nil)
   :config (quelpa-use-package-activate-advice))
 
-;;; Utility packages; load here before other customisations that may use them
-(use-package dash)
-(use-package s)
-(use-package f)
-(use-package seq :pin gnu)
+;;; Utility packages; load here before other customisations that may use them.
+;;; Demanded, because these aren't commands that get autloaded but library functionality.
+(use-package dash :demand t)
+(use-package s    :demand t)
+(use-package f    :demand t)
+(use-package seq  :demand t :pin gnu)
 
 (load "secure-settings.el.gpg" t)
 
