@@ -247,25 +247,26 @@
 ;;; Code templating:
 (add-hook 'yas-minor-mode-hook (lambda () (yas-activate-extra-mode 'fundamental-mode)))
 (use-package yasnippet
-  :config (progn
-            (yas-global-mode 1)
-            ;; http://iany.me/2012/03/use-popup-isearch-for-yasnippet-prompt/
-            (defun yas-popup-isearch-prompt (prompt choices &optional display-fn)
-              (when (featurep 'popup)
-                (popup-menu*
-                 (mapcar
-                  (lambda (choice)
-                    (popup-make-item
-                     (or (and display-fn (funcall display-fn choice))
-                         choice)
-                     :value choice))
-                  choices)
-                 :prompt prompt
-                 ;; start isearch mode immediately
-                 :isearch t)))
-            (setq yas-prompt-functions '(yas-popup-isearch-prompt yas-no-prompt))
-            ;; 't to jit-load snippets:
-            (yas-load-directory (concat *mh/init-base* "snippets") t))
+  :hook (prog-mode . yas-minor-mode-on)
+  :init (autoload 'yas-hippie-try-expand "yasnippet")
+  :config
+  ;; http://iany.me/2012/03/use-popup-isearch-for-yasnippet-prompt/
+  (defun yas-popup-isearch-prompt (prompt choices &optional display-fn)
+    (when (featurep 'popup)
+      (popup-menu*
+       (mapcar
+        (lambda (choice)
+          (popup-make-item
+           (or (and display-fn (funcall display-fn choice))
+               choice)
+           :value choice))
+        choices)
+       :prompt prompt
+       ;; start isearch mode immediately
+       :isearch t)))
+  (setq yas-prompt-functions '(yas-popup-isearch-prompt yas-no-prompt))
+  ;; 't to jit-load snippets:
+  (yas-load-directory (concat *mh/init-base* "snippets") t)
   :diminish (yas-minor-mode yas/minor-mode))
 (use-package yasnippet-snippets
   :after yasnippet
