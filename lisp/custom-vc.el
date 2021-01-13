@@ -16,9 +16,9 @@
 (setq diff-switches "-u")
 (setq vc-svn-diff-switches '("--diff-cmd" "diff" "-x" "-u"))
 
-;;; show changed regions in the fringe:
+;;; show changed regions in the fringe (autoload for programming for now):
 (use-package diff-hl
-  :config (global-diff-hl-mode 1))
+  :hook (prog-mode . diff-hl--global-turn-on))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
