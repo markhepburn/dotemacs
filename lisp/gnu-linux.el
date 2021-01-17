@@ -30,6 +30,7 @@
       browse-url-generic-program "x-www-browser")
 
 (use-package ligature
+  :demand t
   :quelpa (ligature
            :fetcher github
            :repo "mickeynp/ligature.el")
