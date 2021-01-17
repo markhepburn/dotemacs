@@ -12,6 +12,7 @@
 ;; (set-face-font 'default "Consolas-10")
 (set-frame-font "Cascadia Code PL-9")
 (use-package ligature
+  :demand t
   :quelpa (ligature
            :fetcher github
            :repo "mickeynp/ligature.el")
