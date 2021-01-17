@@ -74,7 +74,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package clojure-mode
-  :config (add-hook 'clojure-mode-hook #'turn-on-eldoc-mode))
+  :config
+  (add-hook 'clojure-mode-hook #'turn-on-eldoc-mode)
+  (add-hook 'clojure-mode-hook #'lsp))
 
 ;;; refactoring:
 (use-package clj-refactor
