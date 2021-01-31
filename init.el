@@ -122,6 +122,8 @@ file (including following symlinks).")
   :demand t
   :init (setq session-save-print-spec '(t nil 40000))
   :config (add-hook 'after-init-hook 'session-initialize))
+(use-package recentf
+  :demand t)
 
 (message ".emacs loaded in %s" (emacs-init-time))
 
