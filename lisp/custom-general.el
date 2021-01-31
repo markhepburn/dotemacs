@@ -510,21 +510,21 @@
 ;;; Replacing a lot of cruft from my skeleton-pair add-ons!
 ;;; Smartparens: awesome, but for some reason I forget I still use paredit in lisp modes
 (use-package smartparens
-  :init (setq sp-ignore-modes-list
-              '(clojure-mode
-                clojurescript-mode
-                emacs-lisp-mode
-                inferior-emacs-lisp-mode
-                inferior-lisp-mode
-                lisp-mode
-                minibuffer-inactive-mode
-                cider-repl-mode
-                slime-repl-mode)
-              sp-base-key-bindings 'paredit)
-  :diminish smartparens-mode
-  :config
+  :init
+  (setq sp-ignore-modes-list
+        '(clojure-mode
+          clojurescript-mode
+          emacs-lisp-mode
+          inferior-emacs-lisp-mode
+          inferior-lisp-mode
+          lisp-mode
+          minibuffer-inactive-mode
+          cider-repl-mode
+          slime-repl-mode)
+        sp-base-key-bindings 'paredit)
   (smartparens-global-mode 1)
-  (show-smartparens-global-mode t))
+  (show-smartparens-global-mode t)
+  :diminish smartparens-mode)
 
 (use-package tags-view
   :ensure nil
