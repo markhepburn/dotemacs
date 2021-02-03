@@ -207,6 +207,7 @@
          ("C-S-<mouse-1>" . mc/toggle-cursor-on-click)))
 
 (use-package smartscan
+  :custom (smartscan-symbol-selector "symbol")
   :hook (prog-mode . smartscan-mode-turn-on))
 
 ;;; Visual rectangle editing: /why/ the hell is this buried in a
