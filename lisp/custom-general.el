@@ -365,7 +365,8 @@
 
 (use-package undo-tree
   :config (global-undo-tree-mode)
-  :diminish undo-tree-mode)
+  :diminish undo-tree-mode
+  :bind ("C-x u" . undo-tree-visualize))
 
 ;;; Alternative direction for `delete-indentation'
 ;;; (http://whattheemacsd.com/key-bindings.el-03.html):
