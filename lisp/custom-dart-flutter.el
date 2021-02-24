@@ -16,7 +16,6 @@
 
 (use-package lsp-dart
   :after lsp-mode
-  :hook (dart-mode . lsp)
   ;; :init
   ;; (dap-register-debug-template "Flutter :: Custom debug"
   ;;                              (list :flutterPlatform "x86_64"

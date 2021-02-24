@@ -47,7 +47,8 @@
 ;;; Needs path to elixir_ls installation added to `exec-path'
 (use-package lsp-mode
   ;; Add to this list as necessary; using prog-mode was too annoying:
-  :hook ((elixir-mode
+  :hook ((dart-mode
+          elixir-mode
           clojure-mode
           clojurec-mode
           clojurescript-mode) . lsp)
