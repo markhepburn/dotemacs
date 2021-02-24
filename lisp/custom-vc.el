@@ -41,7 +41,8 @@
     (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh))
 
   ;; Make this a global command, not just inside a repo:
-  :bind (("C-x g" . magit-status)))
+  :bind (("C-x g" . magit-status)
+         ("C-c M-g" . magit-file-dispatch)))
 
 ;;; git-flow integration:
 (use-package magit-gitflow
