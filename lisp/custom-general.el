@@ -221,6 +221,7 @@
 (setq cua-auto-tabify-rectangles nil) ;; Don't tabify after rectangle commands
 
 (use-package default-text-scale
+  :demand t
   :config (default-text-scale-mode))
 
 ;;; expand-region; see http://emacsrocks.com/e09.html
