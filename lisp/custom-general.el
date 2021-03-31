@@ -282,6 +282,7 @@
 ;;; Company now seems more active, and in particular clojure-mode
 ;;; works best with company:
 (use-package company
+  :demand t
   :config (add-hook 'after-init-hook 'global-company-mode)
   :bind (:map company-active-map
          ("C-n" . company-select-next)
