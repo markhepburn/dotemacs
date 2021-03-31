@@ -47,11 +47,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Slime (not installed for now):
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; Note: slime is now included with and loaded by clojure-mode,
-;;; typically invoked from clojure-jack-in (and this conflicts with
-;;; other versions of slime, and since I don't anticipate much CL dev
-;;; for a while, this should be OK).  So leaving this commented out
-;;; for now, but may remove entirely later on.
 
 ;; (add-to-list 'load-path (concat *mh/lisp-base* "slime"))
 ;; (setq slime-lisp-implementations
@@ -66,6 +61,16 @@
 ;;                                     (kbd "<up>") 'slime-repl-previous-input)
 ;;                                   (define-key slime-repl-mode-map
 ;;                                     (kbd "<down>") 'slime-repl-next-input)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Sly (a fork of SLIME, seems more popular and active now)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(use-package sly
+  :config
+  (setq inferior-lisp-program "sbcl"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -131,7 +136,8 @@
                          inferior-emacs-lisp
                          inferior-lisp
                          lisp
-                         slime-repl))
+                         slime-repl
+                         sly-mrepl))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (provide 'custom-lisp)

@@ -528,7 +528,8 @@
           lisp-mode
           minibuffer-inactive-mode
           cider-repl-mode
-          slime-repl-mode)
+          slime-repl-mode
+          sly-mrepl-mode)
         sp-base-key-bindings 'paredit)
   (smartparens-global-mode 1)
   (show-smartparens-global-mode t)
