@@ -72,7 +72,8 @@
   :after dap-mode)
 
 
-(use-package vlf)
+(use-package vlf
+  :demand t)
 (use-package vlf-setup
   :ensure nil
   :after vlf)
