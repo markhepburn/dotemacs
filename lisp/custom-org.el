@@ -67,8 +67,6 @@
         "Make sure there are no nil faces"
         (setq ad-return-value (delq nil ad-return-value))))))
 
-(use-package org-trello)
-
 (use-package htmlize)          ; belongs here as much as anywhere
 (use-package ox-reveal)        ; For exporting reveal.js presentations
 
