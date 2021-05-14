@@ -53,6 +53,7 @@
           clojurec-mode
           clojurescript-mode) . lsp)
   :init (setq lsp-keymap-prefix "C-c C-l"
+              lsp-lens-enable t
               lsp-file-watch-threshold 10000)
   :config (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
   :commands lsp
