@@ -18,7 +18,8 @@
 
 ;;; show changed regions in the fringe (autoload for programming for now):
 (use-package diff-hl
-  :hook (prog-mode . diff-hl--global-turn-on))
+  :demand t
+  :config (global-diff-hl-mode 1))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
