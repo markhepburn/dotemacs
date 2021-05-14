@@ -18,5 +18,8 @@
   (define-key tab-prefix-map (kbd "C-z") #'tab-recent)
   ;; View (/select) list of tabs. See also C-zRET tab-bar-select-tab-by-name
   (define-key tab-prefix-map (kbd "C-l") #'tab-list)
+  ;; Next/previous tabs:
+  (define-key tab-prefix-map (kbd "C-n") #'tab-next)
+  (define-key tab-prefix-map (kbd "C-p") #'tab-previous)
   :bind-keymap ("C-z" . tab-prefix-map))
 
