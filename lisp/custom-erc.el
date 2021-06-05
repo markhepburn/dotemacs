@@ -53,6 +53,11 @@
 
   (erc-services-mode 1))
 
+(setq auth-sources '(default
+                      "secrets:session"
+                      "secrets:Login"
+                      "~/.authinfo.gpg"))
+
 
 (provide 'custom-erc)
 
