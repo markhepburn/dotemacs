@@ -81,7 +81,7 @@
 (use-package docker-tramp)
 (use-package vagrant-tramp)
 (use-package helm-tramp)
-
+(setq tramp-default-method "ssh")
 
 ;;; Projectile: on linux, we can use fd (https://github.com/sharkdp/fd)
 (setq projectile-generic-command "fd . -0")
