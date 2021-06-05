@@ -12,19 +12,33 @@
 
 (use-package erc
   :init
-  (setq erc-server "irc.freenode.net"
+  (setq erc-server "irc.libera.chat" ; "irc.freenode.net"
         erc-nick   "markhepburn"
+        erc-user-full-name "Mark Hepburn"
         erc-port   6697                 ; 6697 for TLS
 
         erc-autojoin-channels-alist
-        '(("freenode.net" "#clojure"
-                          "#clojure-au"
-                          "#emacs"
-                          "#geodjango"
-                          "#openlayers"))
+        '(("irc.libera.chat" "#clojure"
+                             ;; "#clojure-au"
+                             "#elixir"
+                             "#emacs"
+                             ;; "#django-geo"
+                             "#lobsters"
+                             ;; "#openlayers"
+			     ))
 
         ;; Ignore all the "xxx has quit: timeout" etc messages:
-        erc-hide-list '("JOIN" "PART" "QUIT")))
+        erc-hide-list '("JOIN" "PART" "QUIT"))
+
+  :commands start-erc
+  :config
+  (defun start-erc ()
+    (interactive)
+    (erc-tls :server erc-server
+             :port erc-port
+             :nick erc-nick
+             :client-certificate `(,(expand-file-name "~/.ssl/irc.key")
+                                   ,(expand-file-name "~/.ssl/irc.cer")))))
 
 (use-package erc-services
   :ensure nil
