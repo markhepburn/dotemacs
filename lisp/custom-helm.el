@@ -74,7 +74,6 @@
 
     (helm-mode 1))
 
-  :demand 1
   :diminish (helm--minor-mode helm-mode))
 (use-package helm-config :ensure nil :after helm)
 (use-package helm-eshell :ensure nil :after helm)

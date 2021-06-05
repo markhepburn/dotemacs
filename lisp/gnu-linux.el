@@ -26,7 +26,6 @@
 (add-to-list 'auto-mode-alist '("sources\\.list\\'" . conf-mode))
 
 (use-package exec-path-from-shell
-  :demand t
   :init (exec-path-from-shell-initialize))
 
 ;;; Make sure that the default browser is used by browse-url*:
@@ -34,7 +33,6 @@
       browse-url-generic-program "x-www-browser")
 
 (use-package ligature
-  :demand t
   :quelpa (ligature
            :fetcher github
            :repo "mickeynp/ligature.el")

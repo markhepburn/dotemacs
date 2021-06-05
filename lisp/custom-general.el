@@ -40,7 +40,6 @@
   :after yaml-mode)
 
 (use-package which-key
-  :demand t
   :diminish which-key-mode
   :config (which-key-mode 1))
 ;;; Language-server integration.  eglot is the other choice:
@@ -73,8 +72,7 @@
   :after dap-mode)
 
 
-(use-package vlf
-  :demand t)
+(use-package vlf)
 (use-package vlf-setup
   :ensure nil
   :after vlf)
@@ -223,7 +221,6 @@
 (setq cua-auto-tabify-rectangles nil) ;; Don't tabify after rectangle commands
 
 (use-package default-text-scale
-  :demand t
   :config (default-text-scale-mode))
 
 ;;; expand-region; see http://emacsrocks.com/e09.html
@@ -284,7 +281,6 @@
 ;;; Company now seems more active, and in particular clojure-mode
 ;;; works best with company:
 (use-package company
-  :demand t
   :config (add-hook 'after-init-hook 'global-company-mode)
   :bind (:map company-active-map
          ("C-n" . company-select-next)
@@ -503,7 +499,6 @@
 (global-set-key (kbd "C-x C-k") 'kill-region)
 
 (use-package whole-line-or-region
-  :demand t
   :diminish (whole-line-or-region-global-mode whole-line-or-region-local-mode)
   :config
   (whole-line-or-region-global-mode 1)
