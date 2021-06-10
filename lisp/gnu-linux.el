@@ -20,7 +20,8 @@
 ;(set-frame-font "Bitstream Vera Sans Mono-10")
 ;(set-frame-font "Monospace-10")
 ;; (set-frame-font "JetBrains Mono-6")
-(set-frame-font "Cascadia Code PL-7")
+(add-hook 'server-after-make-frame-hook
+          (lambda () (set-frame-font "Cascadia Code PL-7")))
 
 ;;; font-lock for apt sources:
 (add-to-list 'auto-mode-alist '("sources\\.list\\'" . conf-mode))
