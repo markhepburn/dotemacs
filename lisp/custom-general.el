@@ -421,7 +421,7 @@
         (indent-region (region-beginning) (region-end) nil))))
 
 ;; use shift-arrow to move between windows:
-(windmove-default-keybindings)
+(windmove-default-keybindings 'ctrl)
 ;;; and rotate windows too:
 (use-package buffer-move
   :bind (("M-g <left>"  . buf-move-left)
