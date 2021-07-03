@@ -67,6 +67,17 @@
         "Make sure there are no nil faces"
         (setq ad-return-value (delq nil ad-return-value))))))
 
+(use-package org-roam
+  :hook (after-init . org-roam-mode)
+  :custom (org-roam-directory (file-truename "~/Nextcloud/orgroam/"))
+  :bind (:map org-roam-mode-map
+              (("C-c n l" . org-roam)
+               ("C-c n f" . org-roam-find-file)
+               ("C-c n g" . org-roam-graph))
+              :map org-mode-map
+              (("C-c n i" . org-roam-insert))
+              (("C-c n I" . org-roam-insert-immediate))))
+
 (use-package htmlize)          ; belongs here as much as anywhere
 (use-package ox-reveal)        ; For exporting reveal.js presentations
 
