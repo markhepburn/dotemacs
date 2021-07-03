@@ -70,6 +70,11 @@
 (use-package htmlize)          ; belongs here as much as anywhere
 (use-package ox-reveal)        ; For exporting reveal.js presentations
 
+(use-package easy-hugo
+  :custom
+  (easy-hugo-basedir "~/Projects/blog.markhepburn.com/")
+  (easy-hugo-postdir "content/posts"))
+
 ;;; function to insert my workout template in workouts.org:
 (defvar mh/workout-type-history-list nil)
 (defun mh/org-new-workout (type)
