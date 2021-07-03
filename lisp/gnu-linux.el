@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t -*-
 ;;; gnu-linux.el --- Linux-specific Customisations
 
 ;;; See: https://bugs.launchpad.net/ubuntu/+source/emacs-snapshot/+bug/291399 for the need for this:
@@ -20,8 +21,10 @@
 ;(set-frame-font "Bitstream Vera Sans Mono-10")
 ;(set-frame-font "Monospace-10")
 ;; (set-frame-font "JetBrains Mono-6")
-(add-hook 'server-after-make-frame-hook
-          (lambda () (set-frame-font "Cascadia Code PL-7")))
+(let ((frame-font "Cascadia Code PL-7"))
+  (set-frame-font frame-font)
+  (add-hook 'server-after-make-frame-hook
+            (lambda () (set-frame-font frame-font))))
 
 ;;; font-lock for apt sources:
 (add-to-list 'auto-mode-alist '("sources\\.list\\'" . conf-mode))
