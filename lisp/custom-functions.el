@@ -391,6 +391,25 @@ at the beginning."
                           (insert (format "tags: [%s]\n" (mapconcat 'identity tags ", "))))))
                     (save-buffer))))
       (mapcar #'do-tags (dired-get-marked-files)))))
+
+;;; Archiving in case I need to write something like this again!  Was
+;;; a once-off usage though.
+(defun mh/posts-add-date ()
+  "For all files marked in dired, assumed to have a hugo
+front-matter block, add a date based on the file name."
+  (interactive)
+  (labels
+      ((do-add-date (f)
+                    (with-current-buffer (find-file-noselect f)
+                      (save-excursion
+                        (goto-char 0)
+                        (if (not (re-search-forward "^date:" nil t))
+                            (let ((date-string
+                                   (substring (file-name-base (buffer-file-name)) 0 10)))
+                              (forward-line 1)
+                              (insert (format "date: %s\n" date-string))
+                              (save-buffer)))))))
+    (mapcar #'do-add-date (dired-get-marked-files))))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (provide 'custom-functions)
