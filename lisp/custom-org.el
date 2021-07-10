@@ -70,6 +70,7 @@
 (use-package org-roam
   :hook (after-init . org-roam-mode)
   :custom (org-roam-directory (file-truename "~/Nextcloud/orgroam/"))
+  :diminish org-roam-mode
   :bind (:map org-roam-mode-map
               (("C-c n l" . org-roam)
                ("C-c n f" . org-roam-find-file)
