@@ -460,7 +460,7 @@
             (auto-fill-mode -1)))
 
 ;; Show docs where available:
-(enable-minor-mode-for eldoc-mode '(emacs-lisp lisp inferior-lisp ielm))
+(enable-minor-mode-for eldoc-mode '(emacs-lisp lisp inferior-lisp))
 (after 'eldoc (diminish 'eldoc-mode))
 
 ;; view pdfs etc inline:
