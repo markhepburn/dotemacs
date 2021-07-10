@@ -89,9 +89,12 @@ file (including following symlinks).")
 (load (system-name) t)       ; Assume for now it is not fully-qualified.
 
 ;;; Load all custom-* files (except for -functions, already loaded above):
-(dolist (custom-file (directory-files *mh/lisp-base* nil "custom-.*" t))
-  (unless (string= "custom-functions.el" custom-file)
-    (load custom-file)))
+(let ((excluded-files
+       '("custom-functions.el"          ; loaded above
+         )))
+  (dolist (custom-file (directory-files *mh/lisp-base* nil "custom-.*" nil))
+    (unless (-contains? excluded-files custom-file)
+      (load custom-file))))
 
 (use-package powerline
   :config (powerline-default-theme))
