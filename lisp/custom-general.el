@@ -28,6 +28,9 @@
       '(buffer-file-name "%f"
                          (dired-directory dired-directory "%b")))
 
+(use-package editorconfig
+  :config (editorconfig-mode 1))
+
 ;;; Create dir-locals file with
 ;;; ((yaml-mode
 ;;;   (ansible-vault-password-file . "/home/notroot/.ansible-vault/custom_vault_pass")))
