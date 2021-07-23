@@ -68,16 +68,14 @@
         (setq ad-return-value (delq nil ad-return-value))))))
 
 (use-package org-roam
-  :hook (after-init . org-roam-mode)
-  :custom (org-roam-directory (file-truename "~/Nextcloud/orgroam/"))
+  :after org
   :diminish org-roam-mode
-  :bind (:map org-roam-mode-map
-              (("C-c n l" . org-roam)
-               ("C-c n f" . org-roam-find-file)
-               ("C-c n g" . org-roam-graph))
-              :map org-mode-map
-              (("C-c n i" . org-roam-insert))
-              (("C-c n I" . org-roam-insert-immediate))))
+  :hook (after-init . org-roam-setup)
+  :custom (org-roam-directory (file-truename "~/Nextcloud/orgroam/"))
+  :init (setq org-roam-v2-ack t)
+  :bind (("C-c o f" . org-roam-node-find)
+         ("C-c o l" . org-roam-buffer-toggle)
+         ("C-c o i" . org-roam-node-insert)))
 
 (use-package htmlize)          ; belongs here as much as anywhere
 (use-package ox-reveal)        ; For exporting reveal.js presentations
