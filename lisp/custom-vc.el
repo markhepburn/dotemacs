@@ -26,7 +26,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package magit
-  :pin melpa-stable
   :init (setq
          magit-log-margin '(t "%Y-%m-%d %H:%M " magit-log-margin-width t 18)
 
