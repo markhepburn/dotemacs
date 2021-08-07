@@ -17,7 +17,7 @@
 ;;; Code:
 
 (setq gc-cons-threshold 100000000)
-
+(setq native-comp-async-report-warnings-errors 'silent)
 
 ;;; Commentary:
 ;;
