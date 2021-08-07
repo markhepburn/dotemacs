@@ -29,6 +29,14 @@
 ;;; font-lock for apt sources:
 (add-to-list 'auto-mode-alist '("sources\\.list\\'" . conf-mode))
 
+;;; Tree-sitter mode where supported:
+(use-package tree-sitter-langs)
+(use-package tree-sitter
+  :config
+  (require 'tree-sitter-langs)
+  (global-tree-sitter-mode 1)
+  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
+
 (use-package exec-path-from-shell
   :init (exec-path-from-shell-initialize))
 
