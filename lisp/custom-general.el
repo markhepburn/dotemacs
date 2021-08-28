@@ -58,9 +58,18 @@
   :init (setq lsp-keymap-prefix "C-c C-l"
               lsp-lens-enable t
               lsp-file-watch-threshold 10000)
-  :config (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
+  :config
+  (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
+  (diminish 'lsp-lens-mode)
   :commands lsp
   :bind ("C-c C-d" . lsp-describe-thing-at-point))
+(use-package lsp-ui
+  :after lsp-mode
+  :init
+  (setq lsp-ui-doc-enable nil           ; "C-c C-l T d" to enable
+        lsp-ui-doc-position 'at-point)
+  :config
+  (add-hook 'lsp-configure-hook (lambda () (lsp-ui-sideline-enable nil)))) ; "C-c C-l T S" to enable
 (use-package company-lsp
   :after lsp-mode
   :commands company-lsp)
