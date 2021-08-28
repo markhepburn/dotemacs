@@ -116,7 +116,7 @@
 
 (add-to-list 'exec-path (expand-file-name "~/.local/bin"))
 
-(add-to-list 'exec-path (expand-file-name "~/Projects/elixir-ls-git/release-1.11"))
+(add-to-list 'exec-path (expand-file-name "~/Projects/elixir-ls-git/release-1.12"))
 
 ;;; Flutter support for dart-lsp
 (setq lsp-dart-flutter-sdk-dir (expand-file-name "~/Vendor/flutter/"))
