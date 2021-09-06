@@ -68,8 +68,7 @@
   :init
   (setq lsp-ui-doc-enable nil           ; "C-c C-l T d" to enable
         lsp-ui-doc-position 'at-point)
-  :config
-  (add-hook 'lsp-configure-hook (lambda () (lsp-ui-sideline-enable nil)))) ; "C-c C-l T S" to enable
+  :hook (lsp-configure . (lambda () (lsp-ui-sideline-enable nil)))) ; "C-c C-l T S" to enable
 (use-package company-lsp
   :after lsp-mode
   :commands company-lsp)
