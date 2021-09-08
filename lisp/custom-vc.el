@@ -36,6 +36,8 @@
   :config
   (require 'magit-blame)
 
+  :custom (magit-bury-buffer-function 'magit-restore-window-configuration)
+
   (after 'diff-hl
     (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh))
 
