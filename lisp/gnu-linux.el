@@ -102,6 +102,10 @@
 ;;      (add-to-list 'org-agenda-files (expand-file-name "~/todo-apa.org"))
 ;;      (define-key org-mode-map  "\C-ca" 'org-agenda)))
 
+;;; Only available on linux:
+(use-package direnv
+  :config (direnv-mode))
+
 (add-hook 'c-mode-common-hook
           (lambda ()
             (local-set-key [(control return)] 'semantic-ia-complete-symbol)

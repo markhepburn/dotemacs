@@ -32,9 +32,6 @@
   :diminish editorconfig-mode
   :config (editorconfig-mode 1))
 
-(use-package direnv
-  :config (direnv-mode))
-
 ;;; Create dir-locals file with
 ;;; ((yaml-mode
 ;;;   (ansible-vault-password-file . "/home/notroot/.ansible-vault/custom_vault_pass")))
