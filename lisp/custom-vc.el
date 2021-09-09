@@ -18,7 +18,10 @@
 
 ;;; show changed regions in the fringe (autoload for programming for now):
 (use-package diff-hl
-  :config (global-diff-hl-mode 1))
+  :after magit
+  :config (global-diff-hl-mode 1)
+  :hook ((magit-pre-refresh . diff-hl-magit-pre-refresh)
+         (magit-post-refresh . diff-hl-magit-post-refresh)))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -37,9 +40,6 @@
   (require 'magit-blame)
 
   :custom (magit-bury-buffer-function 'magit-restore-window-configuration)
-
-  (after 'diff-hl
-    (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh))
 
   ;; Make this a global command, not just inside a repo:
   :bind (("C-x g" . magit-status)
