@@ -10,10 +10,6 @@
 
 ;;; Code:
 
-;;; Include a .dir-locals.el file with
-;;; ((nil . ((python-shell-virtualenv-path . \"/path/to/venv\")))) in
-;;; it.  Pip-install jedi, possibly also importmagic.  Flake8 doesn't
-;;; work on windows.
 (use-package elpy
   :init
   (advice-add 'python-mode :before #'elpy-enable)
