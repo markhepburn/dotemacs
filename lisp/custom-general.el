@@ -23,6 +23,9 @@
 (use-package yaml-mode :init (add-hook 'yaml-mode-hook #'turn-off-auto-fill))
 (use-package poly-ansible) ; poly-mode that combines jinja + yml mode for ansible
 
+;;; Use `describe-repeat-maps' for existing repeatable commands:
+(repeat-mode 1)
+
 ;;; Filename in frame title:
 (setq frame-title-format
       '(buffer-file-name "%f"
