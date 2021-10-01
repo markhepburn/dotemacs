@@ -121,8 +121,6 @@
 (global-font-lock-mode t)
 ;;; I really should have been using this all along:
 (add-hook 'prog-mode-hook 'subword-mode)
-;;; Fancy symbols bandwagon:
-(add-hook 'prog-mode-hook 'prettify-symbols-mode)
 ;; don't use those irritating ~ backup files:
 (setq backup-inhibited t)
 ;; work with compressed files:
