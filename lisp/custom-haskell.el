@@ -57,15 +57,20 @@
          ("C-c c"   . haskell-process-cabal)
          ("C-c C-o" . haskell-compile)))
 
-(use-package company-ghc
-  :after (company)
-  :config (add-to-list 'company-backends 'company-ghc))
+(use-package lsp-haskell
+  :after (lsp))
 
-;;; interact with a running ghc process:
-(use-package ghc
-  :after (haskell-mode)
-  :config (add-hook 'haskell-mode-hook 'ghc-init))
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; (use-package company-ghc
+;;   :ensure nil
+;;   :after (company)
+;;   :config (add-to-list 'company-backends 'company-ghc))
+
+;; ;;; interact with a running ghc process:
+;; (use-package ghc
+;;   :ensure nil
+;;   :after (haskell-mode)
+;;   :config (add-hook 'haskell-mode-hook 'ghc-init))
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (provide 'custom-haskell)
 
