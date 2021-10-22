@@ -96,6 +96,9 @@
 (setq-default save-place t)
 (setq save-place-file (expand-file-name "saved.places" user-emacs-directory))
 
+;;; Avoid those .#filename that can break file-watching tools, modification timestamps etc
+(setq create-lockfiles nil)
+
 ;;; isearch,show counts:
 (setq isearch-lazy-count t)
 
