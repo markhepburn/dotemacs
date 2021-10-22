@@ -57,7 +57,8 @@
           elixir-mode
           clojure-mode
           clojurec-mode
-          clojurescript-mode) . lsp)
+          clojurescript-mode
+          typescript-mode) . lsp)
   :init (setq lsp-keymap-prefix "C-c C-l"
               lsp-lens-enable t
               lsp-file-watch-threshold 10000)
