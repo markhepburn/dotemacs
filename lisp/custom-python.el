@@ -19,6 +19,7 @@
   (defalias 'workon 'pyvenv-workon)
   :hook (python-mode . lsp)
   :config
+  (pyvenv-tracking-mode 1)           ; use pyvenv-workon in dir-locals
   (delete 'elpy-module-highlight-indentation elpy-modules)
   (delete 'elpy-module-flymake elpy-modules))
 
