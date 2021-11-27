@@ -21,7 +21,9 @@
   :config
   (pyvenv-tracking-mode 1)           ; use pyvenv-workon in dir-locals
   (delete 'elpy-module-highlight-indentation elpy-modules)
-  (delete 'elpy-module-flymake elpy-modules))
+  (delete 'elpy-module-flymake elpy-modules)
+  :bind (:map python-mode-map
+         ("C-c ." . elpy-goto-definition)))
 
 ;;; pipx install jedi-language-server:
 (use-package lsp-jedi
