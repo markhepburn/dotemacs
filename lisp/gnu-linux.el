@@ -86,6 +86,10 @@
   ;; per mode with `ligature-mode'.
   (global-ligature-mode t))
 
+;;; Docker support (see also lsp-mode: https://emacs-lsp.github.io/lsp-mode/page/lsp-dockerfile/ ):
+(use-package docker)
+(use-package dockerfile-mode)
+
 ;;; Run M-x helm-tramp to easily access docker containers and vagrant boxes:
 ;;; (These cause issues on windows, so make linux-only for now):
 (use-package docker-tramp)
