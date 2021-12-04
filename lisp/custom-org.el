@@ -39,6 +39,9 @@
           ;; This used to be the default I think:
           org-startup-folded t
 
+          ;; Reproducting another default:
+          org-adapt-indentation t
+
           ;; speed navigation commands:
           org-use-speed-commands t
           org-speed-commands-user '(("S" . save-buffer))
