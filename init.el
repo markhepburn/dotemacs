@@ -70,8 +70,9 @@ file (including following symlinks).")
 (use-package seq :pin gnu)
 
 ;;; I have no desire to have proportional fonts in my modeline!
-;;; (I don't think I would anyway because of xresources, but play it safe):
-(set-face-attribute 'mode-line nil :inherit 'default)
+(add-hook 'server-after-make-frame-hook
+          (lambda ()
+            (set-face-attribute 'mode-line nil :inherit 'default)))
 
 (load "secure-settings.el.gpg" t)
 
