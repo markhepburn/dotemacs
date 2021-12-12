@@ -70,9 +70,12 @@ file (including following symlinks).")
 (use-package seq :pin gnu)
 
 ;;; I have no desire to have proportional fonts in my modeline!
+(set-face-attribute 'mode-line-active nil :inherit 'mode-line)
+(set-face-attribute 'mode-line-inactive nil :inherit 'mode-line)
 (add-hook 'server-after-make-frame-hook
           (lambda ()
-            (set-face-attribute 'mode-line nil :inherit 'default)))
+            (set-face-attribute 'mode-line-active nil :inherit 'mode-line)
+            (set-face-attribute 'mode-line-inactive nil :inherit 'mode-line)))
 
 (load "secure-settings.el.gpg" t)
 
