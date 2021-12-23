@@ -16,10 +16,9 @@
 (setq diff-switches "-u")
 (setq vc-svn-diff-switches '("--diff-cmd" "diff" "-x" "-u"))
 
-;;; show changed regions in the fringe (autoload for programming for now):
+;;; show changed regions in the fringe
 (use-package diff-hl
-  :after magit
-  :config (global-diff-hl-mode 1)
+  :init (global-diff-hl-mode 1)
   :hook ((magit-pre-refresh . diff-hl-magit-pre-refresh)
          (magit-post-refresh . diff-hl-magit-post-refresh)))
 
