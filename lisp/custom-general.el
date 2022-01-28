@@ -232,11 +232,6 @@
   :custom (smartscan-symbol-selector "symbol")
   :hook (prog-mode . smartscan-mode-turn-on))
 
-;;; Visual rectangle editing: /why/ the hell is this buried in a
-;;; package that makes emacs act more like windows??  Anyway:
-(cua-selection-mode t)                ;; Also disables the CUA keys
-(setq cua-auto-tabify-rectangles nil) ;; Don't tabify after rectangle commands
-
 (use-package default-text-scale
   :config (default-text-scale-mode))
 
