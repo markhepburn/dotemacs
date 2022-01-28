@@ -124,6 +124,9 @@
 ;;; Default to text-mode (in part, because smartparens behaves better there):
 (setq-default major-mode 'text-mode)
 
+;;; Default is t, which means forward-sentence etc only recognises two spaces.
+(setq sentence-end-double-space nil)
+
 ;; use font lock where possible:
 (global-font-lock-mode t)
 ;;; I really should have been using this all along:
