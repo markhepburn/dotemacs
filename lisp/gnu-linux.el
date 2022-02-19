@@ -38,7 +38,9 @@
   (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
 
 (use-package exec-path-from-shell
-  :init (exec-path-from-shell-initialize))
+  :init
+  (setenv "PATH" "") ; otherwise zsh is run with the existing PATH, leading to lots of dupes, etc
+  (exec-path-from-shell-initialize))
 
 ;;; Make sure that the default browser is used by browse-url*:
 (setq browse-url-browser-function 'browse-url-generic
