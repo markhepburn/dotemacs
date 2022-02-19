@@ -16,9 +16,9 @@
 ;;; http://a-nickels-worth.blogspot.com/2007/11/effective-emacs.html
 ;;; Code:
 
-(setq pgtk-use-im-context-on-new-connection nil)
-(setq gc-cons-threshold 100000000)
-(setq native-comp-async-report-warnings-errors 'silent)
+(setq pgtk-use-im-context-on-new-connection nil
+      gc-cons-threshold 100000000
+      native-comp-async-report-warnings-errors 'silent)
 
 ;;; Commentary:
 ;;
