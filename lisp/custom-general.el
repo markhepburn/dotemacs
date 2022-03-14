@@ -38,9 +38,10 @@
 ;;; Create dir-locals file with
 ;;; ((yaml-mode
 ;;;   (ansible-vault-password-file . "/home/notroot/.ansible-vault/custom_vault_pass")))
+;;; Also probably want to add (eval . (pyvenv-workon "virtualenv-name")) so ansible-vault is in the path.
 (defun ansible-vault-mode-maybe ()
   (when (and (derived-mode-p 'yaml-mode)
-             (ansible-vault--is-vault-file))
+             (ansible-vault--is-encrypted-vault-file))
     (ansible-vault-mode 1)))
 (add-hook 'hack-local-variables-hook #'ansible-vault-mode-maybe)
 (use-package ansible-vault
