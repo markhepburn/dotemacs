@@ -44,7 +44,7 @@
 
           ;; speed navigation commands:
           org-use-speed-commands t
-          org-speed-commands-user '(("S" . save-buffer))
+          org-speed-commands (add-to-list 'org-speed-commands '("S" . save-buffer) 'append)
 
           ;; automatically use symbols for \alpha, etc (toggle with C-c C-x \
           ;; if necessary):
