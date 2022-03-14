@@ -166,6 +166,8 @@
 (setq require-final-newline t)
 ;;; high-light selections:
 (transient-mark-mode 1)
+;;; Expected behaviour; delete selection when typing starts:
+(delete-selection-mode 1)
 ;;; 4-space tabs, and spaces-not-tabs:
 (setq default-tab-width 4)
 (setq-default indent-tabs-mode nil)
