@@ -42,6 +42,12 @@
   (setenv "PATH" "") ; otherwise zsh is run with the existing PATH, leading to lots of dupes, etc
   (exec-path-from-shell-initialize))
 
+(defun uuidgen ()
+  (interactive)
+  (insert
+   (replace-regexp-in-string
+    "\n$" "" (shell-command-to-string "uuidgen"))))
+
 ;;; Make sure that the default browser is used by browse-url*:
 (setq browse-url-browser-function 'browse-url-generic
       browse-url-generic-program "x-www-browser")

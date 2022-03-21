@@ -60,6 +60,12 @@
 (add-to-list 'exec-path (f-join mh/git-bash-dir "usr" "bin"))
 (setenv "PATH" (concat (f-join mh/git-bash-dir "bin") path-separator (getenv "PATH")))
 
+(defun uuidgen ()
+  (interactive)
+  (insert
+   (replace-regexp-in-string
+    "\n$" "" (shell-command-to-string "pwsh.exe -Command [guid]::NewGuid().toString()"))))
+
 ;;; Try and speed up git; see https://lists.gnu.org/archive/html/emacs-devel/2018-06/msg00667.html
 (setq w32-pipe-read-delay 0
       w32-pipe-buffer-size 16384)
