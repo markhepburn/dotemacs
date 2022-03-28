@@ -55,6 +55,7 @@
 ;;; Get shell stuff working properly (such as find-name-dired, etc):
 (setq mh/git-bash-dir "C:/Program Files/Git")
 
+(add-to-list 'exec-path (expand-file-name "~/w64devkit/bin"))
 (add-to-list 'exec-path (f-join mh/git-bash-dir "bin"))
 (add-to-list 'exec-path (f-join (getenv "userprofile") "bin"))
 (add-to-list 'exec-path (f-join mh/git-bash-dir "usr" "bin"))
