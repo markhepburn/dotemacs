@@ -42,6 +42,11 @@
           ;; Reproducting another default:
           org-adapt-indentation t
 
+          org-capture-templates
+          '(("w" "Weekend" checkitem (file+function "~/Nextcloud/Notes/Weekend.org" beginning-of-buffer))
+            ;; Fixme: using a nil entry-template here + :prepend t removes indentation and adds [-] for some reason:
+            ("b" "Blog Queue" checkitem (file+headline "~/Nextcloud/Notes/Blog-posts.org" "Queue")))
+
           ;; speed navigation commands:
           org-use-speed-commands t
           org-speed-commands (add-to-list 'org-speed-commands '("S" . save-buffer) 'append)
