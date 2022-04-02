@@ -210,19 +210,18 @@
 (use-package projectile
   :bind-keymap ("C-c p" . projectile-command-map)
   :config
-  (progn
-    (projectile-global-mode 1)
-    (setq projectile-completion-system 'helm
-          projectile-switch-project-action 'helm-projectile
-          ;; http://iqbalansari.github.io/blog/2014/02/22/switching-repositories-with-magit/
-          ;; http://irreal.org/blog/?p=4177
-          magit-repository-directories
-          (mapcar (lambda (dir)
-                    (cons (substring dir 0 -1) 0))
-                  (nreverse
-                   (remove-if-not (lambda (project)
-                                    (file-directory-p (concat project "/.git/")))
-                                  (projectile-relevant-known-projects))))))
+  (projectile-global-mode 1)
+  (setq projectile-completion-system 'helm
+        projectile-switch-project-action 'helm-projectile
+        ;; http://iqbalansari.github.io/blog/2014/02/22/switching-repositories-with-magit/
+        ;; http://irreal.org/blog/?p=4177
+        magit-repository-directories
+        (mapcar (lambda (dir)
+                  (cons (substring dir 0 -1) 0))
+                (nreverse
+                 (remove-if-not (lambda (project)
+                                  (file-directory-p (concat project "/.git/")))
+                                (projectile-relevant-known-projects)))))
   :diminish projectile-mode)
 (use-package helm-projectile
   :config (helm-projectile-on))
