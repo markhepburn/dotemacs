@@ -51,7 +51,10 @@
   :config (add-hook 'magit-mode-hook 'turn-on-magit-gitflow))
 
 (use-package git-messenger
-  :bind (("C-x v p" . git-messenger:popup-message)))
+  :bind (("C-x v p" . git-messenger:popup-message))
+  :config
+  (setq git-messenger:show-detail t
+        git-messenger:use-magit-popup t))
 
 (use-package git-timemachine)
 
