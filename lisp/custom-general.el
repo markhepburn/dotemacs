@@ -480,9 +480,6 @@
 ;; search through open buffers:
 (autoload 'grep-buffers "grep-buffers" "Grep through open buffers" t)
 
-;;; use ack (note that I have two versions of this command installed):
-(autoload 'ack-grep "ack" "Intelligent form of grep-find" t)
-
 ;; bind C-h a to 'apropos like in xemacs (not apropos-command as it is
 ;; in emacs by default)
 (global-set-key (kbd "C-h a") 'apropos)
