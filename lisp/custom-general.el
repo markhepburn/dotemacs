@@ -470,9 +470,6 @@
   :diminish eldoc-mode
   :hook ((emacs-lisp lisp inferior-lisp inferior-emacs-lisp) . eldoc-mode))
 
-;; search through open buffers:
-(autoload 'grep-buffers "grep-buffers" "Grep through open buffers" t)
-
 ;; bind C-h a to 'apropos like in xemacs (not apropos-command as it is
 ;; in emacs by default)
 (global-set-key (kbd "C-h a") 'apropos)
