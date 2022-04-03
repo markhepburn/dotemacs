@@ -58,7 +58,7 @@ file (including following symlinks).")
 (require 'use-package)
 (setq use-package-always-ensure t)
 
-;;; toggle-case
+;;; For toggle-case, optionally others not on elpa:
 (use-package quelpa-use-package
   :init (setq quelpa-update-melpa-p nil)
   :config (quelpa-use-package-activate-advice))
