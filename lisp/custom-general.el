@@ -342,10 +342,6 @@
   :bind ([remap list-directory] . dired-jump)
   :hook (dired . dired-omit-mode))
 
-;;; Bizarrely, zip files aren't handled out-of-the-box by dired:
-(after 'dired-aux
-  (add-to-list 'dired-compress-file-suffixes
-               '("\\.zip\\'" "" "unzip")))
 (use-package peep-dired
   :init (require 'dired)
   :bind (:map dired-mode-map
