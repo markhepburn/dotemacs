@@ -584,15 +584,13 @@
 (use-package markdown-mode
   :mode "\\.md\\'"
   :config
-  (progn
-    ;; Custom fill-break predicate to consider Liquid tags as well (since
-    ;; I mostly use markdown in conjunction with Jekyll):
-    (defun mh/liquid-nobreak-p ()
-      (looking-back "({%[^%]*"))
-
-    (add-hook 'markdown-mode-hook
-              (lambda ()
-                (add-hook 'fill-nobreak-predicate 'mh/liquid-nobreak-p)))))
+  ;; Custom fill-break predicate to consider Liquid tags as well (since
+  ;; I mostly use markdown in conjunction with Jekyll):
+  (defun mh/liquid-nobreak-p ()
+    (looking-back "({%[^%]*"))
+  (add-hook 'markdown-mode-hook
+            (lambda ()
+              (add-hook 'fill-nobreak-predicate 'mh/liquid-nobreak-p))))
 (use-package grip-mode
   :after markdown-mode
   :init (setq grip-github-user "markhepburn"
