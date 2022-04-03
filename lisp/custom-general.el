@@ -477,9 +477,6 @@
 (enable-minor-mode-for eldoc-mode '(emacs-lisp lisp inferior-lisp inferior-emacs-lisp))
 (after 'eldoc (diminish 'eldoc-mode))
 
-;; view pdfs etc inline:
-(autoload 'doc-view "doc-view" "View pdfs inline" t)
-
 ;; search through open buffers:
 (autoload 'grep-buffers "grep-buffers" "Grep through open buffers" t)
 
