@@ -450,11 +450,12 @@
          ("C-M-~" . toggle-case-by-word-backwards)))
 
 ;; make all buffer-names unique:
-(when (require 'uniquify nil t)
-  (setq uniquify-buffer-name-style 'post-forward)
-  ;; (setq uniquify-separator "|")
-  (setq uniquify-ignore-buffers-re "^\\*") ; Ignore *scratch*, etc
-  (setq uniquify-after-kill-buffer-p t))
+(use-package uniquify
+  :ensure nil
+  :config
+  (setq uniquify-buffer-name-style 'post-forward
+        uniquify-ignore-buffers-re "^\\*" ; Ignore *scratch*, etc
+        uniquify-after-kill-buffer-p t))
 
 ;;; csv-mode; smartparens mode interfers with sexp-command based
 ;;; navigation:
