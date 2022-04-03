@@ -465,8 +465,10 @@
             (auto-fill-mode -1)))
 
 ;; Show docs where available:
-(enable-minor-mode-for eldoc-mode '(emacs-lisp lisp inferior-lisp inferior-emacs-lisp))
-(after 'eldoc (diminish 'eldoc-mode))
+(use-package eldoc
+  :ensure nil
+  :diminish eldoc-mode
+  :hook ((emacs-lisp lisp inferior-lisp inferior-emacs-lisp) . eldoc-mode))
 
 ;; search through open buffers:
 (autoload 'grep-buffers "grep-buffers" "Grep through open buffers" t)
