@@ -359,8 +359,6 @@
   :bind (:map dired-mode-map
               (")" . dired-git-info-mode)))
 
-;; Scroll-bars on the right please:
-(if (fboundp 'set-scroll-bar-mode) (set-scroll-bar-mode 'right))
 ;; No startup message please:
 (setq inhibit-startup-message t)
 ;;; Ugh http://yann.hodique.info/blog/rant-obfuscation-in-emacs/
