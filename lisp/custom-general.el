@@ -179,7 +179,8 @@
       ediff-split-window-function 'split-window-horizontally)
 (setq split-height-threshold nil)       ; Always split side-by-side if possible
 
-(setq calc-show-banner nil)
+(setq calc-make-windows-dedicated t
+      calc-show-banner nil)
 
 (use-package unfill
   :bind (([remap fill-paragraph] . unfill-toggle)))
