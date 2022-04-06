@@ -200,9 +200,45 @@
       (hs-hide-all)
       (when (equal (length (overlays-in (point-min) (point-max))) starting-ov-count)
         (hs-show-all))))
+;;; https://karthinks.com/software/simple-folding-with-hideshow/
+  (defun hs-cycle (&optional level)
+    (interactive "p")
+    (let (message-log-max
+          (inhibit-message t))
+      (if (= level 1)
+          (pcase last-command
+            ('hs-cycle
+             (hs-hide-level 1)
+             (setq this-command 'hs-cycle-children))
+            ('hs-cycle-children
+             ;; TODO: Fix this case. `hs-show-block' needs to be
+             ;; called twice to open all folds of the parent
+             ;; block.
+             (save-excursion (hs-show-block))
+             (hs-show-block)
+             (setq this-command 'hs-cycle-subtree))
+            ('hs-cycle-subtree
+             (hs-hide-block))
+            (_
+             (if (not (hs-already-hidden-p))
+                 (hs-hide-block)
+               (hs-hide-level 1)
+               (setq this-command 'hs-cycle-children))))
+        (hs-hide-level level)
+        (setq this-command 'hs-hide-level))))
+  (defun hs-global-cycle ()
+    (interactive)
+    (pcase last-command
+      ('hs-global-cycle
+       (save-excursion (hs-show-all))
+       (setq this-command 'hs-global-show))
+      (_ (hs-hide-all))))
   (enable-minor-mode-for hs-minor-mode '(prog))
   :diminish hs-minor-mode
-  :bind (:map prog-mode-map
+  :bind (("C-<tab>" . hs-cycle)
+         ;; FIXME: Not sure why this needs iso-lefttab rather than just tab!
+         ("C-S-<iso-lefttab>" . hs-global-cycle)
+         :map prog-mode-map
          ("M-o" . toggle-fold)
          ("M-O" . toggle-fold-all)))
 
