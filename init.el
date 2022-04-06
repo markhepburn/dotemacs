@@ -43,7 +43,8 @@ file (including following symlinks).")
                                 message t))
     ad-do-it))
 
-(setq package-archives
+(setq package-native-compile t
+      package-archives
       '(("gnu" . "https://elpa.gnu.org/packages/")
         ("melpa" . "https://melpa.org/packages/")
         ("melpa-stable" . "https://stable.melpa.org/packages/")))
