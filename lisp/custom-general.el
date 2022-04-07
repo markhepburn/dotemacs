@@ -279,7 +279,7 @@
 
 ;;; more specialised "opening" commands; mplayer control:
 (use-package mplayer-mode
-  :ensure nil
+  :when nil                             ; quelpa ignores :ensure
   :quelpa (mplayer-mode
            :fetcher github
            :repo "markhepburn/mplayer-mode"))
