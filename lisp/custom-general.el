@@ -639,7 +639,7 @@
 
 ;;; Programming modes: enable "FIXME/TODO/etc" highlighting.
 (use-package fic-mode
-  :config (add-hook 'prog-mode-hook 'fic-mode)
+  :hook prog-mode
   :diminish fic-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
