@@ -44,7 +44,7 @@
   (defun setup-tide-tsx ()
     (when (string-equal "tsx" (file-name-extension buffer-file-name))
       (tide-setup)))
-  (add-hook 'web-mode-hook 'setup-tide-tsx))
+  :hook (web-mode . setup-tide-tsx))
 
 ;;; emmet (zencoding) shortcuts for html generation:
 (use-package emmet-mode
@@ -58,7 +58,7 @@
 ;;; Make css colour definitions the colour they represent:
 (use-package rainbow-mode
   :after (css-mode)
-  :config (add-hook 'css-mode-hook 'rainbow-turn-on))
+  :hook (css-mode . rainbow-turn-on))
 
 ;;; use c-style indentation in css:
 (setq cssm-indent-function 'cssm-c-style-indenter)
@@ -66,7 +66,7 @@
 ;;; Now using LessCSS, using its own derived mode:
 (use-package less-css-mode
   :after (less-css-mode)
-  :config (add-hook 'less-css-mode-hook 'rainbow-turn-on))
+  :hook (less-css-mode . rainbow-turn-on))
 
 ;;; JS (note, jsx-mode is for typed-js, use js-jsx-mode for React):
 (use-package tide)
