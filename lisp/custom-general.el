@@ -379,7 +379,7 @@
   :hook (dired . dired-omit-mode))
 
 (use-package peep-dired
-  :init (require 'dired)
+  :after dired
   :bind (:map dired-mode-map
               ("o" . peep-dired)))
 (use-package dired-narrow
