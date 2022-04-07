@@ -131,21 +131,6 @@ running the new process."
              (add-hook hook (lambda () (,minor-mode 1)))))
          ,major-mode-list))
 
-;; functions to move point to beginning and end of window, respectively:
-(defun goto-beginnning-of-window ()
-  (interactive)
-  (goto-char (window-start)))
-(defun goto-end-of-window ()
-  (interactive)
-  ; not sure why this needs to be -1 or -2; works on xemacs without it:
-  (goto-char (- (window-end) 2)))
-;; bind to C-' and C-" respectively (note that M-r --
-;; move-to-window-line -- with no arguments) moves point to center of
-;; window)
-(global-set-key (kbd "C-'")  'goto-beginnning-of-window)
-(global-set-key (kbd "C-\"") 'goto-end-of-window)
-;;; Alternative (I will probably delete the above once I'm used to
-;;; this) (and move this to custom-general probably):
 (global-set-key (kbd "C-S-l") 'move-to-window-line-top-bottom)
 ;; See also C-l, now (?) bound to recenter-top-bottom which moves the
 ;; current line to the middle/top/bottom when invoked successively.
@@ -211,22 +196,6 @@ See also `newline-and-indent'."
      (nth (1+ arg) (buffer-list)))))
 ;; bind to C-M-l, just like in xemacs:
 (global-set-key (kbd "C-M-l") 'switch-to-other-buffer)
-
-;; Move line cursor is on to top of screen:
-;; Update: see also repeated use of C-l (`recenter-top-bottom`)
-(defun mh/current-line-to-top (&optional distance)
-  "Moves line the cursor is currently on to top of the window;
-alternatively with optional prefix arg (defaults to 4) move
-line to that many lines below top.  Absolute value of argument is used."
-  (interactive "P")
-  (if (not distance) (setq distance 4)
-    (setq distance (prefix-numeric-value distance)))
-  (if (> distance 0) (setq distance (- distance)))
-  (save-excursion
-    (forward-line distance)
-    (beginning-of-line)
-    (set-window-start (selected-window) (point))))
-(global-set-key (kbd "C-M-'") 'mh/current-line-to-top)
 
 (defun mh/electric-punctuation ()
   "Tidy up whitespace around punctuation: delete any preceding
