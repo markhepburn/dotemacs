@@ -407,7 +407,6 @@
 ;;      (setq inhibit-startup-echo-area-message (user-login-name)))
 ;; save a few key strokes from typing 'yes':
 (setq use-short-answers t)
-;; M-y to browse kill-ring:
 
 (global-set-key (kbd "C-,") 'scroll-up-line)
 (global-set-key (kbd "C-.") 'scroll-down-line)
