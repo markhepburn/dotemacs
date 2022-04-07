@@ -411,7 +411,9 @@
 (global-set-key (kbd "C-.") 'scroll-down-line)
 
 (use-package undo-tree
-  :config (global-undo-tree-mode)
+  :config
+  (global-undo-tree-mode)
+  (setq undo-tree-auto-save-history nil)
   :diminish undo-tree-mode
   :bind ("C-x u" . undo-tree-visualize))
 
