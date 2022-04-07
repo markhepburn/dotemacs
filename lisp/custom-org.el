@@ -53,16 +53,6 @@
         ;; automatically use symbols for \alpha, etc (toggle with C-c C-x \
         ;; if necessary):
         org-pretty-entities t)
-
-  ;; Don't use agenda-cycle at the moment, so rebind C-, to my
-  ;; scrolling commands:
-  (add-hook 'org-mode-hook
-            (lambda ()
-              (local-set-key (kbd "C-,") 'scroll-up-line)))
-
-  (add-hook 'org-mode-hook
-            (lambda () (electric-indent-local-mode -1)))
-
   ;; Bit of a hack to work around htmlize-buffer (as called by
   ;; org-write-agenda for eg) not working.  See
   ;; http://www.mail-archive.com/emacs-orgmode@gnu.org/msg04365.html
@@ -71,7 +61,12 @@
   (after "htmlize"
     (defadvice htmlize-faces-in-buffer (after org-no-nil-faces activate)
       "Make sure there are no nil faces"
-      (setq ad-return-value (delq nil ad-return-value)))))
+      (setq ad-return-value (delq nil ad-return-value))))
+  ;; Don't use agenda-cycle at the moment, so rebind C-, to my
+  ;; scrolling commands:
+  :bind (:map org-mode-map
+              ("C-," . scroll-up-line))
+  :hook (org-mode . (lambda () (electric-indent-local-mode -1))))
 
 (use-package org-roam
   :after org
