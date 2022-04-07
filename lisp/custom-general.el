@@ -645,21 +645,19 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; compression; edit compressed kml files too:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(after "jka-compr"
-  (unless (member "\\.kmz\\'"
+(use-package jka-compr
+  :ensure nil
+  :unless (member "\\.kmz\\'"
                   (mapcar (lambda (vec) (elt vec 0))
                           jka-compr-compression-info-list))
-    (add-to-list 'jka-compr-compression-info-list
-                 ;; Basically just copying the gzip entry:
-                 ["\\.kmz\\'"
-                  "compressing" "gzip" ("-c" "-q")
-                  "uncompressing" "gzip" ("-c" "-d" "-q")
-                  nil t "PK"])
-    ;; if already enabled then toggle to get our addition recognised (note
-    ;; no `auto-compression-mode' variable in xemacs 21)
-    (when jka-compr-added-to-file-coding-system-alist
-      (auto-compression-mode 0)
-      (auto-compression-mode 1))))
+  :config
+  (add-to-list 'jka-compr-compression-info-list
+               ;; Basically just copying the gzip entry:
+               ["\\.kmz\\'"
+                "compressing" "gzip" ("-c" "-q")
+                "uncompressing" "gzip" ("-c" "-d" "-q")
+                nil t "PK"])
+  (jka-compr-update))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (provide 'custom-general)
