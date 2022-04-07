@@ -118,18 +118,6 @@
 (use-package direnv
   :config (direnv-mode))
 
-(add-hook 'c-mode-common-hook
-          (lambda ()
-            (local-set-key [(control return)] 'semantic-ia-complete-symbol)
-            (local-set-key (kbd "C-c ?") 'semantic-ia-complete-symbol-menu)
-            (local-set-key (kbd "C-c >") 'semantic-complete-analyze-inline)
-            (local-set-key (kbd "C-c p") 'semantic-analyze-proto-impl-toggle)
-
-            (local-set-key "." 'semantic-complete-self-insert)
-            (local-set-key ">" 'semantic-complete-self-insert)
-
-            (ede-minor-mode 1)))
-
 (add-to-list 'exec-path (expand-file-name "~/.local/bin"))
 
 (add-to-list 'exec-path (expand-file-name "~/Projects/elixir-ls-git/release-1.12"))
