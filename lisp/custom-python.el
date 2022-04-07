@@ -32,12 +32,6 @@
   :config
   (add-to-list 'lsp-disabled-clients 'pyls))
 
-;;; ipython-notebook integration:
-(use-package ein
-  :init (setq ein:use-auto-complete t))
-
-;(use-package virtualenvwrapper)
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (provide 'custom-python)
