@@ -346,7 +346,6 @@
 
 ;;; paren-matching:
 (setq show-paren-delay 0)
-(show-paren-mode 1)
 
 ;; paper size:
 (setq ps-paper-type 'a4)
