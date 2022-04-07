@@ -62,8 +62,8 @@
 
 (use-package clojure-mode
   :config
-  (add-hook 'clojure-mode-hook #'turn-on-eldoc-mode)
-  (add-hook 'clojure-mode-hook #'lsp))
+  :hook ((clojure-mode . turn-on-eldoc-mode)
+         (clojure-mode . lsp)))
 
 ;;; refactoring:
 (use-package clj-refactor
@@ -109,17 +109,17 @@
 ;; See http://mumble.net/~campbell/emacs/paredit.html for a reference
 ;; table with examples.
 (use-package paredit
-  :diminish paredit-mode)
-(enable-minor-mode-for paredit-mode
-                       '(cider
-                         cider-repl
-                         clojure
-                         emacs-lisp
-                         inferior-emacs-lisp
-                         inferior-lisp
-                         lisp
-                         slime-repl
-                         sly-mrepl))
+  :demand t
+  :diminish paredit-mode
+  :hook ((cider-mode
+          cider-repl-mode
+          clojure-mode
+          emacs-lisp-mode
+          inferior-emacs-lisp-mode
+          inferior-lisp-mode
+          lisp-mode
+          slime-repl-mode
+          sly-mrepl-mode) . (lambda () (paredit-mode 1))))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (provide 'custom-lisp)
