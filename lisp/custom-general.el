@@ -189,19 +189,7 @@
 
 (use-package hideshow
   :init
-  (defun toggle-fold ()
-    (interactive)
-    (save-excursion
-      (end-of-line)
-      (hs-toggle-hiding)))
-  ;; https://emacs.stackexchange.com/a/20925
-  (defun toggle-fold-all ()
-    (interactive)
-    (let ((starting-ov-count (length (overlays-in (point-min) (point-max)))))
-      (hs-hide-all)
-      (when (equal (length (overlays-in (point-min) (point-max))) starting-ov-count)
-        (hs-show-all))))
-;;; https://karthinks.com/software/simple-folding-with-hideshow/
+  ;; https://karthinks.com/software/simple-folding-with-hideshow/
   (defun hs-cycle (&optional level)
     (interactive "p")
     (let (message-log-max
@@ -238,10 +226,7 @@
   :diminish hs-minor-mode
   :bind (("C-<tab>" . hs-cycle)
          ;; FIXME: Not sure why this needs iso-lefttab rather than just tab!
-         ("C-S-<iso-lefttab>" . hs-global-cycle)
-         :map prog-mode-map
-         ("M-o" . toggle-fold)
-         ("M-O" . toggle-fold-all)))
+         ("C-S-<iso-lefttab>" . hs-global-cycle)))
 
 ;;; project mode:
 (use-package projectile
