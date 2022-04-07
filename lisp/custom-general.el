@@ -587,20 +587,11 @@
   :bind ("C-x r q" . vr/query-replace))
 
 ;; make arrow keys work properly in comint buffers:
-(after 'comint
-  (add-hook 'comint-mode-hook (lambda ()
-                                (define-key comint-mode-map
-                                  (kbd "<up>") 'comint-previous-input)))
-  (add-hook 'comint-mode-hook (lambda ()
-                                (define-key comint-mode-map
-                                  (kbd "<down>") 'comint-next-input)))
-;;; http://emacsredux.com/blog/2015/01/18/clear-comint-buffers/
-  (defun comint-clear-buffer ()
-    (interactive)
-    (let ((comint-buffer-maximum-size 0))
-      (comint-truncate-buffer)))
-;;; Binding echos that of cider-nrepl:
-  (define-key comint-mode-map (kbd "C-c M-o") #'comint-clear-buffer))
+(use-package comint
+  :ensure nil
+  :bind (:map comint-mode-map
+              ("<up>" . comint-previous-input)
+              ("<down>" . comint-next-input)))
 
 
 ;; Make sure script files are executable after save:
