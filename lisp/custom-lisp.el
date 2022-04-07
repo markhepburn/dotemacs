@@ -45,24 +45,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; Slime (not installed for now):
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;; (add-to-list 'load-path (concat *mh/lisp-base* "slime"))
-;; (setq slime-lisp-implementations
-;;       `((sbcl ("sbcl"))))
-;; (require 'slime-autoloads)
-;; (add-hook 'lisp-mode-hook (lambda ()
-;;                             (cond ((not (featurep 'slime))
-;;                                    (require 'slime)
-;;                                    (normal-mode)))))
-;; (add-hook 'slime-repl-mode-hook (lambda ()
-;;                                   (define-key slime-repl-mode-map
-;;                                     (kbd "<up>") 'slime-repl-previous-input)
-;;                                   (define-key slime-repl-mode-map
-;;                                     (kbd "<down>") 'slime-repl-next-input)))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Sly (a fork of SLIME, seems more popular and active now)
