@@ -131,16 +131,15 @@ _p_rev       _u_pper              _=_: upper/lower       _r_esolve
          svn-status-hide-unknown    t
          svn-status-hide-unmodified t)
 
-  :config (progn
-
-            (defadvice svn-status-show-svn-diff (after mh/jump-to-diff-window activate)
-              "Jump to the diff window, so it can be easily navigated then closed."
-              (let ((diff-window (get-buffer-window "*svn-diff*" nil)))
-                (if diff-window (select-window diff-window))))
-            (defadvice svn-status-show-svn-diff-for-marked-files (after mh/jump-to-diff-window activate)
-              "Jump to the diff window, so it can be easily navigated then closed."
-              (let ((diff-window (get-buffer-window "*svn-diff*" nil)))
-                (if diff-window (select-window diff-window)))))
+  :config
+  (defadvice svn-status-show-svn-diff (after mh/jump-to-diff-window activate)
+    "Jump to the diff window, so it can be easily navigated then closed."
+    (let ((diff-window (get-buffer-window "*svn-diff*" nil)))
+      (if diff-window (select-window diff-window))))
+  (defadvice svn-status-show-svn-diff-for-marked-files (after mh/jump-to-diff-window activate)
+    "Jump to the diff window, so it can be easily navigated then closed."
+    (let ((diff-window (get-buffer-window "*svn-diff*" nil)))
+      (if diff-window (select-window diff-window))))
 
   :bind (:map svn-status-mode-map
          ("n" . svn-status-next-line)
