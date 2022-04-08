@@ -26,22 +26,17 @@
          ("C-c C-n C-c" . haskell-process-cabal-build)
          ("C-c C-n c"   . haskell-process-cabal)
          ("C-c C-o"     . haskell-compile))
-  :init
-  (custom-set-variables
-   ;; Use cabal-dev for the GHCi session. Ensures our dependencies are in scope.
-   '(haskell-process-type 'cabal-repl)
-   ;; or 'ghci
-
-   ;; To enable tags generation on save.
-   '(haskell-tags-on-save t)
-
-   '(company-ghc-show-info t)
-
-   ;; To enable stylish on save.
-   ;; '(haskell-stylish-on-save t)
-   '(haskell-process-suggest-remove-import-lines t)
-   '(haskell-process-auto-import-loaded-modules t)
-   '(haskell-process-log t))
+  :custom
+  ;; Use cabal-dev for the GHCi session. Ensures our dependencies are in scope.
+  (haskell-process-type 'cabal-repl) ;; or 'ghci
+  ;; To enable tags generation on save.
+  (haskell-tags-on-save t)
+  (company-ghc-show-info t)
+  ;; To enable stylish on save.
+  ;; '(haskell-stylish-on-save t)
+  (haskell-process-suggest-remove-import-lines t)
+  (haskell-process-auto-import-loaded-modules t)
+  (haskell-process-log t)
   :config
   (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
   (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
