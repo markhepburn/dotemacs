@@ -348,12 +348,13 @@
     (interactive)
     (beginning-of-buffer)
     (dired-next-line (if dired-omit-mode 2 4)))
-  (define-key dired-mode-map (vector 'remap 'beginning-of-buffer) 'dired-back-to-top)
   (defun dired-jump-to-bottom ()
     (interactive)
     (end-of-buffer)
     (dired-next-line -1))
-  (define-key dired-mode-map (vector 'remap 'end-of-buffer) 'dired-jump-to-bottom))
+  :bind (:map dired-mode-map
+              ([remap beginning-of-buffer] . dired-back-to-top)
+              ([remap end-of-buffer] . dired-jump-to-bottom)))
 (use-package dired-x
   :ensure nil
   :init
