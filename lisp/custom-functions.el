@@ -236,6 +236,18 @@ The result is a paired list of character positions for an integer
         (delete-region beg end)
         (insert (number-to-string incnum))))))
 (global-set-key (kbd "C-x n +") 'increment-number-at-point)
+(defvar increment-number-at-point-repeat-map
+  (let ((map (make-sparse-keymap))
+        (decrement-number-at-point (lambda ()
+                                     (interactive)
+                                     (setq repeat-map increment-number-at-point-repeat-map)
+                                     (increment-number-at-point -1))))
+    (define-key map "+" 'increment-number-at-point)
+    (define-key map "=" 'increment-number-at-point)
+    (define-key map "-" decrement-number-at-point)
+    (define-key map "_" decrement-number-at-point)
+    map))
+(put 'increment-number-at-point 'repeat-map 'increment-number-at-point-repeat-map)
 
 (defun bfn ()
   "Display the buffer's file name.  Basically short-hand for
