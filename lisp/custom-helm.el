@@ -55,26 +55,21 @@
          ("C-z" . helm-select-action) ; list actions using C-z
          ("C-x 2" . helm-select-2nd-action)
          ("C-x 3" . helm-select-3rd-action)
-         ("C-x 4" . helm-select-4rd-action))
+         ("C-x 4" . helm-select-4rd-action)
 
-  :config
-  (progn
-    ;; Something funky going on, but can't :bind to help-command (it's
-    ;; either a sparse keymap or a function; weird)
-    (define-key 'help-command (kbd "C-f") 'helm-apropos)
-    (define-key 'help-command (kbd "r") 'helm-info-emacs)
+         :map help-map
+         ("C-f" . helm-apropos)
+         ("r" . helm-info-emacs))
 
-    ;; use helm to list eshell history
-    (add-hook 'eshell-mode-hook
-              #'(lambda ()
-                  (define-key eshell-mode-map (kbd "M-l")  'helm-eshell-history)))
-
-    ;; Save current position to mark ring
-    (add-hook 'helm-goto-line-before-hook 'helm-save-current-pos-to-mark-ring)
-
-    (helm-mode 1))
-
+  :hook
+  ;; use helm to list eshell history
+  ((eshell-mode . (lambda ()
+                    (define-key eshell-mode-map (kbd "M-l")  'helm-eshell-history)))
+   ;; Save current position to mark ring
+   (helm-goto-line-before . helm-save-current-pos-to-mark-ring))
+  :config (helm-mode 1)
   :diminish (helm--minor-mode helm-mode))
+
 (use-package helm-config :ensure nil :after helm)
 (use-package helm-eshell :ensure nil :after helm)
 (use-package helm-files  :ensure nil :after helm)
