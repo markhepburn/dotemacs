@@ -37,10 +37,10 @@
   (haskell-process-suggest-remove-import-lines t)
   (haskell-process-auto-import-loaded-modules t)
   (haskell-process-log t)
-  :config
-  (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
-  (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
-  (add-hook 'haskell-mode-hook 'haskell-indent-mode))
+  :hook
+  ((haskell-mode . turn-on-haskell-doc-mode)
+   (haskell-mode . turn-on-haskell-indentation)
+   (haskell-mode . haskell-indent-mode)))
 
 (use-package haskell-cabal
   :ensure nil
