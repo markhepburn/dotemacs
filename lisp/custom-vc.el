@@ -48,7 +48,7 @@
 (use-package magit-gitflow
   :pin melpa-stable
   :after (magit)
-  :config (add-hook 'magit-mode-hook 'turn-on-magit-gitflow))
+  :hook (magit-mode . turn-on-magit-gitflow))
 
 (use-package git-messenger
   :bind (("C-x v p" . git-messenger:popup-message))
