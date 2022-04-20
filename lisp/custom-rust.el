@@ -32,7 +32,7 @@
 
   ;; comment to disable rustfmt on save
   (setq rustic-format-on-save t)
-  (add-hook 'rustic-mode-hook 'mh/rustic-mode-hook))
+  :hook (rustic-mode . mh/rustic-mode-hook))
 
 (defun mh/rustic-mode-hook ()
   ;; so that run C-c C-c C-r works without having to confirm, but don't try to
