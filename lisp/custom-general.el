@@ -20,7 +20,7 @@
 (use-package lively)
 (use-package lorem-ipsum)
 (use-package rst)
-(use-package yaml-mode :init (add-hook 'yaml-mode-hook #'turn-off-auto-fill))
+(use-package yaml-mode :hook (yaml-mode . turn-off-auto-fill))
 (use-package poly-ansible) ; poly-mode that combines jinja + yml mode for ansible
 
 ;;; Use `describe-repeat-maps' for existing repeatable commands:
@@ -43,9 +43,9 @@
   (when (and (derived-mode-p 'yaml-mode)
              (ansible-vault--is-encrypted-vault-file))
     (ansible-vault-mode 1)))
-(add-hook 'hack-local-variables-hook #'ansible-vault-mode-maybe)
 (use-package ansible-vault
-  :after yaml-mode)
+  :after yaml-mode
+  :hook (hack-local-variables . ansible-vault-mode-maybe))
 
 (use-package which-key
   :diminish which-key-mode
@@ -54,19 +54,17 @@
 ;;; Needs path to elixir_ls installation added to `exec-path'
 (use-package lsp-mode
   ;; Add to this list as necessary; using prog-mode was too annoying:
-  :hook ((dart-mode
-          elixir-mode
-          clojure-mode
-          clojurec-mode
-          clojurescript-mode
-          typescript-mode) . lsp)
+  :hook (((dart-mode
+           elixir-mode
+           clojure-mode
+           clojurec-mode
+           clojurescript-mode
+           typescript-mode) . lsp)
+         (lsp-mode . lsp-enable-which-key-integration))
   :init (setq lsp-keymap-prefix "C-c C-l"
               lsp-lens-enable t
               lsp-file-watch-threshold 10000)
-  :config
-  (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
-  (diminish 'lsp-lens-mode)
-  :commands lsp
+  :config (diminish 'lsp-lens-mode)
   :bind ("C-c C-d" . lsp-describe-thing-at-point))
 (use-package lsp-ui
   :after lsp-mode
@@ -601,9 +599,9 @@
   ;; I mostly use markdown in conjunction with Jekyll):
   (defun mh/liquid-nobreak-p ()
     (looking-back "({%[^%]*"))
-  (add-hook 'markdown-mode-hook
-            (lambda ()
-              (add-hook 'fill-nobreak-predicate 'mh/liquid-nobreak-p))))
+  :hook (markdown-mode
+         . (lambda ()
+             (add-hook (make-local-variable 'fill-nobreak-predicate) 'mh/liquid-nobreak-p))))
 (use-package grip-mode
   :after markdown-mode
   :init (setq grip-github-user "markhepburn"
