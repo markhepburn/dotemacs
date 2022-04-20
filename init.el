@@ -129,7 +129,7 @@ file (including following symlinks).")
 ;;; Set up session-saving (see https://github.com/emacs-helm/helm/issues/204):
 (use-package session
   :init (setq session-save-print-spec '(t nil 40000))
-  :config (add-hook 'after-init-hook 'session-initialize))
+  :hook (after-init . session-initialize))
 (use-package recentf)
 
 (message ".emacs loaded in %s" (emacs-init-time))
