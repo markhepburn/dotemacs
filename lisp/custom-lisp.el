@@ -9,8 +9,7 @@
 ;;; Code:
 
 (use-package elisp-slime-nav
-  :init (add-hook 'emacs-lisp-mode-hook
-                  (lambda () (elisp-slime-nav-mode t)))
+  :hook (emacs-lisp-mode . (lambda () (elisp-slime-nav-mode t)))
   :diminish elisp-slime-nav-mode)
 
 ;;; From http://endlessparentheses.com/eval-result-overlays-in-emacs-lisp.html
@@ -72,15 +71,14 @@
   :diminish clj-refactor-mode
   :init
   (setq cljr-warn-on-eval nil)
-  (add-hook 'clojure-mode-hook (lambda ()
-                                 (clj-refactor-mode 1)
-                                 (cljr-add-keybindings-with-prefix "C-c C-r"))))
+  :hook (clojure-mode . (lambda ()
+                          (clj-refactor-mode 1)
+                          (cljr-add-keybindings-with-prefix "C-c C-r"))))
 ;;; helm interface to refactoring:
 (use-package cljr-helm
   :after (clojure-mode)
-  :init
-  (add-hook 'clojure-mode-hook (lambda ()
-                                 (define-key clojure-mode-map (kbd "C-c r") 'cljr-helm))))
+  :hook (clojure-mode . (lambda ()
+                          (define-key clojure-mode-map (kbd "C-c r") 'cljr-helm))))
 
 ;;; clojurescript (build from emacs, and pop up stacktrack when
 ;;; there's a error):
