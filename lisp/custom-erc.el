@@ -44,7 +44,6 @@
   :ensure nil
   :after erc
   :config
-  (load "erc-creds" t nil)
   (setq erc-prompt-for-nickserv-password nil)
 
   (when (boundp 'dbus-compiled-version)
