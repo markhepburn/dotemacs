@@ -85,18 +85,16 @@ file (including following symlinks).")
 
 ;;; loaded before anything else because of various macros
 ;;; (enable-minor-mode-for, after):
-(load "custom-functions")
+(require 'custom-functions)
 
 ;;; Some settings need to be machine-specific, such as CEDET project
 ;;; definitions, while others are platform-specific (eg, I used to use
 ;;; maxframe on osx, but this is redundant on linux where xmonad takes
-;;; care of that).  To do this, load files (if they exist)
-;;; corresponding to the reported 'system-type and 'system-name
-;;; (#'load will stick the ".el" on the end automatically).  Second
-;;; argument 't to 'load means no error if the file doesn't exist.
-(load (subst-char-in-string ?/ ?- (symbol-name system-type))
-      t)
-(load (system-name) t)       ; Assume for now it is not fully-qualified.
+;;; care of that). To do this, load files (if they exist)
+;;; corresponding to the reported 'system-type and 'system-name.
+;;; Second argument 't means no error if the file doesn't exist.
+(require (intern (subst-char-in-string ?/ ?- (symbol-name system-type))) nil t)
+(require (intern (system-name)) nil t)
 
 ;;; Load all custom-* files (except for -functions, already loaded above):
 (let ((excluded-files
@@ -104,7 +102,7 @@ file (including following symlinks).")
          )))
   (dolist (custom-file (directory-files *mh/lisp-base* nil "custom-.*" nil))
     (unless (-contains? excluded-files custom-file)
-      (load custom-file))))
+      (require (intern (f-base custom-file)) nil t))))
 
 (use-package powerline
   :config (powerline-default-theme))
