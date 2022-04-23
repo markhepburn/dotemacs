@@ -96,3 +96,6 @@
 
 (use-package powershell
   :pin melpa)
+
+
+(provide 'windows-nt)

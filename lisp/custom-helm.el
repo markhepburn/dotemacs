@@ -109,3 +109,5 @@
   :config
   (helm-ext-ff-enable-skipping-dots t)
   (helm-ext-minibuffer-enable-header-line-maybe t))
+
+(provide 'custom-helm)

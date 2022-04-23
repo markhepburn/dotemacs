@@ -23,3 +23,4 @@
               ("C-p" . tab-previous))
   :bind-keymap ("C-z" . tab-prefix-map))
 
+(provide 'custom-tabs)
