@@ -32,10 +32,10 @@
 ;;; Tree-sitter mode where supported:
 (use-package tree-sitter-langs)
 (use-package tree-sitter
-  :config
-  (require 'tree-sitter-langs)
-  (global-tree-sitter-mode 1)
-  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
+  :after tree-sitter-langs
+  :commands (global-tree-sitter-mode)
+  :config (global-tree-sitter-mode 1)
+  :hook (tree-sitter-after-on . tree-sitter-hl-mode))
 
 (use-package exec-path-from-shell
   :init
@@ -95,14 +95,15 @@
   (global-ligature-mode t))
 
 ;;; Docker support (see also lsp-mode: https://emacs-lsp.github.io/lsp-mode/page/lsp-dockerfile/ ):
-(use-package docker)
-(use-package dockerfile-mode)
+(use-package docker :defer t)
+(use-package dockerfile-mode
+  :mode ("Dockerfile" . dockerfile-mode))
 
 ;;; Run M-x helm-tramp to easily access docker containers and vagrant boxes:
 ;;; (These cause issues on windows, so make linux-only for now):
-(use-package docker-tramp)
-(use-package vagrant-tramp)
-(use-package helm-tramp)
+(use-package docker-tramp  :defer t)
+(use-package vagrant-tramp :defer t)
+(use-package helm-tramp    :defer t)
 (setq tramp-default-method "ssh")
 
 ;;; Projectile: on linux, we can use fd (https://github.com/sharkdp/fd)

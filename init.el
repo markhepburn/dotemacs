@@ -16,9 +16,25 @@
 ;;; http://a-nickels-worth.blogspot.com/2007/11/effective-emacs.html
 ;;; Code:
 
+(defvar file-name-handler-alist-old file-name-handler-alist)
+
 (setq pgtk-use-im-context-on-new-connection nil
-      gc-cons-threshold 100000000
-      native-comp-async-report-warnings-errors 'silent)
+      native-comp-async-report-warnings-errors 'silent
+      package-enable-at-startup nil
+      file-name-handler-alist nil
+      message-log-max 16384
+      gc-cons-threshold 402653184
+      gc-cons-percentage 0.6
+      auto-window-vscroll nil)
+
+(add-hook 'after-init-hook
+          `(lambda ()
+             (setq file-name-handler-alist file-name-handler-alist-old
+                   gc-cons-threshold 800000
+                   gc-cons-percentage 0.1)
+             (load "secure-settings.el.gpg" t)
+             ;; (require 'secure-settings "secure-settings.el.gpg" t)
+             (garbage-collect)) t)
 
 ;;; Commentary:
 ;;
@@ -57,7 +73,8 @@ file (including following symlinks).")
   (message "Installing use-package first... Done."))
 
 (require 'use-package)
-(setq use-package-always-ensure t)
+(setq use-package-always-ensure t
+      use-package-verbose t)
 
 ;;; For toggle-case, optionally others not on elpa:
 (use-package quelpa-use-package
@@ -65,11 +82,10 @@ file (including following symlinks).")
   :config (quelpa-use-package-activate-advice))
 
 ;;; Utility packages; load here before other customisations that may use them.
-;;; Demanded, because these aren't commands that get autloaded but library functionality.
-(use-package dash)
-(use-package s)
-(use-package f)
-(use-package seq :pin gnu)
+(use-package dash :defer t)
+(use-package s    :defer t)
+(use-package f    :demand t)
+(use-package seq  :defer t :pin gnu)
 
 ;;; I have no desire to have proportional fonts in my modeline!
 (set-face-attribute 'mode-line-active nil :inherit 'mode-line)
@@ -81,7 +97,7 @@ file (including following symlinks).")
 
 (when (fboundp 'pixel-scroll-precision-mode) (pixel-scroll-precision-mode 1))
 
-(load "secure-settings.el.gpg" t)
+;; (load "secure-settings.el.gpg" t)
 
 ;;; loaded before anything else because of various macros
 ;;; (enable-minor-mode-for, after):

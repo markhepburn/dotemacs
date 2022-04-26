@@ -7,6 +7,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package helm
+  :defer 1
   :init
   (setq
    ;; must set before helm-config,  otherwise helm use default

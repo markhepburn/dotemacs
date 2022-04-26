@@ -50,8 +50,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package sly
-  :config
-  (setq inferior-lisp-program "sbcl"))
+  :init (setq inferior-lisp-program "sbcl")
+  :commands sly
+  :hook (lisp-mode . sly-mode))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -60,7 +61,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package clojure-mode
-  :config
   :hook ((clojure-mode . turn-on-eldoc-mode)
          (clojure-mode . lsp)))
 
@@ -69,20 +69,21 @@
   :pin melpa-stable
   :after (clojure-mode)
   :diminish clj-refactor-mode
-  :init
-  (setq cljr-warn-on-eval nil)
+  :commands (clj-refactor-mode cljr-add-keybindings-with-prefix)
+  :init (setq cljr-warn-on-eval nil)
   :hook (clojure-mode . (lambda ()
                           (clj-refactor-mode 1)
                           (cljr-add-keybindings-with-prefix "C-c C-r"))))
 ;;; helm interface to refactoring:
 (use-package cljr-helm
   :after (clojure-mode)
-  :hook (clojure-mode . (lambda ()
-                          (define-key clojure-mode-map (kbd "C-c r") 'cljr-helm))))
+  :bind (:map clojure-mode-map
+              ("C-c r" . cljr-helm)))
 
 ;;; clojurescript (build from emacs, and pop up stacktrack when
 ;;; there's a error):
 (use-package cljsbuild-mode
+  :commands cljsbuild-start
   :diminish cljsbuild-mode)
 
 (use-package cider-eval-sexp-fu)
@@ -117,7 +118,7 @@
           inferior-lisp-mode
           lisp-mode
           slime-repl-mode
-          sly-mrepl-mode) . (lambda () (paredit-mode 1))))
+          sly-mrepl-mode) . paredit-mode))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (provide 'custom-lisp)

@@ -32,6 +32,7 @@
 
   ;; comment to disable rustfmt on save
   (setq rustic-format-on-save t)
+  :mode ("\\.rust\\'" . rustic-mode)
   :hook (rustic-mode . mh/rustic-mode-hook))
 
 (defun mh/rustic-mode-hook ()

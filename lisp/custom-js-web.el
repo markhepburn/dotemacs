@@ -9,7 +9,6 @@
 
 (setq js-indent-level 2)
 
-(use-package json-reformat)
 (use-package restclient
   ;; Work-around: the emacs version I'm using doesn't bundle
   ;; json-pretty-print-buffer, used by restclient-mode.  So, implement
@@ -40,11 +39,12 @@
          ;; HTML content indentation
          web-mode-indent-style 2)
   :mode ("\\.html?\\'" "\\.tsx\\'")
-  :config
-  (defun setup-tide-tsx ()
-    (when (string-equal "tsx" (file-name-extension buffer-file-name))
-      (tide-setup)))
-  :hook (web-mode . setup-tide-tsx))
+  ;; :config
+  ;; (defun setup-tide-tsx ()
+  ;;   (when (string-equal "tsx" (file-name-extension buffer-file-name))
+  ;;     (tide-setup)))
+  ;; :hook (web-mode . setup-tide-tsx)
+  )
 
 ;;; emmet (zencoding) shortcuts for html generation:
 (use-package emmet-mode
@@ -69,7 +69,7 @@
   :hook (less-css-mode . rainbow-turn-on))
 
 ;;; JS (note, jsx-mode is for typed-js, use js-jsx-mode for React):
-(use-package tide)
+(use-package tide :disabled)
 
 (use-package typescript-mode)
 

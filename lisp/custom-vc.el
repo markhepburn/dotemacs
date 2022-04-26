@@ -56,9 +56,9 @@
   (setq git-messenger:show-detail t
         git-messenger:use-magit-popup t))
 
-(use-package git-timemachine)
+(use-package git-timemachine :commands git-timemachine)
 
-(use-package github-clone)
+(use-package github-clone :defer t)
 
 ;;; Don't add commit-message buffers to recentf list:
 (after 'recentf

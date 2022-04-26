@@ -15,11 +15,13 @@
 ;;; Some miscellaneous packages, no bindings or anything yet:
 (use-package diminish)
 (use-package flycheck)
-(use-package free-keys)
+(use-package free-keys :commands (free-keys))
 (use-package pcre2el)
-(use-package lively)
-(use-package lorem-ipsum)
-(use-package rst)
+(use-package lively :commands (lively lively-region lively-update lively-stop))
+(use-package lorem-ipsum
+  :commands (Lorem-ipsum-insert-list Lorem-ipsum-insert-sentences Lorem-ipsum-insert-paragraphs
+             lorem-ipsum-insert-list lorem-ipsum-insert-sentences lorem-ipsum-insert-paragraphs))
+(use-package rst :mode "\\.rst\\'")
 (use-package yaml-mode :hook (yaml-mode . turn-off-auto-fill))
 (use-package poly-ansible) ; poly-mode that combines jinja + yml mode for ansible
 
@@ -64,7 +66,7 @@
   :init (setq lsp-keymap-prefix "C-c C-l"
               lsp-lens-enable t
               lsp-file-watch-threshold 10000)
-  :config (diminish 'lsp-lens-mode)
+  :diminish lsp-lens-mode
   :bind ("C-c C-d" . lsp-describe-thing-at-point))
 (use-package lsp-ui
   :after lsp-mode
@@ -229,6 +231,7 @@
 ;;; project mode:
 (use-package projectile
   :bind-keymap ("C-c p" . projectile-command-map)
+  :commands (projectile-global-mode)
   :config
   (projectile-global-mode 1)
   (setq projectile-completion-system 'helm
@@ -244,6 +247,7 @@
                                 (projectile-relevant-known-projects)))))
   :diminish projectile-mode)
 (use-package helm-projectile
+  :commands (helm-projectile-on)
   :config (helm-projectile-on))
 
 (use-package multiple-cursors
@@ -273,7 +277,7 @@
 ;;; visual navigation enhancements:
 (use-package avy
   :bind (("M-g g" . avy-goto-line))
-  :init (avy-setup-default))            ; C-' from isearch
+  :config (avy-setup-default))            ; C-' from isearch
 
 ;;; more specialised "opening" commands; mplayer control:
 (use-package mplayer-mode
@@ -318,14 +322,14 @@
 ;;; Company now seems more active, and in particular clojure-mode
 ;;; works best with company:
 (use-package company
-  :config (add-hook 'after-init-hook 'global-company-mode)
+  :hook (after-init . global-company-mode)
   :bind (:map company-active-map
          ("C-n" . company-select-next)
          ("C-p" . company-select-previous))
   :diminish company-mode)
 (use-package company-quickhelp
   :after (company)
-  :config (add-hook 'after-init-hook 'company-quickhelp-mode))
+  :hook (after-init . company-quickhelp-mode))
 
 ;;; paren-matching:
 (setq show-paren-delay 0)
@@ -481,6 +485,7 @@
 ;;; csv-mode; smartparens mode interfers with sexp-command based
 ;;; navigation:
 (use-package csv-mode
+  :mode "\\.csv\\'"
   :config (progn
             (smartparens-mode -1)
             (auto-fill-mode -1)))
@@ -503,9 +508,10 @@
 ;; Used to use bs-show, but the ibuffer emulation does it all and more:
 (use-package ibuf-ext
   :ensure nil
-  :config (setq-default ibuffer-default-sorting-mode 'major-mode)
-  :bind (("C-x C-b" . ibuffer-bs-show)))
+  :custom (ibuffer-default-sorting-mode major-mode)
+  :bind ("C-x C-b" . ibuffer-bs-show))
 (use-package ibuffer-vc
+  :commands ibuffer-vc-set-filter-groups-by-vc-root
   :hook
   (ibuffer . (lambda ()
                (ibuffer-vc-set-filter-groups-by-vc-root)
@@ -547,8 +553,9 @@
           slime-repl-mode
           sly-mrepl-mode)
         sp-base-key-bindings 'paredit)
+  :config
   (smartparens-global-mode 1)
-  (show-smartparens-global-mode t)
+  (show-smartparens-global-mode 1)
   :diminish smartparens-mode)
 
 (use-package tags-view
