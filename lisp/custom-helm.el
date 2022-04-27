@@ -38,29 +38,29 @@
 
    history-delete-duplicates t ; https://github.com/emacs-helm/helm/issues/2291
    )
-  :bind (("M-x" . helm-M-x)
-         ("M-y" . helm-show-kill-ring)
-         ("C-x b" . helm-mini)
-         ("C-x C-f" . helm-find-files)
-         ("C-c h m" . helm-man-woman)
-         ("C-c h f" . helm-find)
-         ("C-c h l" . helm-locate)
-         ("C-c h o" . helm-occur)
-         ("C-c h r" . helm-resume)
-         ("C-c m" . helm-all-mark-rings)
+  :bind* (("M-x" . helm-M-x)
+          ("M-y" . helm-show-kill-ring)
+          ("C-x b" . helm-mini)
+          ("C-x C-f" . helm-find-files)
+          ("C-c h m" . helm-man-woman)
+          ("C-c h f" . helm-find)
+          ("C-c h l" . helm-locate)
+          ("C-c h o" . helm-occur)
+          ("C-c h r" . helm-resume)
+          ("C-c m" . helm-all-mark-rings)
 
-         ;; Helm-mode tweaks:
-         :map helm-map
-         ("<tab>" . helm-execute-persistent-action) ; rebihnd tab to do persistent action
-         ("C-i" . helm-execute-persistent-action) ; make TAB works in terminal
-         ("C-z" . helm-select-action) ; list actions using C-z
-         ("C-x 2" . helm-select-2nd-action)
-         ("C-x 3" . helm-select-3rd-action)
-         ("C-x 4" . helm-select-4rd-action)
+          ;; Helm-mode tweaks:
+          :map helm-map
+          ("<tab>" . helm-execute-persistent-action) ; rebihnd tab to do persistent action
+          ("C-i" . helm-execute-persistent-action) ; make TAB works in terminal
+          ("C-z" . helm-select-action) ; list actions using C-z
+          ("C-x 2" . helm-select-2nd-action)
+          ("C-x 3" . helm-select-3rd-action)
+          ("C-x 4" . helm-select-4rd-action)
 
-         :map help-map
-         ("C-f" . helm-apropos)
-         ("r" . helm-info-emacs))
+          :map help-map
+          ("C-f" . helm-apropos)
+          ("r" . helm-info-emacs))
 
   :hook
   ;; use helm to list eshell history
