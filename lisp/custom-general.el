@@ -233,9 +233,9 @@
 ;;; project mode:
 (use-package projectile
   :bind-keymap ("C-c p" . projectile-command-map)
-  :commands (projectile-global-mode projectile-relevant-known-projects)
+  :commands (projectile-mode projectile-relevant-known-projects)
   :config
-  (projectile-global-mode 1)
+  (projectile-mode 1)
   (setq projectile-completion-system 'helm
         projectile-switch-project-action 'helm-projectile)
   :diminish projectile-mode)
