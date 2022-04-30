@@ -600,7 +600,7 @@
   ;; Custom fill-break predicate to consider Liquid tags as well (since
   ;; I mostly use markdown in conjunction with Jekyll):
   (defun mh/liquid-nobreak-p ()
-    (looking-back "({%[^%]*"))
+    (looking-back "({%[^%]*" nil nil))
   :hook (markdown-mode
          . (lambda ()
              (add-hook (make-local-variable 'fill-nobreak-predicate) 'mh/liquid-nobreak-p))))
