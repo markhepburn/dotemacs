@@ -181,6 +181,7 @@
 (setq split-height-threshold nil)       ; Always split side-by-side if possible
 
 (setq calc-make-windows-dedicated t
+      calc-kill-line-numbering nil
       calc-show-banner nil)
 
 (use-package unfill
