@@ -87,17 +87,8 @@ easily jump back."
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; C-sharp stuff
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(use-package omnisharp
-  ;; :hook csharp
-  :after company
-  :config
-  (add-to-list 'company-backends #'company-omnisharp))
 
 (defun mh/csharp-setup ()
-  (company-mode)
-  (omnisharp-mode)
-  (flycheck-mode)
-
   (c-set-style "ellemtel")
   (setq indent-tabs-mode nil
         c-syntactic-indentation t
@@ -107,14 +98,8 @@ easily jump back."
         evil-shift-width 4))
 
 (use-package csharp-mode
-  :after omnisharp
-  :config (add-hook 'csharp-mode-hook #'mh/csharp-setup)
-  :bind (:map csharp-mode-map
-              ("M-." . omnisharp-find-implementations)
-              ("." . omnisharp-add-dot-and-auto-complete)
-              ("C-S-<space>" . omnisharp-auto-complete)
-              ("C-c r r" . omnisharp-run-code-action-refactoring)
-              ("C-c C-c" . recompile)))
+  :mode ("\\.cs\\'" . csharp-mode)
+  :hook (csharp-mode . mh/csharp-setup))
 
 ;;; Default prefix C-c C-n:
 (use-package dotnet

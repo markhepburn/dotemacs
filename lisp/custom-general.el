@@ -61,6 +61,7 @@
            clojure-mode
            clojurec-mode
            clojurescript-mode
+           csharp-mode
            typescript-mode) . lsp)
          (lsp-mode . lsp-enable-which-key-integration))
   :init (setq lsp-keymap-prefix "C-c C-l"
