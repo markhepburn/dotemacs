@@ -393,8 +393,9 @@
 ;;; occur on windows!)
 ;; (put 'inhibit-startup-echo-area-message 'saved-value
 ;;      (setq inhibit-startup-echo-area-message (user-login-name)))
-;; save a few key strokes from typing 'yes':
-(setq use-short-answers t)
+;; save a few key strokes from typing 'yes' (note need to nil-out use-dialog-box too):
+(setq use-short-answers t
+      use-dialog-box nil)
 
 (global-set-key (kbd "C-,") 'scroll-up-line)
 (global-set-key (kbd "C-.") 'scroll-down-line)
