@@ -37,7 +37,16 @@
 
   :config
   (require 'magit-blame)
-
+  (setq
+   ;; http://iqbalansari.github.io/blog/2014/02/22/switching-repositories-with-magit/
+   ;; http://irreal.org/blog/?p=4177
+   magit-repository-directories
+   (mapcar (lambda (dir)
+             (cons (substring dir 0 -1) 0))
+           (nreverse
+            (remove-if-not (lambda (project)
+                             (file-directory-p (concat project "/.git/")))
+                           (projectile-relevant-known-projects)))))
   :custom (magit-bury-buffer-function 'magit-restore-window-configuration)
 
   ;; Make this a global command, not just inside a repo:
