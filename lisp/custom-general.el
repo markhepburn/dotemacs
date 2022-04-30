@@ -248,6 +248,7 @@
                                 (projectile-relevant-known-projects)))))
   :diminish projectile-mode)
 (use-package helm-projectile
+  :after helm
   :commands (helm-projectile-on)
   :config (helm-projectile-on))
 
