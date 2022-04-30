@@ -342,11 +342,11 @@
   ;; (http://whattheemacsd.com/setup-dired.el-02.html)
   (defun dired-back-to-top ()
     (interactive)
-    (beginning-of-buffer)
+    (goto-char (point-min))
     (dired-next-line (if dired-omit-mode 2 4)))
   (defun dired-jump-to-bottom ()
     (interactive)
-    (end-of-buffer)
+    (goto-char (point-max))
     (dired-next-line -1))
   :bind (:map dired-mode-map
               ([remap beginning-of-buffer] . dired-back-to-top)
