@@ -624,7 +624,7 @@
 
 (use-package sql-indent
   :pin gnu
-  :after (sql)
+  :after sql
   :hook (sql-mode . sqlind-minor-mode)
   :diminish sqlind-minor-mode)
 
