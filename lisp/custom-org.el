@@ -74,6 +74,7 @@
   :hook (after-init . org-roam-setup)
   :custom (org-roam-directory (file-truename "~/Nextcloud/orgroam/"))
   :init (setq org-roam-v2-ack t)
+  :config (org-roam-db-autosync-enable)
   :bind (("C-c o f" . org-roam-node-find)
          ("C-c o l" . org-roam-buffer-toggle)
          ("C-c o i" . org-roam-node-insert)))
