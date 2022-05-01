@@ -28,7 +28,6 @@
 ;;; pipx install jedi-language-server:
 (use-package lsp-jedi
   :after lsp-mode
-  :demand t ; Need this, because nothing is autoloaded so otherwise it doesn't get loaded
   :config
   (add-to-list 'lsp-disabled-clients 'pyls))
 
