@@ -483,9 +483,9 @@
 ;;; navigation:
 (use-package csv-mode
   :mode "\\.csv\\'"
-  :config (progn
-            (smartparens-mode -1)
-            (auto-fill-mode -1)))
+  :config
+  (smartparens-mode -1)
+  (auto-fill-mode -1))
 
 ;; Show docs where available:
 (use-package eldoc
