@@ -256,7 +256,9 @@
   :hook (prog-mode . smartscan-mode-turn-on))
 
 (use-package default-text-scale
-  :config (default-text-scale-mode))
+  :bind (("C-M-=" . default-text-scale-increase)
+         ("C-M--" . default-text-scale-decrease)
+         ("C-M-0" . default-text-scale-reset)))
 
 ;;; expand-region; see http://emacsrocks.com/e09.html
 (use-package expand-region
