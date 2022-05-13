@@ -30,7 +30,7 @@
 (add-to-list 'auto-mode-alist '("sources\\.list\\'" . conf-mode))
 
 ;;; Tree-sitter mode where supported:
-(use-package tree-sitter-langs)
+(use-package tree-sitter-langs :defer 1)
 (use-package tree-sitter
   :after tree-sitter-langs
   :commands (global-tree-sitter-mode)
