@@ -86,7 +86,7 @@
   :commands cljsbuild-start
   :diminish cljsbuild-mode)
 
-(use-package cider-eval-sexp-fu)
+(use-package cider-eval-sexp-fu :after (cider))
 
 ;;; ...and cider (formerly nrepl) integration:
 (use-package cider
