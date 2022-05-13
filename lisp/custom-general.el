@@ -16,7 +16,7 @@
 (use-package diminish :commands (diminish))
 (use-package flycheck)
 (use-package free-keys :commands (free-keys))
-(use-package pcre2el)
+(use-package pcre2el :defer t)
 (use-package lively :commands (lively lively-region lively-update lively-stop))
 (use-package lorem-ipsum
   :commands (Lorem-ipsum-insert-list Lorem-ipsum-insert-sentences Lorem-ipsum-insert-paragraphs
