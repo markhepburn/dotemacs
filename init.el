@@ -144,7 +144,8 @@ file (including following symlinks).")
 (use-package session
   :init (setq session-save-print-spec '(t nil 40000))
   :hook (after-init . session-initialize))
-(use-package recentf)
+(use-package recentf
+  :hook (after-init . recentf-mode))
 
 (message ".emacs loaded in %s" (emacs-init-time))
 
