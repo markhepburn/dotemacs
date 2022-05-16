@@ -527,6 +527,7 @@
 (global-set-key (kbd "C-x C-k") 'kill-region)
 
 (use-package whole-line-or-region
+  :defer 2
   :diminish (whole-line-or-region-global-mode whole-line-or-region-local-mode)
   :config
   (whole-line-or-region-global-mode 1)
