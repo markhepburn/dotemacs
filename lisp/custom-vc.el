@@ -139,7 +139,7 @@ _p_rev       _u_pper              _=_: upper/lower       _r_esolve
          ;; default to unknown and unmodified files not displayed:
          svn-status-hide-unknown    t
          svn-status-hide-unmodified t)
-
+  :commands (svn-status)
   :config
   (defadvice svn-status-show-svn-diff (after mh/jump-to-diff-window activate)
     "Jump to the diff window, so it can be easily navigated then closed."
