@@ -371,6 +371,7 @@
   :bind (:map dired-mode-map
               ("/" . dired-narrow)))
 (use-package dired-quick-sort
+  :after dired
   :if (not (memq window-system '(w32)))
   :config (dired-quick-sort-setup))
 (use-package dired-git-info
