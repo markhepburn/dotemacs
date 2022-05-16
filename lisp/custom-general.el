@@ -480,6 +480,7 @@
 ;; make all buffer-names unique:
 (use-package uniquify
   :ensure nil
+  :defer 2
   :config
   (setq uniquify-buffer-name-style 'post-forward
         uniquify-ignore-buffers-re "^\\*" ; Ignore *scratch*, etc
