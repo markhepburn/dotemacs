@@ -66,7 +66,7 @@
 
 ;;; Now using LessCSS, using its own derived mode:
 (use-package less-css-mode
-  :after (less-css-mode)
+  :mode "\\.less\\'"
   :hook (less-css-mode . rainbow-turn-on))
 
 ;;; JS (note, jsx-mode is for typed-js, use js-jsx-mode for React):
