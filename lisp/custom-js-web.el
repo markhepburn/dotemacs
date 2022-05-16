@@ -72,7 +72,8 @@
 ;;; JS (note, jsx-mode is for typed-js, use js-jsx-mode for React):
 (use-package tide :disabled)
 
-(use-package typescript-mode)
+(use-package typescript-mode
+  :mode "\\.tsx\\'")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Useful commands:
