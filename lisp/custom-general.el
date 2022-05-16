@@ -272,8 +272,9 @@
 
 ;;; visual navigation enhancements:
 (use-package avy
-  :bind (("M-g g" . avy-goto-line))
-  :config (avy-setup-default))            ; C-' from isearch
+  :bind (("M-g g" . avy-goto-line)
+         :map isearch-mode-map
+         ("C-'" . avy-isearch)))            ; C-' from isearch
 
 ;;; more specialised "opening" commands; mplayer control:
 (use-package mplayer-mode
