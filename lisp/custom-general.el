@@ -558,7 +558,7 @@
   :diminish smartparens-mode)
 
 (use-package tags-view
-  :ensure nil
+  :when nil
   :quelpa (tags-view
            :fetcher github
            :repo "markhepburn/tags-view"))
