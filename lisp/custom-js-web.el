@@ -13,6 +13,7 @@
   ;; Work-around: the emacs version I'm using doesn't bundle
   ;; json-pretty-print-buffer, used by restclient-mode.  So, implement
   ;; it using json-reformat:
+  :commands (restclient-mode)
   :config (when (require 'json-reformat nil t)
             (defun json-pretty-print-buffer ()
               (json-reformat-region (point-min) (point-max)))))
