@@ -552,6 +552,7 @@
           slime-repl-mode
           sly-mrepl-mode)
         sp-base-key-bindings 'paredit)
+  :hook (prog-mode . smartparens-mode)
   :config
   (smartparens-global-mode 1)
   (show-smartparens-global-mode 1)
