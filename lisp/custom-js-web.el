@@ -22,7 +22,9 @@
 
 ;;; Via https://writequit.org/articles/working-with-logs-in-emacs.html,
 ;;; which has lots of tips:
-(use-package json-navigator)
+(use-package json-navigator
+  :commands (json-navigator-navigate-after-point
+             json-navigator-navigate-region))
 
 ;;; From http://whattheemacsd.com//setup-html-mode.el-05.html
 ;;; after deleting a tag, indent properly (I didn't use
