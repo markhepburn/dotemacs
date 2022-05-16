@@ -550,6 +550,7 @@
           inferior-lisp-mode
           lisp-mode
           minibuffer-inactive-mode
+          nxml-mode
           slime-repl-mode
           sly-mrepl-mode)
         sp-base-key-bindings 'paredit)
