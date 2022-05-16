@@ -9,7 +9,7 @@
 ;;; Code:
 
 (use-package elisp-slime-nav
-  :hook (emacs-lisp-mode . (lambda () (elisp-slime-nav-mode t)))
+  :hook (emacs-lisp-mode . elisp-slime-nav-mode)
   :diminish elisp-slime-nav-mode)
 
 ;;; From http://endlessparentheses.com/eval-result-overlays-in-emacs-lisp.html
