@@ -540,14 +540,15 @@
 (use-package smartparens
   :init
   (setq sp-ignore-modes-list
-        '(clojure-mode
+        '(cider-mode
+          cider-repl-mode
+          clojure-mode
           clojurescript-mode
           emacs-lisp-mode
           inferior-emacs-lisp-mode
           inferior-lisp-mode
           lisp-mode
           minibuffer-inactive-mode
-          cider-repl-mode
           slime-repl-mode
           sly-mrepl-mode)
         sp-base-key-bindings 'paredit)

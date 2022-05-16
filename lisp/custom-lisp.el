@@ -113,6 +113,7 @@
   :hook ((cider-mode
           cider-repl-mode
           clojure-mode
+          clojurescript-mode
           emacs-lisp-mode
           inferior-emacs-lisp-mode
           inferior-lisp-mode
