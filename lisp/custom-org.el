@@ -86,6 +86,7 @@
 (use-package ox-reveal :defer t) ; For exporting reveal.js presentations
 
 (use-package easy-hugo
+  :commands (easy-hugo-newpost)
   :custom
   (easy-hugo-basedir "~/Projects/blog.markhepburn.com/")
   (easy-hugo-postdir "content/posts"))
