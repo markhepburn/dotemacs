@@ -108,7 +108,6 @@
 ;; See http://mumble.net/~campbell/emacs/paredit.html for a reference
 ;; table with examples.
 (use-package paredit
-  :demand t
   :diminish paredit-mode
   :hook ((cider-mode
           cider-repl-mode
