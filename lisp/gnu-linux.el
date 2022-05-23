@@ -53,6 +53,7 @@
       browse-url-generic-program "x-www-browser")
 
 (use-package ligature
+  :defer 2
   :quelpa (ligature
            :fetcher github
            :repo "mickeynp/ligature.el")
@@ -117,6 +118,7 @@
 
 ;;; Only available on linux:
 (use-package direnv
+  :defer 3
   :config (direnv-mode))
 
 (add-to-list 'exec-path (expand-file-name "~/.local/bin"))

@@ -11,8 +11,8 @@
 
 (use-package tex-site
   :ensure auctex
-  :defer t
-  :mode ("\\.text\\'" . latex-mode)
+  :defer 3
+  :mode ("\\.tex\\'" . latex-mode)
   :config
   (setq
    LaTeX-ignore-comment-regexp "%[^ a-zA-Z]"

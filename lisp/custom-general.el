@@ -50,6 +50,7 @@
   :hook (hack-local-variables . ansible-vault-mode-maybe))
 
 (use-package which-key
+  :defer 3
   :diminish which-key-mode
   :config (which-key-mode 1))
 ;;; Language-server integration.  eglot is the other choice:
@@ -90,9 +91,10 @@
   :after dap-mode)
 
 
-(use-package vlf)
+(use-package vlf :defer t)
 (use-package vlf-setup
   :ensure nil
+  :defer 3
   :after vlf)
 
 (setq-default save-place t)
