@@ -450,13 +450,7 @@
       (let ((mark-even-if-inactive t))
         (indent-region (region-beginning) (region-end) nil))))
 
-;; use shift-arrow to move between windows:
-(use-package windmove
-  :ensure nil
-  :defer 3
-  :config
-  (windmove-default-keybindings 'ctrl))
-;;; and rotate windows too:
+;;; rotate windows too:
 (use-package buffer-move
   :bind (("M-g <left>"  . buf-move-left)
          ("M-g h"       . buf-move-left)
