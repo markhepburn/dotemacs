@@ -115,6 +115,7 @@ file (including following symlinks).")
 ;;; Load all custom-* files (except for -functions, already loaded above):
 (let ((excluded-files
        '("custom-functions.el"          ; loaded above
+         "custom-helm.el"
          )))
   (dolist (custom-file (directory-files *mh/lisp-base* nil "custom-.*" nil))
     (unless (-contains? excluded-files custom-file)
@@ -142,7 +143,9 @@ file (including following symlinks).")
 
 ;;; Set up session-saving (see https://github.com/emacs-helm/helm/issues/204):
 (use-package session
-  :init (setq session-save-print-spec '(t nil 40000))
+  :init
+  (setq session-save-print-spec '(t nil 40000)
+        session-globals-exclude '(consult--buffer-history))
   :hook (after-init . session-initialize))
 (use-package recentf
   :hook (after-init . recentf-mode))

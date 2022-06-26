@@ -79,10 +79,10 @@
 (use-package company-lsp
   :after lsp-mode
   :commands company-lsp)
-(use-package helm-lsp
-  :after lsp-mode
-  :commands (helm-lsp-code-actions
-             helm-lsp-workspace-symbol))
+;; (use-package helm-lsp
+;;   :after lsp-mode
+;;   :commands (helm-lsp-code-actions
+;;              helm-lsp-workspace-symbol))
 ;;; debugger support:
 (use-package dap-mode
   :after lsp-mode)
@@ -238,13 +238,13 @@
   :commands (projectile-mode projectile-relevant-known-projects)
   :config
   (projectile-mode 1)
-  (setq projectile-completion-system 'helm
-        projectile-switch-project-action 'helm-projectile)
+  ;; (setq projectile-completion-system 'helm
+  ;;       projectile-switch-project-action 'helm-projectile)
   :diminish projectile-mode)
-(use-package helm-projectile
-  :after helm
-  :commands (helm-projectile-on)
-  :config (helm-projectile-on))
+;; (use-package helm-projectile
+;;   :after helm
+;;   :commands (helm-projectile-on)
+;;   :config (helm-projectile-on))
 
 (use-package multiple-cursors
   :bind (("C-!" . mc/edit-lines)
