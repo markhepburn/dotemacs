@@ -142,6 +142,7 @@ running the new process."
 ;;; Inspired by
 ;;; http://emacs-fu.blogspot.com/2010/01/duplicating-lines-and-commenting-them.html,
 ;;; with a few tweaks:
+;;; Update: there is a built-in `duplicate-line' now, but it doesn't do commenting.
 (defun mh/duplicate-line (comment-first)
   "Duplicate the current line below; optional prefix arg comments
 the original line."
