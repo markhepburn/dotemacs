@@ -20,7 +20,9 @@
                                    (slot . -1)))
   :config (selectrum-mode 1))
 
+(use-package prescient :after selectrum)
 (use-package selectrum-prescient
+  :after prescient
   :config
   (setq selectrum-prescient-enable-filtering nil)
   (selectrum-prescient-mode 1)
