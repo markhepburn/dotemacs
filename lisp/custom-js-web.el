@@ -17,8 +17,11 @@
   :config (when (require 'json-reformat nil t)
             (defun json-pretty-print-buffer ()
               (json-reformat-region (point-min) (point-max)))))
-(use-package restclient-helm
-  :after (restclient-mode))
+
+;;; Alternative to restclient, using org-mode and slightly richer templating:
+(use-package verb
+  :after org
+  :config (define-key org-mode-map (kbd "C-c C-r") verb-command-map))
 
 ;;; Via https://writequit.org/articles/working-with-logs-in-emacs.html,
 ;;; which has lots of tips:

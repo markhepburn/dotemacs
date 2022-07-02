@@ -74,11 +74,6 @@
   :hook (clojure-mode . (lambda ()
                           (clj-refactor-mode 1)
                           (cljr-add-keybindings-with-prefix "C-c C-r"))))
-;;; helm interface to refactoring:
-(use-package cljr-helm
-  :after (clojure-mode)
-  :bind (:map clojure-mode-map
-              ("C-c r" . cljr-helm)))
 
 ;;; clojurescript (build from emacs, and pop up stacktrack when
 ;;; there's a error):

@@ -100,11 +100,9 @@
 (use-package dockerfile-mode
   :mode ("Dockerfile" . dockerfile-mode))
 
-;;; Run M-x helm-tramp to easily access docker containers and vagrant boxes:
 ;;; (These cause issues on windows, so make linux-only for now):
 (use-package docker-tramp  :defer t)
 (use-package vagrant-tramp :defer t)
-(use-package helm-tramp    :defer t)
 (setq tramp-default-method "ssh")
 
 ;;; Projectile: on linux, we can use fd (https://github.com/sharkdp/fd)
