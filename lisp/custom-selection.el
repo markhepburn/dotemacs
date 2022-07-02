@@ -7,10 +7,6 @@
   :init
   ;; Must be in the :init section of use-package such that the mode gets
   ;; enabled right away. Note that this forces loading the package.
-  (setq marginalia-command-categories
-        '((projectile-find-file . project-file)
-          (projectile-find-dir . project-file)
-          (projectile-switch-project . file)))
   (marginalia-mode))
 
 (use-package selectrum
@@ -160,9 +156,6 @@
   ;;;; 4. locate-dominating-file
   ;; (setq consult-project-function (lambda (_) (locate-dominating-file "." ".git")))
   )
-
-(use-package consult-projectile
-  :after consult)
 
 (use-package embark
   :bind (("C-;" . embark-act)         ;; pick some comfortable binding

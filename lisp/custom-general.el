@@ -232,20 +232,6 @@
          ;; FIXME: Not sure why this needs iso-lefttab rather than just tab!
          ("C-S-<iso-lefttab>" . hs-global-cycle)))
 
-;;; project mode:
-(use-package projectile
-  :bind-keymap ("C-c p" . projectile-command-map)
-  :commands (projectile-mode projectile-relevant-known-projects)
-  :config
-  (projectile-mode 1)
-  ;; (setq projectile-completion-system 'helm
-  ;;       projectile-switch-project-action 'helm-projectile)
-  :diminish projectile-mode)
-;; (use-package helm-projectile
-;;   :after helm
-;;   :commands (helm-projectile-on)
-;;   :config (helm-projectile-on))
-
 (use-package multiple-cursors
   :bind (("C-!" . mc/edit-lines)
          ("C->" . mc/mark-more-like-this-extended)
