@@ -22,7 +22,7 @@
 
 (use-package prescient :after selectrum)
 (use-package selectrum-prescient
-  :after prescient
+  :after (selectrum prescient)
   :config
   (setq selectrum-prescient-enable-filtering nil)
   (selectrum-prescient-mode 1)
