@@ -10,12 +10,14 @@
   (marginalia-mode))
 
 (use-package selectrum
+  :demand t
   :init
   (setq selectrum-max-window-height nil
         max-mini-window-height 0.5
         selectrum-display-action '(display-buffer-in-side-window
                                    (side . bottom)
                                    (slot . -1)))
+  :bind ("C-x C-z" . selectrum-repeat)
   :config (selectrum-mode 1))
 
 (use-package prescient :after selectrum)
