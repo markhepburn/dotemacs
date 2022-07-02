@@ -79,10 +79,6 @@
 (use-package company-lsp
   :after lsp-mode
   :commands company-lsp)
-;; (use-package helm-lsp
-;;   :after lsp-mode
-;;   :commands (helm-lsp-code-actions
-;;              helm-lsp-workspace-symbol))
 ;;; debugger support:
 (use-package dap-mode
   :after lsp-mode)
