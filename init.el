@@ -115,7 +115,6 @@ file (including following symlinks).")
 ;;; Load all custom-* files (except for -functions, already loaded above):
 (let ((excluded-files
        '("custom-functions.el"          ; loaded above
-         "custom-helm.el"
          )))
   (dolist (custom-file (directory-files *mh/lisp-base* nil "custom-.*" nil))
     (unless (-contains? excluded-files custom-file)
