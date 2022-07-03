@@ -46,7 +46,7 @@
            (nreverse
             (remove-if-not (lambda (project)
                              (file-directory-p (concat project "/.git/")))
-                           (projectile-relevant-known-projects)))))
+                           (project-known-project-roots)))))
   :custom (magit-bury-buffer-function 'magit-restore-window-configuration)
 
   ;; Make this a global command, not just inside a repo:
