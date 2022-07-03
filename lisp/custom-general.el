@@ -86,6 +86,8 @@
   :ensure nil
   :after dap-mode)
 
+(use-package sudo-edit
+  :commands sudo-edit)
 
 (use-package vlf :defer t)
 (use-package vlf-setup
