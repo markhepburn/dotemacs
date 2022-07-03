@@ -162,7 +162,9 @@
 (use-package embark
   :bind (("C-;" . embark-act)         ;; pick some comfortable binding
          ("M-." . embark-dwim)        ;; good alternative: M-.
-         ("C-h B" . embark-bindings)) ;; alternative for `describe-bindings'
+         ("C-h B" . embark-bindings)
+         :map embark-file-map
+         ("s" . sudo-edit)) ;; alternative for `describe-bindings'
 
   :init
   ;; Optionally replace the key help with a completing-read interface
