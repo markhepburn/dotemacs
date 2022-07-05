@@ -17,7 +17,10 @@
         selectrum-display-action '(display-buffer-in-side-window
                                    (side . bottom)
                                    (slot . -1)))
-  :bind ("C-x C-z" . selectrum-repeat)
+  :bind (("C-x C-z" . selectrum-repeat)
+         :map selectrum-minibuffer-map
+         ;; Hangover from helm:
+         ("C-l". selectrum-backward-kill-sexp))
   :config (selectrum-mode 1))
 
 (use-package prescient :after selectrum)
