@@ -552,14 +552,10 @@
            :fetcher github
            :repo "markhepburn/tags-view"))
 
-;; use hippie-expand (mainly abbrev expand and dabbrev):
-(global-set-key (kbd "M-/") 'hippie-expand)
-(setq hippie-expand-try-functions-list
-      '(yas-hippie-try-expand
-        try-expand-all-abbrevs
-        try-expand-dabbrev
-        try-expand-dabbrev-all-buffers
-        try-expand-dabbrev-from-kill))
+;;; use hippie-expand (mainly abbrev expand and dabbrev):
+;;; https://www.masteringemacs.org/article/text-expansion-hippie-expand
+(global-set-key [remap dabbrev-expand] 'hippie-expand)
+(add-to-list 'hippie-expand-try-functions-list 'yas-hippie-try-expand)
 
 ;;; Visual regexp support:
 (use-package visual-regexp
