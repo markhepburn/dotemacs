@@ -12,6 +12,13 @@
   :hook (emacs-lisp-mode . elisp-slime-nav-mode)
   :diminish elisp-slime-nav-mode)
 
+(use-package macrostep
+  :after elisp-mode
+  :bind
+  (:map emacs-lisp-mode-map
+        ("C-c e" . macrostep-expand)
+        ("C-c C-e" . macrostep-expand)))
+
 ;;; From http://endlessparentheses.com/eval-result-overlays-in-emacs-lisp.html
 ;;; (changed prefix to my own mh/, but not claiming ownership!)
 (after "cider"
