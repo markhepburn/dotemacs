@@ -524,7 +524,8 @@
 
 ;;; Replacing a lot of cruft from my skeleton-pair add-ons!
 ;;; Smartparens: awesome, but for some reason I forget I still use paredit in lisp modes
-(use-package smartparens
+(use-package smartparens-config
+  :ensure smartparens
   :init
   (setq sp-ignore-modes-list
         '(cider-mode
