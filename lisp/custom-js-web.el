@@ -9,6 +9,9 @@
 
 (setq js-indent-level 2)
 
+;;; API testing; see also https://github.com/flashcode/impostman for
+;;; importing Postman projects into Emacs
+
 (use-package restclient
   ;; Work-around: the emacs version I'm using doesn't bundle
   ;; json-pretty-print-buffer, used by restclient-mode.  So, implement
