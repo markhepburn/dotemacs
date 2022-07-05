@@ -39,7 +39,6 @@
 ;;; Commentary:
 ;;
 
-(require 'cl)
 (require 'cl-macs)
 
 (defvar *mh/init-base*  (file-name-directory (file-truename user-init-file)))
