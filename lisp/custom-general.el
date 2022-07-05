@@ -14,7 +14,8 @@
 
 ;;; Some miscellaneous packages, no bindings or anything yet:
 (use-package diminish :commands (diminish))
-(use-package flycheck)
+(use-package flycheck
+  :hook (after-init . global-flycheck-mode))
 (use-package free-keys :commands (free-keys))
 (use-package pcre2el :defer t)
 (use-package lively :commands (lively lively-region lively-update lively-stop))
