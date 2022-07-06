@@ -13,10 +13,7 @@
   :demand t
   :init
   (setq selectrum-max-window-height nil
-        max-mini-window-height 0.5
-        selectrum-display-action '(display-buffer-in-side-window
-                                   (side . bottom)
-                                   (slot . -1)))
+        max-mini-window-height 0.5)
   :bind (("C-x C-z" . selectrum-repeat)
          :map selectrum-minibuffer-map
          ;; Hangover from helm:
