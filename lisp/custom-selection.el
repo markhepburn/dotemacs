@@ -1,3 +1,10 @@
+;;; custom-selection --- minibuffer selection and completion customisation
+
+;;; Commentary:
+;;; Replaces helm with a more "native" and focussed set of tools.
+
+;;; Code:
+
 (use-package marginalia
   ;; Either bind `marginalia-cycle` globally or only in the minibuffer
   :bind (("M-A" . marginalia-cycle)
@@ -180,3 +187,4 @@
   (embark-collect-mode . consult-preview-at-point-mode))
 
 (provide 'custom-selection)
+;;; custom-selection.el ends here.
