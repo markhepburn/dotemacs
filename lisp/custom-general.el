@@ -243,6 +243,8 @@
   :hook (prog-mode . smartscan-mode-turn-on))
 
 (use-package default-text-scale
+  ;; Now a single command bound to C-x C-M-+ etc
+  :unless (fboundp 'global-text-scale-adjust)
   :bind (("C-M-=" . default-text-scale-increase)
          ("C-M--" . default-text-scale-decrease)
          ("C-M-0" . default-text-scale-reset)))
