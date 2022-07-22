@@ -357,6 +357,7 @@
   :bind (:map dired-mode-map
               ("o" . peep-dired)))
 (use-package dired-narrow
+  :after dired
   :bind (:map dired-mode-map
               ("/" . dired-narrow)))
 (use-package dired-quick-sort
@@ -364,6 +365,7 @@
   :if (not (memq window-system '(w32)))
   :config (dired-quick-sort-setup))
 (use-package dired-git-info
+  :after dired
   :quelpa (dired-git-info
            :fetcher github
            :repo "clemera/dired-git-info")
