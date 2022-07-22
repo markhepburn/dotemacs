@@ -6,6 +6,7 @@
 ;;; Code:
 
 (use-package marginalia
+  :defer 1
   ;; Either bind `marginalia-cycle` globally or only in the minibuffer
   :bind (("M-A" . marginalia-cycle)
          :map minibuffer-local-map
@@ -17,7 +18,7 @@
   (marginalia-mode))
 
 (use-package selectrum
-  :demand t
+  :defer 1
   :init
   (setq selectrum-max-window-height nil
         max-mini-window-height 0.5)
