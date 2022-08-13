@@ -52,8 +52,37 @@
       (call-interactively 'hydra-windows/body)
     (call-interactively 'other-window)))
 
-(global-set-key (kbd "C-x o") 'mh/maybe-hydra-windows)
+(use-package window
+  :ensure nil
+  :bind (:repeat-map
+         other-window-repeat-map
+         ("o" . other-window)
+         ("O" . other-window-reverse)
+         :continue
+         ("h" . windmove-left)
+         ("j" . windmove-down)
+         ("k" . windmove-up)
+         ("l" . windmove-right)
+         ;; Resizing:
+         ("K" . enlarge-window)
+         ("J" . shrink-window)
+         ("H" . enlarge-window-horizontally)
+         ("L" . shrink-window-horizontally)
+         ("+" . balance-windows)
+         ;; Adding/Deleting:
+         ("-" . split-window-vertically)
+         ("|" . split-window-horizontally)
+         ("0" . delete-window)
+         ("1" . delete-other-windows)
+         ("u" . winner-undo)))
 
+
+;; (global-set-key (kbd "C-x o") 'mh/maybe-hydra-windows)
+;;; Note; requires this fork of use-package: https://github.com/Hugo-Heagren/use-package/commit/a1512f4124b3dce04ba48c82f2c14cdfefd2cffa
+;;; (I just re-loaded bind-key and use-package-bind-key)
+(defun other-window-reverse ()
+  (interactive)
+  (other-window -1))
 
 (provide 'custom-hydras)
 
