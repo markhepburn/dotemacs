@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 ;;; custom-hydras.el --- hydra setup
 
 ;;; Commentary:
