@@ -76,6 +76,14 @@
          ("1" . delete-other-windows)
          ("u" . winner-undo)))
 
+;;; Use `describe-repeat-maps' for existing repeatable commands:
+
+(use-package repeat-help
+  :defer 1
+  :hook (repeat-mode . repeat-help-mode)
+  :init (setq repeat-help-auto t
+              repeat-help-popup-type 'which-key)
+  :config (repeat-mode 1))
 
 ;; (global-set-key (kbd "C-x o") 'mh/maybe-hydra-windows)
 ;;; Note; requires this fork of use-package: https://github.com/Hugo-Heagren/use-package/commit/a1512f4124b3dce04ba48c82f2c14cdfefd2cffa
