@@ -205,12 +205,14 @@
 
 (esh-section esh-git
              "\xe907"  ;  (git icon)
-             (magit-get-current-branch)
+             (when (fboundp 'magit-get-current-branch)
+               (magit-get-current-branch))
              '(:foreground "pink"))
 
 (esh-section esh-python
              "\xe928"  ;  (python icon)
-             pyvenv-virtual-env-name)
+             (and (boundp 'pyvenv-virtual-env-name)
+                  pyvenv-virtual-env-name))
 
 (esh-section esh-clock
              "\xf017"  ;  (clock icon)
