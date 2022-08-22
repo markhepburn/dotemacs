@@ -88,7 +88,7 @@
                                        "<$" "<=" "<>" "<-" "<<" "<+" "</" "#{" "#[" "#:" "#=" "#!"
                                        "##" "#(" "#?" "#_" "%%" ".=" ".-" ".." ".?" "+>" "++" "?:"
                                        "?=" "?." "??" ";;" "/*" "/=" "/>" "//" "__" "~~" "(*" "*)"
-                                       "\\" "://"))
+                                       "\\\\" "://"))
   ;; nxml doesn't derive from prog-mode:
   (ligature-set-ligatures 'nxml-mode '("<!--" "-->" "</"))
   ;; Enables ligature checks globally in all buffers. You can also do it
