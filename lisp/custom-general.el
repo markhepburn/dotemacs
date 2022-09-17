@@ -24,12 +24,12 @@
 (use-package lorem-ipsum
   :commands (Lorem-ipsum-insert-list Lorem-ipsum-insert-sentences Lorem-ipsum-insert-paragraphs
              lorem-ipsum-insert-list lorem-ipsum-insert-sentences lorem-ipsum-insert-paragraphs))
-(use-package rst :mode "\\.rst\\'")
-(use-package yaml-mode :hook (yaml-mode . turn-off-auto-fill))
-(use-package poly-ansible) ; poly-mode that combines jinja + yml mode for ansible
-
-;;; Use `describe-repeat-maps' for existing repeatable commands:
-(repeat-mode 1)
+(use-package rst :mode ("\\.rst\\'" . rst-mode))
+(use-package yaml-mode
+  :mode "\\.ya?ml\\'"
+  :hook (yaml-mode . turn-off-auto-fill))
+(use-package poly-ansible ; poly-mode that combines jinja + yml mode for ansible
+  :mode ("\\(?:_var\\|task\\)s.*\\.ya?ml\\'" . poly-ansible-mode))
 
 ;;; Filename in frame title:
 (setq frame-title-format
