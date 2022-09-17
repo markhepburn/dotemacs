@@ -12,6 +12,8 @@
 (require 'saveplace)
 ;;; Code:
 
+(use-package try :commands (try))
+
 ;;; Some miscellaneous packages, no bindings or anything yet:
 (use-package diminish :commands (diminish))
 (use-package flycheck
