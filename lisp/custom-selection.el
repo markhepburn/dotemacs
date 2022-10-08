@@ -167,6 +167,9 @@
   ;; (setq consult-project-function (lambda (_) (locate-dominating-file "." ".git")))
   )
 
+(use-package consult-lsp
+  :after consult)
+
 (use-package embark
   :bind (("C-;" . embark-act)         ;; pick some comfortable binding
          ("M-." . embark-dwim)        ;; good alternative: M-.
