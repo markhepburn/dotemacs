@@ -20,38 +20,24 @@
 (use-package vertico
   :defer 1
   :init
-  (setq selectrum-max-window-height nil
-        ;; THEORY: a large value of vertico-count + the setting below would emulate selectrum's behaviour...but it doesn't seem to
-        vertico-count 100
-        max-mini-window-height 0.5)  
-  :config (vertico-mode 1))
-;; (use-package selectrum
-;;   :defer 1
-;;   :init
-;;   (setq selectrum-max-window-height nil
-;;         max-mini-window-height 0.5)
-;;   :bind (("C-x C-z" . selectrum-repeat)
-;;          :map selectrum-minibuffer-map
-;;          ;; Hangover from helm:
-;;          ("C-l". selectrum-backward-kill-sexp))
-;;   :config (selectrum-mode 1))
+  (setq vertico-count 10 ; default value; see hook below to keep it at 50%
+        max-mini-window-height 0.5)
+  :config
+  (defun frame-resized-set-vertico-height (frame)
+    (if (framep frame)
+        (setq vertico-count (floor
+                             (/ (frame-total-lines frame) 2)))))
+  (add-hook 'window-size-change-functions #'frame-resized-set-vertico-height)
+  (vertico-mode 1))
 
-;; (use-package prescient :after selectrum)
 (use-package prescient :after vertico
   :config
   (setq vertico-sort-function #'prescient-sort)
   (advice-add #'vertico-insert :after
               (lambda () (prescient-remember (vertico--candidate))))
   (prescient-persist-mode 1))
-;; (use-package selectrum-prescient
-;;   :after (selectrum prescient)
-;;   :config
-;;   (setq selectrum-prescient-enable-filtering nil)
-;;   (selectrum-prescient-mode 1)
-;;   (prescient-persist-mode 1))
 
 (use-package orderless
-  ;; :after selectrum
   :after vertico
   :init (setq completion-styles '(orderless))
   :config
