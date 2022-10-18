@@ -128,6 +128,9 @@
   (setq xref-show-xrefs-function #'consult-xref
         xref-show-definitions-function #'consult-xref)
 
+  ;; completion at point:
+  (setq completion-in-region-function #'consult-completion-in-region)
+
   ;; Configure other variables and modes in the :config section,
   ;; after lazily loading the package.
   :config
