@@ -19,6 +19,8 @@
 
 (use-package vertico
   :defer 1
+  :bind (:map vertico-map
+         ("C-l" . vertico-directory-up))
   :init
   (setq vertico-count 10 ; default value; see hook below to keep it at 50%
         max-mini-window-height 0.5)
