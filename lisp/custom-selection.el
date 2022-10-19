@@ -17,27 +17,30 @@
   ;; enabled right away. Note that this forces loading the package.
   (marginalia-mode))
 
-(use-package selectrum
+(use-package vertico
   :defer 1
+  :bind (:map vertico-map
+         ("C-l" . vertico-directory-up))
   :init
-  (setq selectrum-max-window-height nil
+  (setq vertico-count 10 ; default value; see hook below to keep it at 50%
         max-mini-window-height 0.5)
-  :bind (("C-x C-z" . selectrum-repeat)
-         :map selectrum-minibuffer-map
-         ;; Hangover from helm:
-         ("C-l". selectrum-backward-kill-sexp))
-  :config (selectrum-mode 1))
-
-(use-package prescient :after selectrum)
-(use-package selectrum-prescient
-  :after (selectrum prescient)
   :config
-  (setq selectrum-prescient-enable-filtering nil)
-  (selectrum-prescient-mode 1)
+  (defun frame-resized-set-vertico-height (frame)
+    (if (framep frame)
+        (setq vertico-count (floor
+                             (/ (frame-total-lines frame) 2)))))
+  (add-hook 'window-size-change-functions #'frame-resized-set-vertico-height)
+  (vertico-mode 1))
+
+(use-package prescient :after vertico
+  :config
+  (setq vertico-sort-function #'prescient-sort)
+  (advice-add #'vertico-insert :after
+              (lambda () (prescient-remember (vertico--candidate))))
   (prescient-persist-mode 1))
 
 (use-package orderless
-  :after selectrum
+  :after vertico
   :init (setq completion-styles '(orderless))
   :config
   (defun without-if-bang (pattern _index _total)
@@ -124,6 +127,9 @@
   ;; Use Consult to select xref locations with preview
   (setq xref-show-xrefs-function #'consult-xref
         xref-show-definitions-function #'consult-xref)
+
+  ;; completion at point:
+  (setq completion-in-region-function #'consult-completion-in-region)
 
   ;; Configure other variables and modes in the :config section,
   ;; after lazily loading the package.
