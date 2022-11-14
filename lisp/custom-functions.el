@@ -157,6 +157,11 @@ the original line."
        (concat (if (= 0 (forward-line 1)) "" "\n") str "\n"))
       (forward-line -1))))
 (global-set-key (kbd "C-x y") 'mh/duplicate-line)
+(defvar mh/duplicate-line-repeat-map
+  (let ((map (make-sparse-keymap)))
+    (define-key map "y" 'mh/duplicate-line)
+    map))
+(put 'mh/duplicate-line 'repeat-map 'mh/duplicate-line-repeat-map)
 
 ;;; I quite like the vi functionality of opening the next line,
 ;;; regardless of your position on the current line.  Deriving these
