@@ -87,6 +87,7 @@
 
 (use-package easy-hugo
   :commands (easy-hugo-newpost)
+  :init (setq easy-hugo-server-flags "-D")
   :custom
   (easy-hugo-basedir "~/Projects/blog.markhepburn.com/")
   (easy-hugo-postdir "content/posts"))
