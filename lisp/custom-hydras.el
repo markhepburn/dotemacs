@@ -73,9 +73,11 @@
          ;; Adding/Deleting:
          ("-" . split-window-vertically)
          ("|" . split-window-horizontally)
-         ("0" . delete-window)
-         ("1" . delete-other-windows)
-         ("u" . winner-undo)))
+         ;; ("0" . delete-window)
+         ;; ("1" . delete-other-windows)
+         ("u" . winner-undo)
+         :exit
+         ("<return>" . nil)))
 
 ;;; Use `describe-repeat-maps' for existing repeatable commands:
 
