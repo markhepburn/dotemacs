@@ -54,7 +54,8 @@
 
 (use-package window
   :ensure nil
-  :bind (:repeat-map
+  :bind (("C-x O" . other-window-reverse)
+         :repeat-map
          other-window-repeat-map
          ("o" . other-window)
          ("O" . other-window-reverse)
