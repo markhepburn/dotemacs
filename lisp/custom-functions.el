@@ -192,16 +192,10 @@ See also `newline-and-indent'."
 ;;; this over-rides 'text-scale-adjust, but that's also available on C-x C-+:
 (global-set-key (kbd "C-x C-=") 'mh/diff-buffer-file-changes)
 
-;; stole this from xemacs21:
-(defun switch-to-other-buffer (arg)
-  (interactive "p")
-  (if (eq arg 0)
-      (bury-buffer (current-buffer)))
-  (switch-to-buffer
-   (if (<= arg 1) (other-buffer (current-buffer))
-     (nth (1+ arg) (buffer-list)))))
 ;; bind to C-M-l, just like in xemacs:
-(global-set-key (kbd "C-M-l") 'switch-to-other-buffer)
+(global-set-key (kbd "C-M-l") #'mode-line-other-buffer)
+;;; The original binding for C-M-l...
+(global-set-key (kbd "C-M-S-l") #'reposition-window)
 
 (defun mh/electric-punctuation ()
   "Tidy up whitespace around punctuation: delete any preceding
