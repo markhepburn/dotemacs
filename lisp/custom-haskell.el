@@ -31,7 +31,6 @@
   (haskell-process-type 'cabal-repl) ;; or 'ghci
   ;; To enable tags generation on save.
   (haskell-tags-on-save t)
-  (company-ghc-show-info t)
   ;; To enable stylish on save.
   ;; '(haskell-stylish-on-save t)
   (haskell-process-suggest-remove-import-lines t)
