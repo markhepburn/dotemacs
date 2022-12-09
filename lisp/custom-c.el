@@ -94,10 +94,10 @@ easily jump back."
         c-syntactic-indentation t
         c-basic-offset 4
         truncate-lines t
-        tab-width 4
-        evil-shift-width 4))
+        tab-width 4))
 
 (use-package csharp-mode
+  :ensure nil
   :mode ("\\.cs\\'" . csharp-mode)
   :hook (csharp-mode . mh/csharp-setup))
 
