@@ -181,6 +181,14 @@
   :bind (([remap fill-paragraph] . unfill-toggle)))
 
 ;;; Code folding:
+(use-package ts-fold
+  :after tree-sitter
+  :quelpa (ts-fold
+           :fetcher github
+           :repo "emacs-tree-sitter/ts-fold")
+  :diminish ts-fold-mode
+  :config (global-ts-fold-mode)
+  :hook (tree-sitter-after-on . ts-fold-indicators-mode))
 
 (use-package hideshow
   :init
