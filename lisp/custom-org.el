@@ -10,10 +10,7 @@
 ;;; Code:
 
 (use-package org
-  ;; This prefers the manually-installed version over the existing
-  ;; one, removing the need to reload for example:
-  ;; https://www.reddit.com/r/emacs/comments/dv02lk/how_to_force_emacs_to_prefer_manually_installed/f7huwfy/
-  :pin gnu
+  :ensure nil
   :config
   (setq org-directory (expand-file-name (file-name-as-directory "~/Nextcloud/org"))
 
