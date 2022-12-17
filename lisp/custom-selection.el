@@ -32,6 +32,12 @@
   (add-hook 'window-size-change-functions #'frame-resized-set-vertico-height)
   (vertico-mode 1))
 
+(use-package vertico-repeat
+  :ensure nil
+  :after vertico
+  :hook (minibuffer-setup-hook . vertico-repeat-save)
+  :bind ("C-x C-z" . vertico-repeat))
+
 (use-package prescient :after vertico
   :config
   (setq vertico-sort-function #'prescient-sort)
