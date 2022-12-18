@@ -107,11 +107,6 @@ temporary file and using `package-install-file'"
       (package-install-file tmp-file)
       (delete-file tmp-file))))
 
-;;; For toggle-case, optionally others not on elpa:
-(use-package quelpa-use-package
-  :init (setq quelpa-update-melpa-p nil)
-  :config (quelpa-use-package-activate-advice))
-
 ;;; Utility packages; load here before other customisations that may use them.
 (use-package dash :defer t)
 (use-package s    :defer t)

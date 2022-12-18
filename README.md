@@ -7,10 +7,12 @@ years, so please feel free to point out where it can be improved.
 
 These days I have a fairly homogenous environment across my different
 installations, so there's not a lot of effort put in to making things
-backwards-compatible.  I mostly run a snapshot build on a Linux
-(Ubuntu) host, and the latest stable build on windows.  Most
+backwards-compatible. I mostly run a snapshot build on a Linux
+(Ubuntu) host, and the [latest
+build](https://github.com/kiennq/emacs-build) on windows. Most
 configuration should be portable, but there are facilities to load
-platform-specific (and host-specific) code when necessary.
+platform-specific (and host-specific) code when necessary. I assume a
+very recent Emacs.
 
 Installation
 ------------
@@ -21,11 +23,9 @@ where-ever you feel like and just symlink `init.el` to `~/.emacs`; it
 is designed to be portable like this.
 
 I use [use-package](https://github.com/jwiegley/use-package) now,
-after years with [el-get](https://github.com/dimitri/el-get).  Most
-packages are on melpa (and alternatives) now, and for those that
-aren't, the
-[quelpa plugin for use-package](https://github.com/quelpa/quelpa-use-package)
-smooths over the cracks.
+after years with [el-get](https://github.com/dimitri/el-get).  There
+are a couple of helpers for packages that are only on github, or
+sometimes at a URL (which I host on gists).
 
 General Notes
 -------------
