@@ -54,9 +54,7 @@
 
 (use-package ligature
   :defer 2
-  :quelpa (ligature
-           :fetcher github
-           :repo "mickeynp/ligature.el")
+  :init (pkg-help/vc-install :name "ligature" :repo "mickeynp/ligature.el")
   :config
   ;; Enable the "www" ligature in every possible major mode
   ;(ligature-set-ligatures 't '("www"))

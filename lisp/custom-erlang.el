@@ -44,6 +44,10 @@
 (use-package mix
   :hook (elixir-mode . mix-minor-mode))
 
+(use-package apprentice
+  :init (pkg-help/vc-install :repo "Sasanidas/Apprentice" :name "apprentice")
+  :hook (elixir-mode . apprentice-mode))
+
 ;;; https://blog.evalcode.com/phoenix-liveview-inline-syntax-highlighting-for-emacs/
 (use-package polymode
   :mode ("\.ex$" . poly-elixir-web-mode)

@@ -183,9 +183,7 @@
 ;;; Code folding:
 (use-package ts-fold
   :after tree-sitter
-  :quelpa (ts-fold
-           :fetcher github
-           :repo "emacs-tree-sitter/ts-fold")
+  :init (pkg-help/vc-install :repo "emacs-tree-sitter/ts-fold")
   :diminish ts-fold-mode
   :config (global-ts-fold-mode)
   :hook (tree-sitter-after-on . ts-fold-indicators-mode))
@@ -275,10 +273,9 @@
 
 ;;; more specialised "opening" commands; mplayer control:
 (use-package mplayer-mode
-  :when nil                             ; quelpa ignores :ensure
-  :quelpa (mplayer-mode
-           :fetcher github
-           :repo "markhepburn/mplayer-mode"))
+  :ensure nil
+  :when nil
+  :init (pkg-help/vc-install :repo "markhepburn/mplayer-mode"))
 
 ;;; Ignore .svn/ contents in find-grep:
 ;;; http://benjisimon.blogspot.com/2009/01/emacs-tip-slightly-better-find-grep.html
@@ -588,10 +585,9 @@
   :diminish smartparens-mode)
 
 (use-package tags-view
+  :ensure nil
   :when nil
-  :quelpa (tags-view
-           :fetcher github
-           :repo "markhepburn/tags-view"))
+  :init (pkg-help/vc-install :name "tags-view" :repo "markhepburn/tags-view"))
 
 ;;; use hippie-expand (mainly abbrev expand and dabbrev):
 ;;; https://www.masteringemacs.org/article/text-expansion-hippie-expand
