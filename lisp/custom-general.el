@@ -404,9 +404,6 @@
   :config (dired-quick-sort-setup))
 (use-package dired-git-info
   :after dired
-  :quelpa (dired-git-info
-           :fetcher github
-           :repo "clemera/dired-git-info")
   :bind (:map dired-mode-map
               (")" . dired-git-info-mode)))
 
