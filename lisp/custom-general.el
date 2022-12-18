@@ -485,10 +485,9 @@
 ;; vi-like case toggle:
 (use-package toggle-case
   :ensure nil
-  :quelpa (toggle-case
+  :init (pkg-help/url-install
            ;; Use a gist file; needed some minor formatting for package.el to be happy:
-           :url "https://gist.githubusercontent.com/markhepburn/13bc70c6bdcb3a1b7951/raw/aed52d1999e030db822f8c490bee4bc0c865432d/toggle-case.el"
-           :fetcher url)
+           :url "https://gist.githubusercontent.com/markhepburn/13bc70c6bdcb3a1b7951/raw/aed52d1999e030db822f8c490bee4bc0c865432d/toggle-case.el")
   :bind (("C-`"   . toggle-case)
          ("C-~"   . toggle-case-backwards)
          ("C-M-`" . toggle-case-by-word)
