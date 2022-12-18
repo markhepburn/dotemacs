@@ -96,6 +96,17 @@ named arguments:
     (unless (package-installed-p pac-name)
       (package-vc-install url iname rev backend))))
 
+(cl-defun pkg-help/url-install (&key url name)
+  "Install a package from a remote URL, by downloading to a
+temporary file and using `package-install-file'"
+  (let* ((pac-name (or name
+                       (file-name-base url)))
+         (tmp-file (make-temp-file (concat "pkg-help-file-install-" pac-name))))
+    (unless (package-installed-p (intern pac-name))
+      (url-copy-file url tmp-file 'ok-if-already-exists)
+      (package-install-file tmp-file)
+      (delete-file tmp-file))))
+
 ;;; For toggle-case, optionally others not on elpa:
 (use-package quelpa-use-package
   :init (setq quelpa-update-melpa-p nil)
