@@ -259,8 +259,9 @@ typing M-: buffer-file-name"
 ;;
 (defun rename-file-and-buffer (new-name)
   "Renames both current buffer and file it's visiting to
-NEW-NAME.  Does the right thing if the file is under version
-control"
+NEW-NAME. Does the right thing if the file is under version
+control. See also the built-in `rename-visited-file', which does
+not do the right thing under version control."
   (interactive "sNew name: ")
   (let ((name (buffer-name))
         (filename (buffer-file-name)))
