@@ -12,7 +12,7 @@
 ;; (set-face-font 'default "Consolas-10")
 (set-frame-font "Cascadia Code PL-9")
 (use-package ligature
-  :init (pkg-hlp/vc-install :name "ligature" :repo "mickeynp/ligature.el")
+  :init (pkg-help/vc-install :name "ligature" :repo "mickeynp/ligature.el")
   :config
   ;; Enable the "www" ligature in every possible major mode
   (ligature-set-ligatures 't '("www"))
