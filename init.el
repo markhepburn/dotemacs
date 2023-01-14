@@ -20,6 +20,7 @@
 
 (setq pgtk-use-im-context-on-new-connection nil
       native-comp-async-report-warnings-errors 'silent
+      warning-minimum-level :error
       package-enable-at-startup nil
       file-name-handler-alist nil
       message-log-max 16384
