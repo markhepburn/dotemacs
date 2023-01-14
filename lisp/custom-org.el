@@ -62,6 +62,7 @@
   ;; Don't use agenda-cycle at the moment, so rebind C-, to my
   ;; scrolling commands:
   :bind (:map org-mode-map
+              ("C-c C-j" . consult-org-heading) ; replaces org-goto which doesn't seem that useful
               ("C-," . scroll-up-line))
   :hook (org-mode . (lambda () (electric-indent-local-mode -1))))
 
