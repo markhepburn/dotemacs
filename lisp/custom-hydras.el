@@ -82,7 +82,7 @@
 ;;; Use `describe-repeat-maps' for existing repeatable commands:
 
 (use-package repeat-help
-  :defer 1
+  :defer 3
   :hook (repeat-mode . repeat-help-mode)
   :init (setq repeat-help-auto t
               repeat-help-popup-type 'which-key)
