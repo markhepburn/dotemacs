@@ -611,8 +611,9 @@
 
 ;;; use hippie-expand (mainly abbrev expand and dabbrev):
 ;;; https://www.masteringemacs.org/article/text-expansion-hippie-expand
-(global-set-key [remap dabbrev-expand] 'hippie-expand)
-(add-to-list 'hippie-expand-try-functions-list 'yas-hippie-try-expand)
+(use-package hippie-exp :ensure nil
+  :config (add-to-list 'hippie-expand-try-functions-list 'yas-hippie-try-expand)
+  :bind ([remap dabbrev-expand] . hippie-expand))
 
 ;;; Visual regexp support:
 (use-package visual-regexp
