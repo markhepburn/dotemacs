@@ -31,10 +31,91 @@
 (use-package poly-ansible ; poly-mode that combines jinja + yml mode for ansible
   :mode ("\\(?:_var\\|task\\)s.*\\.ya?ml\\'" . poly-ansible-mode))
 
-;;; Filename in frame title:
-(setq frame-title-format
-      '(buffer-file-name "%f"
-                         (dired-directory dired-directory "%b")))
+
+(setq
+ ;; Filename in frame title:
+ frame-title-format '(buffer-file-name "%f"
+                                       (dired-directory dired-directory "%b"))
+ ;; isearch,show counts:
+ isearch-lazy-count t
+ ;; Avoid those .#filename that can break file-watching tools, modification timestamps etc
+ save-place-file (expand-file-name "saved.places" user-emacs-directory)
+ create-lockfiles nil
+
+ ;; Treat clipboard input as UTF-8 string first; compound text next, etc.
+ x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING)
+
+ ;; Default is t, which means forward-sentence etc only recognises two spaces.
+ sentence-end-double-space nil
+
+ ;; don't use those irritating ~ backup files:
+ backup-inhibited t
+
+ ;; ...and dired buffers too, and don't be chatty:
+ global-auto-revert-non-file-buffers t
+ auto-revert-verbose nil
+
+ ;; Don't use the disabled-command stuff:
+ disabled-command-function nil
+
+ ;; next-line should go next text line (old default), not visual line (from
+ ;; http://bryan-murdock.blogspot.com/2009/03/emacs-next-line-changed-behavior.html
+ ;; originally, but things seem to have changed slightly since then):
+ line-move-visual nil
+
+ ;; Make sure we always include a trailing newline:
+ require-final-newline t
+
+ ;; Default to view-mode for read-only files:
+ ;; view-read-only t
+
+;;; Single-frame ediff usage (mainly because floating windows seemed
+;;; to interact badly with xmonad, even when explicitly floated):
+ ediff-window-setup-function 'ediff-setup-windows-plain
+ ediff-split-window-function 'split-window-horizontally
+
+ split-height-threshold nil       ; Always split side-by-side if possible
+
+ ;; calc display:
+ calc-make-windows-dedicated t
+ calc-kill-line-numbering nil
+ calc-show-banner nil
+
+ ;; Ignore .svn/ contents in find-grep:
+ ;; http://benjisimon.blogspot.com/2009/01/emacs-tip-slightly-better-find-grep.html
+ grep-find-command "find . -type f '!' -wholename '*/.svn/*' -print0 | xargs -0 -e grep -nH -e "
+
+ ;; paren-matching:
+ show-paren-delay 0
+
+ ;; paper size:
+ ps-paper-type 'a4
+
+ woman-use-own-frame nil
+
+ ;; No startup message please:
+ inhibit-startup-message t
+
+ ;; save a few key strokes from typing 'yes' (note need to nil-out use-dialog-box too):
+ use-short-answers t
+ use-dialog-box nil
+ )
+;;; 4-space tabs, and spaces-not-tabs:
+(setq default-tab-width 4)
+(setq-default indent-tabs-mode nil)
+
+;;; Default to UTF-8 (mostly useful for windows, but let's make it
+;;; general); https://www.masteringemacs.org/article/working-coding-systems-unicode-emacs:
+(prefer-coding-system 'utf-8)
+(set-default-coding-systems 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(setq-default buffer-file-coding-system 'utf-8)
+
+;;; Default to text-mode (in part, because smartparens behaves better there):
+(setq-default major-mode 'text-mode)
+
+(setq-default save-place t)             ; use save-place-mode instead
 
 (use-package editorconfig
   :diminish editorconfig-mode
@@ -95,47 +176,19 @@
   :defer 3
   :after vlf)
 
-(setq-default save-place t)
-(setq save-place-file (expand-file-name "saved.places" user-emacs-directory))
-
-;;; Avoid those .#filename that can break file-watching tools, modification timestamps etc
-(setq create-lockfiles nil)
-
-;;; isearch,show counts:
-(setq isearch-lazy-count t)
-
 ;;; Quit emacs (??) easier:
 (defalias 'sbke 'save-buffers-kill-emacs)
-
-;;; Default to UTF-8 (mostly useful for windows, but let's make it
-;;; general); https://www.masteringemacs.org/article/working-coding-systems-unicode-emacs:
-(prefer-coding-system 'utf-8)
-(set-default-coding-systems 'utf-8)
-(set-terminal-coding-system 'utf-8)
-(set-keyboard-coding-system 'utf-8)
-(setq-default buffer-file-coding-system 'utf-8)
-;; Treat clipboard input as UTF-8 string first; compound text next, etc.
-(setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING))
-;;; Default to text-mode (in part, because smartparens behaves better there):
-(setq-default major-mode 'text-mode)
-
-;;; Default is t, which means forward-sentence etc only recognises two spaces.
-(setq sentence-end-double-space nil)
 
 ;; use font lock where possible:
 (global-font-lock-mode t)
 ;;; I really should have been using this all along:
 (add-hook 'prog-mode-hook 'subword-mode)
-;; don't use those irritating ~ backup files:
-(setq backup-inhibited t)
 ;; work with compressed files:
 (auto-compression-mode 1)
 ;; update files changed on disk (mainly for use with dropbox):
 (global-auto-revert-mode 1)
 (diminish 'auto-revert-mode)
-;;; ...and dired buffers too, and don't be chatty:
-(setq global-auto-revert-non-file-buffers t
-      auto-revert-verbose nil)
+
 ;; don't show toolbar:
 (tool-bar-mode -1)
 ;; hide the menu-bar by default (accessible by C-right-click):
@@ -143,39 +196,17 @@
 ;; line and column-number modes:
 (line-number-mode 1)
 (column-number-mode 1)
-;;; Don't use the disabled-command stuff:
-(setq disabled-command-function nil)
 ;; Don't blink the cursor:
 (blink-cursor-mode -1)
-;;; next-line should go next text line (old default), not visual line (from
-;;; http://bryan-murdock.blogspot.com/2009/03/emacs-next-line-changed-behavior.html
-;;; originally, but things seem to have changed slightly since then):
-(setq line-move-visual nil)
 ;;; trailing whitespace (see also M-x delete-trailing-whitespace):
 (defun mh/turn-on-show-trailing-whitespace ()
   (setq show-trailing-whitespace t))
 (dolist (hook '(prog-mode-hook text-mode-hook))
   (add-hook hook #'mh/turn-on-show-trailing-whitespace))
-;;; Make sure we always include a trailing newline:
-(setq require-final-newline t)
 ;;; high-light selections:
 (transient-mark-mode 1)
 ;;; Expected behaviour; delete selection when typing starts:
 (delete-selection-mode 1)
-;;; 4-space tabs, and spaces-not-tabs:
-(setq default-tab-width 4)
-(setq-default indent-tabs-mode nil)
-;;; Default to view-mode for read-only files:
-;; (setq view-read-only t)
-;;; Single-frame ediff usage (mainly because floating windows seemed
-;;; to interact badly with xmonad, even when explicitly floated):
-(setq ediff-window-setup-function 'ediff-setup-windows-plain
-      ediff-split-window-function 'split-window-horizontally)
-(setq split-height-threshold nil)       ; Always split side-by-side if possible
-
-(setq calc-make-windows-dedicated t
-      calc-kill-line-numbering nil
-      calc-show-banner nil)
 
 (use-package unfill
   :bind (([remap fill-paragraph] . unfill-toggle)))
@@ -277,11 +308,6 @@
   :when nil
   :init (pkg-help/vc-install :repo "markhepburn/mplayer-mode"))
 
-;;; Ignore .svn/ contents in find-grep:
-;;; http://benjisimon.blogspot.com/2009/01/emacs-tip-slightly-better-find-grep.html
-(setq grep-find-command
-  "find . -type f '!' -wholename '*/.svn/*' -print0 | xargs -0 -e grep -nH -e ")
-
 ;;; Code templating:
 (add-hook 'yas-minor-mode-hook (lambda () (yas-activate-extra-mode 'fundamental-mode)))
 (use-package yasnippet
@@ -352,12 +378,6 @@
   ;;(add-to-list 'completion-at-point-functions #'cape-line)
   )
 
-;;; paren-matching:
-(setq show-paren-delay 0)
-
-;; paper size:
-(setq ps-paper-type 'a4)
-
 ;; Dired should recursively delete directories after asking:
 (use-package dired
   :ensure nil
@@ -404,8 +424,6 @@
   :bind (:map dired-mode-map
               (")" . dired-git-info-mode)))
 
-;; No startup message please:
-(setq inhibit-startup-message t)
 ;;; Ugh http://yann.hodique.info/blog/rant-obfuscation-in-emacs/
 ;;; Disabling for now; there's some funny dependency where opening
 ;;; certain buffers (notably running `list-packages') attempts to save
@@ -413,9 +431,6 @@
 ;;; occur on windows!)
 ;; (put 'inhibit-startup-echo-area-message 'saved-value
 ;;      (setq inhibit-startup-echo-area-message (user-login-name)))
-;; save a few key strokes from typing 'yes' (note need to nil-out use-dialog-box too):
-(setq use-short-answers t
-      use-dialog-box nil)
 
 (global-set-key (kbd "C-,") 'scroll-up-line)
 (global-set-key (kbd "C-.") 'scroll-down-line)
@@ -646,9 +661,6 @@
   :after sql
   :hook (sql-mode . sqlind-minor-mode)
   :diminish sqlind-minor-mode)
-
-;;; elscreen provides enough "frame" management for me:
-(setq woman-use-own-frame nil)
 
 ;;; Programming modes: enable "FIXME/TODO/etc" highlighting.
 (use-package fic-mode
