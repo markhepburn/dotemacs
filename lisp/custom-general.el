@@ -31,91 +31,126 @@
 (use-package poly-ansible ; poly-mode that combines jinja + yml mode for ansible
   :mode ("\\(?:_var\\|task\\)s.*\\.ya?ml\\'" . poly-ansible-mode))
 
+(use-package emacs :ensure nil
+  :init
+  (setq
+   ;; Filename in frame title:
+   frame-title-format '(buffer-file-name "%f"
+                                         (dired-directory dired-directory "%b"))
+   ;; isearch,show counts:
+   isearch-lazy-count t
+   ;; Avoid those .#filename that can break file-watching tools, modification timestamps etc
+   save-place-file (expand-file-name "saved.places" user-emacs-directory)
+   create-lockfiles nil
 
-(setq
- ;; Filename in frame title:
- frame-title-format '(buffer-file-name "%f"
-                                       (dired-directory dired-directory "%b"))
- ;; isearch,show counts:
- isearch-lazy-count t
- ;; Avoid those .#filename that can break file-watching tools, modification timestamps etc
- save-place-file (expand-file-name "saved.places" user-emacs-directory)
- create-lockfiles nil
+   ;; Treat clipboard input as UTF-8 string first; compound text next, etc.
+   x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING)
 
- ;; Treat clipboard input as UTF-8 string first; compound text next, etc.
- x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING)
+   ;; Default is t, which means forward-sentence etc only recognises two spaces.
+   sentence-end-double-space nil
 
- ;; Default is t, which means forward-sentence etc only recognises two spaces.
- sentence-end-double-space nil
+   ;; don't use those irritating ~ backup files:
+   backup-inhibited t
 
- ;; don't use those irritating ~ backup files:
- backup-inhibited t
+   default-tab-width 4
 
- ;; ...and dired buffers too, and don't be chatty:
- global-auto-revert-non-file-buffers t
- auto-revert-verbose nil
+   ;; ...and dired buffers too, and don't be chatty:
+   global-auto-revert-non-file-buffers t
+   auto-revert-verbose nil
 
- ;; Don't use the disabled-command stuff:
- disabled-command-function nil
+   ;; Don't use the disabled-command stuff:
+   disabled-command-function nil
 
- ;; next-line should go next text line (old default), not visual line (from
- ;; http://bryan-murdock.blogspot.com/2009/03/emacs-next-line-changed-behavior.html
- ;; originally, but things seem to have changed slightly since then):
- line-move-visual nil
+   ;; next-line should go next text line (old default), not visual line (from
+   ;; http://bryan-murdock.blogspot.com/2009/03/emacs-next-line-changed-behavior.html
+   ;; originally, but things seem to have changed slightly since then):
+   line-move-visual nil
 
- ;; Make sure we always include a trailing newline:
- require-final-newline t
+   ;; Make sure we always include a trailing newline:
+   require-final-newline t
 
- ;; Default to view-mode for read-only files:
- ;; view-read-only t
+   ;; Default to view-mode for read-only files:
+   ;; view-read-only t
 
 ;;; Single-frame ediff usage (mainly because floating windows seemed
 ;;; to interact badly with xmonad, even when explicitly floated):
- ediff-window-setup-function 'ediff-setup-windows-plain
- ediff-split-window-function 'split-window-horizontally
+   ediff-window-setup-function 'ediff-setup-windows-plain
+   ediff-split-window-function 'split-window-horizontally
 
- split-height-threshold nil       ; Always split side-by-side if possible
+   split-height-threshold nil  ; Always split side-by-side if possible
 
- ;; calc display:
- calc-make-windows-dedicated t
- calc-kill-line-numbering nil
- calc-show-banner nil
+   ;; calc display:
+   calc-make-windows-dedicated t
+   calc-kill-line-numbering nil
+   calc-show-banner nil
 
- ;; Ignore .svn/ contents in find-grep:
- ;; http://benjisimon.blogspot.com/2009/01/emacs-tip-slightly-better-find-grep.html
- grep-find-command "find . -type f '!' -wholename '*/.svn/*' -print0 | xargs -0 -e grep -nH -e "
+   ;; Ignore .svn/ contents in find-grep:
+   ;; http://benjisimon.blogspot.com/2009/01/emacs-tip-slightly-better-find-grep.html
+   grep-find-command "find . -type f '!' -wholename '*/.svn/*' -print0 | xargs -0 -e grep -nH -e "
 
- ;; paren-matching:
- show-paren-delay 0
+   ;; paren-matching:
+   show-paren-delay 0
 
- ;; paper size:
- ps-paper-type 'a4
+   ;; paper size:
+   ps-paper-type 'a4
 
- woman-use-own-frame nil
+   woman-use-own-frame nil
 
- ;; No startup message please:
- inhibit-startup-message t
+   ;; No startup message please:
+   inhibit-startup-message t
 
- ;; save a few key strokes from typing 'yes' (note need to nil-out use-dialog-box too):
- use-short-answers t
- use-dialog-box nil
- )
-;;; 4-space tabs, and spaces-not-tabs:
-(setq default-tab-width 4)
-(setq-default indent-tabs-mode nil)
+   ;; save a few key strokes from typing 'yes' (note need to nil-out use-dialog-box too):
+   use-short-answers t
+   use-dialog-box nil
+   )
 
-;;; Default to UTF-8 (mostly useful for windows, but let's make it
-;;; general); https://www.masteringemacs.org/article/working-coding-systems-unicode-emacs:
-(prefer-coding-system 'utf-8)
-(set-default-coding-systems 'utf-8)
-(set-terminal-coding-system 'utf-8)
-(set-keyboard-coding-system 'utf-8)
-(setq-default buffer-file-coding-system 'utf-8)
+  (setq-default
+   buffer-file-coding-system 'utf-8
+   ;; Default to text-mode (in part, because smartparens behaves better there):
+   major-mode 'text-mode
+   ;; spaces not tabs:
+   indent-tabs-mode nil)
 
-;;; Default to text-mode (in part, because smartparens behaves better there):
-(setq-default major-mode 'text-mode)
+  ;; Default to UTF-8 (mostly useful for windows, but let's make it
+  ;; general); https://www.masteringemacs.org/article/working-coding-systems-unicode-emacs:
+  (prefer-coding-system 'utf-8)
+  (set-default-coding-systems 'utf-8)
+  (set-terminal-coding-system 'utf-8)
+  (set-keyboard-coding-system 'utf-8)
 
-(setq-default save-place t)             ; use save-place-mode instead
+  (save-place-mode 1)
+
+  ;; use font lock where possible:
+  (global-font-lock-mode t)
+  ;; work with compressed files:
+  (auto-compression-mode 1)
+  ;; update files changed on disk (mainly for use with dropbox):
+  (global-auto-revert-mode 1)
+  (diminish 'auto-revert-mode)
+
+  ;; don't show toolbar:
+  (tool-bar-mode -1)
+  ;; hide the menu-bar by default (accessible by C-right-click):
+  (menu-bar-mode -1)
+  ;; line and column-number modes:
+  (line-number-mode 1)
+  (column-number-mode 1)
+  ;; Don't blink the cursor:
+  (blink-cursor-mode -1)
+  ;; Always highlight the current line:
+  (global-hl-line-mode 1)
+  ;; trailing whitespace (see also M-x delete-trailing-whitespace):
+  (defun mh/turn-on-show-trailing-whitespace ()
+    (setq show-trailing-whitespace t))
+  ;; high-light selections:
+  (transient-mark-mode 1)
+  ;; Expected behaviour; delete selection when typing starts:
+  (delete-selection-mode 1)
+
+  :hook (((prog-mode text-mode) . mh/turn-on-show-trailing-whitespace)
+         (prog-mode . subword-mode))
+  :diminish (auto-revert-mode)
+  )
 
 (use-package editorconfig
   :diminish editorconfig-mode
@@ -178,35 +213,6 @@
 
 ;;; Quit emacs (??) easier:
 (defalias 'sbke 'save-buffers-kill-emacs)
-
-;; use font lock where possible:
-(global-font-lock-mode t)
-;;; I really should have been using this all along:
-(add-hook 'prog-mode-hook 'subword-mode)
-;; work with compressed files:
-(auto-compression-mode 1)
-;; update files changed on disk (mainly for use with dropbox):
-(global-auto-revert-mode 1)
-(diminish 'auto-revert-mode)
-
-;; don't show toolbar:
-(tool-bar-mode -1)
-;; hide the menu-bar by default (accessible by C-right-click):
-(menu-bar-mode -1)
-;; line and column-number modes:
-(line-number-mode 1)
-(column-number-mode 1)
-;; Don't blink the cursor:
-(blink-cursor-mode -1)
-;;; trailing whitespace (see also M-x delete-trailing-whitespace):
-(defun mh/turn-on-show-trailing-whitespace ()
-  (setq show-trailing-whitespace t))
-(dolist (hook '(prog-mode-hook text-mode-hook))
-  (add-hook hook #'mh/turn-on-show-trailing-whitespace))
-;;; high-light selections:
-(transient-mark-mode 1)
-;;; Expected behaviour; delete selection when typing starts:
-(delete-selection-mode 1)
 
 (use-package unfill
   :bind (([remap fill-paragraph] . unfill-toggle)))
@@ -565,9 +571,6 @@
   :config
   (whole-line-or-region-global-mode 1)
   (define-key whole-line-or-region-local-mode-map [remap comment-dwim] nil))
-
-;;; Always highlight the current line:
-(global-hl-line-mode 1)
 
 ;;; Winner-mode; undo for window configurations (key bindings clobber
 ;;; next and previous-buffer, which I never use):
