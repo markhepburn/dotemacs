@@ -149,8 +149,22 @@
 
   :hook (((prog-mode text-mode) . mh/turn-on-show-trailing-whitespace)
          (prog-mode . subword-mode))
+
   :diminish (auto-revert-mode)
-  )
+
+  :bind
+  (("C-," . scroll-up-line)
+   ("C-." . scroll-down-line)
+   ;; Can't believe I never went looking for this; great choice of
+   ;; keybinding too.  Hat-tip to http://irreal.org/blog/?p=1536
+   ("M-Z" . zap-up-to-char)
+   ;; There isn't a default binding for this:
+   ("M-K" . kill-paragraph)
+   ;; let's play with using C-w to delete words backwards (Yegge-inspired)
+   ("C-w" . backward-kill-word)
+   ("C-x C-k" . kill-region)))
+
+
 
 (use-package editorconfig
   :diminish editorconfig-mode
@@ -438,9 +452,6 @@
 ;; (put 'inhibit-startup-echo-area-message 'saved-value
 ;;      (setq inhibit-startup-echo-area-message (user-login-name)))
 
-(global-set-key (kbd "C-,") 'scroll-up-line)
-(global-set-key (kbd "C-.") 'scroll-down-line)
-
 (use-package unscroll :ensure nil :demand t)
 
 (use-package undo-tree
@@ -453,13 +464,6 @@
 ;;; Alternative direction for `delete-indentation'
 ;;; (http://whattheemacsd.com/key-bindings.el-03.html):
 (global-set-key (kbd "M-j") (lambda () (interactive) (join-line -1)))
-
-;;; Can't believe I never went looking for this; great choice of
-;;; keybinding too.  Hat-tip to http://irreal.org/blog/?p=1536
-(global-set-key (kbd "M-Z") #'zap-up-to-char)
-
-;;; There isn't a default binding for this:
-(global-set-key (kbd "M-K") #'kill-paragraph)
 
 ;;; Temporarily enable fringe line-numbers during goto-line.
 ;;; Via http://whattheemacsd.com/key-bindings.el-01.html
@@ -560,10 +564,6 @@
                (ibuffer-vc-set-filter-groups-by-vc-root)
                (unless (eq ibuffer-sorting-mode 'alphabetic)
                  (ibuffer-do-sort-by-alphabetic)))))
-
-;; let's play with using C-w to delete words backwards:
-(global-set-key (kbd "C-w")     'backward-kill-word)
-(global-set-key (kbd "C-x C-k") 'kill-region)
 
 (use-package whole-line-or-region
   :defer 2
