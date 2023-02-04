@@ -147,8 +147,23 @@
   ;; Expected behaviour; delete selection when typing starts:
   (delete-selection-mode 1)
 
+  ;; Alternative direction for `delete-indentation'
+  ;; (http://whattheemacsd.com/key-bindings.el-03.html):
+  (defun join-line-fowards ()
+    (interactive)
+    (join-line -1))
+
   :hook (((prog-mode text-mode) . mh/turn-on-show-trailing-whitespace)
-         (prog-mode . subword-mode))
+         (prog-mode . subword-mode)
+         ;; Make sure script files are executable after save:
+         (after-save . executable-make-buffer-file-executable-if-script-p)
+         ;; Text auto-wrap:
+         ;; This is a bit old-school, but I'm ok with that, and it's what I'm
+         ;; used to.  Visual-line-mode seems cool but is as wide as your
+         ;; window, and the hacks to fix it involve change the margin which
+         ;; then breaks all kinds of other modes (including magit)
+         (text-mode . turn-on-auto-fill)
+         )
 
   :diminish (auto-revert-mode)
 
@@ -162,7 +177,14 @@
    ("M-K" . kill-paragraph)
    ;; let's play with using C-w to delete words backwards (Yegge-inspired)
    ("C-w" . backward-kill-word)
-   ("C-x C-k" . kill-region)))
+   ("C-x C-k" . kill-region)
+   ("M-j" . join-line-fowards))
+
+  :mode
+  (("\\.m\\'" . octave-mode) ; I use octave more than obj-c in general:
+   ;; open jar files as well:
+   ("\\.jar\\'" . archive-mode)))
+
 
 
 
@@ -461,10 +483,6 @@
   :diminish undo-tree-mode
   :bind ("C-x u" . undo-tree-visualize))
 
-;;; Alternative direction for `delete-indentation'
-;;; (http://whattheemacsd.com/key-bindings.el-03.html):
-(global-set-key (kbd "M-j") (lambda () (interactive) (join-line -1)))
-
 ;;; Temporarily enable fringe line-numbers during goto-line.
 ;;; Via http://whattheemacsd.com/key-bindings.el-01.html
 ;;; This is now native, so we don't need nlinum though:
@@ -626,20 +644,6 @@
               ("<up>" . comint-previous-input)
               ("<down>" . comint-next-input)))
 
-
-;; Make sure script files are executable after save:
-(add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
-
-;;; Text auto-wrap:
-;;; This is a bit old-school, but I'm ok with that, and it's what I'm
-;;; used to.  Visual-line-mode seems cool but is as wide as your
-;;; window, and the hacks to fix it involve change the margin which
-;;; then breaks all kinds of other modes (including magit)
-(add-hook 'text-mode-hook 'turn-on-auto-fill)
-
-;; I use octave more than obj-c in general:
-(add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))
-
 ;;; markdown mode:
 (use-package markdown-mode
   :mode "\\.md\\'"
@@ -657,9 +661,6 @@
               grip-update-after-change nil)
   :bind (:map markdown-mode-command-map
               ("g" . grip-mode)))
-
-;;; open jar files as well:
-(add-to-list 'auto-mode-alist '("\\.jar\\'" . archive-mode))
 
 (use-package sql-indent
   :pin gnu
