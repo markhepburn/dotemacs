@@ -574,9 +574,10 @@
 
 ;;; Winner-mode; undo for window configurations (key bindings clobber
 ;;; next and previous-buffer, which I never use):
-(winner-mode 1)
-(global-set-key (kbd "C-x <left>")  'winner-undo)
-(global-set-key (kbd "C-x <right>") 'winner-redo)
+(use-package winner :ensure nil
+  :init (winner-mode 1)
+  :bind (("C-x <left>" . winner-undo)
+         ("C-x <right>" . winner-redo)))
 
 ;;; Replacing a lot of cruft from my skeleton-pair add-ons!
 ;;; Smartparens: awesome, but for some reason I forget I still use paredit in lisp modes
