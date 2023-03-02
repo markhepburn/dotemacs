@@ -86,6 +86,7 @@
 ;; table with examples.
 (use-package paredit
   :diminish paredit-mode
+  :bind (:map paredit-mode-map ("RET" . nil)) ; https://docs.cider.mx/cider/additional_packages.html#paredit
   :hook ((cider-mode
           cider-repl-mode
           clojure-mode
