@@ -66,13 +66,6 @@ file (including following symlinks).")
         ("melpa" . "https://melpa.org/packages/")
         ("melpa-stable" . "https://stable.melpa.org/packages/")))
 
-(unless (package-installed-p 'use-package)
-  (message "Installing use-package first...")
-  (unless package-archive-contents
-    (package-refresh-contents))
-  (package-install 'use-package)
-  (message "Installing use-package first... Done."))
-
 (require 'use-package)
 (setq use-package-always-ensure t
       use-package-verbose t)
