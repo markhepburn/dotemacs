@@ -157,6 +157,14 @@
    consult--source-project-recent-file
    :preview-key "M-.")
 
+  ;; https://takeonrules.com/2023/03/14/spending-a-bit-of-time-reviewing-consult-emacs-package/
+  (consult-customize
+   consult-line
+   consult-ripgrep
+   :initial (when (use-region-p)
+              (buffer-substring-no-properties
+               (region-beginning) (region-end))))
+
   ;; Optionally configure the narrowing key.
   ;; Both < and C-+ work reasonably well.
   (setq consult-narrow-key "<") ;; (kbd "C-+")
