@@ -10,7 +10,7 @@
 (setenv "GIT_SSH_COMMAND" "ssh")
 
 ;; (set-face-font 'default "Consolas-10")
-(set-frame-font "Cascadia Code PL-9")
+(set-frame-font "Cascadia Code PL-9" nil t)
 (use-package ligature
   :init (pkg-help/vc-install :name "ligature" :repo "mickeynp/ligature.el")
   :config
