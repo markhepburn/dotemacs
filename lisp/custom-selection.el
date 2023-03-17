@@ -35,7 +35,7 @@
 (use-package vertico-repeat
   :ensure nil
   :after vertico
-  :hook (minibuffer-setup-hook . vertico-repeat-save)
+  :hook (minibuffer-setup . vertico-repeat-save)
   :bind ("C-x C-z" . vertico-repeat))
 
 (use-package prescient :after vertico
