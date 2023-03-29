@@ -89,6 +89,8 @@
 (setq-default gnutls-trustfiles (list (concat *mh/init-base* "ca-bundle.crt")))
 
 (use-package powershell
+  :mode "\\.ps1?\\'"
+  :commands (powershell)
   :pin melpa)
 
 
