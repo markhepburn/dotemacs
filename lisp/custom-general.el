@@ -357,6 +357,7 @@
 ;;; Code templating:
 (add-hook 'yas-minor-mode-hook (lambda () (yas-activate-extra-mode 'fundamental-mode)))
 (use-package yasnippet
+  :defer 1
   :hook (prog-mode . yas-minor-mode-on)
   :init (autoload 'yas-hippie-try-expand "yasnippet")
   :config
