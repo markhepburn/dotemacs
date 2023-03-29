@@ -119,7 +119,7 @@
 ;;   :config (eshell-git-prompt-use-theme 'powerline))
 
 ;;; https://ekaschalk.github.io/post/custom-eshell/
-(use-package all-the-icons)
+(use-package all-the-icons :commands (all-the-icons-install-fonts))
 
 (defun set-icon-fonts (CODE-FONT-ALIST)
   "Utility to associate many unicode points with specified fonts."
