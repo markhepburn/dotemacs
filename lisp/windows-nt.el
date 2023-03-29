@@ -1,7 +1,9 @@
 ;;; Automatically handle ssh-agent interaction (hooks into magit):
 ;;; (warning: might need to disable the "start" script in the git-bin
 ;;; path; haven't come across issues arising from doing that yet)
-(use-package ssh-agency)
+(use-package ssh-agency
+  :after magit
+  :hook (magit-credential . ssh-agency-ensure))
 ;;; Hack!  Powershell module posh-sshagent's Start-SshAgent sets
 ;;; gitconfig's core.sshCommand, to a C:\Program Files... path, which
 ;;; promptly breaks git-bash.  So, set this environment variable
