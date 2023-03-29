@@ -18,7 +18,8 @@
 
 ;;; show changed regions in the fringe
 (use-package diff-hl
-  :init (global-diff-hl-mode 1)
+  :defer 2
+  :config (global-diff-hl-mode 1)
   :hook ((magit-pre-refresh . diff-hl-magit-pre-refresh)
          (magit-post-refresh . diff-hl-magit-post-refresh)))
 
