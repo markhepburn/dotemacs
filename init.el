@@ -89,7 +89,7 @@ named arguments:
          (iname (when name (intern name)))
          (pac-name (or iname (intern (file-name-base repo)))))
     (unless (package-installed-p pac-name)
-      (package-vc-install url iname rev backend))))
+      (package-vc-install url rev backend iname))))
 
 (cl-defun pkg-help/url-install (&key url name)
   "Install a package from a remote URL, by downloading to a
