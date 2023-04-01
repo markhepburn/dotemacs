@@ -165,7 +165,8 @@ temporary file and using `package-install-file'"
 (use-package session
   :init
   (setq session-save-print-spec '(t nil 40000)
-        session-globals-exclude '(consult--buffer-history))
+        session-globals-exclude '(consult--buffer-history
+                                  vertico-repeat-history))
   :hook (after-init . session-initialize))
 (use-package recentf
   :hook (after-init . recentf-mode))
