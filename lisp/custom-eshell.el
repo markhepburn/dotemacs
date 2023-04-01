@@ -238,4 +238,7 @@
 
 (provide 'custom-eshell)
 
+(use-package eat
+  :hook (eshell-load . eat-eshell-mode))
+
 ;;; custom-eshell.el ends here
