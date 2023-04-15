@@ -256,7 +256,7 @@
 ;;; Code folding:
 (use-package ts-fold
   :after tree-sitter
-  :init (pkg-help/vc-install :repo "emacs-tree-sitter/ts-fold")
+  :vc (:fetcher github :repo emacs-tree-sitter/ts-fold)
   :diminish ts-fold-mode
   :config (global-ts-fold-mode)
   :hook (tree-sitter-after-on . ts-fold-indicators-mode))
@@ -350,9 +350,8 @@
 
 ;;; more specialised "opening" commands; mplayer control:
 (use-package mplayer-mode
-  :ensure nil
   :when nil
-  :init (pkg-help/vc-install :repo "markhepburn/mplayer-mode"))
+  :vc (:fetcher github :repo markhepburn/mplayer-mode))
 
 ;;; Code templating:
 (add-hook 'yas-minor-mode-hook (lambda () (yas-activate-extra-mode 'fundamental-mode)))
@@ -664,9 +663,8 @@ narrowed to the line."
   :diminish smartparens-mode)
 
 (use-package tags-view
-  :ensure nil
   :when nil
-  :init (pkg-help/vc-install :name "tags-view" :repo "markhepburn/tags-view"))
+  :vc (:fetcher github :repo markhepburn/tags-view))
 
 ;;; use hippie-expand (mainly abbrev expand and dabbrev):
 ;;; https://www.masteringemacs.org/article/text-expansion-hippie-expand

@@ -45,7 +45,7 @@
   :hook (elixir-mode . mix-minor-mode))
 
 (use-package apprentice
-  :init (pkg-help/vc-install :repo "Sasanidas/Apprentice" :name "apprentice")
+  :vc (:fetcher github :repo Sasanidas/Apprentice)
   :hook (elixir-mode . apprentice-mode))
 
 ;;; https://blog.evalcode.com/phoenix-liveview-inline-syntax-highlighting-for-emacs/
