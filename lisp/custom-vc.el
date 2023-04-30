@@ -45,7 +45,7 @@
    (mapcar (lambda (dir)
              (cons (substring dir 0 -1) 0))
            (nreverse
-            (remove-if-not (lambda (project)
+            (cl-remove-if-not (lambda (project)
                              (file-directory-p (concat project "/.git/")))
                            (project-known-project-roots)))))
   :custom (magit-bury-buffer-function 'magit-restore-window-configuration)
