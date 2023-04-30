@@ -54,12 +54,6 @@
   :bind (("C-x g" . magit-status)
          ("C-c M-g" . magit-file-dispatch)))
 
-;;; git-flow integration:
-(use-package magit-gitflow
-  :pin melpa-stable
-  :after (magit)
-  :hook (magit-mode . turn-on-magit-gitflow))
-
 (use-package git-messenger
   :bind (("C-x v p" . git-messenger:popup-message))
   :config
