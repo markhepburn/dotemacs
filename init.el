@@ -70,10 +70,6 @@ file (including following symlinks).")
 (setq use-package-always-ensure t
       use-package-verbose t)
 
-(unless (package-installed-p 'vc-use-package)
-  (package-vc-install "https://github.com/slotThe/vc-use-package"))
-(require 'vc-use-package)
-
 (cl-defun pkg-help/url-install (&key url name)
   "Install a package from a remote URL, by downloading to a
 temporary file and using `package-install-file'"
