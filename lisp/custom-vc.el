@@ -37,7 +37,6 @@
          )
 
   :config
-  (require 'magit-blame)
   ;; otherwise magit-repository-directories isn't initialised if
   ;; project.el hasn't be loaded first:
   (autoload 'project-known-project-roots "project" nil t)
