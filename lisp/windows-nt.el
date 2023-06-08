@@ -61,6 +61,10 @@
 (add-to-list 'exec-path (f-join mh/git-bash-dir "usr" "bin"))
 (setenv "PATH" (concat (f-join mh/git-bash-dir "bin") path-separator (getenv "PATH")))
 
+;;; https://www.reddit.com/r/emacs/comments/u9xv1m/amazing_in_native_windows_11s_emacs281_to_get/
+(setq shell-file-name "C:/Windows/system32/bash.exe")
+(setenv "ESHELL" "bash")
+
 (defun uuidgen ()
   (interactive)
   (insert
