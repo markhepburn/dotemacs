@@ -22,8 +22,7 @@
 (use-package pcre2el :defer t)
 (use-package lively :commands (lively lively-region lively-update lively-stop))
 (use-package lorem-ipsum
-  :commands (Lorem-ipsum-insert-list Lorem-ipsum-insert-sentences Lorem-ipsum-insert-paragraphs
-             lorem-ipsum-insert-list lorem-ipsum-insert-sentences lorem-ipsum-insert-paragraphs))
+  :commands (lorem-ipsum-insert-list lorem-ipsum-insert-sentences lorem-ipsum-insert-paragraphs))
 (use-package rst :mode ("\\.rst\\'" . rst-mode))
 (use-package yaml-mode
   :mode "\\.ya?ml\\'"
