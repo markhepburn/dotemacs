@@ -185,7 +185,8 @@
    ;; open jar files as well:
    ("\\.jar\\'" . archive-mode)))
 
-
+(use-package chatgpt-shell
+  :vc (:url "https://github.com/xenodium/chatgpt-shell"))
 
 
 (use-package editorconfig
@@ -256,7 +257,7 @@
 ;;; Code folding:
 (use-package ts-fold
   :after tree-sitter
-  :vc (:fetcher github :repo emacs-tree-sitter/ts-fold)
+  :vc (:url "https://github.com/emacs-tree-sitter/ts-fold")
   :diminish ts-fold-mode
   :config (global-ts-fold-mode)
   :hook (tree-sitter-after-on . ts-fold-indicators-mode))
@@ -351,7 +352,7 @@
 ;;; more specialised "opening" commands; mplayer control:
 (use-package mplayer-mode
   :when nil
-  :vc (:fetcher github :repo markhepburn/mplayer-mode))
+  :vc (:url "https://github.com/markhepburn/mplayer-mode"))
 
 ;;; Code templating:
 (add-hook 'yas-minor-mode-hook (lambda () (yas-activate-extra-mode 'fundamental-mode)))
@@ -664,7 +665,7 @@ narrowed to the line."
 
 (use-package tags-view
   :when nil
-  :vc (:fetcher github :repo markhepburn/tags-view))
+  :vc (:url "https://github.com/markhepburn/tags-view"))
 
 ;;; use hippie-expand (mainly abbrev expand and dabbrev):
 ;;; https://www.masteringemacs.org/article/text-expansion-hippie-expand

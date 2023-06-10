@@ -14,7 +14,7 @@
 ;; (set-face-font 'default "Consolas-10")
 (set-frame-font "Cascadia Code PL-9" nil t)
 (use-package ligature
-  :vc (:fetcher github :repo mickeynp/ligature.el)
+  :vc (:url "https://github.com/mickeynp/ligature.el")
   :config
   ;; Enable the "www" ligature in every possible major mode
   (ligature-set-ligatures 't '("www"))
