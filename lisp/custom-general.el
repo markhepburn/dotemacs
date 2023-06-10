@@ -193,6 +193,15 @@
   :diminish editorconfig-mode
   :config (editorconfig-mode 1))
 
+(use-package nerd-icons
+  :custom (nerd-icons-font-family "CasKaydiaCove Nerd Font"))
+(use-package nerd-icons-ibuffer
+  :hook (ibuffer-mode . nerd-icons-ibuffer-mode))
+(use-package nerd-icons-completion
+  :config (nerd-icons-completion-mode))
+(use-package nerd-icons-dired
+  :hook (dired-mode . nerd-icons-dired-mode))
+
 ;;; Create dir-locals file with
 ;;; ((yaml-mode
 ;;;   (ansible-vault-password-file . "/home/notroot/.ansible-vault/custom_vault_pass")))

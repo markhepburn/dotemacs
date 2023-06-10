@@ -118,45 +118,6 @@
 ;; (use-package eshell-git-prompt
 ;;   :config (eshell-git-prompt-use-theme 'powerline))
 
-;;; https://ekaschalk.github.io/post/custom-eshell/
-(use-package all-the-icons :commands (all-the-icons-install-fonts))
-
-(defun set-icon-fonts (CODE-FONT-ALIST)
-  "Utility to associate many unicode points with specified fonts."
-  (--each CODE-FONT-ALIST
-    (-let (((font . codes) it))
-      (--each codes
-        (set-fontset-font t `(,it . ,it) font)))))
-
-(defun initialise-icon-fonts ()
-  (when window-system
-    (set-icon-fonts
-     '(("fontawesome"
-        ;;                         
-        #xf07c #xf0c9 #xf0c4 #xf0cb #xf017 #xf101)
-
-       ("all-the-icons"
-        ;;    
-        #xe907 #xe928)
-
-       ("github-octicons"
-        ;;                          
-        #xf091 #xf059 #xf076 #xf075 #xe192  #xf016)
-
-       ("symbol regular"
-        ;; 𝕊    ⨂      ∅      ⟻    ⟼     ⊙      𝕋       𝔽  ; 
-        #x1d54a #x2a02 #x2205 #x27fb #x27fc #x2299 #x1d54b #x1d53d #xe100
-        ;; 𝔹    𝔇       𝔗
-        #x1d539 #x1d507 #x1d517)))
-    (remove-hook 'focus-in-hook #'initialise-icon-fonts)))
-;;; on linux, we start emacs as a daemon... meaning initialisation
-;;; code runs before X is present.  So to initalise our fonts, we need
-;;; to wait until we have a window-system, but obvious-looking
-;;; candidates such as `before-make-frame-hook' don't get called on
-;;; the first frame.  The new-ish focus hooks are our only option, so
-;;; we also use remove-hook to ensure we only run it once.
-(add-hook 'focus-in-hook #'initialise-icon-fonts)
-
 (defmacro with-face (STR &rest PROPS)
   "Return STR propertized with PROPS."
   `(propertize ,STR 'face (list ,@PROPS)))
@@ -188,7 +149,7 @@
 (setq esh-sep "  ")  ; or " | "
 
 ;; Separator between an esh-section icon and form
-(setq esh-section-delim "")
+(setq esh-section-delim " ")
 
 ;; Eshell prompt header
 (setq esh-header "\n┌─")  ; or "\n "
@@ -199,23 +160,23 @@
 (setq eshell-prompt-string "└─> ")   ; or "└─> "
 
 (esh-section esh-dir
-             "\xf07c"  ;  (faicon folder)
+             ""  ;  (faicon folder)
              (abbreviate-file-name (eshell/pwd))
              '(:foreground "gold" :bold ultra-bold :underline t))
 
 (esh-section esh-git
-             "\xe907"  ;  (git icon)
+             ""  ;  (git icon)
              (when (fboundp 'magit-get-current-branch)
                (magit-get-current-branch))
              '(:foreground "pink"))
 
 (esh-section esh-python
-             "\xe928"  ;  (python icon)
+             ""  ;  (python icon)
              (and (boundp 'pyvenv-virtual-env-name)
                   pyvenv-virtual-env-name))
 
 (esh-section esh-clock
-             "\xf017"  ;  (clock icon)
+             ""  ;  (clock icon)
              (format-time-string "%H:%M" (current-time))
              '(:foreground "forest green"))
 
@@ -223,10 +184,10 @@
 (setq esh-prompt-num 0)
 (add-hook 'eshell-exit-hook (lambda () (setq esh-prompt-num 0)))
 (advice-add 'eshell-send-input :before
-            (lambda (&rest args) (setq esh-prompt-num (incf esh-prompt-num))))
+            (lambda (&rest args) (setq esh-prompt-num (cl-incf esh-prompt-num))))
 
 (esh-section esh-num
-             "\xf0c9"  ;  (list icon)
+             ""  ;  (list icon)
              (number-to-string esh-prompt-num)
              '(:foreground "brown"))
 
