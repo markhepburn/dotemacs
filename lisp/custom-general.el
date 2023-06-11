@@ -27,6 +27,10 @@
 (use-package yaml-mode
   :mode "\\.ya?ml\\'"
   :hook (yaml-mode . turn-off-auto-fill))
+(use-package yaml-ts-mode
+  :ensure nil
+  :mode "\\.ya?ml\\'"
+  :hook (yaml-ts-mode . turn-off-auto-fill))
 (use-package poly-ansible ; poly-mode that combines jinja + yml mode for ansible
   :mode ("\\(?:_var\\|task\\)s.*\\.ya?ml\\'" . poly-ansible-mode))
 
@@ -152,6 +156,17 @@
     (interactive)
     (join-line -1))
 
+  ;; Tree-sit: https://www.masteringemacs.org/article/how-to-get-started-tree-sitter
+  ;; See treesit-language-source-alist and treesit-install-language-grammar
+  (setq major-mode-remap-alist
+        '((bash-mode . bash-ts-mode)
+          (css-mode . css-ts-mode)
+          (elixir-mode . elixir-ts-mode)
+          (json-mode . json-ts-mode)
+          (python-mode . python-ts-mode)
+          (yaml-mode . yaml-ts-mode)))
+  (setq treesit-font-lock-level 3)      ; default 3; max of 4
+
   :hook (((prog-mode text-mode) . mh/turn-on-show-trailing-whitespace)
          (prog-mode . subword-mode)
          ;; Make sure script files are executable after save:
@@ -206,11 +221,11 @@
 ;;;   (ansible-vault-password-file . "/home/notroot/.ansible-vault/custom_vault_pass")))
 ;;; Also probably want to add (eval . (pyvenv-workon "virtualenv-name")) so ansible-vault is in the path.
 (defun ansible-vault-mode-maybe ()
-  (when (and (derived-mode-p 'yaml-mode)
+  (when (and (derived-mode-p 'yaml-mode yaml-ts-mode)
              (ansible-vault--is-encrypted-vault-file))
     (ansible-vault-mode 1)))
 (use-package ansible-vault
-  :after yaml-mode
+  :after (yaml-mode yaml-ts-mode)
   :hook (hack-local-variables . ansible-vault-mode-maybe))
 
 (use-package which-key

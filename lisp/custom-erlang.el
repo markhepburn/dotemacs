@@ -41,12 +41,16 @@
 (use-package elixir-mode
   :bind (:map elixir-mode-map
          ("C-c C-f" . elixir-format)))
+(use-package elixir-ts-mode
+  :ensure nil
+  :bind (:map elixir-ts-mode-map
+              ("C-c C-f" . elixir-format)))
 (use-package mix
-  :hook (elixir-mode . mix-minor-mode))
+  :hook ((elixir-mode elixir-ts-mode-hook) . mix-minor-mode))
 
 (use-package apprentice
   :vc (:url "https://github.com/Sasanidas/Apprentice")
-  :hook (elixir-mode . apprentice-mode))
+  :hook ((elixir-mode elixir-ts-mode) . apprentice-mode))
 
 ;;; https://blog.evalcode.com/phoenix-liveview-inline-syntax-highlighting-for-emacs/
 (use-package polymode

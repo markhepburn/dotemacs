@@ -29,13 +29,13 @@
 ;;; font-lock for apt sources:
 (add-to-list 'auto-mode-alist '("sources\\.list\\'" . conf-mode))
 
-;;; Tree-sitter mode where supported:
-(use-package tree-sitter-langs :defer 1)
-(use-package tree-sitter
-  :after tree-sitter-langs
-  :commands (global-tree-sitter-mode)
-  :config (global-tree-sitter-mode 1)
-  :hook (tree-sitter-after-on . tree-sitter-hl-mode))
+;; ;;; Tree-sitter mode where supported:
+;; (use-package tree-sitter-langs :defer 1)
+;; (use-package tree-sitter
+;;   :after tree-sitter-langs
+;;   :commands (global-tree-sitter-mode)
+;;   :config (global-tree-sitter-mode 1)
+;;   :hook (tree-sitter-after-on . tree-sitter-hl-mode))
 
 (use-package exec-path-from-shell
   :init
@@ -99,7 +99,6 @@
   :mode ("Dockerfile" . dockerfile-mode))
 
 ;;; (These cause issues on windows, so make linux-only for now):
-(use-package docker-tramp  :defer t)
 (use-package vagrant-tramp :defer t)
 (setq tramp-default-method "ssh")
 
