@@ -352,6 +352,9 @@
          ("C-M--" . default-text-scale-decrease)
          ("C-M-0" . default-text-scale-reset)))
 
+(use-package olivetti
+  :commands olivetti-mode)
+
 ;;; expand-region; see http://emacsrocks.com/e09.html
 ;; (use-package expand-region
 ;;   :bind (("C-=" . er/expand-region)
