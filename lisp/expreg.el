@@ -1,14 +1,35 @@
 ;;; expreg.el --- Simple expand region  -*- lexical-binding: t; -*-
 
+;; Copyright (C) 2022 Free Software Foundation, Inc.
+;;
 ;; Author: Yuan Fu <casouri@gmail.com>
-
-;;; This file is NOT part of GNU Emacs
+;; Maintainer: Yuan Fu <casouri@gmail.com>
+;; URL: https://github.com/casouri/expreg
+;; Version: 1.0.0
+;; Keywords: text, editing
+;; Package-Requires: ((emacs "29.1"))
+;;
+;; This file is part of GNU Emacs.
+;;
+;; GNU Emacs is free software: you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 3 of the License, or
+;; (at your option) any later version.
+;;
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;;
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs.  If not, see <https://www.gnu.org/licenses/>.
 
 ;;; Commentary:
 ;;
 ;; This is just like expand-region, but (1) we generate all regions at
-;; once, and (2) should be easier to debug. Bind ‘expreg-expand’ and
-;; ‘expreg-contract’ and start using it.
+;; once, and (2) should be easier to debug, and (3) we out-source
+;; language-specific expansions to tree-sitter. Bind ‘expreg-expand’
+;; and ‘expreg-contract’ and start using it.
 
 ;;; Developer
 ;;
@@ -90,7 +111,7 @@ ORIG is the current position."
              ;; Consider ‘c-ts-mode--looking-at-star’, the "c" is one
              ;; character long but we don’t want to skip it: my muscle
              ;; remembers to hit C-= twice to mark a symbol, skipping "c"
-             ;; messes that up.
+             ;; messes that up. (ref:single-char-region)
              ;; (< 1 (- end beg) 8000)
 
              ;; If the region is only one character long, and the
@@ -122,6 +143,7 @@ ORIG is the current position. Each region is (BEG . END)."
 
     ;; If there are regions that start at ORIG, filter out
     ;; regions that ends at ORIG.
+    (ignore orig-at-beg-of-something)
     (setq regions (cl-remove-if
                    (lambda (region)
                      (and orig-at-beg-of-something
@@ -288,6 +310,7 @@ Only return something if ‘subword-mode’ is on, to keep consistency."
     (setq end (point))
     (skip-syntax-backward "w")
     (setq beg (point))
+    ;; Allow single char regions, see (ref:single-char-region).
     (push `(word--plain . ,(cons beg end)) result)
 
     ;; (3) symbol-at-point
@@ -296,7 +319,9 @@ Only return something if ‘subword-mode’ is on, to keep consistency."
     (setq end (point))
     (skip-syntax-backward "w_")
     (setq beg (point))
-    (push `(word--symbol . ,(cons beg end)) result)
+    ;; Avoid things like a single period.
+    (when (> (- end beg) 1)
+      (push `(word--symbol . ,(cons beg end)) result))
 
     ;; (4) within whitespace & paren. (Allow word constituents, symbol
     ;; constituents, punctuation, prefix (#' and ' in Elisp).)
@@ -305,7 +330,9 @@ Only return something if ‘subword-mode’ is on, to keep consistency."
     (setq end (point))
     (skip-syntax-backward "w_.'")
     (setq beg (point))
-    (push `(word--within-space . ,(cons beg end)) result)
+    ;; Avoid things like a single period.
+    (when (> (- end beg) 1)
+      (push `(word--within-space . ,(cons beg end)) result))
 
     ;; Return!
     result))
@@ -371,7 +398,7 @@ point."
           ;; point, it will not pass the filtering, so this function
           ;; needs to be added to ‘expreg--validation-white-list’.
           (when (and (looking-at (rx (syntax whitespace)))
-                     (not (looking-back ")" 1)))
+                     (not (eq 41 (char-syntax (or (char-before) ?x)))))
             (skip-syntax-forward "-"))
 
           ;; If at the end of a list and not the beginning of another
@@ -451,7 +478,7 @@ If find something, leave point at the beginning of the list."
                     `(string . ,(cons inside-beg inside-end))))))
       (scan-error nil))))
 
-(defun expreg--list ()
+(defun expreg--list (&optional inhibit-recurse)
   "Return a list of regions determined by sexp level.
 
 This routine returns the following regions:
@@ -459,33 +486,50 @@ This routine returns the following regions:
 2. The inside of the innermost enclosing list
 3. The outside of every layer of enclosing list
 
-Note that the inside of outer layer lists are not captured."
-  (let (inside-results)
-    (when (expreg--inside-string-p)
-      ;; If point is inside a string, we narrow to the inside of that
-      ;; string and compute again.
-      (save-restriction
-        (let ((orig (point))
-              (string-start (expreg--start-of-comment-or-string)))
+Note that the inside of outer layer lists are not captured.
 
-          ;; Narrow to inside list.
-          (goto-char string-start)
-          (forward-sexp)
-          (narrow-to-region (1+ string-start) (1- (point)))
-          (goto-char orig)
-          (setq inside-results (expreg--list)))))
+If INHIBIT-RECURSE is non-nil, it doesn’t try to narrow to the
+current string/comment and get lists inside."
+  (condition-case nil
+      (let (inside-results inside-string)
+        (when (and (not inhibit-recurse)
+                   (or (setq inside-string (expreg--inside-string-p))
+                       (expreg--inside-comment-p)))
+          ;; If point is inside a string, we narrow to the inside of
+          ;; that string and compute again.
+          (save-restriction
+            (let ((orig (point))
+                  (string-start (expreg--start-of-comment-or-string)))
 
-    ;; Normal computation.
-    (let ((inside-list (expreg--inside-list))
-          (list-at-point (expreg--list-at-point))
-          outside-list lst)
+              ;; Narrow to inside list.
+              (goto-char string-start)
+              ;; (forward-sexp)
+              (if inside-string
+                  ;; We could use ‘forward-sexp’, but narrowing plus
+                  ;; ‘forward-sexp’ with a treesit backend would cause
+                  ;; tree-sitter re-parse on the narrowed region and
+                  ;; then re-parse on the widened region.
+                  (goto-char (or (scan-sexps (point) 1)
+                                 (buffer-end 1)))
+                (forward-comment (buffer-size)))
+              (if inside-string
+                  (narrow-to-region (1+ string-start) (1- (point)))
+                (narrow-to-region string-start (point)))
+              (goto-char orig)
+              (setq inside-results (expreg--list t)))))
 
-      ;; Compute outer-list.
-      (while (setq lst (expreg--outside-list))
-        (setq outside-list
-              (nconc lst outside-list)))
+        ;; Normal computation.
+        (let ((inside-list (expreg--inside-list))
+              (list-at-point (expreg--list-at-point))
+              outside-list lst)
 
-      (nconc inside-results inside-list list-at-point outside-list))))
+          ;; Compute outer-list.
+          (while (setq lst (expreg--outside-list))
+            (setq outside-list
+                  (nconc lst outside-list)))
+
+          (nconc inside-results inside-list list-at-point outside-list)))
+    (scan-error nil)))
 
 (defun expreg--comment ()
   "Return a list of regions containing comment."
@@ -530,7 +574,7 @@ Note that the inside of outer layer lists are not captured."
     result))
 
 (defun expreg--paragraph ()
-  "Return a list of regions containing paragraphs."
+  "Return a list of regions containing paragraphs or defuns."
   (condition-case nil
       (let ((orig (point))
             beg end result)
