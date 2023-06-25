@@ -25,12 +25,10 @@
   :commands (lorem-ipsum-insert-list lorem-ipsum-insert-sentences lorem-ipsum-insert-paragraphs))
 (use-package rst :mode ("\\.rst\\'" . rst-mode))
 (use-package yaml-mode
-  :mode "\\.ya?ml\\'"
-  :hook (yaml-mode . turn-off-auto-fill))
+  :mode "\\.ya?ml\\'")
 (use-package yaml-ts-mode
   :ensure nil
-  :mode "\\.ya?ml\\'"
-  :hook (yaml-ts-mode . turn-off-auto-fill))
+  :mode "\\.ya?ml\\'")
 (use-package poly-ansible ; poly-mode that combines jinja + yml mode for ansible
   :mode ("\\(?:_var\\|task\\)s.*\\.ya?ml\\'" . poly-ansible-mode))
 
@@ -165,7 +163,6 @@
          ;; used to.  Visual-line-mode seems cool but is as wide as your
          ;; window, and the hacks to fix it involve change the margin which
          ;; then breaks all kinds of other modes (including magit)
-         (text-mode . turn-on-auto-fill)
          )
 
   :diminish (auto-revert-mode)
@@ -660,8 +657,7 @@ narrowed to the line."
 (use-package csv-mode
   :mode "\\.csv\\'"
   :config
-  (smartparens-mode -1)
-  (auto-fill-mode -1))
+  (smartparens-mode -1))
 
 ;; Show docs where available:
 (use-package eldoc
