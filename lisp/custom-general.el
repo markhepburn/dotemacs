@@ -366,8 +366,8 @@
          (save-excursion (hs-show-all))
          (setq this-command 'hs-global-show))
         (_ (hs-hide-all)))))
-  (enable-minor-mode-for hs-minor-mode '(prog))
   :diminish hs-minor-mode
+  :hook (prog-mode . hs-minor-mode)
   :bind (("C-<tab>" . hs-cycle)
          ;; FIXME: Not sure why this needs iso-lefttab rather than just tab!
          ("C-S-<iso-lefttab>" . hs-global-cycle)))
