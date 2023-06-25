@@ -218,6 +218,18 @@
 
   :config
   (mp-setup-install-grammars)
+
+  ;;; Code folding:
+  (use-package ts-fold
+    :vc (:url "https://github.com/AndrewSwerlick/ts-fold"
+              :rev "andrew-sw/treesit-el-support")
+    :diminish ts-fold-mode
+    :config (global-ts-fold-mode)
+    :hook ((python-ts-mode
+            css-ts-mode
+            tsx-tx-mode
+            js-ts-mode) . ts-fold-indicators-mode))
+
   ;; Do not forget to customize Combobulate to your liking:
   ;;
   ;;  M-x customize-group RET combobulate RET
@@ -313,14 +325,6 @@
 
 (use-package unfill
   :bind (([remap fill-paragraph] . unfill-toggle)))
-
-;;; Code folding:
-(use-package ts-fold
-  :after tree-sitter
-  :vc (:url "https://github.com/emacs-tree-sitter/ts-fold")
-  :diminish ts-fold-mode
-  :config (global-ts-fold-mode)
-  :hook (tree-sitter-after-on . ts-fold-indicators-mode))
 
 (use-package hideshow
   :init
