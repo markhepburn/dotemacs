@@ -69,9 +69,8 @@
 (use-package org-roam
   :after org
   :diminish org-roam-mode
-  :hook (after-init . org-roam-setup)
+  :hook (after-init . org-roam-db-autosync-enable)
   :custom (org-roam-directory (file-truename "~/Nextcloud/orgroam/"))
-  :init (setq org-roam-v2-ack t)
   :config (org-roam-db-autosync-enable)
   :bind (("C-c o f" . org-roam-node-find)
          ("C-c o l" . org-roam-buffer-toggle)
