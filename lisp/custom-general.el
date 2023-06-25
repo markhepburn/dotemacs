@@ -156,17 +156,6 @@
     (interactive)
     (join-line -1))
 
-  ;; Tree-sit: https://www.masteringemacs.org/article/how-to-get-started-tree-sitter
-  ;; See treesit-language-source-alist and treesit-install-language-grammar
-  (setq major-mode-remap-alist
-        '((bash-mode . bash-ts-mode)
-          (css-mode . css-ts-mode)
-          (elixir-mode . elixir-ts-mode)
-          (json-mode . json-ts-mode)
-          (python-mode . python-ts-mode)
-          (yaml-mode . yaml-ts-mode)))
-  (setq treesit-font-lock-level 3)      ; default 3; max of 4
-
   :hook (((prog-mode text-mode) . mh/turn-on-show-trailing-whitespace)
          (prog-mode . subword-mode)
          ;; Make sure script files are executable after save:
@@ -198,6 +187,54 @@
   (("\\.m\\'" . octave-mode) ; I use octave more than obj-c in general:
    ;; open jar files as well:
    ("\\.jar\\'" . archive-mode)))
+
+(use-package treesit
+  :ensure nil
+  :preface
+  (defun mp-setup-install-grammars ()
+    "Install Tree-sitter grammars if they are absent."
+    (interactive)
+    (dolist (grammar
+             '((css "https://github.com/tree-sitter/tree-sitter-css")
+               (javascript . ("https://github.com/tree-sitter/tree-sitter-javascript" "master" "src"))
+               (python "https://github.com/tree-sitter/tree-sitter-python")
+               (tsx . ("https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src"))
+               (yaml "https://github.com/ikatyang/tree-sitter-yaml")))
+      (add-to-list 'treesit-language-source-alist grammar)
+      ;; Only install `grammar' if we don't already have it
+      ;; installed. However, if you want to *update* a grammar then
+      ;; this obviously prevents that from happening.
+      (unless (treesit-language-available-p (car grammar))
+        (treesit-install-language-grammar (car grammar)))))
+
+  (setq treesit-font-lock-level 3)      ; default 3; max of 4
+
+  (dolist (mapping '((python-mode . python-ts-mode)
+                     (css-mode . css-ts-mode)
+                     (typescript-mode . tsx-ts-mode)
+                     (js-mode . js-ts-mode)
+                     (yaml-mode . yaml-ts-mode)))
+    (add-to-list 'major-mode-remap-alist mapping))
+
+  :config
+  (mp-setup-install-grammars)
+  ;; Do not forget to customize Combobulate to your liking:
+  ;;
+  ;;  M-x customize-group RET combobulate RET
+  ;;
+  (use-package combobulate
+    :vc (:url "https://github.com/mickeynp/combobulate/")
+    :preface
+    ;; You can customize Combobulate's key prefix here.
+    ;; Note that you may have to restart Emacs for this to take effect!
+    (setq combobulate-key-prefix "C-c o")
+
+    :hook ((python-ts-mode
+            js-ts-mode
+            css-ts-mode
+            yaml-ts-mode
+            typescript-ts-mode
+            tsx-ts-mode) . #'combobulate-mode)))
 
 (use-package chatgpt-shell
   :vc (:url "https://github.com/xenodium/chatgpt-shell"))
