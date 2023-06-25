@@ -32,6 +32,10 @@
   :commands (json-navigator-navigate-after-point
              json-navigator-navigate-region))
 
+;;; jq interaction; see especially M-x jq-interactively
+(use-package jq-mode
+  :commands (jq-interactively))
+
 ;;; From http://whattheemacsd.com//setup-html-mode.el-05.html
 ;;; after deleting a tag, indent properly (I didn't use
 ;;; sgml-delete-tag, but it's on C-c C-d)
