@@ -48,8 +48,10 @@
              (cons (substring dir 0 -1) 0))
            (nreverse
             (cl-remove-if-not (lambda (project)
-                             (file-directory-p (concat project "/.git/")))
-                           (project-known-project-roots)))))
+                                (and
+                                 (not (s-starts-with? "/docker:" project))
+                                 (file-directory-p (concat project "/.git/"))))
+                              (project-known-project-roots)))))
   :custom (magit-bury-buffer-function 'magit-restore-window-configuration)
 
   ;; Make this a global command, not just inside a repo:
