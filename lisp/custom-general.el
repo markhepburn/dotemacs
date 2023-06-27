@@ -267,7 +267,7 @@
 ;;;   (ansible-vault-password-file . "/home/notroot/.ansible-vault/custom_vault_pass")))
 ;;; Also probably want to add (eval . (pyvenv-workon "virtualenv-name")) so ansible-vault is in the path.
 (defun ansible-vault-mode-maybe ()
-  (when (and (derived-mode-p 'yaml-mode yaml-ts-mode)
+  (when (and (derived-mode-p 'yaml-mode 'yaml-ts-mode)
              (ansible-vault--is-encrypted-vault-file))
     (ansible-vault-mode 1)))
 (use-package ansible-vault
