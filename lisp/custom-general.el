@@ -554,10 +554,8 @@ narrowed to the line."
   :bind ([remap list-directory] . dired-jump)
   :hook (dired . dired-omit-mode))
 
-(use-package peep-dired
-  :after dired
-  :bind (:map dired-mode-map
-              ("o" . peep-dired)))
+(use-package dired-preview
+  :after dired)
 (use-package dired-narrow
   :after dired
   :bind (:map dired-mode-map
