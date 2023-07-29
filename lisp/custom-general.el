@@ -170,6 +170,7 @@
   :bind
   (("C-," . scroll-up-line)
    ("C-." . scroll-down-line)
+   ("C-S-s" . isearch-forward-thing-at-point)
    ;; Can't believe I never went looking for this; great choice of
    ;; keybinding too.  Hat-tip to http://irreal.org/blog/?p=1536
    ("M-Z" . zap-up-to-char)
