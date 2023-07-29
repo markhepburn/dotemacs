@@ -62,11 +62,6 @@
    ;; Don't use the disabled-command stuff:
    disabled-command-function nil
 
-   ;; next-line should go next text line (old default), not visual line (from
-   ;; http://bryan-murdock.blogspot.com/2009/03/emacs-next-line-changed-behavior.html
-   ;; originally, but things seem to have changed slightly since then):
-   line-move-visual nil
-
    ;; Make sure we always include a trailing newline:
    require-final-newline t
 
