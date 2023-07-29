@@ -154,7 +154,8 @@
     (interactive)
     (join-line -1))
 
-  :hook (((prog-mode text-mode) . mh/turn-on-show-trailing-whitespace)
+  :hook ((text-mode . visual-line-mode)
+         ((prog-mode text-mode) . mh/turn-on-show-trailing-whitespace)
          (prog-mode . subword-mode)
          ;; Make sure script files are executable after save:
          (after-save . executable-make-buffer-file-executable-if-script-p)
