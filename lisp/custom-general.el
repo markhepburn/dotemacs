@@ -207,6 +207,7 @@
                      (css-mode . css-ts-mode)
                      (typescript-mode . tsx-ts-mode)
                      (js-mode . js-ts-mode)
+                     (javascript-mode . js-ts-mode) ; alias of js-mode, but aliases don't trigger remapping
                      (yaml-mode . yaml-ts-mode)))
     (add-to-list 'major-mode-remap-alist mapping))
 
