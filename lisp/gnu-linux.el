@@ -20,7 +20,8 @@
 ;(set-frame-font "Inconsolata-11")
 ;(set-frame-font "Bitstream Vera Sans Mono-10")
 ;(set-frame-font "Monospace-10")
-;; (set-frame-font "JetBrains Mono-6")
+;; (let ((frame-font "JetBrainsMono Nerd Font-7"))
+;; (set-face-attribute 'default nil :weight 'semi-bold) ; jetbrainsmono needs a heavier weight
 (let ((frame-font "CasKaydiaCove Nerd Font-7"))
   (set-frame-font frame-font nil t)
   (add-hook 'server-after-make-frame-hook
