@@ -66,7 +66,7 @@
    require-final-newline t
 
    ;; Default to view-mode for read-only files:
-   ;; view-read-only t
+   view-read-only t
 
 ;;; Single-frame ediff usage (mainly because floating windows seemed
 ;;; to interact badly with xmonad, even when explicitly floated):
