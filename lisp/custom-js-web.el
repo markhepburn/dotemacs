@@ -70,16 +70,15 @@
 
 ;;; Make css colour definitions the colour they represent:
 (use-package rainbow-mode
-  :after (css-mode)
-  :hook (css-mode . rainbow-turn-on))
+  :after (css-mode less-css-mode)
+  :hook ((css-mode less-css-mode) . rainbow-turn-on))
 
 ;;; use c-style indentation in css:
 (setq cssm-indent-function 'cssm-c-style-indenter)
 
 ;;; Now using LessCSS, using its own derived mode:
 (use-package less-css-mode
-  :mode "\\.less\\'"
-  :hook (less-css-mode . rainbow-turn-on))
+  :mode "\\.less\\'")
 
 ;;; JS (note, jsx-mode is for typed-js, use js-jsx-mode for React):
 (use-package tide :disabled)
