@@ -38,6 +38,15 @@
    ;; Filename in frame title:
    frame-title-format '(buffer-file-name "%f"
                                          (dired-directory dired-directory "%b"))
+
+   ;; drag and drop:
+   mouse-drag-and-drop-region t
+   mouse-drag-and-drop-region-cross-program t
+   mouse-drag-and-drop-region-scroll-margin 2
+   mouse-drag-copy-region t
+   dnd-indicate-insertion-point t
+   dnd-scroll-margin 2
+
    ;; isearch,show counts:
    isearch-lazy-count t
    ;; Avoid those .#filename that can break file-watching tools, modification timestamps etc
