@@ -289,7 +289,11 @@
 ;;; Language-server integration.  eglot is the other choice:
 ;;; Needs path to elixir_ls installation added to `exec-path'
 (use-package lsp-mode
-  :custom (lsp-completion-provider :none)
+  :custom
+  (lsp-completion-provider :none)
+  (lsp-keymap-prefix "C-c C-l")
+  (lsp-lens-enable t)
+  (lsp-file-watch-threshold 10000)
   ;; Add to this list as necessary; using prog-mode was too annoying:
   :hook (((dart-mode
            elixir-mode
@@ -299,9 +303,7 @@
            csharp-mode
            typescript-mode) . lsp)
          (lsp-mode . lsp-enable-which-key-integration))
-  :init (setq lsp-keymap-prefix "C-c C-l"
-              lsp-lens-enable t
-              lsp-file-watch-threshold 10000)
+  :init
   ;; https://www.reddit.com/r/emacs/comments/ql8cyp/comment/hj2k2lh/
   (defun my/lsp-mode-setup-completion ()
     (setf (alist-get 'styles (alist-get 'lsp-capf completion-category-defaults))
@@ -311,9 +313,9 @@
   :bind ("C-c C-d" . lsp-describe-thing-at-point))
 (use-package lsp-ui
   :after lsp-mode
-  :init
-  (setq lsp-ui-doc-enable nil           ; "C-c C-l T d" to enable
-        lsp-ui-doc-position 'at-point)
+  :custom
+  (lsp-ui-doc-enable nil)           ; "C-c C-l T d" to enable
+  (lsp-ui-doc-position 'at-point)
   :hook (lsp-configure . (lambda () (lsp-ui-sideline-enable nil)))) ; "C-c C-l T S" to enable
 ;;; debugger support:
 (use-package dap-mode
@@ -492,10 +494,10 @@
 (use-package dired
   :ensure nil
   :init
-  (setq dired-recursive-deletes 'top
-        dired-recursive-copies 'top
-        dired-listing-switches "-alh --time-style=long-iso"
-        dired-dwim-target t)
+  (dired-recursive-deletes 'top)
+  (dired-recursive-copies 'top)
+  (dired-listing-switches "-alh --time-style=long-iso")
+  (dired-dwim-target t)
   :config
   ;; (http://whattheemacsd.com/setup-dired.el-02.html)
   (defun dired-back-to-top ()
@@ -547,9 +549,9 @@ narrowed to the line."
 (use-package dired-x
   :ensure nil
   :init
-  (setq dired-omit-files      "\\(^\\..*\\)\\|\\(CVS\\)"
-        dired-omit-verbose    nil
-        dired-omit-extensions '("~" ".bak" ".pyc" ".elc"))
+  (dired-omit-files      "\\(^\\..*\\)\\|\\(CVS\\)")
+  (dired-omit-verbose    nil)
+  (dired-omit-extensions '("~" ".bak" ".pyc" ".elc"))
   :bind ([remap list-directory] . dired-jump)
   :hook (dired . dired-omit-mode))
 
@@ -579,9 +581,8 @@ narrowed to the line."
 (use-package unscroll :ensure nil :demand t)
 
 (use-package undo-tree
-  :config
-  (global-undo-tree-mode)
-  (setq undo-tree-auto-save-history nil)
+  :custom(undo-tree-auto-save-history nil)
+  :config (global-undo-tree-mode)
   :diminish undo-tree-mode
   :bind ("C-x u" . undo-tree-visualize))
 
@@ -644,10 +645,10 @@ narrowed to the line."
 (use-package uniquify
   :ensure nil
   :defer 2
-  :config
-  (setq uniquify-buffer-name-style 'post-forward
-        uniquify-ignore-buffers-re "^\\*" ; Ignore *scratch*, etc
-        uniquify-after-kill-buffer-p t))
+  :custom
+  (uniquify-buffer-name-style 'post-forward)
+  (uniquify-ignore-buffers-re "^\\*") ; Ignore *scratch*, etc
+  (uniquify-after-kill-buffer-p t))
 
 ;;; csv-mode; smartparens mode interfers with sexp-command based
 ;;; navigation:
@@ -702,21 +703,21 @@ narrowed to the line."
 ;;; Smartparens: awesome, but for some reason I forget I still use paredit in lisp modes
 (use-package smartparens-config
   :ensure smartparens
-  :init
-  (setq sp-ignore-modes-list
-        '(cider-mode
-          cider-repl-mode
-          clojure-mode
-          clojurescript-mode
-          emacs-lisp-mode
-          inferior-emacs-lisp-mode
-          inferior-lisp-mode
-          lisp-mode
-          minibuffer-inactive-mode
-          nxml-mode
-          slime-repl-mode
-          sly-mrepl-mode)
-        sp-base-key-bindings 'paredit)
+  :custom
+  (sp-ignore-modes-list
+   '(cider-mode
+     cider-repl-mode
+     clojure-mode
+     clojurescript-mode
+     emacs-lisp-mode
+     inferior-emacs-lisp-mode
+     inferior-lisp-mode
+     lisp-mode
+     minibuffer-inactive-mode
+     nxml-mode
+     slime-repl-mode
+     sly-mrepl-mode))
+  (sp-base-key-bindings 'paredit)
   :hook (prog-mode . smartparens-mode)
   :config
   (smartparens-global-mode 1)
@@ -757,8 +758,9 @@ narrowed to the line."
              (add-hook (make-local-variable 'fill-nobreak-predicate) 'mh/liquid-nobreak-p))))
 (use-package grip-mode
   :after markdown-mode
-  :init (setq grip-github-user "markhepburn"
-              grip-update-after-change nil)
+  :custom
+  (grip-github-user "markhepburn")
+  (grip-update-after-change nil)
   :bind (:map markdown-mode-command-map
               ("g" . grip-mode)))
 
