@@ -289,6 +289,7 @@
 ;;; Language-server integration.  eglot is the other choice:
 ;;; Needs path to elixir_ls installation added to `exec-path'
 (use-package lsp-mode
+  :custom (lsp-completion-provider :none)
   ;; Add to this list as necessary; using prog-mode was too annoying:
   :hook (((dart-mode
            elixir-mode
@@ -301,6 +302,11 @@
   :init (setq lsp-keymap-prefix "C-c C-l"
               lsp-lens-enable t
               lsp-file-watch-threshold 10000)
+  ;; https://www.reddit.com/r/emacs/comments/ql8cyp/comment/hj2k2lh/
+  (defun my/lsp-mode-setup-completion ()
+    (setf (alist-get 'styles (alist-get 'lsp-capf completion-category-defaults))
+          '(orderless)))
+  :hook (lsp-completion-mode . my/lsp-mode-setup-completion)
   :diminish lsp-lens-mode
   :bind ("C-c C-d" . lsp-describe-thing-at-point))
 (use-package lsp-ui
