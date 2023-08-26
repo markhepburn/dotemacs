@@ -409,10 +409,6 @@
 (use-package olivetti
   :commands olivetti-mode)
 
-;;; expand-region; see http://emacsrocks.com/e09.html
-;; (use-package expand-region
-;;   :bind (("C-=" . er/expand-region)
-;;          ("C-+" . er/contract-region)))
 (use-package expreg
   :ensure nil
   :bind (("C-=" . expreg-expand)
