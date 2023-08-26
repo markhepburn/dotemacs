@@ -96,8 +96,6 @@
 
 ;;; Docker support (see also lsp-mode: https://emacs-lsp.github.io/lsp-mode/page/lsp-dockerfile/ ):
 (use-package docker :defer t)
-(use-package dockerfile-mode
-  :mode ("Dockerfile" . dockerfile-mode))
 
 ;;; (These cause issues on windows, so make linux-only for now):
 (use-package vagrant-tramp :defer t)
