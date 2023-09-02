@@ -489,7 +489,7 @@
 ;; Dired should recursively delete directories after asking:
 (use-package dired
   :ensure nil
-  :init
+  :custom
   (dired-recursive-deletes 'top)
   (dired-recursive-copies 'top)
   (dired-listing-switches "-alh --time-style=long-iso")
@@ -544,7 +544,7 @@ narrowed to the line."
               ([remap end-of-buffer] . dired-jump-to-bottom)))
 (use-package dired-x
   :ensure nil
-  :init
+  :custom
   (dired-omit-files      "\\(^\\..*\\)\\|\\(CVS\\)")
   (dired-omit-verbose    nil)
   (dired-omit-extensions '("~" ".bak" ".pyc" ".elc"))
