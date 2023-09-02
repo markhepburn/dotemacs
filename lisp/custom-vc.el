@@ -121,42 +121,6 @@ _p_rev       _u_pper              _=_: upper/lower       _r_esolve
                                      (unpackaged/smerge-hydra/body)))))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Subversion interaction:
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(use-package psvn
-  :init (setq
-         svn-status-track-user-input t    ; Needs this to prompt for a password!
-         ;; No idea why the default behaviour is as it is (or even how to
-         ;; reproduce it in cmd-line svn for that matter), but this over-rides
-         ;; it with something reasonably useful (possibly replace with '("-v")
-         ;; to get a list of all files changed) :
-         svn-status-default-log-arguments '()
-         ;; using external cmd here because psvn diff doesn't work with
-         ;; colordiff, which I'm using with command-line svn:
-         svn-status-default-diff-arguments '("--diff-cmd" "diff" )
-         ;; default to unknown and unmodified files not displayed:
-         svn-status-hide-unknown    t
-         svn-status-hide-unmodified t)
-  :commands (svn-status)
-  :config
-  (defadvice svn-status-show-svn-diff (after mh/jump-to-diff-window activate)
-    "Jump to the diff window, so it can be easily navigated then closed."
-    (let ((diff-window (get-buffer-window "*svn-diff*" nil)))
-      (if diff-window (select-window diff-window))))
-  (defadvice svn-status-show-svn-diff-for-marked-files (after mh/jump-to-diff-window activate)
-    "Jump to the diff window, so it can be easily navigated then closed."
-    (let ((diff-window (get-buffer-window "*svn-diff*" nil)))
-      (if diff-window (select-window diff-window))))
-
-  :bind (:map svn-status-mode-map
-         ("n" . svn-status-next-line)
-         ("p" . svn-status-previous-line)
-         :map svn-status-diff-mode-map
-         ("q" . delete-window)))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 
 (provide 'custom-vc)
 
