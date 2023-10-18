@@ -293,7 +293,7 @@
 (use-package lsp-mode
   :custom
   (lsp-completion-provider :none)
-  (lsp-keymap-prefix "C-c C-l")
+  (lsp-keymap-prefix "C-c l")
   (lsp-lens-enable t)
   (lsp-file-watch-threshold 10000)
   ;; Add to this list as necessary; using prog-mode was too annoying:
