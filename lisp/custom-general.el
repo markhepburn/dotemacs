@@ -33,6 +33,8 @@
   :mode ("\\(?:_var\\|task\\)s.*\\.ya?ml\\'" . poly-ansible-mode))
 
 (use-package emacs :ensure nil
+  :custom
+  (Man-notify-method 'aggressive)        ; match behaviour of woman
   :init
   (setq
    ;; Filename in frame title:
