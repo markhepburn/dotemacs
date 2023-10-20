@@ -108,9 +108,10 @@
 ;;      (define-key org-mode-map  "\C-ca" 'org-agenda)))
 
 ;;; Only available on linux:
-(use-package direnv
+(use-package envrc
   :defer 3
-  :config (direnv-mode))
+  :custom (envrc-none-lighter nil)
+  :config (envrc-global-mode))
 
 (add-to-list 'exec-path (expand-file-name "~/.local/bin"))
 
