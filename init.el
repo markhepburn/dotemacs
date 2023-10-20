@@ -20,12 +20,8 @@
 
 (setq pgtk-use-im-context-on-new-connection nil
       native-comp-async-report-warnings-errors 'silent
-      warning-minimum-level :error
-      package-enable-at-startup nil
       file-name-handler-alist nil
       message-log-max 16384
-      gc-cons-threshold 402653184
-      gc-cons-percentage 0.6
       auto-window-vscroll nil)
 
 (add-hook 'after-init-hook
