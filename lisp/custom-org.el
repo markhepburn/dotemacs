@@ -70,7 +70,9 @@
   :after org
   :diminish org-roam-mode
   :hook (after-init . org-roam-db-autosync-enable)
-  :custom (org-roam-directory (file-truename "~/Nextcloud/orgroam/"))
+  :custom
+  (org-roam-directory (file-truename "~/Nextcloud/orgroam/"))
+  (org-roam-node-display-template "${title:*} ${tags:40}")
   :config (org-roam-db-autosync-enable)
   :bind (("C-c o f" . org-roam-node-find)
          ("C-c o l" . org-roam-buffer-toggle)
