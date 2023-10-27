@@ -51,13 +51,7 @@
          web-mode-css-indent-offset 2
          ;; HTML content indentation
          web-mode-indent-style 2)
-  :mode ("\\.html?\\'" "\\.tsx\\'")
-  ;; :config
-  ;; (defun setup-tide-tsx ()
-  ;;   (when (string-equal "tsx" (file-name-extension buffer-file-name))
-  ;;     (tide-setup)))
-  ;; :hook (web-mode . setup-tide-tsx)
-  )
+  :mode ("\\.html?\\'" "\\.tsx\\'"))
 
 ;;; emmet (zencoding) shortcuts for html generation:
 (use-package emmet-mode
@@ -79,9 +73,6 @@
 ;;; Now using LessCSS, using its own derived mode:
 (use-package less-css-mode
   :mode "\\.less\\'")
-
-;;; JS (note, jsx-mode is for typed-js, use js-jsx-mode for React):
-(use-package tide :disabled)
 
 (use-package typescript-mode
   :mode "\\.tsx\\'")
