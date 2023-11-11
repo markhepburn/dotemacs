@@ -554,7 +554,7 @@ narrowed to the line."
   :hook (dired . dired-omit-mode))
 
 (use-package dired-preview
-  :after dired)
+  :hook dired-mode)
 (use-package dired-narrow
   :after dired
   :bind (:map dired-mode-map
