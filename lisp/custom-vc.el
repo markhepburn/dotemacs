@@ -42,7 +42,7 @@
 
   :config
   ;; otherwise magit-repository-directories isn't initialised if
-  ;; project.el hasn't be loaded first:
+  ;; project.el hasn't been loaded first:
   (autoload 'project-known-project-roots "project" nil t)
   (setq
    ;; http://iqbalansari.github.io/blog/2014/02/22/switching-repositories-with-magit/
