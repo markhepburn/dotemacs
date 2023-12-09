@@ -410,7 +410,6 @@
   :commands olivetti-mode)
 
 (use-package expreg
-  :ensure nil
   :bind (("C-=" . expreg-expand)
          ("C-+" . expreg-contract)))
 
