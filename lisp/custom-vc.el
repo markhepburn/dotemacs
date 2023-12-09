@@ -24,6 +24,10 @@
          (magit-post-refresh . diff-hl-magit-post-refresh)))
 
 
+(use-package project
+  :ensure nil
+  :init (setq project-vc-extra-root-markers '(".project.el" ".projectile")))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Git integration:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
