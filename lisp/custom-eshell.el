@@ -200,7 +200,7 @@
 (provide 'custom-eshell)
 
 (use-package eat
-  :hook ((eshell-load . eat-eshell-mode)
-         (eshell-load . eat-eshell-visual-command-mode)))
+  :custom (eshell-visual-commands nil)  ; Use eat to handle visual commands inline
+  :hook ((eshell-load . eat-eshell-mode)))
 
 ;;; custom-eshell.el ends here
