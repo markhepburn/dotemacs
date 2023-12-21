@@ -575,11 +575,9 @@ narrowed to the line."
 
 (use-package unscroll :ensure nil :demand t)
 
-(use-package undo-tree
-  :custom(undo-tree-auto-save-history nil)
-  :config (global-undo-tree-mode)
-  :diminish undo-tree-mode
-  :bind ("C-x u" . undo-tree-visualize))
+(use-package vundo
+  :custom (vundo-glyph-alist vundo-unicode-symbols)
+  :bind ("C-x u" . vundo))
 
 ;;; Temporarily enable fringe line-numbers during goto-line.
 ;;; Via http://whattheemacsd.com/key-bindings.el-01.html
