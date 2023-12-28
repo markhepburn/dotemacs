@@ -21,7 +21,8 @@
 (setq byte-compile-warnings '(not free-vars unresolved noruntime lexical make-local cl-functions))
 
 ;; Warning: with 3, the compiler is free to perform dangerous optimizations.
-(setq-default native-comp-speed 3) ;; -O3
+;;; https://github.com/karthink/repeat-help/issues/4 -- O3 breaks repeat-help (at least)
+(setq-default native-comp-speed 2)
 
 ;; Prevent unwanted runtime compilation for gccemacs (native-comp) users;
 ;; packages are compiled ahead-of-time when they are installed and site files
