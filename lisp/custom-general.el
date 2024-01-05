@@ -253,10 +253,6 @@
             typescript-ts-mode
             tsx-ts-mode) . #'combobulate-mode)))
 
-(use-package chatgpt-shell
-  :vc (:url "https://github.com/xenodium/chatgpt-shell"))
-
-
 (use-package editorconfig
   :diminish editorconfig-mode
   :config (editorconfig-mode 1))
