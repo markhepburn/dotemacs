@@ -265,6 +265,10 @@
   :config (nerd-icons-completion-mode))
 (use-package nerd-icons-dired
   :hook (dired-mode . nerd-icons-dired-mode))
+(use-package nerd-icons-corfu
+  :after (nerd-icons corfu)
+  :commands (nerd-icons-corfu-formatter)
+  :init (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))
 
 ;;; Create dir-locals file with
 ;;; ((yaml-mode
