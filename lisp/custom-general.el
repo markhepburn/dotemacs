@@ -151,6 +151,7 @@
   (transient-mark-mode 1)
   ;; Expected behaviour; delete selection when typing starts:
   (delete-selection-mode 1)
+  (global-visual-wrap-prefix-mode 1)
 
   ;; Alternative direction for `delete-indentation'
   ;; (http://whattheemacsd.com/key-bindings.el-03.html):
@@ -180,7 +181,7 @@
          ;; then breaks all kinds of other modes (including magit)
          )
 
-  :diminish (auto-revert-mode)
+  :diminish (auto-revert-mode visual-wrap-prefix-mode)
 
   :bind
   (("C-," . scroll-up-line)
