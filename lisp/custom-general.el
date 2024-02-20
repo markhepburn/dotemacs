@@ -695,12 +695,12 @@ narrowed to the line."
   (whole-line-or-region-global-mode 1)
   (define-key whole-line-or-region-local-mode-map [remap comment-dwim] nil))
 
-;;; Winner-mode; undo for window configurations (key bindings clobber
-;;; next and previous-buffer, which I never use):
-(use-package winner :ensure nil
-  :init (winner-mode 1)
-  :bind (("C-x <left>" . winner-undo)
-         ("C-x <right>" . winner-redo)))
+;;; tab-bar-history-mode is the same as winner-mode, but also respects per-tab history
+;;; (key bindings clobber next and previous-buffer, which I never use)
+(use-package tab-bar :ensure nil
+  :init (tab-bar-history-mode 1)
+  :bind (("C-x <left>" . tab-bar-history-back)
+         ("C-x <right>" . tab-bar-history-forward)))
 
 ;;; Replacing a lot of cruft from my skeleton-pair add-ons!
 ;;; Smartparens: awesome, but for some reason I forget I still use paredit in lisp modes
