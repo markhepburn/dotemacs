@@ -158,11 +158,21 @@
     (interactive)
     (join-line -1))
 
+  ;; :config
+  ;; disable GC while minibuffer is active for snappier performance:
+  (defun mh/minibuffer-setup-hook ()
+    (setq gc-cons-threshold most-positive-fixnum))
+
+  (defun mh/minibuffer-exit-hook ()
+    (setq gc-cons-threshold (* 32 1024 1024)))
+
   :hook ((text-mode . visual-line-mode)
          ((prog-mode text-mode) . mh/turn-on-show-trailing-whitespace)
          (prog-mode . subword-mode)
          ;; Make sure script files are executable after save:
          (after-save . executable-make-buffer-file-executable-if-script-p)
+         (minibuffer-setup . mh/minibuffer-setup-hook)
+         (minibuffer-exit . mh/minibuffer-exit-hook)
          ;; Text auto-wrap:
          ;; This is a bit old-school, but I'm ok with that, and it's what I'm
          ;; used to.  Visual-line-mode seems cool but is as wide as your
