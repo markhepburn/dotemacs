@@ -131,7 +131,6 @@
   (auto-compression-mode 1)
   ;; update files changed on disk (mainly for use with dropbox):
   (global-auto-revert-mode 1)
-  (diminish 'auto-revert-mode)
 
   ;; don't show toolbar:
   (tool-bar-mode -1)
