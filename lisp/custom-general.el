@@ -180,7 +180,9 @@
          ;; then breaks all kinds of other modes (including magit)
          )
 
-  :diminish (auto-revert-mode visual-wrap-prefix-mode)
+  :diminish (auto-revert-mode
+             visual-line-mode
+             visual-wrap-prefix-mode)
 
   :bind
   (("C-," . scroll-up-line)
