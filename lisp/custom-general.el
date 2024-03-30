@@ -569,6 +569,10 @@ narrowed to the line."
   :hook (dired . dired-omit-mode))
 
 (use-package dired-preview
+  :custom
+  (dired-preview-display-action-alist-function
+   (lambda ()
+     '(display-buffer-use-least-recent-window display-buffer-pop-up-window)))
   :hook dired-mode)
 (use-package dired-narrow
   :after dired
