@@ -58,7 +58,7 @@
 
 (use-package ligature
   :defer 2
-  :vc (:url "https://github.com/mickeynp/ligature.el")
+  :vc (:url "https://github.com/mickeynp/ligature.el" :rev :newest)
   :config
   ;; Enable the "www" ligature in every possible major mode
   ;(ligature-set-ligatures 't '("www"))
