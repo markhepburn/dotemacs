@@ -41,7 +41,8 @@
 (setq treesit-extra-load-path `(,(expand-file-name "~/Projects/tree-sitter-module/dist")))
 
 (use-package exec-path-from-shell
-  :init
+  :demand t
+  :config
   (setenv "PATH" "") ; otherwise zsh is run with the existing PATH, leading to lots of dupes, etc
   (exec-path-from-shell-initialize))
 
