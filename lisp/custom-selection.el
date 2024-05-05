@@ -158,8 +158,11 @@
    :preview-key "M-.")
 
   ;; https://takeonrules.com/2023/03/14/spending-a-bit-of-time-reviewing-consult-emacs-package/
+  ;; Note: removing consult-line from this list. This initialisation
+  ;; runs after the interactive call I believe, so we would need to
+  ;; handle "if region and not isearch", AND "if isearch" to override
+  ;; the internal logic
   (consult-customize
-   consult-line
    consult-ripgrep
    :initial (when (use-region-p)
               (buffer-substring-no-properties
