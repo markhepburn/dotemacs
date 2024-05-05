@@ -78,8 +78,8 @@ temporary file and using `package-install-file'"
       (delete-file tmp-file))))
 
 ;;; Utility packages; load here before other customisations that may use them.
-(use-package dash :defer t)
-(use-package s    :defer t)
+(use-package dash :demand t)
+(use-package s    :demand t)
 (use-package f    :demand t)
 (use-package seq  :defer t :pin gnu)
 
