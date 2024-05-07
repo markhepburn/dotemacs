@@ -283,9 +283,9 @@
   :init (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))
 
 ;;; Create dir-locals file with
-;;; ((yaml-mode
-;;;   (ansible-vault-password-file . "/home/notroot/.ansible-vault/custom_vault_pass")))
-;;; Also probably want to add (eval . (pyvenv-workon "virtualenv-name")) so ansible-vault is in the path.
+;; ((yaml-mode
+;;   . ((ansible-vault--password-file . "/home/notroot/.ansible-vault/custom_vault_pass")
+;;      (ansible-vault-command . "/home/notroot/.virtualenvs/venvname/bin/ansible-vault"))))
 (defun ansible-vault-mode-maybe ()
   (when (and (derived-mode-p 'yaml-mode 'yaml-ts-mode)
              (ansible-vault--is-encrypted-vault-file))
