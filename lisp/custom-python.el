@@ -31,6 +31,8 @@
 ;;   :config
 ;;   (add-to-list 'lsp-disabled-clients 'pyls))
 
+;;; Include a .dir-locals.el setting lsp-pyright-venv-directory to the venv name.
+;;; See also lsp-pyright-venv-path, which is the location of your venvs -- set per-host
 (use-package lsp-pyright
   :demand t
   :after (lsp-mode python-mode python-ts-mode)
@@ -49,8 +51,9 @@
   :config
   (add-hook 'pyvenv-pre-activate-hooks
             (lambda ()
-              ;; need to set path to venv, not base dir of all venvs
-              (setq lsp-pyright-venv-path python-shell-virtualenv-path)))
+              ;; need to set path to venv, not base dir of all venvs:
+              (setq lsp-pyright-venv-path python-shell-virtualenv-root
+                    lsp-pyright-venv-directory pyvenv-workon)))
   (pyvenv-mode 1)
   (pyvenv-tracking-mode 1)
   ;; Set correct Python interpreter
