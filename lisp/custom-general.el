@@ -510,6 +510,7 @@
   (dired-recursive-deletes 'top)
   (dired-recursive-copies 'top)
   (dired-listing-switches "-alh --time-style=long-iso")
+  (dired-vc-rename-file t)
   (dired-dwim-target t)
   :config
   ;; (http://whattheemacsd.com/setup-dired.el-02.html)
