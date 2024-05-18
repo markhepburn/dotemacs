@@ -11,10 +11,6 @@
 
 ;;; Code:
 
-(let ((cabal-path  (expand-file-name "~/.cabal/bin")))
- (add-to-list 'exec-path cabal-path)
- (setenv "PATH" (concat cabal-path path-separator (getenv "PATH"))))
-
 ;;; Most of this is taken/tweaked from https://github.com/serras/emacs-haskell-tutorial/:
 (use-package haskell-mode
   :bind (:map haskell-mode-map
