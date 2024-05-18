@@ -191,7 +191,7 @@
   )
 
 (use-package consult-lsp
-  :after consult)
+  :after (consult lsp))
 
 (use-package embark
   :bind (("C-;" . embark-act)         ;; pick some comfortable binding
