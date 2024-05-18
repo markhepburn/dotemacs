@@ -24,9 +24,6 @@
 (use-package rst :mode ("\\.rst\\'" . rst-mode))
 (use-package yaml-mode
   :mode "\\.ya?ml\\'")
-(use-package yaml-ts-mode
-  :ensure nil
-  :mode "\\.ya?ml\\'")
 (use-package poly-ansible ; poly-mode that combines jinja + yml mode for ansible
   :mode ("\\(?:_var\\|task\\)s.*\\.ya?ml\\'" . poly-ansible-mode))
 
