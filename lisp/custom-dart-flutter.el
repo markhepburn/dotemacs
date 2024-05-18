@@ -15,7 +15,7 @@
               ("C-M-x" . #'flutter-run-or-hot-reload)))
 
 (use-package lsp-dart
-  :after lsp-mode
+  :after (dap-mode lsp-mode)
   ;; :init
   ;; (dap-register-debug-template "Flutter :: Custom debug"
   ;;                              (list :flutterPlatform "x86_64"
