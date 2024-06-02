@@ -116,10 +116,6 @@
   :custom (envrc-none-lighter nil)
   :config (envrc-global-mode))
 
-;;; Flutter support for dart-lsp
-(setq lsp-dart-flutter-sdk-dir (expand-file-name "~/Vendor/flutter/"))
-(setq flutter-sdk-path lsp-dart-flutter-sdk-dir)
-
 (provide 'gnu-linux)
 
 ;;; gnu-linux.el ends here
