@@ -342,7 +342,7 @@
                (executable-find "emacs-lsp-booster"))
           (progn
             (message "Using emacs-lsp-booster for %s!" orig-result)
-            (cons "emacs-lsp-booster" (cons "-v" (cons "--" orig-result))))
+            (cons "emacs-lsp-booster" orig-result))
         orig-result)))
   (advice-add 'lsp-resolve-final-command :around #'lsp-booster--advice-final-command)
   :hook (lsp-completion-mode . my/lsp-mode-setup-completion)
