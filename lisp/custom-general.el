@@ -155,6 +155,12 @@
     (interactive)
     (join-line -1))
 
+  ;; https://mbork.pl/2016-07-25_Making_directories_on_the_fly
+  (defun make-parent-directory ()
+    "Make sure the directory of `buffer-file-name' exists."
+    (make-directory (file-name-directory buffer-file-name) t))
+  (add-hook 'find-file-not-found-functions #'make-parent-directory)
+
   ;; :config
   ;; disable GC while minibuffer is active for snappier performance:
   (defun mh/minibuffer-setup-hook ()
