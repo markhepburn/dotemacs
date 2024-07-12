@@ -240,15 +240,14 @@
   (mp-setup-install-grammars)
 
   ;;; Code folding:
-  (use-package ts-fold
-    :vc (:url "https://github.com/AndrewSwerlick/ts-fold"
-              :rev "andrew-sw/treesit-el-support")
-    :diminish ts-fold-mode
-    :config (global-ts-fold-mode)
+  (use-package treesit-fold
+    :vc (:url "https://github.com/emacs-tree-sitter/treesit-fold")
+    :diminish treesit-fold-mode
+    :config (global-treesit-fold-mode)
     :hook ((python-ts-mode
             css-ts-mode
             tsx-tx-mode
-            js-ts-mode) . ts-fold-indicators-mode))
+            js-ts-mode) . treesit-fold-indicators-mode))
 
   ;; Do not forget to customize Combobulate to your liking:
   ;;
@@ -396,7 +395,7 @@
     (let (message-log-max
           (inhibit-message t))
       (if (and (fboundp 'tree-sitter-mode) tree-sitter-mode)
-          (ts-fold-toggle)
+          (treesit-fold-toggle)
         (if (= level 1)
             (pcase last-command
               ('hs-cycle
@@ -423,9 +422,9 @@
     (if (and (fboundp 'tree-sitter-mode) tree-sitter-mode)
         (pcase last-command
           ('hs-global-cycle
-           (save-excursion (ts-fold-open-all))
-           (setq this-command 'ts-fold-open-all))
-          (_ (ts-fold-close-all)))
+           (save-excursion (treesit-fold-open-all))
+           (setq this-command 'treesit-fold-open-all))
+          (_ (treesit-fold-close-all)))
       (pcase last-command
         ('hs-global-cycle
          (save-excursion (hs-show-all))
