@@ -40,7 +40,7 @@
   ("|" split-window-vertically)
   ("0" delete-window)
   ("1" delete-other-windows)
-  ("u" winner-undo)
+  ("u" tab-bar-history-back)
   ;; Quit:
   ("<return>" nil)
   ("<space>" nil)
@@ -75,7 +75,7 @@
          ("|" . split-window-horizontally)
          ;; ("0" . delete-window)
          ;; ("1" . delete-other-windows)
-         ("u" . winner-undo)
+         ("u" . tab-bar-history-back)
          :exit
          ("<return>" . nil)))
 
