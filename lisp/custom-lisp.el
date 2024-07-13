@@ -9,7 +9,7 @@
 ;;; Code:
 
 (use-package elisp-slime-nav
-  :hook (emacs-lisp-mode . elisp-slime-nav-mode)
+  :hook emacs-lisp-mode
   :diminish elisp-slime-nav-mode)
 
 (use-package macrostep
@@ -22,7 +22,7 @@
 ;;; Cider-style overlays for elisp; see also
 ;;; http://endlessparentheses.com/eval-result-overlays-in-emacs-lisp.html
 (use-package eros
-  :hook (emacs-lisp-mode . eros-mode))
+  :hook emacs-lisp-mode)
 
 ;;; edebug overlays:
 ;;; https://xenodium.com/inline-previous-result-and-why-you-should-edebug/
