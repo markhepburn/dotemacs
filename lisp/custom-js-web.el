@@ -57,8 +57,7 @@
   :pin gnu
   :mode "\\.php\\'"
   :hook (phps-mode . lsp-deferred)
-  :custom
-  (lsp-phpactor-path "/home/mark/bin/phpactor")
+  ;; (lsp-phpactor-path "/home/mark/bin/phpactor")
   :config
   (setq phps-mode-async-process t
         phps-mode-async-process-using-async-el nil))
