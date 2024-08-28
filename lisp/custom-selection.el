@@ -193,6 +193,11 @@
 (use-package consult-lsp
   :after (consult lsp))
 
+(use-package consult-todo
+  :after consult
+  :bind ("M-g t" . consult-todo)
+  :commands (consult-todo consult-todo-project))             ; maybe C-x p t for consult-todo-project?
+
 (use-package embark
   :bind (("C-;" . embark-act)         ;; pick some comfortable binding
          ("M-." . embark-dwim)        ;; good alternative: M-.

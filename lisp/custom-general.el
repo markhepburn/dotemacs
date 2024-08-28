@@ -821,9 +821,8 @@ narrowed to the line."
   :diminish sqlind-minor-mode)
 
 ;;; Programming modes: enable "FIXME/TODO/etc" highlighting.
-(use-package fic-mode
-  :hook prog-mode
-  :diminish fic-mode)
+(use-package hl-todo
+  :hook prog-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; compression; edit compressed kml files too:
