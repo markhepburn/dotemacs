@@ -268,6 +268,7 @@
             tsx-ts-mode) . #'combobulate-mode)))
 
 (use-package editorconfig
+  :ensure nil
   :diminish editorconfig-mode
   :config (editorconfig-mode 1))
 
@@ -297,6 +298,7 @@
   :hook (hack-local-variables . ansible-vault-mode-maybe))
 
 (use-package which-key
+  :ensure nil
   :defer 3
   :diminish which-key-mode
   :config (which-key-mode 1))
