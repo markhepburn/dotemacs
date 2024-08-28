@@ -79,9 +79,6 @@
          ("C-c o l" . org-roam-buffer-toggle)
          ("C-c o i" . org-roam-node-insert)))
 
-(use-package org-download
-  :commands (org-download-yank org-download-clipboard))
-
 (use-package htmlize   :defer t)    ; belongs here as much as anywhere
 (use-package ox-reveal :defer t) ; For exporting reveal.js presentations
 
