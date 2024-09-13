@@ -48,6 +48,8 @@
 (use-package orderless
   :after vertico
   :init (setq completion-styles '(orderless))
+  :hook (prog-mode . (lambda () (setq-local orderless-smart-case nil
+                                            completion-ignore-case t)))
   :config
   (defun without-if-bang (pattern _index _total)
     (cond
