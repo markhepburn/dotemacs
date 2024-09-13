@@ -300,7 +300,7 @@
 (use-package which-key
   :ensure nil
   :defer 3
-  :diminish which-key-mode
+  :diminish
   :config (which-key-mode 1))
 ;;; Language-server integration.  eglot is the other choice:
 ;;; Needs path to elixir_ls installation added to `exec-path'
