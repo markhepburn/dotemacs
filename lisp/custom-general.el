@@ -493,6 +493,17 @@
   :after yasnippet
   :config (yasnippet-snippets-initialize))
 
+;;; Built-in inline completion hints:
+(use-package completion-preview
+  :ensure nil
+  :diminish
+  :hook (prog-mode comint-mode)
+  :config
+  (add-to-list 'completion-preview-commands 'paredit-backward-delete)
+  :bind (:map completion-preview-active-mode-map
+         ("M-n" . completion-preview-next-candidate)
+         ("M-p" . completion-preview-prev-candidate)))
+
 ;;; Note, M-space to use orderless filtering
 (use-package corfu
   :defer 1
