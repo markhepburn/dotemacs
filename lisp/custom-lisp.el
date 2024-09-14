@@ -93,7 +93,8 @@
 (use-package cider
   :pin melpa-stable
   :init (setq cider-repl-use-pretty-printing t
-              cider-prompt-for-symbol nil)
+              cider-prompt-for-symbol nil
+              cider-repl-history-file "~/.cider-repl-history")
   :bind (:map cider-repl-mode-map
               ;; Swap these around a bit; next/previous use search history (also on M-p/n)
               ("<up>"     . cider-repl-backward-input)
