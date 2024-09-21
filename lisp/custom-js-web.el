@@ -53,14 +53,9 @@
          web-mode-indent-style 2)
   :mode ("\\.html?\\'" "\\.tsx\\'" "\\.blade\\.php\\'"))
 
-(use-package phps-mode
-  :pin gnu
-  :mode "\\.php\\'"
-  :hook (phps-mode . lsp-deferred)
-  ;; (lsp-phpactor-path "/home/mark/bin/phpactor")
-  :config
-  (setq phps-mode-async-process t
-        phps-mode-async-process-using-async-el nil))
+(use-package php-ts-mode
+  :ensure nil
+  :hook (php-ts-mode . lsp-deferred))
 
 ;;; emmet (zencoding) shortcuts for html generation:
 (use-package emmet-mode

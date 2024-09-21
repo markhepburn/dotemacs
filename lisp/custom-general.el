@@ -216,6 +216,7 @@
              '((css "https://github.com/tree-sitter/tree-sitter-css")
                (javascript . ("https://github.com/tree-sitter/tree-sitter-javascript" "master" "src"))
                (python "https://github.com/tree-sitter/tree-sitter-python")
+               (php . ("https://github.com/tree-sitter/tree-sitter-php" "master" "php/src"))
                (tsx . ("https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src"))
                (yaml "https://github.com/ikatyang/tree-sitter-yaml")))
       (add-to-list 'treesit-language-source-alist grammar)
