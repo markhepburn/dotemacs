@@ -55,6 +55,7 @@
 
 (use-package php-ts-mode
   :ensure nil
+  :mode "\\.php\\'"
   :hook (php-ts-mode . lsp-deferred))
 
 ;;; emmet (zencoding) shortcuts for html generation:
