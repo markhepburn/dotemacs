@@ -51,10 +51,6 @@
 
 ;; In Emacs 27+, package initialization occurs before `user-init-file' is
 ;; loaded, but after `early-init-file'.
-(setq package-enable-at-startup nil)
-
-
-;; Initialise installed packages
 (setq package-enable-at-startup t)
 
 ;; Allow loading from the package cache
