@@ -35,10 +35,10 @@
 ;;; See also lsp-pyright-venv-path, which is the location of your venvs -- set per-host
 (use-package lsp-pyright
   :demand t
-  :after (lsp-mode python-mode python-ts-mode)
-  :init (setq lsp-pyright-log-level "warning"
-              ;; https://docs.basedpyright.com/
-              lsp-pyright-langserver-command "basedpyright"))
+  :after lsp-mode
+  :init (setq lsp-pyright-log-level "warning")
+  ;; https://docs.basedpyright.com/
+  :custom (lsp-pyright-langserver-command "basedpyright"))
 
 (use-package python-mode
   :ensure nil
