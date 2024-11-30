@@ -62,6 +62,10 @@
   :bind (("C-x g" . magit-status)
          ("C-c M-g" . magit-file-dispatch)))
 
+;;; Install delta from https://github.com/dandavison/delta
+(use-package magit-delta
+  :hook (magit-mode . magit-delta-mode))
+
 (use-package git-messenger
   :bind (("C-x v p" . git-messenger:popup-message))
   :config
