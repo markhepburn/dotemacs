@@ -302,6 +302,10 @@
   :after (yaml-mode yaml-ts-mode)
   :hook (hack-local-variables . ansible-vault-mode-maybe))
 
+;;; also, apt-install terraform-ls for lsp support
+(use-package terraform-mode
+  :hook (terraform-mode . outline-minor-mode))
+
 (use-package which-key
   :ensure nil
   :defer 3
@@ -322,6 +326,7 @@
            clojurec-mode
            clojurescript-mode
            csharp-mode
+           terraform-mode
            typescript-mode) . lsp)
          (lsp-mode . lsp-enable-which-key-integration))
   :init
