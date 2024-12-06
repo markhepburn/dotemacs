@@ -268,6 +268,10 @@
             typescript-ts-mode
             tsx-ts-mode) . #'combobulate-mode)))
 
+(use-package activity-watch-mode
+  :defer 3
+  :commands (global-activity-watch-mode))
+
 (use-package editorconfig
   :ensure nil
   :diminish editorconfig-mode
