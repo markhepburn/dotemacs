@@ -23,7 +23,7 @@
   (lsp-rust-analyzer-cargo-watch-command "clippy")
   (lsp-eldoc-render-all t)
   (lsp-idle-delay 0.6)
-  (lsp-rust-analyzer-server-display-inlay-hints t)
+  (lsp-inlay-hint-enable t)
   :config
   ;; uncomment for less flashiness
   ;; (setq lsp-eldoc-hook nil)
@@ -41,7 +41,8 @@
   ;; https://github.com/brotzeit/rustic/issues/253 has been resolved this should
   ;; no longer be necessary.
   (when buffer-file-name
-    (setq-local buffer-save-without-query t)))
+    (setq-local buffer-save-without-query t))
+  (lsp-inlay-hints-mode 1))
 
 (provide 'custom-rust)
 
