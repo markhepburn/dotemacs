@@ -31,6 +31,7 @@
         erc-hide-list '("JOIN" "PART" "QUIT"))
 
   :commands start-erc
+  :custom (erc-buffer-display 'buffer)
   :config
   (defun start-erc ()
     (interactive)
