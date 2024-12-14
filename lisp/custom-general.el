@@ -113,6 +113,12 @@
    ;; spaces not tabs:
    indent-tabs-mode nil)
 
+  ;; https://protesilaos.com/codelog/2024-12-11-emacs-diff-save-some-buffers/
+  (add-to-list 'save-some-buffers-action-alist
+               (list "d"
+                     (lambda (buffer) (diff-buffer-with-file (buffer-file-name buffer)))
+                     "show diff between the buffer and its file"))
+
   ;; Default to UTF-8 (mostly useful for windows, but let's make it
   ;; general); https://www.masteringemacs.org/article/working-coding-systems-unicode-emacs:
   (prefer-coding-system 'utf-8)
