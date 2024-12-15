@@ -18,14 +18,8 @@
         erc-port   6697                 ; 6697 for TLS
 
         erc-autojoin-channels-alist
-        '(("irc.libera.chat" "#clojure"
-                             ;; "#clojure-au"
-                             "#elixir"
-                             "#emacs"
-                             ;; "#django-geo"
-                             "#lobsters"
-                             ;; "#openlayers"
-			     ))
+        '((Libera.Chat "#emacs" "#lobsters"))
+        ;; Others: #clojure, #clojure-au; #elixir, #openlayers, #django-geo
 
         ;; Ignore all the "xxx has quit: timeout" etc messages:
         erc-hide-list '("JOIN" "PART" "QUIT"))
