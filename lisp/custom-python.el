@@ -48,6 +48,10 @@
   :ensure nil
   :hook (python-ts-mode . lsp))
 
+(use-package flymake-ruff
+  :when (executable-find "ruff")
+  :hook (python-mode . flymake-ruff-load))
+
 (use-package pyvenv
   :init (setenv "WORKON_HOME" "~/.virtualenvs/")
   :config
