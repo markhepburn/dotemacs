@@ -8,7 +8,6 @@
 ;;; Based off https://robert.kra.hn/posts/2021-02-07_rust-with-emacs/
 
 (use-package rustic
-  :after lsp
   ;; :bind (:map rustic-mode-map
   ;;             ("M-j" . lsp-ui-imenu)
   ;;             ("M-?" . lsp-find-references)
