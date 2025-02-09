@@ -222,8 +222,10 @@ The symbol at point is added to the future history."
 
 (use-package consult-todo
   :after consult
-  :bind ("M-g t" . consult-todo)
-  :commands (consult-todo consult-todo-project))             ; maybe C-x p t for consult-todo-project?
+  :bind (("M-g t" . consult-todo)
+         ("M-g T" . consult-todo-project)
+         ("C-x p t" . consult-todo-project))
+  :commands (consult-todo consult-todo-project))
 
 (use-package embark
   :bind (("C-;" . embark-act)         ;; pick some comfortable binding
