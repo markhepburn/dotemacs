@@ -208,7 +208,9 @@
    ("M-j" . join-line-fowards))
 
   :mode
-  (("\\.m\\'" . octave-mode) ; I use octave more than obj-c in general:
+  (("\\.lua\\'" . lua-ts-mode)
+   ;; Add dockerfile support to auto-mode-alist (borrowing their own regexp):
+   ("\\(?:Dockerfile\\(?:\\..*\\)?\\|\\.[Dd]ockerfile\\)\\'" . dockerfile-ts-mode)
    ;; open jar files as well:
    ("\\.jar\\'" . archive-mode)))
 
