@@ -68,9 +68,7 @@
   :hook (org-mode . (lambda () (electric-indent-local-mode -1))))
 
 (use-package org-roam
-  :after org
   :diminish org-roam-mode
-  :hook (after-init . org-roam-db-autosync-enable)
   :custom
   (org-roam-directory (file-truename "~/Nextcloud/orgroam/"))
   (org-roam-node-display-template "${title:*} ${tags:40}")
