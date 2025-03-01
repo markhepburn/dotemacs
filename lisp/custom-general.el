@@ -222,6 +222,7 @@
     (interactive)
     (dolist (grammar
              '((css "https://github.com/tree-sitter/tree-sitter-css")
+               (haskell "https://github.com/tree-sitter/tree-sitter-haskell")
                (javascript . ("https://github.com/tree-sitter/tree-sitter-javascript" "master" "src"))
                (python "https://github.com/tree-sitter/tree-sitter-python")
                (php . ("https://github.com/tree-sitter/tree-sitter-php" "master" "php/src"))
@@ -237,6 +238,7 @@
   (setq treesit-font-lock-level 3)      ; default 3; max of 4
 
   (dolist (mapping '((python-mode . python-ts-mode)
+                     (haskell-mode . haskell-ts-mode)
                      (css-mode . css-ts-mode)
                      (typescript-mode . tsx-ts-mode)
                      (js-mode . js-ts-mode)
