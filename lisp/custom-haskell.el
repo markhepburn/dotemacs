@@ -12,7 +12,7 @@
 ;;; Code:
 
 (use-package haskell-ts-mode
-  :mode "\.hs'")
+  :mode "\\.hs\\'")
 
 (use-package lsp-haskell
   :after (lsp))
