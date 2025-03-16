@@ -41,6 +41,15 @@
          )
 
   :config
+  ;; Horrible HACK: magit->git-commit->log-edit->message->mailabbrev
+  ;; attempts to manipulate mail-mode-map which doesn't exist yet,
+  ;; because it's defined in sendmail. It does require sendmail first,
+  ;; but inside an eval-when-compile so perhaps that plays
+  ;; unexpectedly with native compilation? I can reproduce it manually
+  ;; requiring message with my config but not a vanilla one so
+  ;; presumably it's me. So anyway, just ensure that sendmail is
+  ;; already loaded and let's move on with our life for now:
+  (require 'sendmail)
   ;; otherwise magit-repository-directories isn't initialised if
   ;; project.el hasn't been loaded first:
   (autoload 'project-known-project-roots "project" nil t)
