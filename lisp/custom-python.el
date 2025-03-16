@@ -55,6 +55,8 @@
 (use-package pyvenv
   :init (setenv "WORKON_HOME" "~/.virtualenvs/")
   :config
+  ;; https://github.com/emacs-lsp/lsp-pyright/issues/49#issuecomment-820296214
+  ;; lsp-pyright-venv-path is absolute path, while lsp-pyright-venv-directory is the folder name.
   (add-hook 'pyvenv-pre-activate-hooks
             (lambda ()
               ;; need to set path to venv, not base dir of all venvs:
