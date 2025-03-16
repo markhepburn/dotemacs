@@ -15,7 +15,7 @@
   :mode "\\.hs\\'")
 
 (use-package lsp-haskell
-  :after (lsp))
+  :after (haskell-ts-mode))
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (provide 'custom-haskell)
