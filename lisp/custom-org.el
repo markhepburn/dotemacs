@@ -48,6 +48,7 @@
         org-use-speed-commands t
         org-speed-commands (add-to-list 'org-speed-commands '("S" . save-buffer) 'append)
 
+        org-use-sub-superscripts nil    ; I find they get in the way as a default.  Set ^:t in #+options to change
         ;; automatically use symbols for \alpha, etc (toggle with C-c C-x \
         ;; if necessary):
         org-pretty-entities t)
