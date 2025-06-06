@@ -1,4 +1,4 @@
-;;; custom-functions.el --- Miscellaneous useful functions / commands
+;;; custom-functions.el --- Miscellaneous useful functions / commands  -*- lexical-binding: t; -*-
 ;;; Tidy-up macro from
 ;;; http://milkbox.net/note/single-file-master-emacs-configuration/
 ;;; I've been meaning to write something like this for ages; this will

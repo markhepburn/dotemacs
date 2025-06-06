@@ -1,4 +1,4 @@
-;;; custom-haskell.el --- Haskell development customisation
+;;; custom-haskell.el --- Haskell development customisation  -*- lexical-binding: t; -*-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; haskell stuff:

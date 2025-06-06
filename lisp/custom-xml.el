@@ -1,4 +1,4 @@
-;;; custom-xml.el --- XML Editing
+;;; custom-xml.el --- XML Editing  -*- lexical-binding: t; -*-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; xml:

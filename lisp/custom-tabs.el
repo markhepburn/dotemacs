@@ -1,4 +1,4 @@
-;;; custom-tabs.el --- Customisations for tab-bar-mode
+;;; custom-tabs.el --- Customisations for tab-bar-mode  -*- lexical-binding: t; -*-
 
 ;;; Commentary:
 ;;;

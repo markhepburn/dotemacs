@@ -1,4 +1,4 @@
-;;; custom-python.el --- Python Development Customisation
+;;; custom-python.el --- Python Development Customisation  -*- lexical-binding: t; -*-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Python stuff

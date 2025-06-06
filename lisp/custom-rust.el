@@ -1,4 +1,4 @@
-;;; custom-rust.el -- Programming using Rust
+;;; custom-rust.el -- Programming using Rust  -*- lexical-binding: t; -*-
 
 ;;; Commentary:
 ;;;

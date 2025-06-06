@@ -1,4 +1,4 @@
-;;; custom-erc.el --- ERC Customisations
+;;; custom-erc.el --- ERC Customisations  -*- lexical-binding: t; -*-
 
 ;;; Commentary:
 ;; ERC Customisations

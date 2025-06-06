@@ -1,4 +1,4 @@
-;;; Automatically handle ssh-agent interaction (hooks into magit):
+;;; Automatically handle ssh-agent interaction (hooks into magit):  -*- lexical-binding: t; -*-
 ;;; (warning: might need to disable the "start" script in the git-bin
 ;;; path; haven't come across issues arising from doing that yet)
 (use-package ssh-agency

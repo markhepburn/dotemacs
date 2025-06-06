@@ -1,4 +1,4 @@
-;;; custom-org.el --- Org-mode Customisation
+;;; custom-org.el --- Org-mode Customisation  -*- lexical-binding: t; -*-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; org-mode stuff:

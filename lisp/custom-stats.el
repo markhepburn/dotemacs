@@ -1,4 +1,4 @@
-;;; custom-stats.el --- ESS Customisation
+;;; custom-stats.el --- ESS Customisation  -*- lexical-binding: t; -*-
 ;;; Set-up and configuration for stats stuff, mainly ESS (for R)
 
 

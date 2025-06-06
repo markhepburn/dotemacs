@@ -1,4 +1,4 @@
-;;; custom-dart-flutter.el -- Modes for mobile development using flutter and dart
+;;; custom-dart-flutter.el -- Modes for mobile development using flutter and dart  -*- lexical-binding: t; -*-
 
 ;;; Commentary:
 ;;;

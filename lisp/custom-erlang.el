@@ -1,4 +1,4 @@
-;;; custom-erlang.el --- Customations for Erlang
+;;; custom-erlang.el --- Customations for Erlang  -*- lexical-binding: t; -*-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Erlang stuff

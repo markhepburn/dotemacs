@@ -1,4 +1,4 @@
-;;; custom-eshell.el --- Customisations for eshell
+;;; custom-eshell.el --- Customisations for eshell  -*- lexical-binding: t; -*-
 ;;; Don't know how much I'll use eshell, but try setting it up anyway.
 
 ;;; Taken from http://www.emacswiki.org/emacs/EshellCompletion

@@ -1,4 +1,4 @@
-;;; custom-general.el --- Miscellaneous customisations; mostly simple tweaks
+;;; custom-general.el --- Miscellaneous customisations; mostly simple tweaks  -*- lexical-binding: t; -*-
 ;;; Miscellaneous customisations; mostly one-liner tweaks of
 ;;; appearance and functionality.
 

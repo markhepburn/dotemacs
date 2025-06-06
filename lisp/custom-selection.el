@@ -1,4 +1,4 @@
-;;; custom-selection --- minibuffer selection and completion customisation
+;;; custom-selection --- minibuffer selection and completion customisation  -*- lexical-binding: t; -*-
 
 ;;; Commentary:
 ;;; Replaces helm with a more "native" and focussed set of tools.
