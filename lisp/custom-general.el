@@ -214,6 +214,13 @@
    ;; open jar files as well:
    ("\\.jar\\'" . archive-mode)))
 
+;;; Purely to set the bindings so my custom ones aren't clobbered:
+(use-package flyspell
+  :ensure nil
+  :hook (prog-mode . flyspell-prog-mode)
+  :bind (:map flyspell-mode-map
+              ("C-," . nil)
+              ("C-." . nil)))
 (use-package treesit
   :ensure nil
   :preface
