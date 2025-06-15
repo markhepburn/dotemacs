@@ -38,9 +38,11 @@
         ;; Reproducting another default:
         org-adapt-indentation t
 
+        org-datetree-add-timestamp 'inactive
         org-capture-templates
         '(("w" "Weekend" checkitem (file+function "~/Nextcloud/Notes/Weekend.org" beginning-of-buffer))
-          ("c" "Condense" entry (file+regexp "~/Nextcloud/Notes/condense-weekly.org" "^\* <") "* %?")
+          ;; ("c" "Condense" entry (file+regexp "~/Nextcloud/Notes/condense-weekly.org" "^\* <") "* %?")
+          ("c" "Condense" entry (file+olp+datetree "~/Nextcloud/Notes/condense-timetracking.org") "* %U %^{Activity}%?")
           ;; Fixme: using a nil entry-template here + :prepend t removes indentation and adds [-] for some reason:
           ("b" "Blog Queue" checkitem (file+headline "~/Nextcloud/Notes/Blog-posts.org" "Queue")))
 
