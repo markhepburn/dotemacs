@@ -42,6 +42,11 @@
 
 (use-package exec-path-from-shell
   :demand t
+  :init
+  (setq exec-path-from-shell-variables
+        '("GEMINI_API_KEY" "ANTHROPIC_API_KEY"
+          ;; The original contents of exec-path-from-shell-variables:
+          "PATH" "MANPATH"))
   :config
   (setenv "PATH" "") ; otherwise zsh is run with the existing PATH, leading to lots of dupes, etc
   (exec-path-from-shell-initialize))
