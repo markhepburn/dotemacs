@@ -25,6 +25,12 @@
   (if (not (getenv "GEMINI_API_KEY"))
       (setenv "GEMINI_API_KEY" gemini-api-key)))
 
+(use-package claude-code
+  :vc (:url "https://github.com/stevemolitor/claude-code.el" :rev :newest)
+  :diminish
+  :config (claude-code-mode)
+  :bind-keymap ("C-c c" . claude-code-command-map))
+
 
 ;;; See also: https://github.com/copilot-emacs/copilot.el
 
