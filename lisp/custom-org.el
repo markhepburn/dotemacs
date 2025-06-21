@@ -54,6 +54,10 @@
         ;; automatically use symbols for \alpha, etc (toggle with C-c C-x \
         ;; if necessary):
         org-pretty-entities t)
+  ;; For verb blocks, you want "#+begin_src verb :wrap src ob-verb-response"
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((verb . t)))
   ;; Bit of a hack to work around htmlize-buffer (as called by
   ;; org-write-agenda for eg) not working.  See
   ;; http://www.mail-archive.com/emacs-orgmode@gnu.org/msg04365.html
