@@ -91,8 +91,6 @@ temporary file and using `package-install-file'"
             (set-face-attribute 'mode-line-active nil :inherit 'mode-line)
             (set-face-attribute 'mode-line-inactive nil :inherit 'mode-line)))
 
-(when (fboundp 'pixel-scroll-precision-mode) (pixel-scroll-precision-mode 1))
-
 ;; (load "secure-settings.el.gpg" t)
 
 ;;; loaded before anything else because of various macros
