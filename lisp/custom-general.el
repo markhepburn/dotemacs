@@ -401,6 +401,8 @@
 (use-package dap-elixir
   :ensure nil
   :after dap-mode)
+(use-package dape ; just works with debugpy remotely in a docker container (dap-mode doesn't yet)
+  :commands dape) ; When loaded, available under "C-x C-a d"
 
 (use-package sudo-edit
   :commands sudo-edit)

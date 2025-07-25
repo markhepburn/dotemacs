@@ -73,6 +73,19 @@
   ;;               (setq python-shell-interpreter "python3"))))
   )
 
+;;; sample dape configuration for docker remote server
+;;; (run program with "-m debugpy --listen 0.0.0.0:5678")
+;; `(debugpy-docker-attach
+;;        modes (python-mode python-ts-mode)
+;;        host "localhost"
+;;        port 5678
+;;        :request "attach"
+;;        :type "python"
+;;        :pathMappings [(:localRoot "/home/mark/Condense/imas-seachange/backend/"
+;;                        :remoteRoot "/app")]
+;;        :justMyCode nil
+;;        :showReturnValue t))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (provide 'custom-python)
