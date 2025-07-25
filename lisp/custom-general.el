@@ -235,13 +235,18 @@
     "Install Tree-sitter grammars if they are absent."
     (interactive)
     (dolist (grammar
-             '((css "https://github.com/tree-sitter/tree-sitter-css")
-               (haskell "https://github.com/tree-sitter/tree-sitter-haskell")
-               (javascript . ("https://github.com/tree-sitter/tree-sitter-javascript" "master" "src"))
-               (python "https://github.com/tree-sitter/tree-sitter-python")
-               (php . ("https://github.com/tree-sitter/tree-sitter-php" "master" "php/src"))
-               (tsx . ("https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src"))
-               (yaml "https://github.com/ikatyang/tree-sitter-yaml")))
+             '((css . ("https://github.com/tree-sitter/tree-sitter-css" "v0.20.0"))
+               (go . ("https://github.com/tree-sitter/tree-sitter-go" "v0.20.0"))
+               (html . ("https://github.com/tree-sitter/tree-sitter-html" "v0.20.1"))
+               (javascript . ("https://github.com/tree-sitter/tree-sitter-javascript" "v0.20.1" "src"))
+               (json . ("https://github.com/tree-sitter/tree-sitter-json" "v0.20.2"))
+               (markdown . ("https://github.com/ikatyang/tree-sitter-markdown" "v0.7.1"))
+               (python . ("https://github.com/tree-sitter/tree-sitter-python" "v0.20.4"))
+               (rust . ("https://github.com/tree-sitter/tree-sitter-rust" "v0.21.2"))
+               (toml . ("https://github.com/tree-sitter/tree-sitter-toml" "v0.5.1"))
+               (tsx . ("https://github.com/tree-sitter/tree-sitter-typescript" "v0.20.3" "tsx/src"))
+               (typescript . ("https://github.com/tree-sitter/tree-sitter-typescript" "v0.20.3" "typescript/src"))
+               (yaml . ("https://github.com/ikatyang/tree-sitter-yaml" "v0.5.0"))))
       (add-to-list 'treesit-language-source-alist grammar)
       ;; Only install `grammar' if we don't already have it
       ;; installed. However, if you want to *update* a grammar then
@@ -285,12 +290,7 @@
     ;; Note that you may have to restart Emacs for this to take effect!
     (setq combobulate-key-prefix "C-c o")
 
-    :hook ((python-ts-mode
-            js-ts-mode
-            css-ts-mode
-            yaml-ts-mode
-            typescript-ts-mode
-            tsx-ts-mode) . #'combobulate-mode)))
+    :hook (prog-mode . #'combobulate-mode)))
 
 (use-package activity-watch-mode
   :defer 3
