@@ -851,13 +851,6 @@ narrowed to the line."
   :hook (markdown-mode
          . (lambda ()
              (add-hook (make-local-variable 'fill-nobreak-predicate) 'mh/liquid-nobreak-p))))
-(use-package grip-mode
-  :after markdown-mode
-  :custom
-  (grip-github-user "markhepburn")
-  (grip-update-after-change nil)
-  :bind (:map markdown-mode-command-map
-              ("g" . grip-mode)))
 
 (use-package sql-indent
   :pin gnu
