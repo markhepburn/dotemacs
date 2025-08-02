@@ -32,6 +32,10 @@
   :bind-keymap ("C-c c" . claude-code-command-map))
 
 
+;;; Maybe later; Emacs integration:
+;;; https://github.com/steveyegge/efrit?tab=readme-ov-file
+
+
 ;;; See also: https://github.com/copilot-emacs/copilot.el
 
 (provide 'custom-ai)
