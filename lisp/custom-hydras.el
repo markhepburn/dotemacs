@@ -54,11 +54,11 @@
 
 (use-package window
   :ensure nil
-  :bind (("C-x O" . other-window-reverse)
+  :bind (("C-x O" . other-window-backward)
          :repeat-map
          other-window-repeat-map
          ("o" . other-window)
-         ("O" . other-window-reverse)
+         ("O" . other-window-backward)
          :continue
          ("h" . windmove-left)
          ("j" . windmove-down)
@@ -87,13 +87,6 @@
   :init (setq repeat-help-auto t
               repeat-help-popup-type 'which-key)
   :config (repeat-mode 1))
-
-;; (global-set-key (kbd "C-x o") 'mh/maybe-hydra-windows)
-;;; Note; requires this fork of use-package: https://github.com/Hugo-Heagren/use-package/commit/a1512f4124b3dce04ba48c82f2c14cdfefd2cffa
-;;; (I just re-loaded bind-key and use-package-bind-key)
-(defun other-window-reverse ()
-  (interactive)
-  (other-window -1))
 
 (provide 'custom-hydras)
 
