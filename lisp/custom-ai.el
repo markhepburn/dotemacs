@@ -3,7 +3,7 @@
 
 
 ;;; Commentary:
-;; 
+;;
 
 ;;; Code:
 
@@ -25,11 +25,13 @@
   (if (not (getenv "GEMINI_API_KEY"))
       (setenv "GEMINI_API_KEY" gemini-api-key)))
 
-(use-package claude-code
-  :vc (:url "https://github.com/stevemolitor/claude-code.el" :rev :newest)
+
+(use-package claude-code-ide
+  :vc (:url "https://github.com/manzaltu/claude-code-ide.el" :rev :newest)
   :diminish
-  :config (claude-code-mode)
-  :bind-keymap ("C-c c" . claude-code-command-map))
+  :bind ("C-c c" . claude-code-ide-menu)
+  :init (setq claude-code-ide-terminal-backend 'eat)
+  :config (claude-code-ide-emacs-tools-setup))
 
 
 ;;; Maybe later; Emacs integration:
