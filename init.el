@@ -110,6 +110,7 @@ temporary file and using `package-install-file'"
 (let ((excluded-files
        '("custom-functions.el"          ; loaded above
          "custom-latex.el"              ; Don't use this most of the time; enable when necessary
+         "custom-hydras.el"             ; Experiment with the built-in + repeat-mode
          )))
   (dolist (custom-file (directory-files *mh/lisp-base* nil "custom-.*" nil))
     (unless (-contains? excluded-files custom-file)

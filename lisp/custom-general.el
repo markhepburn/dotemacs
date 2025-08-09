@@ -175,6 +175,11 @@
   (defun mh/minibuffer-exit-hook ()
     (setq gc-cons-threshold (* 32 1024 1024)))
 
+  (use-package repeat
+    :ensure nil
+    :defer 3
+    :config (repeat-mode 1))
+
   :hook ((text-mode . visual-line-mode)
          ((prog-mode text-mode) . mh/turn-on-show-trailing-whitespace)
          (prog-mode . subword-mode)
