@@ -50,6 +50,8 @@
   ;; presumably it's me. So anyway, just ensure that sendmail is
   ;; already loaded and let's move on with our life for now:
   (require 'sendmail)
+
+  :config
   ;; otherwise magit-repository-directories isn't initialised if
   ;; project.el hasn't been loaded first:
   (autoload 'project-known-project-roots "project" nil t)
