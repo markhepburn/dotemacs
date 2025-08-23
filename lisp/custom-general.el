@@ -356,6 +356,7 @@
            clojurescript-mode
            csharp-mode
            terraform-mode
+           tsx-ts-mode
            typescript-mode) . lsp)
          (lsp-mode . lsp-enable-which-key-integration))
   :init
