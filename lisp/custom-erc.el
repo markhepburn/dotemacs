@@ -27,6 +27,8 @@
   :commands start-erc
   :custom (erc-buffer-display 'buffer)
   :config
+  (setopt erc-modules
+          (seq-union '(keep-place) erc-modules))
   (defun start-erc ()
     (interactive)
     (erc-tls :server erc-server
@@ -46,6 +48,10 @@
     (erc-update-modules))
 
   (erc-services-mode 1))
+
+(use-package erc-goodies
+  :ensure nil
+  :hook (erc-join . erc-keep-place-indicator-enable))
 
 (setq auth-sources '(default
                       "secrets:session"
