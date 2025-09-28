@@ -1,4 +1,4 @@
-;;; unscroll.el --- Allow undo of scrolling
+;;; unscroll.el --- Allow undo of scrolling  -*- lexical-binding: t; -*-
 ;;; Allow undo of scrolling
 ;;;
 
