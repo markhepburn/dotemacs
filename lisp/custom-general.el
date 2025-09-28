@@ -173,7 +173,7 @@
     (setq gc-cons-threshold most-positive-fixnum))
 
   (defun mh/minibuffer-exit-hook ()
-    (setq gc-cons-threshold (* 32 1024 1024)))
+    (setq gc-cons-threshold gc-cons-threshold-original))
 
   (use-package repeat
     :ensure nil

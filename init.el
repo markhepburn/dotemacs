@@ -27,8 +27,8 @@
 (add-hook 'after-init-hook
           `(lambda ()
              (setq file-name-handler-alist file-name-handler-alist-old
-                   gc-cons-threshold 800000
-                   gc-cons-percentage 0.1)
+                   gc-cons-threshold gc-cons-threshold-original
+                   gc-cons-percentage gc-cons-percentage-original)
              (load "secure-settings.el.gpg" t)
              ;; (require 'secure-settings "secure-settings.el.gpg" t)
              (garbage-collect)) t)
