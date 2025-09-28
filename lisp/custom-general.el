@@ -61,6 +61,8 @@
 
    default-tab-width 4
 
+   cycle-spacing-actions '(just-one-space delete-all-space delete-space-after restore)
+
    ;; ...and dired buffers too, and don't be chatty:
    global-auto-revert-non-file-buffers t
    auto-revert-verbose nil
