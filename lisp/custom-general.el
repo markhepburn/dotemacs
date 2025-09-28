@@ -230,7 +230,7 @@
               ("C-." . nil)))
 
 (use-package ultra-scroll
-  :vc (:url "https://github.com/jdtsmith/ultra-scroll")
+  :vc (:url "https://github.com/jdtsmith/ultra-scroll" :rev :newest)
   :init (setq scroll-conservatively 101 ; important!
               scroll-margin 0)
   :config (ultra-scroll-mode 1))
@@ -278,7 +278,7 @@
 
   ;;; Code folding:
   (use-package treesit-fold
-    :vc (:url "https://github.com/emacs-tree-sitter/treesit-fold")
+    :vc (:url "https://github.com/emacs-tree-sitter/treesit-fold" :rev :newest)
     :diminish treesit-fold-mode
     :config (global-treesit-fold-mode)
     :hook ((python-ts-mode
