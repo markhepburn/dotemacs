@@ -815,9 +815,9 @@ narrowed to the line."
      minibuffer-inactive-mode
      nxml-mode
      slime-repl-mode
-     sly-mrepl-mode))
+     sly-mrepl-mode
+     web-mode))
   (sp-base-key-bindings 'paredit)
-  :hook (prog-mode . smartparens-mode)
   :config
   (smartparens-global-mode 1)
   (show-smartparens-global-mode 1)
