@@ -34,6 +34,19 @@
   :config (claude-code-ide-emacs-tools-setup))
 
 
+;;; Need to explicitly install deps:
+(use-package shell-maker)
+(use-package acp
+  :vc (:url "https://github.com/xenodium/acp.el" :rev :newest))
+(use-package agent-shell
+  :diminish
+  :bind ("C-c A" . agent-shell)
+  :vc (:url "https://github.com/xenodium/agent-shell")
+  :init
+  (setq agent-shell-google-authentication
+        (agent-shell-google-make-authentication
+         :api-key (lambda () gemini-api-key))))
+
 ;;; Maybe later; Emacs integration:
 ;;; https://github.com/steveyegge/efrit?tab=readme-ov-file
 
