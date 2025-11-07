@@ -36,16 +36,18 @@
 
 ;;; Need to explicitly install deps:
 (use-package shell-maker)
-(use-package acp
-  :vc (:url "https://github.com/xenodium/acp.el" :rev :newest))
+(use-package acp)
 (use-package agent-shell
   :diminish
   :bind ("C-c A" . agent-shell)
-  :vc (:url "https://github.com/xenodium/agent-shell")
-  :init
-  (setq agent-shell-google-authentication
+  :config
+  (setq ;; Gemini:
+        agent-shell-google-authentication
         (agent-shell-google-make-authentication
-         :api-key (lambda () gemini-api-key))))
+         :api-key (lambda () gemini-api-key))
+        ;; Claude Code:
+        agent-shell-anthropic-authentication
+        (agent-shell-anthropic-make-authentication :login t)))
 
 ;;; Maybe later; Emacs integration:
 ;;; https://github.com/steveyegge/efrit?tab=readme-ov-file
