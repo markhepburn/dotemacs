@@ -370,12 +370,6 @@
 (use-package sudo-edit
   :commands sudo-edit)
 
-;; ;;; On-demand menu for calc:
-;; (use-package casual-calc
-;;   :after calc
-;;   :bind (:map calc-mode-map
-;;          ("C-o" . casual-main-menu)))
-
 (use-package vlf :defer t)
 (use-package vlf-setup
   :ensure nil
