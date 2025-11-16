@@ -14,8 +14,8 @@
 (use-package haskell-ts-mode
   :mode "\\.hs\\'")
 
-(use-package lsp-haskell
-  :after (haskell-ts-mode))
+;;; Placeholder for eglot customisation
+
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (provide 'custom-haskell)

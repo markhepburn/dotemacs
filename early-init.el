@@ -46,9 +46,6 @@
 (setq ;native-comp-jit-compilation nil  ;; disable for now
       native-comp-jit-compilation-deny-list nil)
 
-;; https://emacs-lsp.github.io/lsp-mode/page/performance/#use-plists-for-deserialization
-(setenv "LSP_USE_PLISTS" "true")
-
 ;; In Emacs 27+, package initialization occurs before `user-init-file' is
 ;; loaded, but after `early-init-file'.
 (setq package-enable-at-startup t)

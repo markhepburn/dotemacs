@@ -337,84 +337,44 @@
   :defer 3
   :diminish
   :config (which-key-mode 1))
-;;; Language-server integration.  eglot is the other choice:
-;;; Needs path to elixir_ls installation added to `exec-path'
-(use-package lsp-mode
-  :custom
-  (lsp-completion-provider :none)
-  (lsp-keymap-prefix "C-c l")
-  (lsp-lens-enable t)
-  (lsp-file-watch-threshold 10000)
-  ;; Add to this list as necessary; using prog-mode was too annoying:
-  :hook (((dart-mode
-           elixir-mode
-           clojure-mode
-           clojurec-mode
-           clojurescript-mode
-           csharp-mode
-           terraform-mode
-           tsx-ts-mode
-           typescript-mode) . lsp)
-         (lsp-mode . lsp-enable-which-key-integration))
-  :init
-  ;; https://www.reddit.com/r/emacs/comments/ql8cyp/comment/hj2k2lh/
-  (defun my/lsp-mode-setup-completion ()
-    (setf (alist-get 'styles (alist-get 'lsp-capf completion-category-defaults))
-          '(orderless)))
-  ;; https://github.com/blahgeek/emacs-lsp-booster
-  (defun lsp-booster--advice-json-parse (old-fn &rest args)
-    "Try to parse bytecode instead of json."
-    (or
-     (when (equal (following-char) ?#)
-       (let ((bytecode (read (current-buffer))))
-         (when (byte-code-function-p bytecode)
-           (funcall bytecode))))
-     (apply old-fn args)))
-  (advice-add (if (progn (require 'json)
-                         (fboundp 'json-parse-buffer))
-                  'json-parse-buffer
-                'json-read)
-              :around
-              #'lsp-booster--advice-json-parse)
-  (defun lsp-booster--advice-final-command (old-fn cmd &optional test?)
-    "Prepend emacs-lsp-booster command to lsp CMD."
-    (let ((orig-result (funcall old-fn cmd test?)))
-      (if (and (not test?)                             ;; for check lsp-server-present?
-               (not (file-remote-p default-directory)) ;; see lsp-resolve-final-command, it would add extra shell wrapper
-               lsp-use-plists
-               (not (functionp 'json-rpc-connection))  ;; native json-rpc
-               (executable-find "emacs-lsp-booster"))
-          (progn
-            (message "Using emacs-lsp-booster for %s!" orig-result)
-            (cons "emacs-lsp-booster" orig-result))
-        orig-result)))
-  (advice-add 'lsp-resolve-final-command :around #'lsp-booster--advice-final-command)
-  :hook (lsp-completion-mode . my/lsp-mode-setup-completion)
-  :diminish lsp-lens-mode
-  :bind ("C-c C-d" . lsp-describe-thing-at-point))
-(use-package lsp-ui
-  :after lsp-mode
-  :custom
-  (lsp-ui-doc-enable nil)           ; "C-c C-l T d" to enable
-  (lsp-ui-doc-position 'at-point)
-  :hook (lsp-configure . (lambda () (lsp-ui-sideline-enable nil)))) ; "C-c C-l T S" to enable
-;;; debugger support:
-(use-package dap-mode
-  :after lsp-mode)
-(use-package dap-elixir
+
+;;; Language-server integration. lsp-mode is the other choice, but
+;;; eglot seems fine with minimal tweaks and is built-in.
+
+;;; Noting for future reference; package-manager for lsp servers (and more):
+;;; https://github.com/deirn/mason.el
+
+(use-package eglot
   :ensure nil
-  :after dap-mode)
+  :commands (eglot eglot-ensure)
+  ;; HACK: looks like a bug in `require-with-check'; these two libs need to be explicitly (re)loaded first:
+  :init (load-library "project") (load-library "xref")
+  (setq-default eglot-workspace-configuration
+                '(:basedpyright ( :typeCheckingMode "standard" )))
+  :config
+  (defun project-find-subroot-for-eglot (dir)
+    (when eglot-lsp-context
+      (let ((root (locate-dominating-file dir ".eglot")))
+        (when root
+          (cons 'transient root)))))
+
+  (add-hook 'project-find-functions #'project-find-subroot-for-eglot))
+
 (use-package dape ; just works with debugpy remotely in a docker container (dap-mode doesn't yet)
   :commands dape) ; When loaded, available under "C-x C-a d"
+
+(use-package breadcrumb
+  :defer 3
+  :hook (prog-mode . breadcrumb-local-mode))
 
 (use-package sudo-edit
   :commands sudo-edit)
 
-;;; On-demand menu for calc:
-(use-package casual-calc
-  :after calc
-  :bind (:map calc-mode-map
-         ("C-o" . casual-main-menu)))
+;; ;;; On-demand menu for calc:
+;; (use-package casual-calc
+;;   :after calc
+;;   :bind (:map calc-mode-map
+;;          ("C-o" . casual-main-menu)))
 
 (use-package vlf :defer t)
 (use-package vlf-setup

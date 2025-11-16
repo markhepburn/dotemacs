@@ -14,14 +14,7 @@
   :bind (:map dart-mode-map
               ("C-M-x" . #'flutter-run-or-hot-reload)))
 
-(use-package lsp-dart
-  :after (dap-mode lsp-mode)
-  ;; :init
-  ;; (dap-register-debug-template "Flutter :: Custom debug"
-  ;;                              (list :flutterPlatform "x86_64"
-  ;;                                    :program "lib/main_debug.dart"
-  ;;                                    :args '("--flavor" "customer_a")))
-  )
+;;; Placeholder for any eglot customisation
 
 (provide 'custom-dart-flutter)
 

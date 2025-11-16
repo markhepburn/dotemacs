@@ -217,8 +217,10 @@ The symbol at point is added to the future history."
      :add-history (thing-at-point 'symbol)
      :state (consult--jump-state))))
 
-(use-package consult-lsp
-  :after (consult lsp))
+(use-package consult-eglot
+  :after (consult eglot))
+(use-package consult-eglot-embark
+  :after consult-eglot)
 
 (use-package consult-todo
   :after consult

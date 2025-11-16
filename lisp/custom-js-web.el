@@ -53,10 +53,7 @@
          web-mode-indent-style 2)
   :mode ("\\.html?\\'" "\\.tsx\\'" "\\.blade\\.php\\'"))
 
-(use-package php-ts-mode
-  :ensure nil
-  :mode "\\.php\\'"
-  :hook (php-ts-mode . lsp-deferred))
+;;; Placeholder for eglot customisation (may need a declaration for intelephense
 
 ;;; emmet (zencoding) shortcuts for html generation:
 (use-package emmet-mode
