@@ -28,6 +28,7 @@
 (use-package emacs :ensure nil
   :custom
   (Man-notify-method 'aggressive)        ; match behaviour of woman
+  (elisp-fontify-semantically t)
   :init
   (setq
    ;; Filename in frame title:
