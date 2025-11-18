@@ -772,6 +772,8 @@ narrowed to the line."
      sly-mrepl-mode
      web-mode))
   (sp-base-key-bindings 'paredit)
+  :bind (:map smartparens-mode-map
+         ("M-?" . nil)) ; disable; conflicts with xref-find-references
   :config
   (smartparens-global-mode 1)
   (show-smartparens-global-mode 1)
