@@ -365,6 +365,7 @@
 
 (use-package breadcrumb
   :defer 3
+  :custom (breadcrumb-imenu-crumb-separator " 〉 ")
   :hook (prog-mode . breadcrumb-local-mode))
 
 (use-package sudo-edit
