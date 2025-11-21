@@ -8,10 +8,6 @@
 
 ;;; Code:
 
-(use-package elisp-slime-nav
-  :hook emacs-lisp-mode
-  :diminish elisp-slime-nav-mode)
-
 (use-package macrostep
   :after elisp-mode
   :bind
