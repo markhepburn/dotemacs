@@ -136,13 +136,18 @@ temporary file and using `package-install-file'"
 ;;; Don't worry about disabled-command warnings:
 (setq disabled-command-function nil)
 
-;;; Set up session-saving (see https://github.com/emacs-helm/helm/issues/204):
-(use-package session
-  :init
-  (setq session-save-print-spec '(t nil 40000)
-        session-globals-exclude '(consult--buffer-history
-                                  vertico-repeat-history))
-  :hook (after-init . session-initialize))
+;;; Persistence stuff (I don't care about restoring buffers, windows etc so no desktop.el)
+(use-package savehist
+  :ensure nil
+  :hook (after-init . savehist-mode)
+  :config
+  (add-to-list 'savehist-additional-variables 'kill-ring)
+  (add-to-list 'savehist-additional-variables 'mark-ring)
+  (add-to-list 'savehist-additional-variables 'search-ring)
+  (add-to-list 'savehist-additional-variables 'regexp-search-ring))
+(use-package saveplace
+  :ensure nil
+  :hook (after-init . save-place-mode))
 (use-package recentf
   :hook (after-init . recentf-mode))
 

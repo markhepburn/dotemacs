@@ -347,8 +347,7 @@
 (use-package eglot
   :ensure nil
   :commands (eglot eglot-ensure)
-  ;; HACK: looks like a bug in `require-with-check'; these two libs need to be explicitly (re)loaded first:
-  :init (load-library "project") (load-library "xref")
+  :init
   (setq-default eglot-workspace-configuration
                 '(:basedpyright ( :typeCheckingMode "standard" )))
   :config
