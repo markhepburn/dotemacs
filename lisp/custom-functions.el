@@ -23,6 +23,14 @@
   (setq buffer-display-table (make-display-table))
   (aset buffer-display-table ?\^M []))
 
+(defun flymake-toggle-fancy ()
+  "Toggle flymake fancy-error-display"
+  (interactive)
+  (flymake-mode -1)
+  (setopt flymake-show-diagnostics-at-end-of-line
+          (if flymake-show-diagnostics-at-end-of-line nil 'fancy))
+  (flymake-mode))
+
 ;;; mark the line at point (main use-case is probably to mark then
 ;;; comment out, since killing, copying etc are already handled -- see
 ;;; below).  Bound to C-M-; to resemble M-; for this reason.
