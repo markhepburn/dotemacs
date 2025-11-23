@@ -147,9 +147,6 @@
   (blink-cursor-mode -1)
   ;; Always highlight the current line:
   (global-hl-line-mode 1)
-  ;; trailing whitespace (see also M-x delete-trailing-whitespace):
-  (defun mh/turn-on-show-trailing-whitespace ()
-    (setq show-trailing-whitespace t))
   ;; high-light selections:
   (transient-mark-mode 1)
   ;; Expected behaviour; delete selection when typing starts:
@@ -182,7 +179,6 @@
     :config (repeat-mode 1))
 
   :hook ((text-mode . visual-line-mode)
-         ((prog-mode text-mode) . mh/turn-on-show-trailing-whitespace)
          (prog-mode . subword-mode)
          ;; Make sure script files are executable after save:
          (after-save . executable-make-buffer-file-executable-if-script-p)
@@ -219,6 +215,9 @@
    ("\\(?:Dockerfile\\(?:\\..*\\)?\\|\\.[Dd]ockerfile\\)\\'" . dockerfile-ts-mode)
    ;; open jar files as well:
    ("\\.jar\\'" . archive-mode)))
+
+(use-package ws-butler
+  :hook (prog-mode . ws-butler-mode))
 
 ;;; Purely to set the bindings so my custom ones aren't clobbered:
 (use-package flyspell
