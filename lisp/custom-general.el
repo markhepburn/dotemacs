@@ -192,6 +192,8 @@
          )
 
   :diminish (auto-revert-mode
+             flymake-mode
+             subword-mode
              visual-line-mode
              visual-wrap-prefix-mode)
 
@@ -217,11 +219,13 @@
    ("\\.jar\\'" . archive-mode)))
 
 (use-package ws-butler
+  :diminish
   :hook (prog-mode . ws-butler-mode))
 
 ;;; Purely to set the bindings so my custom ones aren't clobbered:
 (use-package flyspell
   :ensure nil
+  :diminish
   :hook (prog-mode . flyspell-prog-mode)
   :bind (:map flyspell-mode-map
               ("C-," . nil)
