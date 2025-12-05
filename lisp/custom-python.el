@@ -34,7 +34,7 @@
           (message "Activating %s" active-venv-path)
           (pyvenv-activate active-venv-path)))
        ;; Else, if pyvenv-workon is set (probably via .dir-locals.el) activate that:
-       ((and (not venv-path) pyvenv-workon)
+       ((and (not venv-path) (boundp 'pyvenv-workon) pyvenv-workon)
         (message "Working-on %s" pyvenv-workon)
         (make-local-variable 'pyvenv-virtual-env)
         (pyvenv-workon pyvenv-workon))))))
