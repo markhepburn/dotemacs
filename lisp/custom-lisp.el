@@ -63,8 +63,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package clojure-mode
-  :hook ((clojure-mode . turn-on-eldoc-mode)
-         (clojure-mode . eglot-ensure)))
+  :hook (clojure-mode . turn-on-eldoc-mode))
 
 ;;; refactoring:
 (use-package clj-refactor
