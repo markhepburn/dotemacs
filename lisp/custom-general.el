@@ -362,6 +362,12 @@
           terraform-mode
           tsx-ts-mode
           typescript-mode) . eglot-ensure)
+  :bind (:map eglot-mode-map
+              ("C-c l a" . eglot-code-actions)
+              ("C-c l o" . eglot-code-action-organize-imports)
+              ("C-c l r" . eglot-rename)
+              ("C-c l f" . eglot-format)
+              ("C-c l q" . eglot-shutdown-all))
   :config
   (add-to-list 'eglot-server-programs '((python-mode python-ts-mode)
                                         . ("rass" "--"
