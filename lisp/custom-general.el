@@ -354,6 +354,10 @@
   (setq-default eglot-workspace-configuration
                 '(:basedpyright ( :typeCheckingMode "standard" )))
   :config
+  (add-to-list 'eglot-server-programs '((python-mode python-ts-mode)
+                                        . ("rass" "--"
+                                           "basedpyright-langserver" "--stdio"
+                                           "ruff" "server")))
   (defun project-find-subroot-for-eglot (dir)
     (when eglot-lsp-context
       (let ((root (locate-dominating-file dir ".eglot")))
