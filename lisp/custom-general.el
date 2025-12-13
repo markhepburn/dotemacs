@@ -353,6 +353,15 @@
   :init
   (setq-default eglot-workspace-configuration
                 '(:basedpyright ( :typeCheckingMode "standard" )))
+  :hook ((clojure-mode
+          clojurec-mode
+          clojurescript-mode
+          dart-mode
+          elixir-mode
+          python-base-mode
+          terraform-mode
+          tsx-ts-mode
+          typescript-mode) . eglot-ensure)
   :config
   (add-to-list 'eglot-server-programs '((python-mode python-ts-mode)
                                         . ("rass" "--"
