@@ -28,6 +28,7 @@
 (use-package emacs :ensure nil
   :custom
   (Man-notify-method 'aggressive)        ; match behaviour of woman
+  (vc-handled-backends '(Git))
   (elisp-fontify-semantically t)
   :init
   (setq
