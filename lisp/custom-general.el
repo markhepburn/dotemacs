@@ -352,7 +352,8 @@
   :commands (eglot eglot-ensure)
   :init
   (setq-default eglot-workspace-configuration
-                '(:basedpyright ( :typeCheckingMode "standard" )))
+                '(:basedpyright ( :typeCheckingMode "standard" ))
+                eglot-events-buffer-config '(:size 0 :format full))
   :hook ((clojure-mode
           clojurec-mode
           clojurescript-mode
