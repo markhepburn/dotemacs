@@ -366,6 +366,7 @@
               ("C-c l a" . eglot-code-actions)
               ("C-c l o" . eglot-code-action-organize-imports)
               ("C-c l r" . eglot-rename)
+              ("C-c l d" . eldoc)
               ("C-c l f" . eglot-format)
               ("C-c l q" . eglot-shutdown-all))
   :config
