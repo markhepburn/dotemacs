@@ -12,7 +12,7 @@
 (use-package org
   :ensure nil
   :config
-  (setq org-directory (expand-file-name (file-name-as-directory "~/Opencloud/org"))
+  (setq org-directory (expand-file-name (file-name-as-directory "~/OpenCloud/org"))
 
         org-log-done t
 
@@ -40,11 +40,11 @@
 
         org-datetree-add-timestamp 'inactive
         org-capture-templates
-        '(("w" "Weekend" checkitem (file+function "~/Opencloud/Notes/Weekend.org" beginning-of-buffer))
-          ;; ("c" "Condense" entry (file+regexp "~/Opencloud/Notes/condense-weekly.org" "^\* <") "* %?")
-          ("c" "Condense" entry (file+olp+datetree "~/Opencloud/Notes/condense-timetracking.org") "* %U %^{Activity}%?")
+        '(("w" "Weekend" checkitem (file+function "~/OpenCloud/Notes/Weekend.org" beginning-of-buffer))
+          ;; ("c" "Condense" entry (file+regexp "~/OpenCloud/Notes/condense-weekly.org" "^\* <") "* %?")
+          ("c" "Condense" entry (file+olp+datetree "~/OpenCloud/Notes/condense-timetracking.org") "* %U %^{Activity}%?")
           ;; Fixme: using a nil entry-template here + :prepend t removes indentation and adds [-] for some reason:
-          ("b" "Blog Queue" checkitem (file+headline "~/Opencloud/Notes/Blog-posts.org" "Queue")))
+          ("b" "Blog Queue" checkitem (file+headline "~/OpenCloud/Notes/Blog-posts.org" "Queue")))
 
         ;; speed navigation commands:
         org-use-speed-commands t
@@ -77,7 +77,7 @@
 (use-package org-roam
   :diminish org-roam-mode
   :custom
-  (org-roam-directory (file-truename "~/Opencloud/orgroam/"))
+  (org-roam-directory (file-truename "~/OpenCloud/orgroam/"))
   (org-roam-node-display-template "${title:*} ${tags:40}")
   :config (org-roam-db-autosync-enable)
   :bind (("C-c o f" . org-roam-node-find)
