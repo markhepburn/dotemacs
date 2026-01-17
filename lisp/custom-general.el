@@ -354,7 +354,8 @@
   :init
   (setq-default eglot-workspace-configuration
                 '(:basedpyright ( :typeCheckingMode "standard" ))
-                eglot-events-buffer-config '(:size 0 :format full))
+                eglot-events-buffer-config '(:size 0 :format full)
+                eglot-autoshutdown t)
   :hook ((clojure-mode
           clojurec-mode
           clojurescript-mode
