@@ -59,12 +59,13 @@
   (defun without-if-bang (pattern _index _total)
     (cond
      ((equal "!" pattern)
-      '(orderless-literal . ""))
+      #'ignore)
      ((string-prefix-p "!" pattern)
-      `(orderless-without-literal . ,(substring pattern 1)))))
+      `(orderless-not . ,(substring pattern 1)))))
   (setq ; orderless-matching-styles '(orderless-regexp)
         orderless-style-dispatchers '(;first-initialism
-                                      ;flex-if-twiddle
+                                        ;flex-if-twiddle
+                                      orderless-affix-dispatch
                                       without-if-bang)))
 
 (use-package consult
