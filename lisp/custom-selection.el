@@ -50,6 +50,7 @@
   :init
   (setq completion-styles '(orderless))
   (setq orderless-smart-case t          ; default, but make it explicit
+        completion-ignore-case t
         read-file-name-completion-ignore-case t
         read-buffer-completion-ignore-case t)
   :config
