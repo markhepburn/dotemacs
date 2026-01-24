@@ -48,7 +48,9 @@
 (use-package orderless
   :after vertico
   :init
-  (setq completion-styles '(orderless))
+  (setq completion-styles '(orderless basic)
+        completion-category-overrides '((file (styles partial-completion)))
+        completion-pcm-leading-wildcard t)
   (setq orderless-smart-case t          ; default, but make it explicit
         completion-ignore-case t
         read-file-name-completion-ignore-case t
