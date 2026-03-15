@@ -374,7 +374,7 @@
               ("C-c l q" . eglot-shutdown-all))
   :config
   (add-to-list 'eglot-server-programs
-               '(python-base-mode . ("rass" "python")))
+               '((python-ts-mode python-mode) . ("rass" "python")))
   (defun project-find-subroot-for-eglot (dir)
     (when eglot-lsp-context
       (let ((root (locate-dominating-file dir ".eglot")))
