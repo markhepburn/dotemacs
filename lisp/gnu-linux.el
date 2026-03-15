@@ -25,7 +25,7 @@
 ;; (set-frame-font "Maple Mono NF SemiBold")
 ;; (let ((frame-font "Maple Mono NF-7"))
 ;; (let ((frame-font "Fira Code-8"))
-(let ((frame-font "CasKaydiaCove NF SemiLight-8"))
+(let ((frame-font "CasKaydiaCove Nerd Font-8"))
   (set-frame-font frame-font nil t)
   (add-hook 'server-after-make-frame-hook
             (lambda () (set-frame-font frame-font nil t))))
