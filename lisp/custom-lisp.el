@@ -65,17 +65,6 @@
 (use-package clojure-mode
   :hook (clojure-mode . turn-on-eldoc-mode))
 
-;;; refactoring:
-(use-package clj-refactor
-  :pin melpa-stable
-  :after (clojure-mode)
-  :diminish clj-refactor-mode
-  :commands (clj-refactor-mode cljr-add-keybindings-with-prefix)
-  :init (setq cljr-warn-on-eval nil)
-  :hook (clojure-mode . (lambda ()
-                          (clj-refactor-mode 1)
-                          (cljr-add-keybindings-with-prefix "C-c C-r"))))
-
 ;;; clojurescript (build from emacs, and pop up stacktrack when
 ;;; there's a error):
 (use-package cljsbuild-mode
