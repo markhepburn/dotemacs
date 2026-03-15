@@ -633,8 +633,7 @@ narrowed to the line."
   :custom
   (dired-preview-display-action-alist-function
    (lambda ()
-     '(display-buffer-use-least-recent-window display-buffer-pop-up-window)))
-  :hook dired-mode)
+     '(display-buffer-use-least-recent-window display-buffer-pop-up-window))))
 (use-package dired-narrow
   :after dired
   :bind (:map dired-mode-map
