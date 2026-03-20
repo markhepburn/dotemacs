@@ -403,7 +403,7 @@
 ;;; Quit emacs (??) easier:
 (defalias 'sbke 'save-buffers-kill-emacs)
 
-(use-package unfill
+(use-package unfill   ; Note: there's now an unfill-paragraph in Emacs.  No toggle yet though.
   :bind (([remap fill-paragraph] . unfill-toggle)))
 
 (use-package hideshow
