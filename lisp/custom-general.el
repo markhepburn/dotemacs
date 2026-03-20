@@ -407,53 +407,11 @@
   :bind (([remap fill-paragraph] . unfill-toggle)))
 
 (use-package hideshow
-  :init
-  ;; https://karthinks.com/software/simple-folding-with-hideshow/
-  (defun hs-cycle (&optional level)
-    (interactive "p")
-    (let (message-log-max
-          (inhibit-message t))
-      (if (and (fboundp 'tree-sitter-mode) tree-sitter-mode)
-          (treesit-fold-toggle)
-        (if (= level 1)
-            (pcase last-command
-              ('hs-cycle
-               (hs-hide-level 1)
-               (setq this-command 'hs-cycle-children))
-              ('hs-cycle-children
-               ;; TODO: Fix this case. `hs-show-block' needs to be
-               ;; called twice to open all folds of the parent
-               ;; block.
-               (save-excursion (hs-show-block))
-               (hs-show-block)
-               (setq this-command 'hs-cycle-subtree))
-              ('hs-cycle-subtree
-               (hs-hide-block))
-              (_
-               (if (not (hs-already-hidden-p))
-                   (hs-hide-block)
-                 (hs-hide-level 1)
-                 (setq this-command 'hs-cycle-children))))
-          (hs-hide-level level)
-          (setq this-command 'hs-hide-level)))))
-  (defun hs-global-cycle ()
-    (interactive)
-    (if (and (fboundp 'tree-sitter-mode) tree-sitter-mode)
-        (pcase last-command
-          ('hs-global-cycle
-           (save-excursion (treesit-fold-open-all))
-           (setq this-command 'treesit-fold-open-all))
-          (_ (treesit-fold-close-all)))
-      (pcase last-command
-        ('hs-global-cycle
-         (save-excursion (hs-show-all))
-         (setq this-command 'hs-global-show))
-        (_ (hs-hide-all)))))
   :diminish hs-minor-mode
   :hook (prog-mode . hs-minor-mode)
   :bind (("C-<tab>" . hs-cycle)
-         ;; FIXME: Not sure why this needs iso-lefttab rather than just tab!
-         ("C-S-<iso-lefttab>" . hs-global-cycle)))
+         ;; Not sure why this needs iso-lefttab rather than just tab!
+         ("C-S-<iso-lefttab>" . hs-toggle-all)))
 
 (use-package multiple-cursors
   :bind (("C-!" . mc/edit-lines)
