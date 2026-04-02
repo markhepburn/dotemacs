@@ -36,6 +36,9 @@
    frame-title-format '(buffer-file-name "%f"
                                          (dired-directory dired-directory "%b"))
 
+   ;; Check diffs for each update!
+   package-review-policy t              ; see package-review-diff-command to customise
+
    ;; drag and drop:
    mouse-drag-and-drop-region t
    mouse-drag-and-drop-region-cross-program t
