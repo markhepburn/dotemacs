@@ -375,6 +375,8 @@
   :config
   (add-to-list 'eglot-server-programs
                '((python-ts-mode python-mode) . ("rass" "python")))
+  (add-to-list 'eglot-server-programs
+               '((elixir-mode elixir-ts-mode) . ("expert" "--stdio")))
   (defun project-find-subroot-for-eglot (dir)
     (when eglot-lsp-context
       (let ((root (locate-dominating-file dir ".eglot")))
