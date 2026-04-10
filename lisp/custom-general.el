@@ -39,6 +39,13 @@
    ;; Check diffs for each update!
    package-review-policy t              ; see package-review-diff-command to customise
 
+   save-interprogram-paste-before-kill t ; Emacs kill doesn't override clipboard
+   kill-do-not-save-duplicates t
+
+   set-mark-command-repeat-pop t        ; C-u C-SPC C-SPC...
+
+   help-window-select t                 ; I think helpful takes care of this
+
    ;; drag and drop:
    mouse-drag-and-drop-region t
    mouse-drag-and-drop-region-cross-program t
