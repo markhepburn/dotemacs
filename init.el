@@ -139,7 +139,11 @@ temporary file and using `package-install-file'"
 ;;; Persistence stuff (I don't care about restoring buffers, windows etc so no desktop.el)
 (use-package savehist
   :ensure nil
-  :hook (after-init . savehist-mode)
+  :hook ((after-init . savehist-mode)
+         (savehist-save . (lambda ()
+                            (setq kill-ring
+                                  (mapcar #'substring-no-properties
+                                          (cl-remove-if-not #'stringp kill-ring))))))
   :config
   (add-to-list 'savehist-additional-variables 'kill-ring)
   (add-to-list 'savehist-additional-variables 'mark-ring)
