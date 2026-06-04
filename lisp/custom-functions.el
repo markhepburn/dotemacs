@@ -23,6 +23,16 @@
   (setq buffer-display-table (make-display-table))
   (aset buffer-display-table ?\^M []))
 
+;;; Every so often I open a file that has ansi escape characters in it
+;;; (tofu output is the main one at the moment). This function instead
+;;; renders them.
+(defun ansi-render-buffer ()
+  "Turns ANSI escape characters in a buffer into their terminal-interpreted
+equivalent, eg probably colourising."
+  (interactive)
+  (require 'ansi-color)
+  (ansi-color-apply-on-region (point-min) (point-max)))
+
 (defun flymake-toggle-fancy ()
   "Toggle flymake fancy-error-display"
   (interactive)
