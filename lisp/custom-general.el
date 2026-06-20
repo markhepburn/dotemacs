@@ -337,6 +337,7 @@
                 '(:basedpyright ( :typeCheckingMode "standard" ))
                 eglot-events-buffer-config '(:size 0 :format full)
                 eglot-extend-to-xref t
+                eglot-documentation-renderer 'markdown-ts-view-mode
                 eglot-autoshutdown t)
   :hook ((clojure-mode
           clojurec-mode
@@ -763,18 +764,6 @@ narrowed to the line."
   :bind (:map comint-mode-map
               ("<up>" . comint-previous-input)
               ("<down>" . comint-next-input)))
-
-;;; markdown mode:
-(use-package markdown-mode
-  :mode "\\.md\\'"
-  :config
-  ;; Custom fill-break predicate to consider Liquid tags as well (since
-  ;; I mostly use markdown in conjunction with Jekyll):
-  (defun mh/liquid-nobreak-p ()
-    (looking-back "({%[^%]*" nil nil))
-  :hook (markdown-mode
-         . (lambda ()
-             (add-hook (make-local-variable 'fill-nobreak-predicate) 'mh/liquid-nobreak-p))))
 
 (use-package sql-indent
   :pin gnu
