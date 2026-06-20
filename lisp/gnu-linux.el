@@ -41,7 +41,6 @@
 ;;   :config (global-tree-sitter-mode 1)
 ;;   :hook (tree-sitter-after-on . tree-sitter-hl-mode))
 
-(setq treesit-extra-load-path `(,(expand-file-name "~/Projects/tree-sitter-module/dist")))
 
 (use-package exec-path-from-shell
   :demand t
