@@ -8,6 +8,7 @@
 ;;; Code:
 
 (use-package gptel
+  :custom (gptel-custom-mode #'markdown-ts-mode)
   :bind ("C-c g" . gptel)
   :config
   (setq
