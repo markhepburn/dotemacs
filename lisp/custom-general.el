@@ -360,6 +360,9 @@
                '((python-ts-mode python-mode) . ("rass" "python")))
   (add-to-list 'eglot-server-programs
                '((elixir-mode elixir-ts-mode) . ("expert" "--stdio")))
+  (add-to-list 'eglot-server-programs
+               ;'((php-mode phps-mode php-ts-mode) . ("intelephense" "--stdio"))
+               '((php-mode phps-mode php-ts-mode) . ("phpantom_lsp" "--stdio")))
   (defun project-find-subroot-for-eglot (dir)
     (when eglot-lsp-context
       (let ((root (locate-dominating-file dir ".eglot")))
