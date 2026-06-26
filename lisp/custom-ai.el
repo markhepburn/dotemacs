@@ -17,15 +17,6 @@
                                     :stream t)))
 
 
-(use-package aider
-  :init
-  (setq aider-args '("--model" "gemini"))
-  :bind ("C-c a" . aider-transient-menu)
-  :config
-  (if (not (getenv "GEMINI_API_KEY"))
-      (setenv "GEMINI_API_KEY" gemini-api-key)))
-
-
 (use-package claude-code-ide
   :vc (:url "https://github.com/manzaltu/claude-code-ide.el" :rev :newest)
   :diminish
