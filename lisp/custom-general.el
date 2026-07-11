@@ -258,7 +258,9 @@
   :config
   ;; yaml-ts-mode just isn't up to scratch; doesn't even do indenting:
   (setq treesit-major-mode-remap-alist
-        (assq-delete-all 'yaml-mode treesit-major-mode-remap-alist))
+        (assq-delete-all 'yaml-mode treesit-major-mode-remap-alist)
+        major-mode-remap-alist
+        (assq-delete-all 'yaml-mode major-mode-remap-alist))
 
   ;;; Code folding:
   (use-package treesit-fold
