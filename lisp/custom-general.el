@@ -266,6 +266,7 @@
   (use-package treesit-fold
     :vc (:url "https://github.com/emacs-tree-sitter/treesit-fold" :rev :newest)
     :diminish treesit-fold-mode
+    :custom (treesit-fold-line-count-show t)
     :config (global-treesit-fold-mode)
     :hook ((python-ts-mode
             css-ts-mode
@@ -398,6 +399,7 @@
 
 (use-package hideshow
   :diminish hs-minor-mode
+  :custom (hs-display-lines-hidden t)
   :hook (prog-mode . hs-minor-mode)
   :bind (("C-<tab>" . hs-cycle)
          ;; Not sure why this needs iso-lefttab rather than just tab!
