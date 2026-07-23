@@ -15,6 +15,8 @@
   (setq org-directory (expand-file-name (file-name-as-directory "~/OpenCloud/org"))
 
         org-log-done t
+        ;; Prune for startup efficiency:
+        org-modules '(ol-docview)
 
         ;; Some great tips from http://orgmode.org/worg/org-customization-guide.php
         org-special-ctrl-a/e t
