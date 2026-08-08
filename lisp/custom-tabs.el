@@ -6,11 +6,13 @@
 ;;; Code:
 
 (use-package tab-bar
+  :ensure nil
   :init
   (setq tab-bar-show 1                  ; hide when only one tab
         tab-bar-new-tab-choice "*scratch*"
         tab-bar-tab-name-function #'tab-bar-tab-name-all
         tab-bar-new-tab-to 'rightmost)
+  (tab-bar-history-mode 1)
   :config
   (require 'consult)
   (defun tab-bar-consult-buffer ()
@@ -25,7 +27,11 @@
       (message "DEBUG: %s %s" (car selected) (bufferp (car selected)))
       (when (car selected)
         (switch-to-buffer-other-tab (car selected)))))
-  :bind (:map tab-prefix-map
+  ;; tab-bar-history-mode is the same as winner-mode, but also respects per-tab history
+  ;; (key bindings clobber next and previous-buffer, which I never use)
+  :bind (("C-x <left>" . tab-bar-history-back)
+         ("C-x <right>" . tab-bar-history-forward)
+         :map tab-prefix-map
               ;; use C-x t T to toggle actually displaying the tab-bar:
               ("T" . toggle-frame-tab-bar)
               ;; C-z C-z to emulate "toggle between most recent tab" (not circulate in order)
