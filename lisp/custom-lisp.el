@@ -76,7 +76,7 @@
 ;;; ...and cider (formerly nrepl) integration:
 (use-package cider
   :pin melpa-stable
-  :init (setq cider-use-xref nil        ; Let eglot handle it
+  :init (setq cider-use-xref t          ; Let eglot handle it
               cider-repl-use-pretty-printing t
               cider-prompt-for-symbol nil
               cider-repl-history-file "~/.cider-repl-history")
