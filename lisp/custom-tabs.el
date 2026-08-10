@@ -14,19 +14,19 @@
         tab-bar-new-tab-to 'rightmost)
   (tab-bar-history-mode 1)
   :config
+  ;; This was tricky to get right; overriding
+  ;; `consult--buffer-display' in `consult-buffer' doesn't actually
+  ;; create a new tab (not 100% sure why) and using `consult--multi'
+  ;; directly doesn't check the source type (won't work for buffers in
+  ;; the recent list but not currently open). Instead, create a buffer
+  ;; and close if we quit out:
   (require 'consult)
   (defun tab-bar-consult-buffer ()
     (interactive)
-    (let ((selected (consult--multi consult-buffer-sources
-                                    :require-match
-                                    (confirm-nonexistent-file-or-buffer)
-                                    :prompt "Switch to (other tab): "
-                                    :history 'consult--buffer-history
-                                    :sort nil
-                                    :state nil)))
-      (message "DEBUG: %s %s" (car selected) (bufferp (car selected)))
-      (when (car selected)
-        (switch-to-buffer-other-tab (car selected)))))
+    (tab-bar-new-tab)
+    (condition-case nil
+        (consult-buffer)
+      ((quit error) (tab-bar-close-tab))))
   ;; tab-bar-history-mode is the same as winner-mode, but also respects per-tab history
   ;; (key bindings clobber next and previous-buffer, which I never use)
   :bind (("C-x <left>" . tab-bar-history-back)
