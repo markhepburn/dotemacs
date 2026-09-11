@@ -120,8 +120,8 @@
 ;;; Only available on linux:
 (use-package envrc
   :defer 3
-  :custom (envrc-none-lighter nil)
-  :config (envrc-global-mode))
+  :custom (envrc-lighter nil)
+  :hook (after-init . envrc-global-mode))
 
 (provide 'gnu-linux)
 
