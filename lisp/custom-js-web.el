@@ -43,24 +43,15 @@
 (defadvice sgml-delete-tag (after reindent activate)
   (indent-region (point-min) (point-max)))
 
-(use-package web-mode
-  :init (setq
-         web-mode-markup-indent-offset 2
-         ;; CSS offset indentation
-         web-mode-code-indent-offset 2
-         ;; Script offset indentation (for JavaScript, Java, PHP, etc.)
-         web-mode-css-indent-offset 2
-         ;; HTML content indentation
-         web-mode-indent-style 2)
-  :mode ("\\.html?\\'" "\\.tsx\\'" "\\.blade\\.php\\'"))
+(use-package mhtml-ts-mode
+  :mode "\\.html\\'")
 
 ;;; Placeholder for eglot customisation (may need a declaration for intelephense
 
 ;;; emmet (zencoding) shortcuts for html generation:
 (use-package emmet-mode
-  :after (web-mode)
   :init (setq-default emmet-indentation 2)
-  :hook (web-mode css-mode)
+  :hook (mhtml-ts-mode css-mode)
   :bind (:map emmet-mode-keymap
          ("C-j" . nil) ;; reclaim C-j keybinding from emmet!
          ("M-<return>" . emmet-expand-line)))
