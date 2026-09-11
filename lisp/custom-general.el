@@ -30,6 +30,7 @@
   (Man-notify-method 'aggressive)        ; match behaviour of woman
   (vc-handled-backends '(Git))
   (elisp-fontify-semantically t)
+  (markdown-ts-default-converter '(html . pandoc))
   :init
   (setq
    ;; Filename in frame title:
