@@ -348,6 +348,7 @@
           clojurescript-mode
           dart-mode
           elixir-mode
+          go-ts-mode
           python-base-mode
           terraform-mode
           tsx-ts-mode
