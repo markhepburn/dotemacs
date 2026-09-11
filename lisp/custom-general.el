@@ -340,6 +340,7 @@
   (setq-default eglot-workspace-configuration
                 '(:basedpyright ( :typeCheckingMode "standard" ))
                 eglot-events-buffer-config '(:size 0 :format full)
+                eglot-sync-connect 0
                 eglot-extend-to-xref t
                 eglot-documentation-renderer 'markdown-ts-view-mode
                 eglot-autoshutdown t)
