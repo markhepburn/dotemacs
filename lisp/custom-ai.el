@@ -13,6 +13,7 @@
   :config
   (setq
    gptel-model 'gemini-2.5-flash
+   gptel-default-mode #'markdown-ts-mode
    gptel-backend (gptel-make-gemini "Gemini"
                                     :key gptel-api-key
                                     :stream t)))
