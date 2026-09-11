@@ -53,6 +53,13 @@
   (setenv "PATH" "") ; otherwise zsh is run with the existing PATH, leading to lots of dupes, etc
   (exec-path-from-shell-initialize))
 
+(use-package jinx
+  :ensure t
+  :diminish
+  :hook (emacs-startup . global-jinx-mode)
+  :bind (("M-$" . jinx-correct)
+         ("C-M-$" . jinx-languages)))
+
 (defun uuidgen ()
   (interactive)
   (insert
