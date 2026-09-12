@@ -134,6 +134,12 @@
   (setq register-preview-delay 0.5
         register-preview-function #'consult-register-format)
 
+  ;; Interactivity performance tweaks, ref
+  ;; https://www.jamescherti.com/emacs-consult-speed-async-searche-grep-ripgrep-fd-find/
+  (setq consult-async-input-debounce 0.05
+        consult-async-input-throttle 0.1
+        consult-async-refresh-delay 0.05)
+
   ;; Optionally tweak the register preview window.
   ;; This adds thin lines, sorting and hides the mode line of the window.
   (advice-add #'register-preview :override #'consult-register-window)
