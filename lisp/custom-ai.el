@@ -19,14 +19,6 @@
                                     :stream t)))
 
 
-(use-package claude-code-ide
-  :vc (:url "https://github.com/manzaltu/claude-code-ide.el" :rev :newest)
-  :diminish
-  :bind ("C-c c" . claude-code-ide-menu)
-  :init (setq claude-code-ide-terminal-backend 'eat)
-  :config (claude-code-ide-emacs-tools-setup))
-
-
 ;;; Need to explicitly install deps:
 (use-package shell-maker)
 (use-package acp)
