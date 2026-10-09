@@ -46,7 +46,7 @@
 (use-package mhtml-ts-mode
   :mode "\\.html\\'")
 
-;;; Placeholder for eglot customisation (may need a declaration for intelephense
+;;; Placeholder for eglot customisation (may need a declaration for phpantom)
 
 ;;; emmet (zencoding) shortcuts for html generation:
 (use-package emmet-mode
