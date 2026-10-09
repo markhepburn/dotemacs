@@ -12,7 +12,7 @@
   :bind ("C-c g" . gptel)
   :config
   (setq
-   gptel-model 'gemini-2.5-flash
+   gptel-model 'gemini-flash-latest
    gptel-default-mode #'markdown-ts-mode
    gptel-backend (gptel-make-gemini "Gemini"
                                     :key gptel-api-key
