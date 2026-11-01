@@ -152,6 +152,9 @@
   (tool-bar-mode -1)
   ;; hide the menu-bar by default (accessible by C-right-click):
   (menu-bar-mode -1)
+  ;; This used to be enabled, but now it's ugly and on the left side,
+  ;; and I never referred to it anyway:
+  (scroll-bar-mode -1)
   ;; line and column-number modes:
   (line-number-mode 1)
   (column-number-mode 1)
