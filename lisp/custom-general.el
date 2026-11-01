@@ -57,6 +57,8 @@
 
    ;; isearch,show counts:
    isearch-lazy-count t
+   ;; isearch, allow C-v/M-v etc:
+   isearch-allow-motion t
    ;; Avoid those .#filename that can break file-watching tools, modification timestamps etc
    save-place-file (expand-file-name "saved.places" user-emacs-directory)
    create-lockfiles nil
