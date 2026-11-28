@@ -41,7 +41,6 @@
 
 (use-package pyvenv
   :init
-  (setenv "WORKON_HOME" "~/.virtualenvs/")
   (set (make-variable-buffer-local 'pyvenv-virtual-env) nil)
   :commands (pyvenv-activate pyvenv-workon))
 
