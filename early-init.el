@@ -25,6 +25,11 @@
               bidi-paragraph-direction 'left-to-right
               bidi-inhibit-bpa t)
 
+;; Disable the tool bar via frame parameters, so the initial frame is
+;; never created with one in the first place.  Toggling `tool-bar-mode'
+;; later forces an expensive frame resize.
+(push '(tool-bar-lines . 0) default-frame-alist)
+
 ;; improves terminal emulator (vterm/eat) throughput
 (setq read-process-output-max (* 2 1024 1024)
       process-adaptive-read-buffering nil)
